@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -761,44 +760,103 @@ footer {
 
 
         <!-- =================================
-             ADD MORE SONGS HERE
+             SONG 02
         ================================== -->
-
-        <!--
 
         <div
             class="song"
             onclick="playSong(
-                'Song Name',
-                'Artist',
-                'assets/song.mp3',
+                'Tattooed Roses',
+                'Treaty Oak Revival',
+                'assets/Tattatod roses.mp3',
                 this
             )"
         >
 
+
             <div class="song-number">
+
                 02
+
             </div>
+
 
             <div class="song-info">
 
                 <h3>
-                    Song Name
+
+                    Tattooed Roses
+
                 </h3>
 
+
                 <p>
-                    Artist
+
+                    Treaty Oak Revival
+
                 </p>
 
             </div>
 
+
             <div class="song-mood">
-                MOOD
+
+                COUNTRY
+
             </div>
+
 
         </div>
 
-        -->
+
+        <!-- =================================
+             SONG 03
+        ================================== -->
+
+        <div
+            class="song"
+            onclick="playSong(
+                'Somewhere with You',
+                'Kenny Chesney',
+                'assets/Somewhere with you.mp3',
+                this
+            )"
+        >
+
+
+            <div class="song-number">
+
+                03
+
+            </div>
+
+
+            <div class="song-info">
+
+                <h3>
+
+                    Somewhere with You
+
+                </h3>
+
+
+                <p>
+
+                    Kenny Chesney
+
+                </p>
+
+            </div>
+
+
+            <div class="song-mood">
+
+                COUNTRY
+
+            </div>
+
+
+        </div>
 
 
     </div>
@@ -853,7 +911,6 @@ footer {
 
 <script>
 
-
 function playSong(
     title,
     artist,
@@ -862,9 +919,7 @@ function playSong(
 ) {
 
 
-    /* ================================
-       FIND PLAYER
-    ================================= */
+    /* FIND PLAYER */
 
     const player =
         document.getElementById(
@@ -884,9 +939,7 @@ function playSong(
         );
 
 
-    /* ================================
-       CHANGE SONG
-    ================================= */
+    /* CHANGE SONG */
 
     player.src = file;
 
@@ -895,10 +948,7 @@ function playSong(
     artistText.textContent = artist;
 
 
-    /* ================================
-       REMOVE ACTIVE
-       FROM OTHER SONGS
-    ================================= */
+    /* REMOVE ACTIVE FROM ALL SONGS */
 
     const songs =
         document.querySelectorAll(
@@ -917,18 +967,14 @@ function playSong(
     );
 
 
-    /* ================================
-       SELECT CURRENT SONG
-    ================================= */
+    /* SELECT CURRENT SONG */
 
     element.classList.add(
         "active"
     );
 
 
-    /* ================================
-       PLAY
-    ================================= */
+    /* PLAY SONG */
 
     player.play().catch(
         function(error) {
@@ -941,18 +987,7 @@ function playSong(
     );
 
 }
-onclick="playSong(
-    'Tattooed Roses',
-    'Treaty Oak Revival',
-    'assets/Tattatod roses.mp3',
-    this
-)"
-   onclick="playSong(
-    'Somewhere with you',
-    'Kenny Chesney',
-    'assets/Somewhere with you.mp3',
-    this
-)"
+
 </script>
 
 
