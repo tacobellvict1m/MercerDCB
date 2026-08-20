@@ -1,1 +1,969 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SITE-66 | Journal</title>
+
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #0b1b2d,
+            #05080d 50%,
+            #020304
+        );
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+}
+
+
+/* =========================================
+   CRT EFFECT
+========================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.025) 0px,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    opacity: 0.35;
+
+}
+
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.top-bar {
+
+    height: 5px;
+
+    background: #1677ff;
+
+    box-shadow:
+        0 0 20px rgba(22,119,255,0.7);
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+
+    padding: 25px 7%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0b1624,
+            #05090f
+        );
+
+    border-bottom: 1px solid #193b59;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+
+}
+
+
+.logo h1 {
+
+    margin: 0;
+
+    font-size: 21px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.logo p {
+
+    margin: 6px 0 0;
+
+    color: #6596bd;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   NAV
+========================================= */
+
+nav {
+
+    display: flex;
+
+    gap: 5px;
+
+    flex-wrap: wrap;
+
+}
+
+
+nav a {
+
+    color: #a9c8e6;
+
+    text-decoration: none;
+
+    padding: 10px 14px;
+
+    border: 1px solid transparent;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+nav a:hover {
+
+    color: white;
+
+    border-color: #1677ff;
+
+    background: rgba(22,119,255,0.1);
+
+}
+
+
+/* =========================================
+   PASSWORD SCREEN
+========================================= */
+
+#password-screen {
+
+    min-height: calc(100vh - 100px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px;
+
+}
+
+
+.security-box {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    padding: 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b1624,
+            #03070c
+        );
+
+    border: 1px solid #24527a;
+
+    box-shadow:
+        0 0 40px rgba(22,119,255,0.1);
+
+    text-align: center;
+
+}
+
+
+.security-symbol {
+
+    font-size: 40px;
+
+    color: #1677ff;
+
+    margin-bottom: 20px;
+
+}
+
+
+.security-box h1 {
+
+    margin: 0;
+
+    font-size: 28px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.security-box p {
+
+    color: #718ba1;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.security-warning {
+
+    color: #4c9ddd;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    margin: 25px 0;
+
+}
+
+
+#password-input {
+
+    width: 100%;
+
+    padding: 15px;
+
+    background: #020509;
+
+    border: 1px solid #24527a;
+
+    color: white;
+
+    outline: none;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 14px;
+
+    text-align: center;
+
+}
+
+
+#password-input:focus {
+
+    border-color: #1677ff;
+
+    box-shadow:
+        0 0 15px rgba(22,119,255,0.2);
+
+}
+
+
+#access-button {
+
+    margin-top: 15px;
+
+    padding: 14px 30px;
+
+    background: #07111d;
+
+    border: 1px solid #1677ff;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: "Courier New", monospace;
+
+    letter-spacing: 2px;
+
+}
+
+
+#access-button:hover {
+
+    background: #1677ff;
+
+    box-shadow:
+        0 0 20px rgba(22,119,255,0.5);
+
+}
+
+
+/* =========================================
+   JOURNAL
+========================================= */
+
+#journal-page {
+
+    display: none;
+
+}
+
+
+.page-title {
+
+    padding: 70px 7% 35px;
+
+}
+
+
+.page-title small {
+
+    color: #4c9ddd;
+
+    letter-spacing: 3px;
+
+    font-size: 11px;
+
+}
+
+
+.page-title h1 {
+
+    font-size: clamp(40px, 7vw, 75px);
+
+    letter-spacing: 7px;
+
+    margin: 15px 0;
+
+}
+
+
+.page-title p {
+
+    color: #7f9bb3;
+
+    max-width: 700px;
+
+    line-height: 1.7;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================
+   ENTRIES
+========================================= */
+
+.entries {
+
+    width: 86%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding-bottom: 80px;
+
+}
+
+
+.entry {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,24,39,0.95),
+            rgba(3,7,12,0.95)
+        );
+
+    border: 1px solid #193b59;
+
+    margin-bottom: 20px;
+
+    overflow: hidden;
+
+    transition: 0.2s;
+
+}
+
+
+.entry:hover {
+
+    border-color: #1677ff;
+
+    box-shadow:
+        0 0 25px rgba(22,119,255,0.1);
+
+}
+
+
+/* =========================================
+   ENTRY HEADER
+========================================= */
+
+.entry-header {
+
+    padding: 22px 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    gap: 20px;
+
+}
+
+
+.entry-date {
+
+    color: #4c9ddd;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.entry-title {
+
+    margin: 8px 0 0;
+
+    font-size: 20px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.entry-mood {
+
+    color: #809bb2;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   ENTRY CONTENT
+========================================= */
+
+.entry-content {
+
+    display: none;
+
+    padding: 0 25px 30px;
+
+    border-top: 1px solid #142d43;
+
+}
+
+
+.entry-content.open {
+
+    display: block;
+
+}
+
+
+.entry-text {
+
+    padding-top: 25px;
+
+    color: #b4c6d6;
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    white-space: pre-line;
+
+}
+
+
+.entry-classification {
+
+    margin-top: 30px;
+
+    padding: 10px;
+
+    border: 1px solid #193b59;
+
+    color: #4c9ddd;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    border-top: 1px solid #193b59;
+
+    background: #020407;
+
+    padding: 35px 7%;
+
+    color: #536b7e;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .security-box {
+
+        padding: 30px 20px;
+
+    }
+
+    .entry-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="top-bar"></div>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="logo">
+
+        <h1>SITE-66</h1>
+
+        <p>FOUNDATION SECURE NETWORK</p>
+
+    </div>
+
+
+    <nav>
+
+        <a href="home.html">
+            HOME
+        </a>
+
+        <a href="personnel.html">
+            PERSONNEL
+        </a>
+
+        <a href="records.html">
+            RECORDS
+        </a>
+
+        <a href="archives.html">
+            ARCHIVES
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================
+     PASSWORD
+========================================= -->
+
+<section id="password-screen">
+
+
+    <div class="security-box">
+
+
+        <div class="security-symbol">
+            🔒
+        </div>
+
+
+        <h1>
+            JOURNAL ACCESS
+        </h1>
+
+
+        <p>
+
+            PERSONAL RECORDS OF
+            CONNOR REDMEN
+
+            <br><br>
+
+            CODENAME: MERCER
+
+        </p>
+
+
+        <div class="security-warning">
+
+            ⚠ CLEARANCE VERIFICATION REQUIRED ⚠
+
+        </div>
+
+
+        <input
+            id="password-input"
+            type="password"
+            placeholder="ENTER PASSWORD"
+        >
+
+
+        <button
+            id="access-button"
+            onclick="accessJournal()"
+        >
+
+            ACCESS JOURNAL
+
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================
+     JOURNAL PAGE
+========================================= -->
+
+<section id="journal-page">
+
+
+    <div class="page-title">
+
+        <small>
+            SITE-66 // PERSONAL ARCHIVE
+        </small>
+
+
+        <h1>
+            JOURNAL
+        </h1>
+
+
+        <p>
+
+            Personal writings belonging to
+            Connor Redmen.
+
+            These records are not official
+            Foundation reports and may contain
+            subjective observations.
+
+        </p>
+
+    </div>
+
+
+    <div
+        class="entries"
+        id="entries-container"
+    >
+    </div>
+
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    SITE-66 FOUNDATION DATABASE
+
+    <br><br>
+
+    PERSONAL RECORD // MERCER
+
+</footer>
+
+
+<!-- =========================================
+     JOURNAL DATA
+========================================= -->
+
+<script src="journal-data.js"></script>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+
+/* =========================================
+   PASSWORD
+========================================= */
+
+function accessJournal() {
+
+    const password =
+        document.getElementById(
+            "password-input"
+        ).value;
+
+
+    /*
+       ANY PASSWORD WORKS.
+       We only require something to be typed.
+    */
+
+    if (password.trim() === "") {
+
+        alert(
+            "PASSWORD REQUIRED"
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "password-screen"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "journal-page"
+    ).style.display = "block";
+
+
+    loadJournal();
+
+}
+
+
+/* =========================================
+   ENTER KEY
+========================================= */
+
+document
+    .getElementById("password-input")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                accessJournal();
+
+            }
+
+        }
+    );
+
+
+/* =========================================
+   LOAD JOURNAL
+========================================= */
+
+function loadJournal() {
+
+    const container =
+        document.getElementById(
+            "entries-container"
+        );
+
+
+    container.innerHTML = "";
+
+
+    journalEntries.forEach(
+        function(entry, index) {
+
+
+            const article =
+                document.createElement(
+                    "article"
+                );
+
+
+            article.className = "entry";
+
+
+            article.innerHTML = `
+
+                <div
+                    class="entry-header"
+                    onclick="toggleEntry(${index})"
+                >
+
+                    <div>
+
+                        <div class="entry-date">
+
+                            ${entry.date}
+
+                        </div>
+
+                        <div class="entry-title">
+
+                            ${entry.title}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="entry-mood">
+
+                        MOOD:
+                        ${entry.mood}
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="entry-content"
+                    id="entry-${index}"
+                >
+
+                    <div class="entry-text">
+
+                        ${entry.text}
+
+                    </div>
+
+
+                    <div class="entry-classification">
+
+                        PERSONAL RECORD //
+                        CONNOR REDMEN //
+                        MERCER
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            container.appendChild(article);
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   OPEN / CLOSE ENTRY
+========================================= */
+
+function toggleEntry(index) {
+
+    const entry =
+        document.getElementById(
+            "entry-" + index
+        );
+
+
+    entry.classList.toggle("open");
+
+}
+
+</script>
+
+
+</body>
+
+</html>
