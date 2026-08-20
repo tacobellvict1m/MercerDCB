@@ -15,6 +15,6 @@ I think that's part of the reason on me not getting Vanguard Co-Lead still bothe
 
 Maybe I'm looking at this the wrong way. Maybe I shouldn't be worrying about the position I didn't get and should instead focus on becoming the person who deserves the next one. I just wish I didn't have to figure that out alone. I need someone to guide me, but I admit that I need help.
 
-For now, I guess all I can do is keep showing up and keep trying. Maybe eventually people will see as someone worth following. until then, I'll have to keep pushing forward, even if I don't completely know where I'm going.
+For now, I guess all I can do is keep showing up and keep trying. Maybe eventually people will see as someone worth following. until then, I'll have to keep pushing forward, even if I don't completely know where I'm going.}
 `
 ];
