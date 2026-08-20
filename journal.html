@@ -962,6 +962,79 @@ function toggleEntry(index) {
 }
 
 </script>
+   <script src="journal-data.js"></script>
+
+<script>
+
+function loadJournal() {
+
+    const container =
+        document.getElementById("entries-container");
+
+    container.innerHTML = "";
+
+    journalEntries.forEach(function(entry, index) {
+
+        const article =
+            document.createElement("article");
+
+        article.className = "entry";
+
+        article.innerHTML = `
+
+            <div
+                class="entry-header"
+                onclick="toggleEntry(${index})"
+            >
+
+                <div>
+
+                    <div class="entry-date">
+                        ${entry.date}
+                    </div>
+
+                    <div class="entry-title">
+                        ${entry.title}
+                    </div>
+
+                </div>
+
+                <div class="entry-mood">
+                    MOOD: ${entry.mood}
+                </div>
+
+            </div>
+
+            <div
+                class="entry-content"
+                id="entry-${index}"
+            >
+
+                <div class="entry-text">
+                    ${entry.text}
+                </div>
+
+            </div>
+
+        `;
+
+        container.appendChild(article);
+
+    });
+
+}
+
+
+function toggleEntry(index) {
+
+    const entry =
+        document.getElementById("entry-" + index);
+
+    entry.classList.toggle("open");
+
+}
+
+</script>
 
 
 </body>
