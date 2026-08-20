@@ -92,3 +92,56 @@
     }
 
 } #entry-screen.glitch-out .glitch-noise { opacity: 0.8; } /* ========================================= GLITCH ANIMATIONS ========================================= */ @keyframes glitchShake { 0% { transform: translate(0); } 20% { transform: translate(-7px, 2px); } 40% { transform: translate(6px, -2px); } 60% { transform: translate(-5px, 3px); } 80% { transform: translate(7px, -3px); } 100% { transform: translate(0); } } @keyframes glitchFlash { 0% { filter: none; } 20% { filter: brightness(1.8); } 40% { filter: contrast(2); } 60% { filter: brightness(0.4); } 80% { filter: brightness(2); } 100% { filter: none; } } </style> </head> <body> <!-- ========================================= SITE-66 ENTRY SCREEN ========================================= --> <div id="entry-screen"> <!-- VIDEO --> <video id="entry-video" autoplay muted loop playsinline > <source src="0819.mp4" type="video/mp4" > </video> <!-- OVERLAY --> <div class="entry-overlay"></div> <!-- SCANLINES --> <div class="scanlines"></div> <!-- GLITCH --> <div class="glitch-noise"></div> <!-- CONTENT --> <div class="entry-content"> <div class="system-text"> FOUNDATION SECURE NETWORK </div> <h1> SITE-66 </h1> <h2> PERSONNEL DATABASE </h2> <div class="loading"> CONNECTION: <span>ESTABLISHED</span> </div> <div class="loading"> SECURITY SYSTEM: <span>ONLINE</span> </div> <div class="warning"> ⚠ AUTHORIZED PERSONNEL ONLY ⚠ </div> <button id="enter-button" onclick="enterSite()" > ENTER DATABASE </button> </div> </div> <!-- ========================================= BACKGROUND MUSIC ========================================= --> <audio id="background-music" loop preload="auto" > <source src="2026-08-19 17-31-16[rebalanced]_[cut_13sec].mp3" type="audio/mpeg" > </audio> <!-- ========================================= JAVASCRIPT ========================================= --> <script> function enterSite() { const screen = document.getElementById("entry-screen"); const music = document.getElementById("background-music"); /* START MUSIC Browser allows this because the user clicked the button. */ music.volume = 0.35; music.currentTime = 0; music.play().catch(function(error) { console.log( "Music could not start:", error ); }); /* START GLITCH */ screen.classList.add("glitch-out"); /* GO TO HOME PAGE */ setTimeout(function() { window.location.href = "home.html"; }, 1500); } </script> </body> </html>
+<audio
+    id="background-music"
+    autoplay
+    loop
+    preload="auto"
+>
+
+    <source
+        src="2026-08-19 17-31-16[rebalanced]_[cut_13sec].mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+function enterSite() {
+
+    /* Start music again if browser blocked it */
+
+    music.volume = 0.35;
+
+    music.play().catch(function(error) {
+
+        console.log("Music error:", error);
+
+    });
+
+
+    /* Start glitch */
+
+    screen.classList.add("glitch-out");
+
+
+    /* Go to home */
+
+    setTimeout(function() {
+
+        window.location.href = "home.html";
+
+    }, 1500);
+
+}
+
+</script>
+<video
+    id="entry-video"
+    autoplay
+    muted
+    loop
+    playsinline
+>
+
+    <source src="0819.mp4" type="video/mp4">
+
+</video>
