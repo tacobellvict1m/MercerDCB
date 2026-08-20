@@ -1,1 +1,94 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>SITE-66 | Secure Network</title> <style> /* ========================================= RESET ========================================= */ * { box-sizing: border-box; } html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; } /* ========================================= ENTRY SCREEN ========================================= */ #entry-screen { position: fixed; inset: 0; width: 100%; height: 100%; background: #000; z-index: 99999; overflow: hidden; display: flex; align-items: center; justify-content: center; opacity: 1; } /* ========================================= VIDEO ========================================= */ #entry-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; filter: contrast(1.3) brightness(0.6) saturate(0.7); } /* ========================================= DARK OVERLAY ========================================= */ .entry-overlay { position: absolute; inset: 0; background: radial-gradient( circle, transparent 10%, rgba(0,0,0,0.85) 100% ); z-index: 2; } /* ========================================= CRT SCANLINES ========================================= */ .scanlines { position: absolute; inset: 0; z-index: 4; pointer-events: none; background: repeating-linear-gradient( 0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 4px ); opacity: 0.8; } /* ========================================= GLITCH NOISE ========================================= */ .glitch-noise { position: absolute; inset: 0; z-index: 5; pointer-events: none; opacity: 0; background: repeating-linear-gradient( 90deg, transparent 0px, rgba(0,150,255,0.08) 2px, transparent 4px ); } /* ========================================= ENTRY CONTENT ========================================= */ .entry-content { position: relative; z-index: 10; text-align: center; font-family: "Courier New", monospace; color: white; animation: screenFlicker 4s infinite; } /* ========================================= FOUNDATION TEXT ========================================= */ .system-text { color: #8b9aaa; font-size: 13px; letter-spacing: 5px; margin-bottom: 20px; } /* ========================================= SITE-66 TITLE ========================================= */ .entry-content h1 { position: relative; margin: 0; color: white; font-size: clamp(60px, 10vw, 120px); letter-spacing: 15px; text-shadow: 3px 0 #1677ff, -3px 0 #333; } /* ========================================= DATABASE TITLE ========================================= */ .entry-content h2 { margin-top: 10px; color: #a8b7c5; font-size: 20px; letter-spacing: 7px; } /* ========================================= STATUS ========================================= */ .loading { color: #718293; font-size: 13px; margin-top: 15px; } .loading span { color: #b9dfff; } /* ========================================= WARNING ========================================= */ .warning { color: #3c9fff; font-weight: bold; letter-spacing: 3px; margin-top: 35px; animation: warningBlink 1.5s infinite; } /* ========================================= BUTTON ========================================= */ .entry-content button { margin-top: 40px; padding: 16px 40px; background: rgba(0,0,0,0.75); color: white; border: 1px solid #1677ff; cursor: pointer; font-family: "Courier New", monospace; font-size: 14px; letter-spacing: 3px; transition: 0.2s; } .entry-content button:hover { background: #1677ff; box-shadow: 0 0 20px rgba(22,119,255,0.7), 0 0 50px rgba(22,119,255,0.3); } .entry-content button:active { transform: scale(0.96); } /* ========================================= FLICKER ========================================= */ @keyframes screenFlicker { 0%, 95%, 100% { opacity: 1; } 96% { opacity: 0.85; } 97% { opacity: 1; } 98% { opacity: 0.7; } } /* ========================================= WARNING FLICKER ========================================= */ @keyframes warningBlink { 0%, 80%, 100% { opacity: 1; } 85% { opacity: 0.4; } 90% { opacity: 1; } } /* ========================================= GLITCH EXIT ========================================= */ #entry-screen.glitch-out { animation: glitchShake 0.12s infinite, glitchFlash 0.8s steps(2); } #entry-screen.glitch-out .glitch-noise { opacity: 0.8; } /* ========================================= GLITCH ANIMATIONS ========================================= */ @keyframes glitchShake { 0% { transform: translate(0); } 20% { transform: translate(-7px, 2px); } 40% { transform: translate(6px, -2px); } 60% { transform: translate(-5px, 3px); } 80% { transform: translate(7px, -3px); } 100% { transform: translate(0); } } @keyframes glitchFlash { 0% { filter: none; } 20% { filter: brightness(1.8); } 40% { filter: contrast(2); } 60% { filter: brightness(0.4); } 80% { filter: brightness(2); } 100% { filter: none; } } </style> </head> <body> <!-- ========================================= SITE-66 ENTRY SCREEN ========================================= --> <div id="entry-screen"> <!-- VIDEO --> <video id="entry-video" autoplay muted loop playsinline > <source src="0819.mp4" type="video/mp4" > </video> <!-- OVERLAY --> <div class="entry-overlay"></div> <!-- SCANLINES --> <div class="scanlines"></div> <!-- GLITCH --> <div class="glitch-noise"></div> <!-- CONTENT --> <div class="entry-content"> <div class="system-text"> FOUNDATION SECURE NETWORK </div> <h1> SITE-66 </h1> <h2> PERSONNEL DATABASE </h2> <div class="loading"> CONNECTION: <span>ESTABLISHED</span> </div> <div class="loading"> SECURITY SYSTEM: <span>ONLINE</span> </div> <div class="warning"> ⚠ AUTHORIZED PERSONNEL ONLY ⚠ </div> <button id="enter-button" onclick="enterSite()" > ENTER DATABASE </button> </div> </div> <!-- ========================================= BACKGROUND MUSIC ========================================= --> <audio id="background-music" loop preload="auto" > <source src="2026-08-19 17-31-16[rebalanced]_[cut_13sec].mp3" type="audio/mpeg" > </audio> <!-- ========================================= JAVASCRIPT ========================================= --> <script> function enterSite() { const screen = document.getElementById("entry-screen"); const music = document.getElementById("background-music"); /* START MUSIC Browser allows this because the user clicked the button. */ music.volume = 0.35; music.currentTime = 0; music.play().catch(function(error) { console.log( "Music could not start:", error ); }); /* START GLITCH */ screen.classList.add("glitch-out"); /* GO TO HOME PAGE */ setTimeout(function() { window.location.href = "home.html"; }, 1500); } </script> </body> </html>
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>SITE-66 | Secure Network</title> <style> /* ========================================= RESET ========================================= */ * { box-sizing: border-box; } html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; } /* ========================================= ENTRY SCREEN ========================================= */ #entry-screen { position: fixed; inset: 0; width: 100%; height: 100%; background: #000; z-index: 99999; overflow: hidden; display: flex; align-items: center; justify-content: center; opacity: 1; } /* ========================================= VIDEO ========================================= */ #entry-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; filter: contrast(1.3) brightness(0.6) saturate(0.7); } /* ========================================= DARK OVERLAY ========================================= */ .entry-overlay { position: absolute; inset: 0; background: radial-gradient( circle, transparent 10%, rgba(0,0,0,0.85) 100% ); z-index: 2; } /* ========================================= CRT SCANLINES ========================================= */ .scanlines { position: absolute; inset: 0; z-index: 4; pointer-events: none; background: repeating-linear-gradient( 0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 4px ); opacity: 0.8; } /* ========================================= GLITCH NOISE ========================================= */ .glitch-noise { position: absolute; inset: 0; z-index: 5; pointer-events: none; opacity: 0; background: repeating-linear-gradient( 90deg, transparent 0px, rgba(0,150,255,0.08) 2px, transparent 4px ); } /* ========================================= ENTRY CONTENT ========================================= */ .entry-content { position: relative; z-index: 10; text-align: center; font-family: "Courier New", monospace; color: white; animation: screenFlicker 4s infinite; } /* ========================================= FOUNDATION TEXT ========================================= */ .system-text { color: #8b9aaa; font-size: 13px; letter-spacing: 5px; margin-bottom: 20px; } /* ========================================= SITE-66 TITLE ========================================= */ .entry-content h1 { position: relative; margin: 0; color: white; font-size: clamp(60px, 10vw, 120px); letter-spacing: 15px; text-shadow: 3px 0 #1677ff, -3px 0 #333; } /* ========================================= DATABASE TITLE ========================================= */ .entry-content h2 { margin-top: 10px; color: #a8b7c5; font-size: 20px; letter-spacing: 7px; } /* ========================================= STATUS ========================================= */ .loading { color: #718293; font-size: 13px; margin-top: 15px; } .loading span { color: #b9dfff; } /* ========================================= WARNING ========================================= */ .warning { color: #3c9fff; font-weight: bold; letter-spacing: 3px; margin-top: 35px; animation: warningBlink 1.5s infinite; } /* ========================================= BUTTON ========================================= */ .entry-content button { margin-top: 40px; padding: 16px 40px; background: rgba(0,0,0,0.75); color: white; border: 1px solid #1677ff; cursor: pointer; font-family: "Courier New", monospace; font-size: 14px; letter-spacing: 3px; transition: 0.2s; } .entry-content button:hover { background: #1677ff; box-shadow: 0 0 20px rgba(22,119,255,0.7), 0 0 50px rgba(22,119,255,0.3); } .entry-content button:active { transform: scale(0.96); } /* ========================================= FLICKER ========================================= */ @keyframes screenFlicker { 0%, 95%, 100% { opacity: 1; } 96% { opacity: 0.85; } 97% { opacity: 1; } 98% { opacity: 0.7; } } /* ========================================= WARNING FLICKER ========================================= */ @keyframes warningBlink { 0%, 80%, 100% { opacity: 1; } 85% { opacity: 0.4; } 90% { opacity: 1; } } /* ========================================= GLITCH EXIT ========================================= */ /* =========================================
+   GLITCH EXIT — ONLY AFTER BUTTON PRESS
+========================================= */
+
+#entry-screen.glitch-out {
+
+    animation:
+        glitchShake 0.12s infinite,
+        glitchFlash 0.8s steps(2);
+
+}
+
+
+/* Glitch noise only appears during exit */
+
+#entry-screen.glitch-out .glitch-noise {
+
+    opacity: 0.8;
+
+}
+
+
+/* =========================================
+   GLITCH SHAKE
+========================================= */
+
+@keyframes glitchShake {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    15% {
+        transform: translate(-6px, 2px);
+    }
+
+    30% {
+        transform: translate(5px, -3px);
+    }
+
+    45% {
+        transform: translate(-4px, 1px);
+    }
+
+    60% {
+        transform: translate(7px, -2px);
+    }
+
+    75% {
+        transform: translate(-3px, 3px);
+    }
+
+    90% {
+        transform: translate(4px, -1px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+
+}
+
+
+/* =========================================
+   GLITCH FLASH
+========================================= */
+
+@keyframes glitchFlash {
+
+    0% {
+        filter: none;
+    }
+
+    20% {
+        filter: brightness(1.5) contrast(1.5);
+    }
+
+    40% {
+        filter: brightness(0.5) contrast(2);
+    }
+
+    60% {
+        filter: brightness(1.8);
+    }
+
+    80% {
+        filter: brightness(0.3) contrast(2);
+    }
+
+    100% {
+        filter: none;
+    }
+
+} #entry-screen.glitch-out .glitch-noise { opacity: 0.8; } /* ========================================= GLITCH ANIMATIONS ========================================= */ @keyframes glitchShake { 0% { transform: translate(0); } 20% { transform: translate(-7px, 2px); } 40% { transform: translate(6px, -2px); } 60% { transform: translate(-5px, 3px); } 80% { transform: translate(7px, -3px); } 100% { transform: translate(0); } } @keyframes glitchFlash { 0% { filter: none; } 20% { filter: brightness(1.8); } 40% { filter: contrast(2); } 60% { filter: brightness(0.4); } 80% { filter: brightness(2); } 100% { filter: none; } } </style> </head> <body> <!-- ========================================= SITE-66 ENTRY SCREEN ========================================= --> <div id="entry-screen"> <!-- VIDEO --> <video id="entry-video" autoplay muted loop playsinline > <source src="0819.mp4" type="video/mp4" > </video> <!-- OVERLAY --> <div class="entry-overlay"></div> <!-- SCANLINES --> <div class="scanlines"></div> <!-- GLITCH --> <div class="glitch-noise"></div> <!-- CONTENT --> <div class="entry-content"> <div class="system-text"> FOUNDATION SECURE NETWORK </div> <h1> SITE-66 </h1> <h2> PERSONNEL DATABASE </h2> <div class="loading"> CONNECTION: <span>ESTABLISHED</span> </div> <div class="loading"> SECURITY SYSTEM: <span>ONLINE</span> </div> <div class="warning"> ⚠ AUTHORIZED PERSONNEL ONLY ⚠ </div> <button id="enter-button" onclick="enterSite()" > ENTER DATABASE </button> </div> </div> <!-- ========================================= BACKGROUND MUSIC ========================================= --> <audio id="background-music" loop preload="auto" > <source src="2026-08-19 17-31-16[rebalanced]_[cut_13sec].mp3" type="audio/mpeg" > </audio> <!-- ========================================= JAVASCRIPT ========================================= --> <script> function enterSite() { const screen = document.getElementById("entry-screen"); const music = document.getElementById("background-music"); /* START MUSIC Browser allows this because the user clicked the button. */ music.volume = 0.35; music.currentTime = 0; music.play().catch(function(error) { console.log( "Music could not start:", error ); }); /* START GLITCH */ screen.classList.add("glitch-out"); /* GO TO HOME PAGE */ setTimeout(function() { window.location.href = "home.html"; }, 1500); } </script> </body> </html>
