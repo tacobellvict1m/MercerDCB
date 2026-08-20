@@ -1,14 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SITE-66 | Mercer Playlist</title>
 
 <style>
+
+/* =========================================
+   RESET
+========================================= */
 
 * {
     box-sizing: border-box;
@@ -33,10 +39,13 @@ body {
     color: white;
 
     font-family: "Courier New", monospace;
+
 }
 
 
-/* CRT */
+/* =========================================
+   CRT SCANLINES
+========================================= */
 
 body::after {
 
@@ -64,7 +73,9 @@ body::after {
 }
 
 
-/* TOP LINE */
+/* =========================================
+   TOP LINE
+========================================= */
 
 .top-line {
 
@@ -78,7 +89,9 @@ body::after {
 }
 
 
-/* HEADER */
+/* =========================================
+   HEADER
+========================================= */
 
 header {
 
@@ -128,20 +141,26 @@ header {
 }
 
 
-/* NAV */
+/* =========================================
+   NAVIGATION
+========================================= */
 
 nav {
 
     display: flex;
 
-    flex-wrap: wrap;
+    align-items: center;
 
     gap: 5px;
+
+    flex-wrap: wrap;
 
 }
 
 
 nav a {
+
+    display: block;
 
     padding: 10px 14px;
 
@@ -172,11 +191,13 @@ nav a:hover {
 }
 
 
-/* PAGE HEADER */
+/* =========================================
+   PAGE HEADER
+========================================= */
 
 .page-header {
 
-    padding: 55px 7% 40px;
+    padding: 60px 7% 45px;
 
     border-bottom: 1px solid #193b59;
 
@@ -218,7 +239,9 @@ nav a:hover {
 }
 
 
-/* CONTAINER */
+/* =========================================
+   MAIN CONTAINER
+========================================= */
 
 .container {
 
@@ -233,13 +256,15 @@ nav a:hover {
 }
 
 
-/* PLAYER */
+/* =========================================
+   MUSIC PLAYER
+========================================= */
 
 .player {
 
-    padding: 30px;
+    padding: 35px;
 
-    margin-bottom: 35px;
+    margin-bottom: 50px;
 
     background:
         linear-gradient(
@@ -249,6 +274,10 @@ nav a:hover {
         );
 
     border: 1px solid #193b59;
+
+    box-shadow:
+        0 0 35px
+        rgba(22,119,255,0.05);
 
 }
 
@@ -268,9 +297,9 @@ nav a:hover {
 
 .song-title {
 
-    font-size: 25px;
+    font-size: 30px;
 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 
 }
 
@@ -290,12 +319,14 @@ audio {
 
     width: 100%;
 
-    margin-top: 25px;
+    margin-top: 30px;
 
 }
 
 
-/* SONG LIST */
+/* =========================================
+   SECTION TITLE
+========================================= */
 
 .section-title {
 
@@ -308,6 +339,10 @@ audio {
 }
 
 
+/* =========================================
+   SONG LIST
+========================================= */
+
 .song-list {
 
     display: flex;
@@ -319,21 +354,30 @@ audio {
 }
 
 
+/* =========================================
+   SONG
+========================================= */
+
 .song {
 
     display: grid;
 
-    grid-template-columns: 60px 1fr auto;
+    grid-template-columns:
+        60px
+        1fr
+        auto;
 
     align-items: center;
 
     gap: 20px;
 
-    padding: 18px 20px;
+    padding: 20px;
 
     background: #050b12;
 
     border: 1px solid #193b59;
+
+    cursor: pointer;
 
     transition: 0.2s;
 
@@ -345,6 +389,24 @@ audio {
     border-color: #1677ff;
 
     background: #07111d;
+
+    transform:
+        translateX(4px);
+
+}
+
+
+/* ACTIVE SONG */
+
+.song.active {
+
+    border-color: #1677ff;
+
+    background:
+        rgba(22,119,255,0.08);
+
+    box-shadow:
+        inset 3px 0 #1677ff;
 
 }
 
@@ -362,7 +424,7 @@ audio {
 
     margin: 0;
 
-    font-size: 14px;
+    font-size: 15px;
 
     letter-spacing: 1px;
 
@@ -391,7 +453,9 @@ audio {
 }
 
 
-/* NOTE */
+/* =========================================
+   NOTE
+========================================= */
 
 .note {
 
@@ -413,7 +477,9 @@ audio {
 }
 
 
-/* FOOTER */
+/* =========================================
+   FOOTER
+========================================= */
 
 footer {
 
@@ -432,7 +498,9 @@ footer {
 }
 
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 700px) {
 
@@ -444,11 +512,15 @@ footer {
 
     }
 
+
     .song {
 
-        grid-template-columns: 40px 1fr;
+        grid-template-columns:
+            40px
+            1fr;
 
     }
+
 
     .song-mood {
 
@@ -466,44 +538,71 @@ footer {
 <body>
 
 
+<!-- =========================================
+     TOP LINE
+========================================= -->
+
 <div class="top-line"></div>
 
 
-<!-- HEADER -->
+<!-- =========================================
+     HEADER
+========================================= -->
 
 <header>
 
+
     <div class="site-name">
 
-        <h1>SITE-66</h1>
+        <h1>
+            SITE-66
+        </h1>
 
-        <p>FOUNDATION SECURE NETWORK</p>
+        <p>
+            FOUNDATION SECURE NETWORK
+        </p>
 
     </div>
 
 
     <nav>
 
-        <a href="home.html">HOME</a>
+        <a href="home.html">
+            HOME
+        </a>
 
-        <a href="personnel.html">PERSONNEL</a>
+        <a href="personnel.html">
+            PERSONNEL
+        </a>
 
-        <a href="records.html">RECORDS</a>
+        <a href="records.html">
+            RECORDS
+        </a>
 
-        <a href="archives.html">ARCHIVES</a>
+        <a href="archives.html">
+            ARCHIVES
+        </a>
 
-        <a href="journal.html">JOURNAL</a>
+        <a href="journal.html">
+            JOURNAL
+        </a>
 
-        <a href="playlist.html">PLAYLIST</a>
+        <a href="playlist.html">
+            PLAYLIST
+        </a>
 
     </nav>
+
 
 </header>
 
 
-<!-- PAGE HEADER -->
+<!-- =========================================
+     PAGE HEADER
+========================================= -->
 
 <section class="page-header">
+
 
     <div class="page-label">
 
@@ -533,43 +632,58 @@ footer {
 
     </p>
 
+
 </section>
 
 
-<!-- MAIN -->
+<!-- =========================================
+     MAIN
+========================================= -->
 
 <main class="container">
 
 
-    <!-- CURRENT SONG -->
+    <!-- =====================================
+         MUSIC PLAYER
+    ====================================== -->
 
     <section class="player">
 
+
         <div class="now-playing">
 
-            CURRENTLY SELECTED
+            NOW PLAYING
 
         </div>
 
 
-        <div class="song-title">
+        <div
+            class="song-title"
+            id="current-title"
+        >
 
-            Select a track
-
-        </div>
-
-
-        <div class="artist">
-
-            Mercer Audio Archive
+            Starlight
 
         </div>
 
 
-        <audio controls>
+        <div
+            class="artist"
+            id="current-artist"
+        >
+
+            Unknown Artist
+
+        </div>
+
+
+        <audio
+            id="music-player"
+            controls
+        >
 
             <source
-                src=""
+                src="assets/Starlight.mp3"
                 type="audio/mpeg"
             >
 
@@ -578,10 +692,13 @@ footer {
 
         </audio>
 
+
     </section>
 
 
-    <!-- SONG LIST -->
+    <!-- =====================================
+         AUDIO ARCHIVE
+    ====================================== -->
 
     <h2 class="section-title">
 
@@ -593,9 +710,20 @@ footer {
     <div class="song-list">
 
 
-        <!-- SONG 01 -->
+        <!-- =================================
+             SONG 01
+        ================================== -->
 
-        <div class="song">
+        <div
+            class="song active"
+            onclick="playSong(
+                'Starlight',
+                'Unknown Artist',
+                'assets/Starlight.mp3',
+                this
+            )"
+        >
+
 
             <div class="song-number">
 
@@ -608,13 +736,14 @@ footer {
 
                 <h3>
 
-                    SONG TITLE
+                    Starlight
 
                 </h3>
 
+
                 <p>
 
-                    ARTIST NAME
+                    Unknown Artist
 
                 </p>
 
@@ -623,104 +752,84 @@ footer {
 
             <div class="song-mood">
 
-                MOOD
+                SELECTED
 
             </div>
+
 
         </div>
 
 
-        <!-- SONG 02 -->
+        <!-- =================================
+             ADD MORE SONGS HERE
+        ================================== -->
 
-        <div class="song">
+        <!--
+
+        <div
+            class="song"
+            onclick="playSong(
+                'Song Name',
+                'Artist',
+                'assets/song.mp3',
+                this
+            )"
+        >
 
             <div class="song-number">
-
                 02
-
             </div>
-
 
             <div class="song-info">
 
                 <h3>
-
-                    SONG TITLE
-
+                    Song Name
                 </h3>
 
                 <p>
-
-                    ARTIST NAME
-
+                    Artist
                 </p>
 
             </div>
 
-
             <div class="song-mood">
-
                 MOOD
-
             </div>
 
         </div>
 
-
-        <!-- SONG 03 -->
-
-        <div class="song">
-
-            <div class="song-number">
-
-                03
-
-            </div>
-
-
-            <div class="song-info">
-
-                <h3>
-
-                    SONG TITLE
-
-                </h3>
-
-                <p>
-
-                    ARTIST NAME
-
-                </p>
-
-            </div>
-
-
-            <div class="song-mood">
-
-                MOOD
-
-            </div>
-
-        </div>
+        -->
 
 
     </div>
 
 
-    <!-- NOTE -->
+    <!-- =====================================
+         NOTE
+    ====================================== -->
 
     <div class="note">
 
         AUDIO ARCHIVE NOTE:
 
-        These are my favorite songs feel free to listen
+        These recordings are maintained for
+        personal documentation purposes.
+
+        <br><br>
+
+        Foundation personnel are reminded that
+        personal audio preferences do not
+        constitute official Foundation records.
+
     </div>
 
 
 </main>
 
 
-<!-- FOOTER -->
+<!-- =========================================
+     FOOTER
+========================================= -->
 
 <footer>
 
@@ -733,32 +842,109 @@ footer {
 
     <br><br>
 
-
+    UNAUTHORIZED ACCESS IS PROHIBITED.
 
 </footer>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+
+function playSong(
+    title,
+    artist,
+    file,
+    element
+) {
+
+
+    /* ================================
+       FIND PLAYER
+    ================================= */
+
+    const player =
+        document.getElementById(
+            "music-player"
+        );
+
+
+    const titleText =
+        document.getElementById(
+            "current-title"
+        );
+
+
+    const artistText =
+        document.getElementById(
+            "current-artist"
+        );
+
+
+    /* ================================
+       CHANGE SONG
+    ================================= */
+
+    player.src = file;
+
+    titleText.textContent = title;
+
+    artistText.textContent = artist;
+
+
+    /* ================================
+       REMOVE ACTIVE
+       FROM OTHER SONGS
+    ================================= */
+
+    const songs =
+        document.querySelectorAll(
+            ".song"
+        );
+
+
+    songs.forEach(
+        function(song) {
+
+            song.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    /* ================================
+       SELECT CURRENT SONG
+    ================================= */
+
+    element.classList.add(
+        "active"
+    );
+
+
+    /* ================================
+       PLAY
+    ================================= */
+
+    player.play().catch(
+        function(error) {
+
+            console.log(
+                "Playback requires user interaction."
+            );
+
+        }
+    );
+
+}
+
+</script>
 
 
 </body>
 
 </html>
-<div class="song">
-
-    <div class="song-number">
-        02
-    </div>
-
-    <div class="song-info">
-
-        <h3>
-            Another Song
-        </h3>
-
-        <p>
-            Another Artist
-        </p>
-
-        <audio controls>
-
-            <source
-                src="assets/Starlight.mp3"
-                type="audio/mpeg"
