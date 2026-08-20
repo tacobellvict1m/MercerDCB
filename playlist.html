@@ -1,1 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SITE-66 | Mercer Playlist</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #0b1b2d 0%,
+            #05090f 45%,
+            #020305 100%
+        );
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+}
+
+
+/* CRT */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.025) 0px,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    opacity: 0.35;
+
+}
+
+
+/* TOP LINE */
+
+.top-line {
+
+    height: 4px;
+
+    background: #1677ff;
+
+    box-shadow:
+        0 0 20px rgba(22,119,255,0.8);
+
+}
+
+
+/* HEADER */
+
+header {
+
+    padding: 25px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0b1624,
+            #05090f
+        );
+
+    border-bottom: 1px solid #193b59;
+
+}
+
+
+.site-name h1 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.site-name p {
+
+    margin: 7px 0 0;
+
+    color: #6f94b5;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* NAV */
+
+nav {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+}
+
+
+nav a {
+
+    padding: 10px 14px;
+
+    color: #9bbbd6;
+
+    text-decoration: none;
+
+    border: 1px solid transparent;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    transition: 0.2s;
+
+}
+
+
+nav a:hover {
+
+    color: white;
+
+    background:
+        rgba(22,119,255,0.12);
+
+    border-color: #1677ff;
+
+}
+
+
+/* PAGE HEADER */
+
+.page-header {
+
+    padding: 55px 7% 40px;
+
+    border-bottom: 1px solid #193b59;
+
+}
+
+
+.page-label {
+
+    color: #4c9ddd;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.page-header h1 {
+
+    margin: 12px 0;
+
+    font-size: clamp(35px, 6vw, 65px);
+
+    letter-spacing: 6px;
+
+}
+
+
+.page-header p {
+
+    color: #8199ad;
+
+    max-width: 700px;
+
+    line-height: 1.8;
+
+    font-size: 12px;
+
+}
+
+
+/* CONTAINER */
+
+.container {
+
+    width: 86%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 60px 0 100px;
+
+}
+
+
+/* PLAYER */
+
+.player {
+
+    padding: 30px;
+
+    margin-bottom: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0a1623,
+            #03070c
+        );
+
+    border: 1px solid #193b59;
+
+}
+
+
+.now-playing {
+
+    color: #4c9ddd;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.song-title {
+
+    font-size: 25px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.artist {
+
+    color: #718ba2;
+
+    margin-top: 8px;
+
+    font-size: 12px;
+
+}
+
+
+audio {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+}
+
+
+/* SONG LIST */
+
+.section-title {
+
+    margin-bottom: 20px;
+
+    font-size: 25px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.song-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.song {
+
+    display: grid;
+
+    grid-template-columns: 60px 1fr auto;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 18px 20px;
+
+    background: #050b12;
+
+    border: 1px solid #193b59;
+
+    transition: 0.2s;
+
+}
+
+
+.song:hover {
+
+    border-color: #1677ff;
+
+    background: #07111d;
+
+}
+
+
+.song-number {
+
+    color: #4c9ddd;
+
+    font-size: 11px;
+
+}
+
+
+.song-info h3 {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.song-info p {
+
+    margin: 6px 0 0;
+
+    color: #71879a;
+
+    font-size: 10px;
+
+}
+
+
+.song-mood {
+
+    color: #6f94b5;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* NOTE */
+
+.note {
+
+    margin-top: 45px;
+
+    padding: 25px;
+
+    border-left: 3px solid #1677ff;
+
+    background:
+        rgba(22,119,255,0.05);
+
+    color: #7c96ab;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+}
+
+
+/* FOOTER */
+
+footer {
+
+    padding: 40px 7%;
+
+    background: #020407;
+
+    border-top: 1px solid #193b59;
+
+    color: #526a7c;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .song {
+
+        grid-template-columns: 40px 1fr;
+
+    }
+
+    .song-mood {
+
+        display: none;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="top-line"></div>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="site-name">
+
+        <h1>SITE-66</h1>
+
+        <p>FOUNDATION SECURE NETWORK</p>
+
+    </div>
+
+
+    <nav>
+
+        <a href="home.html">HOME</a>
+
+        <a href="personnel.html">PERSONNEL</a>
+
+        <a href="records.html">RECORDS</a>
+
+        <a href="archives.html">ARCHIVES</a>
+
+        <a href="journal.html">JOURNAL</a>
+
+        <a href="playlist.html">PLAYLIST</a>
+
+    </nav>
+
+</header>
+
+
+<!-- PAGE HEADER -->
+
+<section class="page-header">
+
+    <div class="page-label">
+
+        SITE-66 //
+        PERSONNEL DATABASE //
+        AUDIO ARCHIVE
+
+    </div>
+
+
+    <h1>
+
+        MERCER'S PLAYLIST
+
+    </h1>
+
+
+    <p>
+
+        Personal audio records associated with
+        Connor Redmen, codename "Mercer."
+
+        <br><br>
+
+        Classification:
+        PERSONAL / NON-OPERATIONAL
+
+    </p>
+
+</section>
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+
+    <!-- CURRENT SONG -->
+
+    <section class="player">
+
+        <div class="now-playing">
+
+            CURRENTLY SELECTED
+
+        </div>
+
+
+        <div class="song-title">
+
+            Select a track
+
+        </div>
+
+
+        <div class="artist">
+
+            Mercer Audio Archive
+
+        </div>
+
+
+        <audio controls>
+
+            <source
+                src=""
+                type="audio/mpeg"
+            >
+
+            Your browser does not support
+            the audio player.
+
+        </audio>
+
+    </section>
+
+
+    <!-- SONG LIST -->
+
+    <h2 class="section-title">
+
+        AUDIO ARCHIVE
+
+    </h2>
+
+
+    <div class="song-list">
+
+
+        <!-- SONG 01 -->
+
+        <div class="song">
+
+            <div class="song-number">
+
+                01
+
+            </div>
+
+
+            <div class="song-info">
+
+                <h3>
+
+                    SONG TITLE
+
+                </h3>
+
+                <p>
+
+                    ARTIST NAME
+
+                </p>
+
+            </div>
+
+
+            <div class="song-mood">
+
+                MOOD
+
+            </div>
+
+        </div>
+
+
+        <!-- SONG 02 -->
+
+        <div class="song">
+
+            <div class="song-number">
+
+                02
+
+            </div>
+
+
+            <div class="song-info">
+
+                <h3>
+
+                    SONG TITLE
+
+                </h3>
+
+                <p>
+
+                    ARTIST NAME
+
+                </p>
+
+            </div>
+
+
+            <div class="song-mood">
+
+                MOOD
+
+            </div>
+
+        </div>
+
+
+        <!-- SONG 03 -->
+
+        <div class="song">
+
+            <div class="song-number">
+
+                03
+
+            </div>
+
+
+            <div class="song-info">
+
+                <h3>
+
+                    SONG TITLE
+
+                </h3>
+
+                <p>
+
+                    ARTIST NAME
+
+                </p>
+
+            </div>
+
+
+            <div class="song-mood">
+
+                MOOD
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- NOTE -->
+
+    <div class="note">
+
+        AUDIO ARCHIVE NOTE:
+
+        These recordings are maintained for
+        personal documentation purposes.
+
+        Foundation personnel are reminded that
+        personal audio preferences do not
+        constitute official Foundation records.
+
+    </div>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    SITE-66 FOUNDATION DATABASE
+
+    <br><br>
+
+    AUDIO ARCHIVE //
+    MERCER
+
+    <br><br>
+
+    UNAUTHORIZED ACCESS IS PROHIBITED.
+
+</footer>
+
+
+</body>
+
+</html>
