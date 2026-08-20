@@ -1,1 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SITE-66 | Basic Information</title>
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #0b1b2d 0%,
+            #05090f 45%,
+            #020305 100%
+        );
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+}
+
+
+/* =========================================
+   CRT SCANLINES
+========================================= */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.025) 0px,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    opacity: 0.35;
+
+}
+
+
+/* =========================================
+   TOP LINE
+========================================= */
+
+.top-line {
+
+    height: 4px;
+
+    background: #1677ff;
+
+    box-shadow:
+        0 0 20px rgba(22,119,255,0.8);
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+
+    padding: 25px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0b1624,
+            #05090f
+        );
+
+    border-bottom: 1px solid #193b59;
+
+}
+
+
+.site-name h1 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.site-name p {
+
+    margin: 7px 0 0;
+
+    color: #6f94b5;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    flex-wrap: wrap;
+
+}
+
+
+nav a {
+
+    display: block;
+
+    padding: 10px 14px;
+
+    color: #9bbbd6;
+
+    text-decoration: none;
+
+    border: 1px solid transparent;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    transition: 0.2s;
+
+}
+
+
+nav a:hover {
+
+    color: white;
+
+    background: rgba(22,119,255,0.12);
+
+    border-color: #1677ff;
+
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.page-header {
+
+    padding: 75px 7% 50px;
+
+    border-bottom: 1px solid #193b59;
+
+}
+
+
+.page-label {
+
+    color: #4c9ddd;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.page-header h1 {
+
+    margin: 15px 0;
+
+    font-size: clamp(40px, 7vw, 75px);
+
+    letter-spacing: 7px;
+
+}
+
+
+.page-header p {
+
+    max-width: 750px;
+
+    color: #8199ad;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.container {
+
+    width: 86%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 60px 0 100px;
+
+}
+
+
+/* =========================================
+   CLASSIFICATION
+========================================= */
+
+.classification {
+
+    display: inline-block;
+
+    padding: 8px 12px;
+
+    margin-bottom: 30px;
+
+    border: 1px solid #244c70;
+
+    color: #5da7e8;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   INFORMATION GRID
+========================================= */
+
+.info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+        );
+
+    gap: 15px;
+
+}
+
+
+/* =========================================
+   INFORMATION CARD
+========================================= */
+
+.info-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            #0a1623,
+            #03070c
+        );
+
+    border: 1px solid #193b59;
+
+    padding: 25px;
+
+    min-height: 145px;
+
+    transition: 0.2s;
+
+}
+
+
+.info-card:hover {
+
+    border-color: #1677ff;
+
+    box-shadow:
+        0 0 25px rgba(22,119,255,0.08);
+
+}
+
+
+.info-card .label {
+
+    color: #4c9ddd;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.info-card .value {
+
+    color: white;
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.info-card .sub {
+
+    margin-top: 8px;
+
+    color: #70899f;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   BIOGRAPHY
+========================================= */
+
+.bio {
+
+    margin-top: 50px;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0a1623,
+            #03070c
+        );
+
+    border: 1px solid #193b59;
+
+}
+
+
+.bio-title {
+
+    color: #4c9ddd;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.bio h2 {
+
+    margin-top: 0;
+
+    font-size: 25px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.bio p {
+
+    color: #a1b4c4;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================================
+   FAMILY
+========================================= */
+
+.family {
+
+    margin-top: 50px;
+
+}
+
+
+.family h2 {
+
+    font-size: 25px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.family-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(200px, 1fr)
+        );
+
+    gap: 15px;
+
+}
+
+
+.family-member {
+
+    padding: 20px;
+
+    border: 1px solid #193b59;
+
+    background: #050b12;
+
+}
+
+
+.family-member .relation {
+
+    color: #4c9ddd;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.family-member .name {
+
+    margin-top: 10px;
+
+    font-size: 16px;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    padding: 40px 7%;
+
+    background: #020407;
+
+    border-top: 1px solid #193b59;
+
+    color: #526a7c;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+
+    header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    nav a {
+
+        padding: 8px 9px;
+
+        font-size: 9px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="top-line"></div>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+
+    <div class="site-name">
+
+        <h1>
+            SITE-66
+        </h1>
+
+        <p>
+            FOUNDATION SECURE NETWORK
+        </p>
+
+    </div>
+
+
+    <nav>
+
+        <a href="home.html">
+            HOME
+        </a>
+
+        <a href="personnel.html">
+            PERSONNEL
+        </a>
+
+        <a href="records.html">
+            RECORDS
+        </a>
+
+        <a href="archives.html">
+            ARCHIVES
+        </a>
+
+        <a href="journal.html">
+            JOURNAL
+        </a>
+
+    </nav>
+
+
+</header>
+
+
+<!-- =========================================
+     PAGE HEADER
+========================================= -->
+
+<section class="page-header">
+
+
+    <div class="page-label">
+
+        SITE-66 //
+        PERSONNEL DATABASE //
+        FILE 01
+
+    </div>
+
+
+    <h1>
+        BASIC INFORMATION
+    </h1>
+
+
+    <p>
+
+        General personnel information regarding
+        Connor Redmen, codename "Mercer".
+
+        This file contains basic biographical,
+        service, and identification information.
+
+    </p>
+
+
+</section>
+
+
+<!-- =========================================
+     MAIN CONTENT
+========================================= -->
+
+<main class="container">
+
+
+    <div class="classification">
+
+        FOUNDATION PERSONNEL RECORD //
+        LEVEL 2 AUTHORIZATION
+
+    </div>
+
+
+    <!-- =====================================
+         IDENTIFICATION
+    ====================================== -->
+
+    <div class="info-grid">
+
+
+        <div class="info-card">
+
+            <div class="label">
+                FULL NAME
+            </div>
+
+            <div class="value">
+                Connor Redmen
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="label">
+                CODENAME
+            </div>
+
+            <div class="value">
+                Mercer
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="label">
+                CURRENT RANK
+            </div>
+
+            <div class="value">
+                Master Sergeant
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="label">
+                DEPARTMENT
+            </div>
+
+            <div class="value">
+                General Security
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="label">
+                CURRENT ASSIGNMENT
+            </div>
+
+            <div class="value">
+                Site-66
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="label">
+                CLEARANCE
+            </div>
+
+            <div class="value">
+                Level 2
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="label">
+                STATUS
+            </div>
+
+            <div class="value">
+                ACTIVE
+            </div>
+
+            <div class="sub">
+                Personnel currently assigned
+                to Site-66 operations.
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="label">
+                HOMETOWN
+            </div>
+
+            <div class="value">
+                Fond du Lac, Wisconsin
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =====================================
+         BIOGRAPHY
+    ====================================== -->
+
+    <section class="bio">
+
+
+        <div class="bio-title">
+
+            PERSONNEL SUMMARY
+
+        </div>
+
+
+        <h2>
+            CONNOR REDMEN
+        </h2>
+
+
+        <p>
+
+            Connor Redmen is a member of the
+            Foundation's General Security Department,
+            currently serving at Site-66 under the
+            codename "Mercer."
+
+            <br><br>
+
+            Prior to joining the Foundation, Redmen
+            served in the United States Marine Corps.
+            His military experience provided him with
+            experience in discipline, security
+            operations, and working under high-pressure
+            situations.
+
+            <br><br>
+
+            Following his recruitment into the
+            Foundation, Redmen was assigned to
+            General Security at Site-66.
+
+            <br><br>
+
+            Despite his experience, Redmen continues
+            to struggle with the responsibilities
+            associated with leadership and command.
+            Internal records indicate that he places
+            significant pressure on himself to prove
+            that he is capable of leading others.
+
+        </p>
+
+
+    </section>
+
+
+    <!-- =====================================
+         FAMILY
+    ====================================== -->
+
+    <section class="family">
+
+
+        <div class="bio-title">
+
+            FAMILY INFORMATION
+
+        </div>
+
+
+        <h2>
+            REDMEN FAMILY
+        </h2>
+
+
+        <div class="family-grid">
+
+
+            <div class="family-member">
+
+                <div class="relation">
+                    MOTHER
+                </div>
+
+                <div class="name">
+                    Carol Redmen
+                </div>
+
+            </div>
+
+
+            <div class="family-member">
+
+                <div class="relation">
+                    FATHER
+                </div>
+
+                <div class="name">
+                    Daren Redmen
+                </div>
+
+            </div>
+
+
+            <div class="family-member">
+
+                <div class="relation">
+                    OLDER BROTHER
+                </div>
+
+                <div class="name">
+                    Carter Redmen
+                </div>
+
+            </div>
+
+
+            <div class="family-member">
+
+                <div class="relation">
+                    OLDER SISTER
+                </div>
+
+                <div class="name">
+                    Amelia Redmen
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    SITE-66 FOUNDATION DATABASE
+
+    <br><br>
+
+    GENERAL SECURITY DEPARTMENT //
+    PERSONNEL FILE 01
+
+    <br><br>
+
+    UNAUTHORIZED ACCESS IS PROHIBITED.
+
+</footer>
+
+
+</body>
+
+</html>
