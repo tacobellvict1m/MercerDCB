@@ -1,424 +1,652 @@
 <body>
-
 <!-- ============================= -->
-
 <!-- SITE-66 ENTRY SCREEN -->
-
 <!-- ============================= -->
 
 <div id="entry-screen">
 
-<video id="entry-video" autoplay muted playsinline>
-    <source src="assets/0819.mp4" type="video/mp4">
-</video>
+    <video id="entry-video" autoplay muted loop playsinline>
+        <source src="assets/0819.mp4" type="video/mp4">
+    </video>
 
-<div class="scanlines"></div>
+    <div class="scanlines"></div>
+    <div class="entry-overlay"></div>
+    <div class="glitch-noise"></div>
 
-<div class="entry-overlay"></div>
+    <div class="entry-content">
 
-<div class="entry-content">
+        <div class="system-text">
+            FOUNDATION SECURE NETWORK
+        </div>
 
-    <div class="system-text">
-        FOUNDATION SECURE NETWORK
+        <h1 data-text="SITE-66">SITE-66</h1>
+
+        <h2>PERSONNEL DATABASE</h2>
+
+        <div class="loading">
+            CONNECTION: <span>ESTABLISHED</span>
+        </div>
+
+        <div class="loading">
+            SECURITY SYSTEM: <span>ONLINE</span>
+        </div>
+
+        <div class="warning">
+            ⚠ AUTHORIZED PERSONNEL ONLY ⚠
+        </div>
+
+        <button id="enter-button" onclick="enterSite()">
+            ENTER DATABASE
+        </button>
+
     </div>
-
-    <h1>SITE-66</h1>
-
-    <h2>PERSONNEL DATABASE</h2>
-
-    <div class="loading">
-        CONNECTION: <span>ESTABLISHED</span>
-    </div>
-
-    <div class="loading">
-        SECURITY SYSTEM: <span>ONLINE</span>
-    </div>
-
-    <div class="warning">
-        ⚠ AUTHORIZED PERSONNEL ONLY ⚠
-    </div>
-
-    <button onclick="enterSite()">
-        ENTER DATABASE
-    </button>
 
 </div>
 
-</div>
 
+<!-- ============================= -->
 <!-- BACKGROUND MUSIC -->
-
-<audio id="background-music" loop> <source src="assets/2026-08-19 17-31-16[rebalanced].mp3" type="audio/mpeg"> </audio>
-
 <!-- ============================= -->
 
-<!-- MAIN SITE -->
+<audio id="background-music" loop preload="auto">
+    <source src="assets/2026-08-19 17-31-16[rebalanced].mp3" type="audio/mpeg">
+</audio>
+
 
 <!-- ============================= -->
+<!-- ENTRY SCRIPT -->
+<!-- ============================= -->
 
-<header>
+<script>
 
-<h1>SITE-66 FOUNDATION DATABASE</h1>
+function enterSite() {
 
-<p>GENERAL SECURITY DEPARTMENT</p>
+    const screen = document.getElementById("entry-screen");
+    const music = document.getElementById("background-music");
+    const video = document.getElementById("entry-video");
+    const button = document.getElementById("enter-button");
 
-</header>
+    /* Button effect */
+    button.classList.add("pressed");
 
-<nav>
+    /* MUSIC */
 
-<a href="index.html">HOME</a>
+    music.volume = 1.0;
 
-<a href="personnel.html">PERSONNEL</a>
+    music.currentTime = 0;
 
-<a href="records.html">RECORDS</a>
+    music.play().catch(function(error) {
+        console.log("Music could not start:", error);
+    });
 
-<a href="archives.html">ARCHIVES</a>
 
-</nav>
+    /* VIDEO */
 
-<section class="hero">
+    video.currentTime = 0;
 
-<h2>CONNOR REDMEN</h2>
+    video.play().catch(function(error) {
+        console.log("Video could not start:", error);
+    });
 
-<h3>CODENAME: MERCER</h3>
 
-<p>
-    Foundation personnel assigned to the General Security Department.
-    Current status: ACTIVE.
-</p>
+    /* GLITCH EFFECT */
 
-</section>
+    screen.classList.add("glitch-out");
 
-<section class="container">
 
-<h2 class="section-title">
-    PERSONNEL OVERVIEW
-</h2>
+    /* Fade screen */
 
-<div class="cards">
+    setTimeout(function() {
 
-    <div class="card">
+        screen.style.opacity = "0";
 
-        <h3>Rank</h3>
+    }, 700);
 
-        <p>
-            Master Sergent
-        </p>
 
-    </div>
+    /* Remove entry screen */
 
-    <div class="card">
+    setTimeout(function() {
 
-        <h3>Department</h3>
+        screen.style.display = "none";
 
-        <p>
-            General Security
-        </p>
+    }, 1800);
 
-    </div>
+}
 
-    <div class="card">
-
-        <h3>Status</h3>
-
-        <p>
-            ACTIVE
-        </p>
-
-    </div>
-
-    <div class="card">
-
-        <h3>Clearance</h3>
-
-        <p>
-            Level 2
-        </p>
-
-    </div>
-
-</div>
-
-</section>
-
-<section class="container">
-
-<h2 class="section-title">
-    DATABASE
-</h2>
-
-<div class="cards">
-
-    <div class="card">
-
-        <h3>Personnel File</h3>
-
-        <p>
-            View Connor Redmen's official Foundation personnel information.
-        </p>
-
-    </div>
-
-    <div class="card">
-
-        <h3>Incident Reports</h3>
-
-        <p>
-            Classified records of incidents involving SRedmen.
-        </p>
-
-    </div>
-
-    <div class="card">
-
-        <h3>Journal</h3>
-
-        <p>
-            Personal journal entries
-        </p>
-
-    </div>
-
-</div>
-
-</section>
-
-<footer>
-
-SITE-66 FOUNDATION DATABASE<br>
-
-UNAUTHORIZED ACCESS IS PROHIBITED
-
-</footer>
-
-<script> function enterSite() { const screen = document.getElementById("entry-screen"); const music = document.getElementById("background-music"); const video = document.getElementById("entry-video"); // Start music after user interaction music.volume = 0.35; music.play(); // Replay the glitch video video.currentTime = 0; video.play(); // Fade the entry screen away screen.style.transition = "opacity 1.2s ease"; screen.style.opacity = "0"; // Remove it completely setTimeout(function() { screen.style.display = "none"; }, 1200); } </script>
-
-</body>
-
-<style>/* ================================= /
-/ SITE-66 ENTRY SCREEN /
-/ ================================= */
+</script>
+<style>/* ================================= */
+/* SITE-66 ENTRY SCREEN */
+/* ================================= */
 
 #entry-screen {
 
-position: fixed;
+    position: fixed;
 
-inset: 0;
+    inset: 0;
 
+    width: 100%;
+    height: 100%;
 
-width: 100%;
-height: 100%;
+    background: #000;
 
-background: #000;
+    z-index: 99999;
 
-z-index: 99999;
+    overflow: hidden;
 
-overflow: hidden;
+    display: flex;
 
-display: flex;
+    align-items: center;
 
-align-items: center;
+    justify-content: center;
 
-justify-content: center;
+    opacity: 1;
 
 }
 
-/* GLITCH VIDEO */
+
+/* ================================= */
+/* VIDEO */
+/* ================================= */
 
 #entry-video {
 
-position: absolute;
+    position: absolute;
 
-width: 100%;
-height: 100%;
+    inset: 0;
 
-object-fit: cover;
+    width: 100%;
+    height: 100%;
 
-opacity: 0.55;
+    object-fit: cover;
 
-filter: contrast(1.25) brightness(0.65);
+    opacity: 0.55;
+
+    filter:
+        contrast(1.3)
+        brightness(0.65)
+        saturate(0.7);
 
 }
 
+
+/* ================================= */
 /* DARK OVERLAY */
+/* ================================= */
 
 .entry-overlay {
 
-position: absolute;
+    position: absolute;
 
-inset: 0;
+    inset: 0;
 
-background:
-    radial-gradient(
-        circle,
-        transparent 20%,
-        rgba(0,0,0,0.75) 100%
-    );
+    background:
+
+        radial-gradient(
+            circle,
+            transparent 15%,
+            rgba(0,0,0,0.8) 100%
+        );
+
+    z-index: 2;
 
 }
 
+
+/* ================================= */
 /* CRT SCANLINES */
+/* ================================= */
 
 .scanlines {
 
-position: absolute;
+    position: absolute;
 
-inset: 0;
+    inset: 0;
 
-pointer-events: none;
+    pointer-events: none;
 
-background:
-    repeating-linear-gradient(
-        0deg,
-        rgba(255,255,255,0.035) 0px,
-        rgba(255,255,255,0.035) 1px,
-        transparent 1px,
-        transparent 4px
-    );
+    background:
 
-z-index: 3;
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.04) 0px,
+            rgba(255,255,255,0.04) 1px,
+            transparent 1px,
+            transparent 4px
+        );
 
-opacity: 0.7;
+    z-index: 4;
+
+    opacity: 0.8;
+
+    animation: scanlineMove 0.15s infinite;
 
 }
 
-/* ENTRY TEXT */
+
+@keyframes scanlineMove {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(4px);
+    }
+
+}
+
+
+/* ================================= */
+/* GLITCH NOISE */
+/* ================================= */
+
+.glitch-noise {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            rgba(255,0,0,0.08) 2px,
+            transparent 4px
+        );
+
+}
+
+
+/* ================================= */
+/* ENTRY CONTENT */
+/* ================================= */
 
 .entry-content {
 
-position: relative;
+    position: relative;
 
-z-index: 5;
+    z-index: 10;
 
-text-align: center;
+    text-align: center;
 
-font-family: monospace;
+    font-family: monospace;
+
+    animation: screenFlicker 4s infinite;
 
 }
 
-/* SMALL FOUNDATION TEXT */
+
+/* ================================= */
+/* FOUNDATION TEXT */
+/* ================================= */
 
 .system-text {
 
-color: #777;
+    color: #777;
 
-font-size: 13px;
+    font-size: 13px;
 
-letter-spacing: 5px;
+    letter-spacing: 5px;
 
-margin-bottom: 20px;
+    margin-bottom: 20px;
 
 }
 
-/* SITE-66 */
+
+/* ================================= */
+/* SITE-66 TITLE */
+/* ================================= */
 
 .entry-content h1 {
 
-color: white;
+    position: relative;
 
-font-size: clamp(60px, 10vw, 120px);
+    color: white;
 
-letter-spacing: 15px;
+    font-size: clamp(60px, 10vw, 120px);
 
-text-shadow:
-    3px 0 #8b0000,
-    -2px 0 #333;
+    letter-spacing: 15px;
+
+    margin: 0;
+
+    text-shadow:
+
+        3px 0 #8b0000,
+
+        -2px 0 #333;
 
 }
 
-/* DATABASE */
+
+/* GLITCH TITLE */
+
+.entry-content h1::before,
+.entry-content h1::after {
+
+    content: attr(data-text);
+
+    position: absolute;
+
+    left: 0;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+}
+
+
+.entry-content h1::before {
+
+    color: #ff0000;
+
+    transform: translate(-3px, 0);
+
+}
+
+
+.entry-content h1::after {
+
+    color: #00ffff;
+
+    transform: translate(3px, 0);
+
+}
+
+
+/* ================================= */
+/* DATABASE TITLE */
+/* ================================= */
 
 .entry-content h2 {
 
-color: #999;
+    color: #999;
 
-font-size: 20px;
+    font-size: 20px;
 
-letter-spacing: 7px;
+    letter-spacing: 7px;
 
-margin-top: 5px;
+    margin-top: 5px;
 
 }
 
+
+/* ================================= */
 /* STATUS TEXT */
+/* ================================= */
 
 .loading {
 
-color: #777;
+    color: #777;
 
-font-size: 13px;
+    font-size: 13px;
 
-margin-top: 15px;
+    margin-top: 15px;
 
 }
+
 
 .loading span {
 
-color: #aaa;
+    color: #aaa;
 
 }
 
+
+/* ================================= */
 /* WARNING */
+/* ================================= */
 
 .warning {
 
-color: #a00000;
+    color: #a00000;
 
-font-weight: bold;
+    font-weight: bold;
 
-letter-spacing: 3px;
+    letter-spacing: 3px;
 
-margin-top: 35px;
+    margin-top: 35px;
+
+    animation: warningBlink 1.5s infinite;
 
 }
 
-/* ENTER BUTTON */
+
+/* ================================= */
+/* BUTTON */
+/* ================================= */
 
 .entry-content button {
 
-margin-top: 40px;
+    margin-top: 40px;
 
-padding: 16px 40px;
+    padding: 16px 40px;
 
-background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.75);
 
-color: white;
+    color: white;
 
-border: 1px solid #8b0000;
+    border: 1px solid #8b0000;
 
-cursor: pointer;
+    cursor: pointer;
 
-font-family: monospace;
+    font-family: monospace;
 
-font-size: 14px;
+    font-size: 14px;
 
-letter-spacing: 3px;
+    letter-spacing: 3px;
 
-transition: 0.2s;
-
-}
-
-.entry-content button {
-
-background: #8b0000;
-
-box-shadow:
-    0 0 20px rgba(139,0,0,0.6);
+    transition: 0.2s;
 
 }
 
-/* BUTTON PRESS */
 
-.entry-content button {
+.entry-content button:hover {
 
-transform: scale(0.97);
+    background: #8b0000;
+
+    box-shadow:
+
+        0 0 20px rgba(139,0,0,0.6),
+
+        0 0 40px rgba(139,0,0,0.3);
 
 }
-    
-<video autoplay muted playsinline>
-    <source src="0819.mp4" type="video/mp4">
-</video>
 
-<audio id="introMusic">
-    <source src="2026-08-19 17-31-16[rebalanced].mp3" type="audio/mpeg">
-</audio>
+
+.entry-content button.pressed {
+
+    transform: scale(0.96);
+
+}
+
+
+/* ================================= */
+/* SCREEN FLICKER */
+/* ================================= */
+
+@keyframes screenFlicker {
+
+    0%, 95%, 100% {
+        opacity: 1;
+    }
+
+    96% {
+        opacity: 0.85;
+    }
+
+    97% {
+        opacity: 1;
+    }
+
+    98% {
+        opacity: 0.7;
+    }
+
+}
+
+
+/* ================================= */
+/* WARNING FLICKER */
+/* ================================= */
+
+@keyframes warningBlink {
+
+    0%, 80%, 100% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 0.4;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+}
+
+
+/* ================================= */
+/* GLITCH EXIT */
+/* ================================= */
+
+#entry-screen.glitch-out {
+
+    animation:
+
+        glitchShake 0.15s infinite,
+
+        glitchFlash 0.8s steps(2);
+
+}
+
+
+#entry-screen.glitch-out .glitch-noise {
+
+    opacity: 0.8;
+
+}
+
+
+#entry-screen.glitch-out .entry-content h1::before {
+
+    opacity: 1;
+
+    animation: glitchRed 0.12s infinite;
+
+}
+
+
+#entry-screen.glitch-out .entry-content h1::after {
+
+    opacity: 1;
+
+    animation: glitchBlue 0.1s infinite;
+
+}
+
+
+/* ================================= */
+/* GLITCH ANIMATIONS */
+/* ================================= */
+
+@keyframes glitchShake {
+
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-5px, 2px);
+    }
+
+    40% {
+        transform: translate(4px, -2px);
+    }
+
+    60% {
+        transform: translate(-3px, 1px);
+    }
+
+    80% {
+        transform: translate(5px, -1px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+
+}
+
+
+@keyframes glitchFlash {
+
+    0% {
+        filter: none;
+    }
+
+    20% {
+        filter: brightness(1.8);
+    }
+
+    40% {
+        filter: contrast(2);
+    }
+
+    60% {
+        filter: brightness(0.5);
+    }
+
+    80% {
+        filter: brightness(2);
+    }
+
+    100% {
+        filter: none;
+    }
+
+}
+
+
+@keyframes glitchRed {
+
+    0% {
+        clip-path: inset(10% 0 80% 0);
+    }
+
+    50% {
+        clip-path: inset(60% 0 10% 0);
+    }
+
+    100% {
+        clip-path: inset(30% 0 50% 0);
+    }
+
+}
+
+
+@keyframes glitchBlue {
+
+    0% {
+        clip-path: inset(70% 0 10% 0);
+    }
+
+    50% {
+        clip-path: inset(20% 0 60% 0);
+    }
+
+    100% {
+        clip-path: inset(50% 0 30% 0);
+    }
+
+}
