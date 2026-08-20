@@ -2,7 +2,7 @@ const journalEntries = [
 
     {
         date: "08-18-2026",
-        title: "Vanguard",
+        title: "Leadership",
         mood: "Disappointed",
 
         text: `
