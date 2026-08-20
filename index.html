@@ -651,36 +651,27 @@ function enterSite() {
 
 }
 
+<script>
 function enterSite() {
 
     const screen = document.getElementById("entry-screen");
     const music = document.getElementById("background-music");
-    const video = document.getElementById("entry-video");
-    const button = document.getElementById("enter-button");
 
-    // Press effect
-    button.classList.add("pressed");
-
-    // Start music
+    // Start the music
     music.volume = 0.35;
     music.currentTime = 0;
 
     music.play().catch(function(error) {
-        console.log("Music could not start:", error);
+        console.log("Music error:", error);
     });
 
-    // Restart video
-    video.currentTime = 0;
-    video.play();
-
-    // Start glitch
+    // Start glitch effect
     screen.classList.add("glitch-out");
 
-    // Wait for the glitch
+    // Go to the home page
     setTimeout(function() {
-
         window.location.href = "home.html";
-
     }, 1500);
 
 }
+</script>
