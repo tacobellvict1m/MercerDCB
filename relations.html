@@ -1,1 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SITE-66 | Mercer | Relations</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #102b46 0%,
+            #07111d 35%,
+            #020509 75%
+        );
+
+    color: white;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    min-height: 100vh;
+
+}
+
+
+/* =====================================================
+   CRT SCANLINES
+===================================================== */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.025) 0px,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    opacity: 0.35;
+
+}
+
+
+/* =====================================================
+   SCAN LINE
+===================================================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 100%;
+
+    height: 2px;
+
+    top: 0;
+
+    left: 0;
+
+    background: #2b8cff;
+
+    box-shadow:
+        0 0 15px #1677ff,
+        0 0 35px rgba(22,119,255,0.5);
+
+    animation:
+        scan 7s linear infinite;
+
+    pointer-events: none;
+
+    z-index: 10000;
+
+}
+
+
+@keyframes scan {
+
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+
+}
+
+
+/* =====================================================
+   TOP LINE
+===================================================== */
+
+.top-line {
+
+    height: 4px;
+
+    background: #1677ff;
+
+    box-shadow:
+        0 0 20px
+        rgba(22,119,255,0.8);
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    padding: 20px 6%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    background:
+        rgba(3,8,14,0.95);
+
+    border-bottom:
+        1px solid #173b5d;
+
+    backdrop-filter:
+        blur(8px);
+
+}
+
+
+.site-name h1 {
+
+    margin: 0;
+
+    font-size: 23px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.site-name p {
+
+    margin: 6px 0 0;
+
+    color: #6284a0;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav {
+
+    display: flex;
+
+    gap: 4px;
+
+    flex-wrap: wrap;
+
+}
+
+
+nav a {
+
+    color: #8eabc3;
+
+    text-decoration: none;
+
+    padding: 9px 12px;
+
+    border: 1px solid transparent;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.2s ease;
+
+}
+
+
+nav a:hover {
+
+    color: white;
+
+    border-color: #1677ff;
+
+    background:
+        rgba(22,119,255,0.1);
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main {
+
+    width: 88%;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+}
+
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header {
+
+    padding:
+        75px 0 55px;
+
+    border-bottom:
+        1px solid #173b5d;
+
+}
+
+
+.page-label {
+
+    color: #4d9ce5;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.page-title {
+
+    margin: 0;
+
+    font-size:
+        clamp(
+            50px,
+            10vw,
+            105px
+        );
+
+    letter-spacing: 8px;
+
+    line-height: 0.9;
+
+}
+
+
+.page-subtitle {
+
+    margin:
+        22px 0 0;
+
+    color: #708ba2;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.page-description {
+
+    max-width: 700px;
+
+    margin-top: 25px;
+
+    color: #7d94a7;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =====================================================
+   STATUS BAR
+===================================================== */
+
+.status-bar {
+
+    display: flex;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+
+}
+
+
+.status {
+
+    color: #637e94;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.status span {
+
+    color: #398fe5;
+
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.relation-section {
+
+    padding:
+        55px 0;
+
+    border-bottom:
+        1px solid #173b5d;
+
+}
+
+
+.section-header {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.section-header h2 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.section-code {
+
+    color: #395b76;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =====================================================
+   RELATION GRID
+===================================================== */
+
+.relation-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+
+}
+
+
+/* =====================================================
+   RELATION CARD
+===================================================== */
+
+.relation-card {
+
+    position: relative;
+
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #081522,
+            #03070c
+        );
+
+    border:
+        1px solid #173b5d;
+
+    overflow: hidden;
+
+    transition:
+        0.25s ease;
+
+}
+
+
+.relation-card:hover {
+
+    border-color:
+        #1677ff;
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,0.4),
+
+        0 0 20px
+        rgba(22,119,255,0.08);
+
+}
+
+
+.relation-card::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 3px;
+
+    height: 100%;
+
+    background:
+        #1677ff;
+
+    box-shadow:
+        0 0 12px
+        rgba(22,119,255,0.5);
+
+}
+
+
+/* =====================================================
+   CARD TOP
+===================================================== */
+
+.relation-type {
+
+    color:
+        #398fe5;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        3px;
+
+    margin-bottom:
+        15px;
+
+}
+
+
+.relation-name {
+
+    margin:
+        0;
+
+    font-size:
+        22px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.relation-role {
+
+    margin-top:
+        8px;
+
+    color:
+        #6c879e;
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+/* =====================================================
+   CARD DETAILS
+===================================================== */
+
+.relation-details {
+
+    margin-top:
+        22px;
+
+    padding-top:
+        18px;
+
+    border-top:
+        1px solid
+        rgba(57,101,137,0.2);
+
+}
+
+
+.detail {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    padding:
+        7px 0;
+
+}
+
+
+.detail-label {
+
+    color:
+        #526d82;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.detail-value {
+
+    color:
+        #a9bbc9;
+
+    font-size:
+        9px;
+
+    text-align:
+        right;
+
+}
+
+
+/* =====================================================
+   CLASSIFICATION
+===================================================== */
+
+.classification {
+
+    margin-top:
+        18px;
+
+    display:
+        inline-block;
+
+    padding:
+        5px 8px;
+
+    border:
+        1px solid
+        #274b69;
+
+    color:
+        #477ea9;
+
+    font-size:
+        7px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+/* =====================================================
+   CONNECTION MAP
+===================================================== */
+
+.connection {
+
+    margin:
+        55px 0;
+
+    padding:
+        35px;
+
+    border:
+        1px solid #173b5d;
+
+    background:
+        rgba(3,8,14,0.7);
+
+}
+
+
+.connection-title {
+
+    color:
+        #398fe5;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        4px;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.connection-line {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        15px;
+
+    flex-wrap:
+        wrap;
+
+}
+
+
+.connection-person {
+
+    padding:
+        15px 20px;
+
+    border:
+        1px solid #173b5d;
+
+    background:
+        #07111d;
+
+    color:
+        #b4c6d5;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+.connection-person.main {
+
+    border-color:
+        #1677ff;
+
+    color:
+        white;
+
+    box-shadow:
+        0 0 20px
+        rgba(22,119,255,0.1);
+
+}
+
+
+.connection-arrow {
+
+    color:
+        #1677ff;
+
+    font-size:
+        18px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    margin-top:
+        20px;
+
+    padding:
+        40px 6%;
+
+    background:
+        #020407;
+
+    border-top:
+        1px solid #173b5d;
+
+    color:
+        #526b7e;
+
+    font-size:
+        8px;
+
+    letter-spacing:
+        3px;
+
+    line-height:
+        2;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    header {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .relation-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .page-title {
+
+        font-size:
+            55px;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    main {
+
+        width:
+            90%;
+
+    }
+
+
+    .page-header {
+
+        padding-top:
+            50px;
+
+    }
+
+
+    .page-title {
+
+        font-size:
+            45px;
+
+        letter-spacing:
+            5px;
+
+    }
+
+
+    .detail {
+
+        flex-direction:
+            column;
+
+        gap:
+            3px;
+
+    }
+
+
+    .detail-value {
+
+        text-align:
+            left;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =================================================
+     TOP LINE
+================================================= -->
+
+<div class="top-line"></div>
+
+
+<!-- =================================================
+     HEADER
+================================================= -->
+
+<header>
+
+
+    <div class="site-name">
+
+        <h1>
+            SITE-66
+        </h1>
+
+        <p>
+            FOUNDATION SECURE NETWORK
+        </p>
+
+    </div>
+
+
+    <nav>
+
+        <a href="home.html">
+            HOME
+        </a>
+
+        <a href="personnel.html">
+            PERSONNEL
+        </a>
+
+        <a href="records.html">
+            RECORDS
+        </a>
+
+        <a href="archives.html">
+            ARCHIVES
+        </a>
+
+        <a href="journal.html">
+            JOURNAL
+        </a>
+
+        <a href="playlist.html">
+            PLAYLIST
+        </a>
+
+    </nav>
+
+
+</header>
+
+
+<!-- =================================================
+     MAIN
+================================================= -->
+
+<main>
+
+
+<!-- =================================================
+     PAGE HEADER
+================================================= -->
+
+<section class="page-header">
+
+
+    <div class="page-label">
+
+        SITE-66 //
+        PERSONNEL DATABASE //
+        RELATIONS
+
+    </div>
+
+
+    <h1 class="page-title">
+
+        RELATIONS
+
+    </h1>
+
+
+    <div class="page-subtitle">
+
+        SUBJECT: MERCER // CONNOR REDMEN
+
+    </div>
+
+
+    <p class="page-description">
+
+        Known individuals connected to Foundation
+        personnel designation MERCER. Information
+        displayed below has been compiled from
+        available personnel records.
+
+    </p>
+
+
+    <div class="status-bar">
+
+        <div class="status">
+            DATABASE STATUS:
+            <span>ONLINE</span>
+        </div>
+
+        <div class="status">
+            RECORD STATUS:
+            <span>ACTIVE</span>
+        </div>
+
+        <div class="status">
+            CLEARANCE:
+            <span>LEVEL 2</span>
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- =================================================
+     FAMILY
+================================================= -->
+
+<section class="relation-section">
+
+
+    <div class="section-header">
+
+        <h2>
+            FAMILY
+        </h2>
+
+        <div class="section-code">
+            REL-01
+        </div>
+
+    </div>
+
+
+    <div class="relation-grid">
+
+
+        <!-- CAROL -->
+
+        <div class="relation-card">
+
+
+            <div class="relation-type">
+                FAMILY // IMMEDIATE
+            </div>
+
+
+            <h3 class="relation-name">
+                CAROL REDMEN
+            </h3>
+
+
+            <div class="relation-role">
+                MOTHER
+            </div>
+
+
+            <div class="relation-details">
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        RELATION
+                    </span>
+
+                    <span class="detail-value">
+                        MOTHER
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        STATUS
+                    </span>
+
+                    <span class="detail-value">
+                        KNOWN
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="classification">
+                FAMILY RECORD
+            </div>
+
+
+        </div>
+
+
+        <!-- DAREN -->
+
+        <div class="relation-card">
+
+
+            <div class="relation-type">
+                FAMILY // IMMEDIATE
+            </div>
+
+
+            <h3 class="relation-name">
+                DAREN REDMEN
+            </h3>
+
+
+            <div class="relation-role">
+                FATHER
+            </div>
+
+
+            <div class="relation-details">
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        RELATION
+                    </span>
+
+                    <span class="detail-value">
+                        FATHER
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        STATUS
+                    </span>
+
+                    <span class="detail-value">
+                        KNOWN
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="classification">
+                FAMILY RECORD
+            </div>
+
+
+        </div>
+
+
+        <!-- CARTER -->
+
+        <div class="relation-card">
+
+
+            <div class="relation-type">
+                FAMILY // IMMEDIATE
+            </div>
+
+
+            <h3 class="relation-name">
+                CARTER REDMEN
+            </h3>
+
+
+            <div class="relation-role">
+                OLDER BROTHER
+            </div>
+
+
+            <div class="relation-details">
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        RELATION
+                    </span>
+
+                    <span class="detail-value">
+                        BROTHER
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        STATUS
+                    </span>
+
+                    <span class="detail-value">
+                        KNOWN
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="classification">
+                FAMILY RECORD
+            </div>
+
+
+        </div>
+
+
+        <!-- AMELIA -->
+
+        <div class="relation-card">
+
+
+            <div class="relation-type">
+                FAMILY // IMMEDIATE
+            </div>
+
+
+            <h3 class="relation-name">
+                AMELIA REDMEN
+            </h3>
+
+
+            <div class="relation-role">
+                OLDER SISTER
+            </div>
+
+
+            <div class="relation-details">
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        RELATION
+                    </span>
+
+                    <span class="detail-value">
+                        SISTER
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        STATUS
+                    </span>
+
+                    <span class="detail-value">
+                        KNOWN
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="classification">
+                FAMILY RECORD
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =================================================
+     FRIENDS
+================================================= -->
+
+<section class="relation-section">
+
+
+    <div class="section-header">
+
+        <h2>
+            ASSOCIATES
+        </h2>
+
+        <div class="section-code">
+            REL-02
+        </div>
+
+    </div>
+
+
+    <div class="relation-grid">
+
+
+        <div class="relation-card">
+
+
+            <div class="relation-type">
+                PERSONAL ASSOCIATE
+            </div>
+
+
+            <h3 class="relation-name">
+                RYAN MCGRIE
+            </h3>
+
+
+            <div class="relation-role">
+                FORMER FRIEND
+            </div>
+
+
+            <div class="relation-details">
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        RELATION
+                    </span>
+
+                    <span class="detail-value">
+                        FORMER FRIEND
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        STATUS
+                    </span>
+
+                    <span class="detail-value">
+                        DECEASED
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span class="detail-label">
+                        INCIDENT
+                    </span>
+
+                    <span class="detail-value">
+                        2019
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="classification">
+                RESTRICTED RECORD
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =================================================
+     CONNECTION MAP
+================================================= -->
+
+<section class="connection">
+
+
+    <div class="connection-title">
+
+        PRIMARY RELATIONSHIP INDEX
+
+    </div>
+
+
+    <div class="connection-line">
+
+
+        <div class="connection-person">
+            CAROL REDMEN
+        </div>
+
+
+        <div class="connection-arrow">
+            →
+        </div>
+
+
+        <div class="connection-person main">
+            MERCER
+        </div>
+
+
+        <div class="connection-arrow">
+            ←
+        </div>
+
+
+        <div class="connection-person">
+            DAREN REDMEN
+        </div>
+
+
+    </div>
+
+
+    <br>
+
+
+    <div class="connection-line">
+
+
+        <div class="connection-person">
+            CARTER REDMEN
+        </div>
+
+
+        <div class="connection-arrow">
+            →
+        </div>
+
+
+        <div class="connection-person main">
+            CONNOR REDMEN
+        </div>
+
+
+        <div class="connection-arrow">
+            ←
+        </div>
+
+
+        <div class="connection-person">
+            AMELIA REDMEN
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+<!-- =================================================
+     FOOTER
+================================================= -->
+
+<footer>
+
+    SITE-66 FOUNDATION DATABASE
+
+    <br>
+
+    RELATIONS DATABASE //
+    MERCER
+
+    <br>
+
+    INFORMATION CLASSIFICATION:
+    LEVEL 2
+
+    <br>
+
+    UNAUTHORIZED ACCESS IS PROHIBITED.
+
+</footer>
+
+
+</body>
+
+</html>
