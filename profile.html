@@ -1,0 +1,3635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SITE-66 | MERCER Personnel Profile</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #0b1b2d 0%,
+            #05090f 45%,
+            #020305 100%
+        );
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+}
+
+
+/* =====================================================
+   CRT SCANLINES
+===================================================== */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.025) 0px,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    opacity: 0.35;
+}
+
+
+/* =====================================================
+   TOP LINE
+===================================================== */
+
+.top-line {
+
+    height: 4px;
+
+    background: #1677ff;
+
+    box-shadow:
+        0 0 20px rgba(22,119,255,0.8);
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    padding: 25px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0b1624,
+            #05090f
+        );
+
+    border-bottom: 1px solid #193b59;
+}
+
+
+.site-name h1 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    letter-spacing: 4px;
+}
+
+
+.site-name p {
+
+    margin: 7px 0 0;
+
+    color: #6f94b5;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    flex-wrap: wrap;
+}
+
+
+nav a {
+
+    display: block;
+
+    padding: 10px 14px;
+
+    color: #9bbbd6;
+
+    text-decoration: none;
+
+    border: 1px solid transparent;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    transition: 0.2s;
+}
+
+
+nav a:hover {
+
+    color: white;
+
+    background:
+        rgba(22,119,255,0.12);
+
+    border-color: #1677ff;
+}
+
+
+/* =====================================================
+   PROFILE HERO
+===================================================== */
+
+.profile-hero {
+
+    position: relative;
+
+    padding: 65px 7%;
+
+    display: grid;
+
+    grid-template-columns:
+        230px
+        1fr;
+
+    gap: 45px;
+
+    align-items: center;
+
+    border-bottom: 1px solid #193b59;
+
+    overflow: hidden;
+}
+
+
+.profile-hero::before {
+
+    content: "GENSEC";
+
+    position: absolute;
+
+    right: 3%;
+
+    bottom: -35px;
+
+    font-size: 150px;
+
+    font-weight: bold;
+
+    letter-spacing: 10px;
+
+    color: rgba(22,119,255,0.025);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   PROFILE IMAGE
+===================================================== */
+
+.profile-picture {
+
+    position: relative;
+
+    width: 230px;
+
+    height: 285px;
+
+    border: 1px solid #193b59;
+
+    background: #03070c;
+
+    padding: 6px;
+
+    box-shadow:
+        0 0 30px rgba(22,119,255,0.12);
+}
+
+
+.profile-picture::before {
+
+    content: "PERSONNEL";
+
+    position: absolute;
+
+    top: 12px;
+
+    left: 12px;
+
+    z-index: 2;
+
+    padding: 5px 8px;
+
+    background: rgba(2,5,8,0.85);
+
+    color: #4c9ddd;
+
+    border: 1px solid #193b59;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+}
+
+
+.profile-picture img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =====================================================
+   HERO TEXT
+===================================================== */
+
+.classification {
+
+    color: #4c9ddd;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+
+.codename {
+
+    margin: 0;
+
+    font-size: clamp(65px, 10vw, 125px);
+
+    line-height: 0.85;
+
+    letter-spacing: 9px;
+
+    font-weight: bold;
+
+    color: white;
+
+    text-shadow:
+        0 0 25px rgba(22,119,255,0.25);
+}
+
+
+.real-name {
+
+    margin-top: 20px;
+
+    font-size: clamp(20px, 3vw, 32px);
+
+    letter-spacing: 5px;
+
+    color: #718ba2;
+}
+
+
+.position {
+
+    margin-top: 25px;
+
+    color: #4c9ddd;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+}
+
+
+.status {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 9px 15px;
+
+    border: 1px solid #287d50;
+
+    color: #4cff91;
+
+    background:
+        rgba(76,255,145,0.05);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container {
+
+    width: 86%;
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 55px 0 100px;
+}
+
+
+/* =====================================================
+   CONTROL BAR
+===================================================== */
+
+.control-bar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 18px 20px;
+
+    margin-bottom: 25px;
+
+    background: #050b12;
+
+    border: 1px solid #193b59;
+}
+
+
+.control-label {
+
+    color: #6f94b5;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+
+.edit-button {
+
+    padding: 12px 20px;
+
+    background: #07111d;
+
+    color: white;
+
+    border: 1px solid #1677ff;
+
+    cursor: pointer;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.2s;
+}
+
+
+.edit-button:hover {
+
+    background: #1677ff;
+
+    box-shadow:
+        0 0 20px rgba(22,119,255,0.35);
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.profile-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1.5fr;
+
+    gap: 25px;
+}
+
+
+/* =====================================================
+   PANEL
+===================================================== */
+
+.panel {
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0a1623,
+            #03070c
+        );
+
+    border: 1px solid #193b59;
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,0.2);
+}
+
+
+.panel-label {
+
+    color: #4c9ddd;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+
+.panel h2 {
+
+    margin: 0 0 25px;
+
+    font-size: 23px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   INFORMATION
+===================================================== */
+
+.info-list {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.info-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #12283b;
+
+    font-size: 11px;
+}
+
+
+.info-row:last-child {
+
+    border-bottom: none;
+}
+
+
+.info-label {
+
+    color: #607b91;
+
+    letter-spacing: 1px;
+}
+
+
+.info-value {
+
+    color: #d7e5f0;
+
+    text-align: right;
+}
+
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+.summary {
+
+    color: #8ba2b5;
+
+    font-size: 12px;
+
+    line-height: 2;
+}
+
+
+/* =====================================================
+   IDENTIFICATION
+===================================================== */
+
+.identification-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+.id-box {
+
+    padding: 20px;
+
+    background: #050b12;
+
+    border: 1px solid #193b59;
+}
+
+
+.id-label {
+
+    color: #526a7c;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+
+.id-value {
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   WARNING BOX
+===================================================== */
+
+.warning-box {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-left: 3px solid #1677ff;
+
+    background:
+        rgba(22,119,255,0.04);
+
+    color: #8199ad;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   FULL WIDTH SECTIONS
+===================================================== */
+
+.full-panel {
+
+    margin-top: 25px;
+}
+
+
+/* =====================================================
+   TIMELINE
+===================================================== */
+
+.timeline {
+
+    position: relative;
+
+    padding-left: 25px;
+}
+
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 4px;
+
+    top: 5px;
+
+    bottom: 5px;
+
+    width: 1px;
+
+    background: #193b59;
+}
+
+
+.timeline-item {
+
+    position: relative;
+
+    padding:
+        0 0 30px 25px;
+}
+
+
+.timeline-item:last-child {
+
+    padding-bottom: 5px;
+}
+
+
+.timeline-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -25px;
+
+    top: 5px;
+
+    width: 8px;
+
+    height: 8px;
+
+    border: 2px solid #1677ff;
+
+    background: #05090f;
+
+    box-shadow:
+        0 0 10px rgba(22,119,255,0.5);
+}
+
+
+.timeline-date {
+
+    color: #4c9ddd;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
+}
+
+
+.timeline-title {
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+
+.timeline-text {
+
+    color: #71879a;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   LIFE STORY
+===================================================== */
+
+.story {
+
+    color: #8ba2b5;
+
+    font-size: 12px;
+
+    line-height: 2;
+
+    white-space: pre-line;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.button-row {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+
+.profile-button {
+
+    display: inline-block;
+
+    padding: 13px 20px;
+
+    color: #9bbbd6;
+
+    text-decoration: none;
+
+    border: 1px solid #193b59;
+
+    background: #050b12;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.2s;
+}
+
+
+.profile-button:hover {
+
+    color: white;
+
+    border-color: #1677ff;
+
+    background:
+        rgba(22,119,255,0.1);
+}
+
+
+/* =====================================================
+   NOTE
+===================================================== */
+
+.note {
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-left: 3px solid #1677ff;
+
+    background:
+        rgba(22,119,255,0.04);
+
+    color: #6f879b;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    padding: 40px 7%;
+
+    background: #020407;
+
+    border-top: 1px solid #193b59;
+
+    color: #526a7c;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,0.85);
+}
+
+
+.modal.show {
+
+    display: flex;
+}
+
+
+.modal-box {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b1624,
+            #03070c
+        );
+
+    border: 1px solid #1677ff;
+
+    box-shadow:
+        0 0 45px rgba(22,119,255,0.2);
+}
+
+
+.modal-label {
+
+    color: #4c9ddd;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+
+.modal-box h2 {
+
+    margin: 10px 0 25px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.field {
+
+    margin-bottom: 18px;
+}
+
+
+.field label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #6f94b5;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+input,
+textarea,
+select {
+
+    width: 100%;
+
+    padding: 13px;
+
+    background: #020509;
+
+    color: white;
+
+    border: 1px solid #193b59;
+
+    outline: none;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 12px;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+
+    border-color: #1677ff;
+
+    box-shadow:
+        0 0 10px rgba(22,119,255,0.15);
+}
+
+
+textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+
+    line-height: 1.7;
+}
+
+
+select option {
+
+    background: #05090f;
+
+    color: white;
+}
+
+
+/* =====================================================
+   MODAL BUTTONS
+===================================================== */
+
+.modal-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+
+.modal-buttons button {
+
+    flex: 1;
+
+    padding: 13px;
+
+    cursor: pointer;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.save-button {
+
+    background: #1677ff;
+
+    color: white;
+
+    border: 1px solid #1677ff;
+}
+
+
+.save-button:hover {
+
+    background: #0d64d8;
+}
+
+
+.cancel-button {
+
+    background: transparent;
+
+    color: #9bbbd6;
+
+    border: 1px solid #193b59;
+}
+
+
+.cancel-button:hover {
+
+    border-color: #1677ff;
+
+    color: white;
+}
+
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+.password-box {
+
+    max-width: 450px;
+}
+
+
+.password-input {
+
+    margin-top: 10px;
+}
+
+
+.message {
+
+    margin-top: 12px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+
+.error {
+
+    color: #ff4d4d;
+}
+
+
+.success {
+
+    color: #4cff91;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .profile-hero {
+
+        grid-template-columns: 1fr;
+
+        text-align: left;
+    }
+
+
+    .profile-picture {
+
+        width: 190px;
+
+        height: 235px;
+    }
+
+
+    .profile-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .identification-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .codename {
+
+        font-size: 65px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .control-bar {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .edit-button {
+
+        width: 100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP LINE
+===================================================== -->
+
+<div class="top-line"></div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="site-name">
+
+        <h1>
+            SITE-66
+        </h1>
+
+        <p>
+            FOUNDATION SECURE NETWORK
+        </p>
+
+    </div>
+
+
+    <nav>
+
+        <a href="home.html">
+            HOME
+        </a>
+
+        <a href="personnel.html">
+            PERSONNEL
+        </a>
+
+        <a href="records.html">
+            RECORDS
+        </a>
+
+        <a href="archives.html">
+            ARCHIVES
+        </a>
+
+        <a href="journal.html">
+            JOURNAL
+        </a>
+
+        <a href="playlist.html">
+            PLAYLIST
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     PROFILE HERO
+===================================================== -->
+
+<section class="profile-hero">
+
+
+    <div class="profile-picture">
+
+        <img
+            src="mercer.jpg"
+            alt="Connor Redmen - Mercer"
+        >
+
+    </div>
+
+
+    <div>
+
+        <div class="classification">
+
+            SITE-66 //
+            PERSONNEL DATABASE //
+            CLASSIFIED PROFILE
+
+        </div>
+
+
+        <h1
+            class="codename"
+            id="displayCodename"
+        >
+
+            MERCER
+
+        </h1>
+
+
+        <div
+            class="real-name"
+            id="displayName"
+        >
+
+            CONNOR REDMEN
+
+        </div>
+
+
+        <div
+            class="position"
+            id="displayPosition"
+        >
+
+            MASTER SERGEANT //
+            GENERAL SECURITY
+
+        </div>
+
+
+        <div
+            class="status"
+            id="displayStatus"
+        >
+
+            ● ACTIVE PERSONNEL
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+    <!-- =================================================
+         EDIT CONTROL
+    ================================================== -->
+
+    <div class="control-bar">
+
+        <div>
+
+            <div class="control-label">
+
+                PERSONNEL PROFILE
+
+            </div>
+
+            <div
+                style="
+                    margin-top:7px;
+                    color:#526a7c;
+                    font-size:9px;
+                "
+            >
+
+                PROFILE DATABASE //
+                MERCER
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="edit-button"
+            onclick="openPassword()"
+        >
+
+            EDIT PROFILE
+
+        </button>
+
+    </div>
+
+
+    <!-- =================================================
+         BASIC INFORMATION
+    ================================================== -->
+
+    <div class="profile-grid">
+
+
+        <section class="panel">
+
+            <div class="panel-label">
+
+                PERSONNEL //
+                IDENTIFICATION
+
+            </div>
+
+
+            <h2>
+
+                BASIC INFORMATION
+
+            </h2>
+
+
+            <div class="info-list">
+
+
+                <div class="info-row">
+
+                    <span class="info-label">
+                        FULL NAME
+                    </span>
+
+                    <span
+                        class="info-value"
+                        id="infoName"
+                    >
+                        Connor Redmen
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span class="info-label">
+                        CODENAME
+                    </span>
+
+                    <span
+                        class="info-value"
+                        id="infoCodename"
+                    >
+                        Mercer
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span class="info-label">
+                        DATE OF BIRTH
+                    </span>
+
+                    <span
+                        class="info-value"
+                        id="infoDOB"
+                    >
+                        03/09/1999
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span class="info-label">
+                        BLOOD TYPE
+                    </span>
+
+                    <span
+                        class="info-value"
+                        id="infoBlood"
+                    >
+                        B-
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span class="info-label">
+                        OCCUPATION
+                    </span>
+
+                    <span
+                        class="info-value"
+                        id="infoOccupation"
+                    >
+                        Master Sergeant
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span class="info-label">
+                        BRANCH
+                    </span>
+
+                    <span
+                        class="info-value"
+                        id="infoBranch"
+                    >
+                        General Security
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span class="info-label">
+                        ORIGIN
+                    </span>
+
+                    <span
+                        class="info-value"
+                        id="infoOrigin"
+                    >
+                        Fond du Lac, Wisconsin
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span class="info-label">
+                        STATUS
+                    </span>
+
+                    <span
+                        class="info-value"
+                        id="infoStatus"
+                    >
+                        Active
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SUMMARY
+        ================================================== -->
+
+        <section class="panel">
+
+            <div class="panel-label">
+
+                PERSONNEL //
+                OVERVIEW
+
+            </div>
+
+
+            <h2>
+
+                PROFILE SUMMARY
+
+            </h2>
+
+
+            <div
+                class="summary"
+                id="displaySummary"
+            >
+
+                Connor Redmen is a former United States Marine
+                who eventually became a member of the SCP
+                Foundation's General Security division at
+                Site-66.
+
+                <br><br>
+
+                Connor is known for remaining relatively calm
+                under pressure and for relying heavily on the
+                discipline he developed during his military
+                service.
+
+                <br><br>
+
+                Despite his experience, Connor continues to
+                carry the memories of the events that led him
+                to the Foundation.
+
+            </div>
+
+
+            <div class="warning-box">
+
+                <strong>
+                    IDENTIFICATION NOTE:
+                </strong>
+
+                <br><br>
+
+                Subject possesses a visible burn mark on the
+                right arm. Further details regarding the
+                incident responsible for the injury are
+                classified.
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =================================================
+         IDENTIFICATION RECORD
+    ================================================== -->
+
+    <section class="panel full-panel">
+
+        <div class="panel-label">
+
+            MEDICAL //
+            IDENTIFICATION
+
+        </div>
+
+
+        <h2>
+
+            IDENTIFICATION RECORD
+
+        </h2>
+
+
+        <div class="identification-grid">
+
+
+            <div class="id-box">
+
+                <div class="id-label">
+
+                    BLOOD TYPE
+
+                </div>
+
+                <div
+                    class="id-value"
+                    id="displayBlood"
+                >
+
+                    B-
+
+                </div>
+
+            </div>
+
+
+            <div class="id-box">
+
+                <div class="id-label">
+
+                    DOB
+
+                </div>
+
+                <div
+                    class="id-value"
+                    id="displayDOB"
+                >
+
+                    03/09/1999
+
+                </div>
+
+            </div>
+
+
+            <div class="id-box">
+
+                <div class="id-label">
+
+                    SERVICE
+
+                </div>
+
+                <div
+                    class="id-value"
+                    id="displayService"
+                >
+
+                    USMC
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="warning-box">
+
+            <strong>
+                PHYSICAL IDENTIFIER:
+            </strong>
+
+            Right arm contains a documented burn mark.
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         SERVICE HISTORY
+    ================================================== -->
+
+    <section class="panel full-panel">
+
+        <div class="panel-label">
+
+            PERSONNEL //
+            SERVICE HISTORY
+
+        </div>
+
+
+        <h2>
+
+            SERVICE HISTORY
+
+        </h2>
+
+
+        <div
+            class="timeline"
+            id="serviceHistory"
+        >
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+
+                    EARLY LIFE
+
+                </div>
+
+                <div class="timeline-title">
+
+                    FOND DU LAC, WISCONSIN
+
+                </div>
+
+                <div class="timeline-text">
+
+                    Connor Redmen was born and raised in
+                    Fond du Lac, Wisconsin alongside his
+                    family. He experienced a relatively
+                    normal childhood before later events
+                    dramatically changed his life.
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+
+                    2019
+
+                </div>
+
+                <div class="timeline-title">
+
+                    UNITED STATES MARINE CORPS
+
+                </div>
+
+                <div class="timeline-text">
+
+                    Following a traumatic incident involving
+                    Ryan McGrie, Connor enlisted in the
+                    United States Marine Corps in search of
+                    structure, purpose, and a new beginning.
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+
+                    CLASSIFIED
+
+                </div>
+
+                <div class="timeline-title">
+
+                    ANOMALOUS INCIDENT
+
+                </div>
+
+                <div class="timeline-text">
+
+                    During an overseas deployment, Connor's
+                    unit encountered an unidentified anomalous
+                    entity inside an abandoned research
+                    facility. The incident resulted in
+                    Foundation involvement.
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+
+                    12/12/2019
+
+                </div>
+
+                <div class="timeline-title">
+
+                    FOUNDATION RECRUITMENT
+
+                </div>
+
+                <div class="timeline-text">
+
+                    Connor was approached by Foundation
+                    recruiters who revealed the truth about
+                    the facility and offered him a position
+                    within Foundation Security.
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-date">
+
+                    CURRENT
+
+                </div>
+
+                <div class="timeline-title">
+
+                    SCP SITE-66 // GENSEC
+
+                </div>
+
+                <div class="timeline-text">
+
+                    Connor currently serves as a Master Sergeant
+                    within General Security at SCP Site-66.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         LIFE STORY
+    ================================================== -->
+
+    <section class="panel full-panel">
+
+        <div class="panel-label">
+
+            PERSONNEL //
+            BIOGRAPHICAL RECORD
+
+        </div>
+
+
+        <h2>
+
+            ENTIRE LIFE STORY
+
+        </h2>
+
+
+        <div
+            class="story"
+            id="displayStory"
+        >
+
+Connor Redmen was born and raised in Fond du Lac, Wisconsin,
+alongside his mother, Carol Redmen, his father, Daren Redmen,
+his older brother, Carter Redmen, and his older sister,
+Amelia Redmen.
+
+Connor had a relatively normal and happy childhood. He was
+never bullied and generally got along with the people around
+him. In school, his grades usually ranged from a C- to a B+.
+Although he wasn't the smartest student in his class, he was
+respectful and easygoing.
+
+Connor spent most of his free time outside with friends and
+family. For most of his childhood, he had little reason to
+believe his life would ever become more complicated than that.
+
+As Connor grew older, he became more independent and started
+spending more time around town with his friends. He became
+known as someone who could stay calm when situations became
+heated and was usually the person trying to keep his friends
+from making stupid decisions.
+
+Everything changed during the summer of 2019.
+
+After a bar fight, one of Connor's closest friends, Ryan
+McGrie, attempted to kill him over money. What started as an
+argument quickly became a fight for Connor's life.
+
+Connor fought back in self-defense, but the confrontation
+ended with Ryan being beaten to death.
+
+Although Connor avoided serious legal consequences due to the
+circumstances surrounding the incident, the emotional
+consequences never went away.
+
+Connor couldn't stop thinking about what happened.
+
+The cheerful and trusting person he had been began
+disappearing, replaced by someone quieter, more cautious, and
+afraid to let people get close.
+
+Not long after the incident, Connor decided that he needed to
+get away from everything he had known.
+
+Looking for structure, purpose, and a way to rebuild himself,
+he enlisted in the United States Marine Corps.
+
+Marine life was difficult, but Connor adapted quickly.
+
+The discipline, physical training, and responsibility gave
+him something to focus on. Over time, he became a dependable
+and capable Marine.
+
+During one deployment, Connor's unit was ordered to
+investigate an abandoned research facility after reports of
+missing civilians in the surrounding area.
+
+They expected criminals, insurgents, or smugglers.
+
+Instead, they encountered something none of them could
+explain.
+
+Deep inside the abandoned structure, they encountered an
+unknown entity that moved almost completely silently and
+seemed capable of disappearing from sight.
+
+Several Marines were injured before an unidentified tactical
+team arrived and eliminated the threat.
+
+The operators were unlike anyone Connor had ever encountered.
+
+They wore equipment Connor couldn't identify, carried
+themselves with military precision, and seemed to know
+exactly what they were dealing with.
+
+Connor's unit was ordered to remain silent about everything
+they had witnessed.
+
+Connor and the surviving Marines were detained afterward and
+questioned for several days by people claiming to represent
+a government organization.
+
+Eventually, Connor was subjected to a memory-altering
+procedure.
+
+Most of the Marines forgot the incident entirely.
+
+Connor did not.
+
+He retained fragments of what happened — flashes of the
+creature, strange symbols, unidentified operators, and the
+feeling that something about the entire incident had been
+deliberately hidden from him.
+
+Unknown to Connor, the organization responsible was the SCP
+Foundation.
+
+Foundation personnel noticed Connor's unusual resistance to
+the memory treatment and quietly began monitoring him.
+
+His military record, ability to remain calm under pressure,
+and resistance to amnestic treatment made him someone the
+Foundation considered worth watching.
+
+After completing his service in the Marines, Connor returned
+to civilian life.
+
+He had accomplished what he had set out to do, but found
+himself struggling without the structure and purpose the
+military had provided.
+
+He still thought about the abandoned facility and the thing
+he had seen inside it.
+
+Sometimes he wondered if the entire experience had actually
+happened or if the memories he retained were simply fragments
+of something his mind couldn't properly understand.
+
+Then, on December 12th, 2019, Connor walked into a small local
+bar wearing his usual cowboy hat.
+
+He ordered a shot of whiskey and sat by himself for a while,
+trying to clear his head.
+
+Eventually, he stepped outside for a cigarette.
+
+As snow fell around him and Christmas lights blinked across
+the nearby buildings, two strangers approached him.
+
+They were Foundation recruiters.
+
+They told Connor the truth.
+
+The facility from his deployment had been real.
+
+The creature had been real.
+
+The people who arrived afterward had been Foundation
+personnel.
+
+They explained that the world contained things far beyond
+what ordinary governments and militaries knew about.
+
+They offered Connor a position within Foundation Security.
+
+Connor listened without saying much.
+
+After everything he had experienced, the revelation was
+almost strangely comforting.
+
+For the first time, the memories that had haunted him had an
+explanation.
+
+Connor threw his cigarette onto the snow and spat on it before
+accepting their offer.
+
+He exchanged the necessary information with the recruiters,
+watching as they disappeared down the snowy street beneath
+the Christmas lights.
+
+Connor stood there for a moment, thinking about everything
+that had happened since Ryan McGrie's death.
+
+He had joined the Marines looking for purpose, encountered
+something impossible, and now the organization responsible for
+that impossible world was offering him a place inside it.
+
+Before leaving for the Foundation, Connor received a letter
+that he kept with him.
+
+He didn't talk about the letter often, but he carried it
+wherever he went, keeping it close as a reminder of the life
+he had left behind.
+
+After completing specialized Foundation training and
+receiving the necessary security clearance, Connor was
+assigned to SCP Site-66 as a member of GENSEC.
+
+The Marines had taught him how to survive combat, follow
+orders, and protect the people beside him.
+
+The Foundation would teach him something entirely different.
+
+Not every enemy could be understood.
+
+Not every threat followed the laws of nature.
+
+And sometimes the things hiding in the darkness were far worse
+than anything Connor had already survived.
+
+Connor Redmen had spent his entire life trying to find
+somewhere he belonged.
+
+Eventually, he found Site-66.
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         NAVIGATION
+    ================================================== -->
+
+    <section class="panel full-panel">
+
+        <div class="panel-label">
+
+            PERSONNEL //
+            RELATED RECORDS
+
+        </div>
+
+
+        <h2>
+
+            RELATED RECORDS
+
+        </h2>
+
+
+        <div class="button-row">
+
+            <a
+                href="relations.html"
+                class="profile-button"
+            >
+
+                VIEW RELATIONS
+
+            </a>
+
+
+            <a
+                href="journal.html"
+                class="profile-button"
+            >
+
+                VIEW JOURNAL
+
+            </a>
+
+
+            <a
+                href="playlist.html"
+                class="profile-button"
+            >
+
+                MERCER PLAYLIST
+
+            </a>
+
+
+            <a
+                href="home.html"
+                class="profile-button"
+            >
+
+                RETURN HOME
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         NOTE
+    ================================================== -->
+
+    <div class="note">
+
+        <strong>
+            FOUNDATION RECORD NOTICE:
+        </strong>
+
+        <br><br>
+
+        This profile contains personnel information associated
+        with Master Sergeant Connor Redmen, codename "Mercer."
+
+        <br><br>
+
+        Unauthorized alteration of Foundation personnel
+        records is prohibited.
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    SITE-66 FOUNDATION DATABASE
+
+    <br><br>
+
+    PERSONNEL PROFILE //
+    MERCER
+
+    <br><br>
+
+    UNAUTHORIZED ACCESS IS PROHIBITED.
+
+</footer>
+
+
+<!-- =====================================================
+     PASSWORD MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="passwordModal"
+>
+
+    <div class="modal-box password-box">
+
+        <div class="modal-label">
+
+            FOUNDATION AUTHORIZATION
+
+        </div>
+
+
+        <h2>
+
+            EDIT PROFILE
+
+        </h2>
+
+
+        <p
+            style="
+                color:#71879a;
+                font-size:11px;
+                line-height:1.7;
+            "
+        >
+
+            Authorization is required to modify
+            this personnel record.
+
+        </p>
+
+
+        <input
+            class="password-input"
+            id="passwordInput"
+            type="password"
+            placeholder="ENTER PASSWORD"
+        >
+
+
+        <div
+            id="passwordMessage"
+            class="message"
+        ></div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="save-button"
+                onclick="checkPassword()"
+            >
+
+                AUTHENTICATE
+
+            </button>
+
+
+            <button
+                class="cancel-button"
+                onclick="closePassword()"
+            >
+
+                CANCEL
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     EDIT PROFILE MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="editModal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-label">
+
+            SITE-66 //
+            PERSONNEL DATABASE
+
+        </div>
+
+
+        <h2>
+
+            EDIT MERCER PROFILE
+
+        </h2>
+
+
+        <!-- NAME -->
+
+        <div class="field">
+
+            <label>
+                FULL NAME
+            </label>
+
+            <input
+                id="editName"
+                type="text"
+            >
+
+        </div>
+
+
+        <!-- CODENAME -->
+
+        <div class="field">
+
+            <label>
+                CODENAME
+            </label>
+
+            <input
+                id="editCodename"
+                type="text"
+            >
+
+        </div>
+
+
+        <!-- DOB -->
+
+        <div class="field">
+
+            <label>
+                DATE OF BIRTH
+            </label>
+
+            <input
+                id="editDOB"
+                type="text"
+            >
+
+        </div>
+
+
+        <!-- BLOOD -->
+
+        <div class="field">
+
+            <label>
+                BLOOD TYPE
+            </label>
+
+            <input
+                id="editBlood"
+                type="text"
+            >
+
+        </div>
+
+
+        <!-- OCCUPATION -->
+
+        <div class="field">
+
+            <label>
+                OCCUPATION
+            </label>
+
+            <input
+                id="editOccupation"
+                type="text"
+            >
+
+        </div>
+
+
+        <!-- BRANCH -->
+
+        <div class="field">
+
+            <label>
+                BRANCH
+            </label>
+
+            <input
+                id="editBranch"
+                type="text"
+            >
+
+        </div>
+
+
+        <!-- STATUS -->
+
+        <div class="field">
+
+            <label>
+                STATUS
+            </label>
+
+            <select id="editStatus">
+
+                <option value="Active">
+                    ACTIVE
+                </option>
+
+                <option value="Non-Active">
+                    NON-ACTIVE
+                </option>
+
+                <option value="Unknown">
+                    UNKNOWN
+                </option>
+
+                <option value="Deceased">
+                    DECEASED
+                </option>
+
+                <option value="Missing">
+                    MISSING
+                </option>
+
+                <option value="Retired">
+                    RETIRED
+                </option>
+
+                <option value="Suspended">
+                    SUSPENDED
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- ORIGIN -->
+
+        <div class="field">
+
+            <label>
+                ORIGIN
+            </label>
+
+            <input
+                id="editOrigin"
+                type="text"
+            >
+
+        </div>
+
+
+        <!-- SERVICE -->
+
+        <div class="field">
+
+            <label>
+                SERVICE
+            </label>
+
+            <input
+                id="editService"
+                type="text"
+            >
+
+        </div>
+
+
+        <!-- SUMMARY -->
+
+        <div class="field">
+
+            <label>
+                PROFILE SUMMARY
+            </label>
+
+            <textarea
+                id="editSummary"
+            ></textarea>
+
+        </div>
+
+
+        <!-- SERVICE HISTORY -->
+
+        <div class="field">
+
+            <label>
+                SERVICE HISTORY
+            </label>
+
+            <textarea
+                id="editServiceHistory"
+                style="min-height:200px;"
+            ></textarea>
+
+        </div>
+
+
+        <!-- LIFE STORY -->
+
+        <div class="field">
+
+            <label>
+                ENTIRE LIFE STORY
+            </label>
+
+            <textarea
+                id="editStory"
+                style="min-height:350px;"
+            ></textarea>
+
+        </div>
+
+
+        <div
+            id="saveMessage"
+            class="message"
+        ></div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="save-button"
+                onclick="saveProfile()"
+            >
+
+                SAVE PROFILE
+
+            </button>
+
+
+            <button
+                class="cancel-button"
+                onclick="closeEdit()"
+            >
+
+                CANCEL
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+
+import {
+    getFirestore,
+    doc,
+    setDoc,
+    onSnapshot
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyDWdYkDjqDIWWWlxxxRHRPZpTn4eKSYBpQ",
+
+    authDomain:
+        "site-66-database.firebaseapp.com",
+
+    projectId:
+        "site-66-database",
+
+    storageBucket:
+        "site-66-database.firebasestorage.app",
+
+    messagingSenderId:
+        "447627858856",
+
+    appId:
+        "1:447627858856:web:5c0054d7ebca897939039d",
+
+    measurementId:
+        "G-ZNKTWYZXY8"
+
+};
+
+
+/* =====================================================
+   INITIALIZE FIREBASE
+===================================================== */
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const db =
+    getFirestore(
+        app
+    );
+
+
+/* =====================================================
+   MERCER DOCUMENT
+===================================================== */
+
+const profileRef =
+    doc(
+        db,
+        "profiles",
+        "mercer"
+    );
+
+
+/* =====================================================
+   DEFAULT PROFILE
+===================================================== */
+
+const defaultProfile = {
+
+    name:
+        "Connor Redmen",
+
+    codename:
+        "Mercer",
+
+    dob:
+        "03/09/1999",
+
+    blood:
+        "B-",
+
+    occupation:
+        "Master Sergeant",
+
+    branch:
+        "General Security",
+
+    status:
+        "Active",
+
+    origin:
+        "Fond du Lac, Wisconsin",
+
+    service:
+        "USMC",
+
+    summary:
+        `Connor Redmen is a former United States Marine who eventually became a member of the SCP Foundation's General Security division at Site-66.
+
+Connor is known for remaining relatively calm under pressure and for relying heavily on the discipline he developed during his military service.
+
+Despite his experience, Connor continues to carry the memories of the events that led him to the Foundation.`,
+
+    serviceHistory:
+        `EARLY LIFE
+Fond du Lac, Wisconsin
+Connor Redmen was born and raised in Fond du Lac, Wisconsin alongside his family. He experienced a relatively normal childhood before later events dramatically changed his life.
+
+2019
+United States Marine Corps
+Following a traumatic incident involving Ryan McGrie, Connor enlisted in the United States Marine Corps in search of structure, purpose, and a new beginning.
+
+CLASSIFIED
+Anomalous Incident
+During an overseas deployment, Connor's unit encountered an unidentified anomalous entity inside an abandoned research facility. The incident resulted in Foundation involvement.
+
+12/12/2019
+Foundation Recruitment
+Connor was approached by Foundation recruiters who revealed the truth about the facility and offered him a position within Foundation Security.
+
+CURRENT
+SCP Site-66 // GENSEC
+Connor currently serves as a Master Sergeant within General Security at SCP Site-66.`,
+
+    story:
+        `Connor Redmen was born and raised in Fond du Lac, Wisconsin, alongside his mother, Carol Redmen, his father, Daren Redmen, his older brother, Carter Redmen, and his older sister, Amelia Redmen.
+
+Connor had a relatively normal and happy childhood. He was never bullied and generally got along with the people around him. In school, his grades usually ranged from a C- to a B+. Although he wasn't the smartest student in his class, he was respectful and easygoing.
+
+Connor spent most of his free time outside with friends and family. For most of his childhood, he had little reason to believe his life would ever become more complicated than that.
+
+As Connor grew older, he became more independent and started spending more time around town with his friends. He became known as someone who could stay calm when situations became heated and was usually the person trying to keep his friends from making stupid decisions.
+
+Everything changed during the summer of 2019.
+
+After a bar fight, one of Connor's closest friends, Ryan McGrie, attempted to kill him over money. What started as an argument quickly became a fight for Connor's life.
+
+Connor fought back in self-defense, but the confrontation ended with Ryan being beaten to death.
+
+Although Connor avoided serious legal consequences due to the circumstances surrounding the incident, the emotional consequences never went away.
+
+Connor couldn't stop thinking about what happened.
+
+The cheerful and trusting person he had been began disappearing, replaced by someone quieter, more cautious, and afraid to let people get close.
+
+Not long after the incident, Connor decided that he needed to get away from everything he had known.
+
+Looking for structure, purpose, and a way to rebuild himself, he enlisted in the United States Marine Corps.
+
+Marine life was difficult, but Connor adapted quickly.
+
+The discipline, physical training, and responsibility gave him something to focus on. Over time, he became a dependable and capable Marine.
+
+During one deployment, Connor's unit was ordered to investigate an abandoned research facility after reports of missing civilians in the surrounding area.
+
+They expected criminals, insurgents, or smugglers.
+
+Instead, they encountered something none of them could explain.
+
+Deep inside the abandoned structure, they encountered an unknown entity that moved almost completely silently and seemed capable of disappearing from sight.
+
+Several Marines were injured before an unidentified tactical team arrived and eliminated the threat.
+
+The operators were unlike anyone Connor had ever encountered.
+
+They wore equipment Connor couldn't identify, carried themselves with military precision, and seemed to know exactly what they were dealing with.
+
+Connor's unit was ordered to remain silent about everything they had witnessed.
+
+Connor and the surviving Marines were detained afterward and questioned for several days by people claiming to represent a government organization.
+
+Eventually, Connor was subjected to a memory-altering procedure.
+
+Most of the Marines forgot the incident entirely.
+
+Connor did not.
+
+He retained fragments of what happened — flashes of the creature, strange symbols, unidentified operators, and the feeling that something about the entire incident had been deliberately hidden from him.
+
+Unknown to Connor, the organization responsible was the SCP Foundation.
+
+Foundation personnel noticed Connor's unusual resistance to the memory treatment and quietly began monitoring him.
+
+His military record, ability to remain calm under pressure, and resistance to amnestic treatment made him someone the Foundation considered worth watching.
+
+After completing his service in the Marines, Connor returned to civilian life.
+
+He had accomplished what he had set out to do, but found himself struggling without the structure and purpose the military had provided.
+
+He still thought about the abandoned facility and the thing he had seen inside it.
+
+Sometimes he wondered if the entire experience had actually happened or if the memories he retained were simply fragments of something his mind couldn't properly understand.
+
+Then, on December 12th, 2019, Connor walked into a small local bar wearing his usual cowboy hat.
+
+He ordered a shot of whiskey and sat by himself for a while, trying to clear his head.
+
+Eventually, he stepped outside for a cigarette.
+
+As snow fell around him and Christmas lights blinked across the nearby buildings, two strangers approached him.
+
+They were Foundation recruiters.
+
+They told Connor the truth.
+
+The facility from his deployment had been real.
+
+The creature had been real.
+
+The people who arrived afterward had been Foundation personnel.
+
+They explained that the world contained things far beyond what ordinary governments and militaries knew about.
+
+They offered Connor a position within Foundation Security.
+
+Connor listened without saying much.
+
+After everything he had experienced, the revelation was almost strangely comforting.
+
+For the first time, the memories that had haunted him had an explanation.
+
+Connor threw his cigarette onto the snow and spat on it before accepting their offer.
+
+He exchanged the necessary information with the recruiters, watching as they disappeared down the snowy street beneath the Christmas lights.
+
+Connor stood there for a moment, thinking about everything that had happened since Ryan McGrie's death.
+
+He had joined the Marines looking for purpose, encountered something impossible, and now the organization responsible for that impossible world was offering him a place inside it.
+
+Before leaving for the Foundation, Connor received a letter that he kept with him.
+
+He didn't talk about the letter often, but he carried it wherever he went, keeping it close as a reminder of the life he had left behind.
+
+After completing specialized Foundation training and receiving the necessary security clearance, Connor was assigned to SCP Site-66 as a member of GENSEC.
+
+The Marines had taught him how to survive combat, follow orders, and protect the people beside him.
+
+The Foundation would teach him something entirely different.
+
+Not every enemy could be understood.
+
+Not every threat followed the laws of nature.
+
+And sometimes the things hiding in the darkness were far worse than anything Connor had already survived.
+
+Connor Redmen had spent his entire life trying to find somewhere he belonged.
+
+Eventually, he found Site-66.`
+
+};
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+    div.textContent =
+        value || "";
+
+    return div.innerHTML;
+
+}
+
+
+/* =====================================================
+   DISPLAY PROFILE
+===================================================== */
+
+function displayProfile(data) {
+
+    const p = {
+        ...defaultProfile,
+        ...data
+    };
+
+
+    document.getElementById(
+        "displayCodename"
+    ).textContent =
+        p.codename.toUpperCase();
+
+
+    document.getElementById(
+        "displayName"
+    ).textContent =
+        p.name.toUpperCase();
+
+
+    document.getElementById(
+        "displayPosition"
+    ).textContent =
+        `${p.occupation.toUpperCase()} // ${p.branch.toUpperCase()}`;
+
+
+    document.getElementById(
+        "displayStatus"
+    ).textContent =
+        `● ${p.status.toUpperCase()} PERSONNEL`;
+
+
+    document.getElementById(
+        "infoName"
+    ).textContent =
+        p.name;
+
+
+    document.getElementById(
+        "infoCodename"
+    ).textContent =
+        p.codename;
+
+
+    document.getElementById(
+        "infoDOB"
+    ).textContent =
+        p.dob;
+
+
+    document.getElementById(
+        "infoBlood"
+    ).textContent =
+        p.blood;
+
+
+    document.getElementById(
+        "infoOccupation"
+    ).textContent =
+        p.occupation;
+
+
+    document.getElementById(
+        "infoBranch"
+    ).textContent =
+        p.branch;
+
+
+    document.getElementById(
+        "infoOrigin"
+    ).textContent =
+        p.origin;
+
+
+    document.getElementById(
+        "infoStatus"
+    ).textContent =
+        p.status;
+
+
+    document.getElementById(
+        "displaySummary"
+    ).innerHTML =
+        escapeHTML(
+            p.summary
+        ).replace(
+            /\n\n/g,
+            "<br><br>"
+        );
+
+
+    document.getElementById(
+        "displayBlood"
+    ).textContent =
+        p.blood;
+
+
+    document.getElementById(
+        "displayDOB"
+    ).textContent =
+        p.dob;
+
+
+    document.getElementById(
+        "displayService"
+    ).textContent =
+        p.service;
+
+
+    document.getElementById(
+        "displayStory"
+    ).textContent =
+        p.story;
+
+
+    buildServiceHistory(
+        p.serviceHistory
+    );
+
+}
+
+
+/* =====================================================
+   BUILD SERVICE HISTORY
+===================================================== */
+
+function buildServiceHistory(text) {
+
+    const container =
+        document.getElementById(
+            "serviceHistory"
+        );
+
+
+    const sections =
+        text
+            .split(/\n(?=[A-Z0-9][A-Z0-9 /.-]*\n)/g);
+
+
+    container.innerHTML = "";
+
+
+    if (
+        !sections.length ||
+        !text.trim()
+    ) {
+
+        container.innerHTML = `
+
+            <div class="timeline-text">
+
+                NO SERVICE HISTORY AVAILABLE.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    sections.forEach(
+        function(section) {
+
+            const lines =
+                section
+                    .trim()
+                    .split("\n");
+
+
+            const date =
+                lines[0] ||
+                "CLASSIFIED";
+
+
+            const title =
+                lines[1] ||
+                "";
+
+
+            const description =
+                lines
+                    .slice(2)
+                    .join(" ");
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "timeline-item";
+
+
+            item.innerHTML = `
+
+                <div class="timeline-date">
+
+                    ${escapeHTML(
+                        date
+                    )}
+
+                </div>
+
+
+                <div class="timeline-title">
+
+                    ${escapeHTML(
+                        title
+                    )}
+
+                </div>
+
+
+                <div class="timeline-text">
+
+                    ${escapeHTML(
+                        description
+                    )}
+
+                </div>
+
+            `;
+
+
+            container.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   REALTIME PROFILE LISTENER
+===================================================== */
+
+onSnapshot(
+
+    profileRef,
+
+    function(snapshot) {
+
+        if (
+            snapshot.exists()
+        ) {
+
+            displayProfile(
+                snapshot.data()
+            );
+
+        } else {
+
+            displayProfile(
+                defaultProfile
+            );
+
+        }
+
+    },
+
+    function(error) {
+
+        console.error(
+            "Firebase profile error:",
+            error
+        );
+
+        displayProfile(
+            defaultProfile
+        );
+
+    }
+
+);
+
+
+/* =====================================================
+   SAVE PROFILE
+===================================================== */
+
+window.saveProfile =
+async function() {
+
+    const message =
+        document.getElementById(
+            "saveMessage"
+        );
+
+
+    const data = {
+
+        name:
+            document.getElementById(
+                "editName"
+            ).value.trim(),
+
+        codename:
+            document.getElementById(
+                "editCodename"
+            ).value.trim(),
+
+        dob:
+            document.getElementById(
+                "editDOB"
+            ).value.trim(),
+
+        blood:
+            document.getElementById(
+                "editBlood"
+            ).value.trim(),
+
+        occupation:
+            document.getElementById(
+                "editOccupation"
+            ).value.trim(),
+
+        branch:
+            document.getElementById(
+                "editBranch"
+            ).value.trim(),
+
+        status:
+            document.getElementById(
+                "editStatus"
+            ).value,
+
+        origin:
+            document.getElementById(
+                "editOrigin"
+            ).value.trim(),
+
+        service:
+            document.getElementById(
+                "editService"
+            ).value.trim(),
+
+        summary:
+            document.getElementById(
+                "editSummary"
+            ).value.trim(),
+
+        serviceHistory:
+            document.getElementById(
+                "editServiceHistory"
+            ).value.trim(),
+
+        story:
+            document.getElementById(
+                "editStory"
+            ).value.trim()
+
+    };
+
+
+    if (!data.name) {
+
+        message.className =
+            "message error";
+
+        message.textContent =
+            "FULL NAME IS REQUIRED.";
+
+        return;
+
+    }
+
+
+    if (!data.codename) {
+
+        message.className =
+            "message error";
+
+        message.textContent =
+            "CODENAME IS REQUIRED.";
+
+        return;
+
+    }
+
+
+    try {
+
+        await setDoc(
+
+            profileRef,
+
+            data
+
+        );
+
+
+        message.className =
+            "message success";
+
+
+        message.textContent =
+            "PROFILE SAVED SUCCESSFULLY.";
+
+
+        setTimeout(
+            function() {
+
+                closeEdit();
+
+            },
+            900
+        );
+
+
+    } catch(error) {
+
+        console.error(
+            "Save error:",
+            error
+        );
+
+
+        message.className =
+            "message error";
+
+
+        message.textContent =
+            "SAVE FAILED. CHECK FIRESTORE RULES.";
+
+    }
+
+};
+
+
+/* =====================================================
+   OPEN EDIT
+===================================================== */
+
+window.openEdit =
+function() {
+
+    const passwordModal =
+        document.getElementById(
+            "passwordModal"
+        );
+
+
+    passwordModal.classList.add(
+        "show"
+    );
+
+
+    document.getElementById(
+        "passwordInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "passwordMessage"
+    ).textContent = "";
+
+
+    document.getElementById(
+        "passwordInput"
+    ).focus();
+
+};
+
+
+/* =====================================================
+   CLOSE PASSWORD
+===================================================== */
+
+window.closePassword =
+function() {
+
+    document.getElementById(
+        "passwordModal"
+    ).classList.remove(
+        "show"
+    );
+
+};
+
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+const EDIT_PASSWORD =
+    "Mercer66";
+
+
+window.checkPassword =
+function() {
+
+    const entered =
+        document.getElementById(
+            "passwordInput"
+        ).value;
+
+
+    const message =
+        document.getElementById(
+            "passwordMessage"
+        );
+
+
+    if (
+        entered !==
+        EDIT_PASSWORD
+    ) {
+
+        message.className =
+            "message error";
+
+
+        message.textContent =
+            "ACCESS DENIED.";
+
+
+        return;
+
+    }
+
+
+    closePassword();
+
+
+    openEditModal();
+
+};
+
+
+/* =====================================================
+   OPEN EDIT MODAL
+===================================================== */
+
+function openEditModal() {
+
+    document.getElementById(
+        "editName"
+    ).value =
+        document.getElementById(
+            "infoName"
+        ).textContent;
+
+
+    document.getElementById(
+        "editCodename"
+    ).value =
+        document.getElementById(
+            "infoCodename"
+        ).textContent;
+
+
+    document.getElementById(
+        "editDOB"
+    ).value =
+        document.getElementById(
+            "infoDOB"
+        ).textContent;
+
+
+    document.getElementById(
+        "editBlood"
+    ).value =
+        document.getElementById(
+            "infoBlood"
+        ).textContent;
+
+
+    document.getElementById(
+        "editOccupation"
+    ).value =
+        document.getElementById(
+            "infoOccupation"
+        ).textContent;
+
+
+    document.getElementById(
+        "editBranch"
+    ).value =
+        document.getElementById(
+            "infoBranch"
+        ).textContent;
+
+
+    document.getElementById(
+        "editStatus"
+    ).value =
+        document.getElementById(
+            "infoStatus"
+        ).textContent;
+
+
+    document.getElementById(
+        "editOrigin"
+    ).value =
+        document.getElementById(
+            "infoOrigin"
+        ).textContent;
+
+
+    document.getElementById(
+        "editService"
+    ).value =
+        document.getElementById(
+            "displayService"
+        ).textContent;
+
+
+    document.getElementById(
+        "editSummary"
+    ).value =
+        document.getElementById(
+            "displaySummary"
+        ).innerText;
+
+
+    document.getElementById(
+        "editStory"
+    ).value =
+        document.getElementById(
+            "displayStory"
+        ).textContent;
+
+
+    const serviceItems =
+        document.querySelectorAll(
+            ".timeline-item"
+        );
+
+
+    let serviceText = "";
+
+
+    serviceItems.forEach(
+        function(item) {
+
+            const date =
+                item.querySelector(
+                    ".timeline-date"
+                )?.textContent.trim() ||
+                "";
+
+
+            const title =
+                item.querySelector(
+                    ".timeline-title"
+                )?.textContent.trim() ||
+                "";
+
+
+            const description =
+                item.querySelector(
+                    ".timeline-text"
+                )?.textContent.trim() ||
+                "";
+
+
+            if (
+                date ||
+                title ||
+                description
+            ) {
+
+                serviceText +=
+                    `${date}\n${title}\n${description}\n\n`;
+
+            }
+
+        }
+    );
+
+
+    document.getElementById(
+        "editServiceHistory"
+    ).value =
+        serviceText.trim();
+
+
+    document.getElementById(
+        "saveMessage"
+    ).textContent = "";
+
+
+    document.getElementById(
+        "editModal"
+    ).classList.add(
+        "show"
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE EDIT
+===================================================== */
+
+window.closeEdit =
+function() {
+
+    document.getElementById(
+        "editModal"
+    ).classList.remove(
+        "show"
+    );
+
+};
+
+
+/* =====================================================
+   ENTER KEY FOR PASSWORD
+===================================================== */
+
+document.getElementById(
+    "passwordInput"
+).addEventListener(
+
+    "keydown",
+
+    function(event) {
+
+        if (
+            event.key ===
+            "Enter"
+        ) {
+
+            checkPassword();
+
+        }
+
+    }
+
+);
+
+
+/* =====================================================
+   CLICK OUTSIDE PASSWORD
+===================================================== */
+
+document.getElementById(
+    "passwordModal"
+).addEventListener(
+
+    "click",
+
+    function(event) {
+
+        if (
+            event.target ===
+            this
+        ) {
+
+            closePassword();
+
+        }
+
+    }
+
+);
+
+
+/* =====================================================
+   CLICK OUTSIDE EDIT
+===================================================== */
+
+document.getElementById(
+    "editModal"
+).addEventListener(
+
+    "click",
+
+    function(event) {
+
+        if (
+            event.target ===
+            this
+        ) {
+
+            closeEdit();
+
+        }
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
