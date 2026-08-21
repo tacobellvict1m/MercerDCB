@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SITE-66 | Relations</title>
@@ -24,7 +23,6 @@ html {
 }
 
 body {
-
     margin: 0;
 
     background:
@@ -38,12 +36,11 @@ body {
     color: white;
 
     font-family: "Courier New", monospace;
-
 }
 
 
 /* =====================================================
-   CRT
+   CRT SCANLINES
 ===================================================== */
 
 body::after {
@@ -68,7 +65,6 @@ body::after {
         );
 
     opacity: 0.35;
-
 }
 
 
@@ -84,7 +80,6 @@ body::after {
 
     box-shadow:
         0 0 20px rgba(22,119,255,0.8);
-
 }
 
 
@@ -112,7 +107,6 @@ header {
         );
 
     border-bottom: 1px solid #193b59;
-
 }
 
 
@@ -123,7 +117,6 @@ header {
     font-size: 22px;
 
     letter-spacing: 4px;
-
 }
 
 
@@ -136,22 +129,22 @@ header {
     font-size: 10px;
 
     letter-spacing: 2px;
-
 }
 
 
 /* =====================================================
-   NAV
+   NAVIGATION
 ===================================================== */
 
 nav {
 
     display: flex;
 
+    align-items: center;
+
     gap: 5px;
 
     flex-wrap: wrap;
-
 }
 
 
@@ -172,7 +165,6 @@ nav a {
     letter-spacing: 2px;
 
     transition: 0.2s;
-
 }
 
 
@@ -180,10 +172,10 @@ nav a:hover {
 
     color: white;
 
-    background: rgba(22,119,255,0.12);
+    background:
+        rgba(22,119,255,0.12);
 
     border-color: #1677ff;
-
 }
 
 
@@ -193,10 +185,9 @@ nav a:hover {
 
 .page-header {
 
-    padding: 65px 7% 45px;
+    padding: 60px 7% 45px;
 
     border-bottom: 1px solid #193b59;
-
 }
 
 
@@ -207,7 +198,6 @@ nav a:hover {
     font-size: 10px;
 
     letter-spacing: 4px;
-
 }
 
 
@@ -218,7 +208,6 @@ nav a:hover {
     font-size: clamp(40px, 7vw, 75px);
 
     letter-spacing: 7px;
-
 }
 
 
@@ -231,12 +220,11 @@ nav a:hover {
     line-height: 1.8;
 
     font-size: 12px;
-
 }
 
 
 /* =====================================================
-   CONTAINER
+   MAIN CONTAINER
 ===================================================== */
 
 .container {
@@ -248,7 +236,6 @@ nav a:hover {
     margin: auto;
 
     padding: 60px 0 100px;
-
 }
 
 
@@ -273,7 +260,6 @@ nav a:hover {
     background: #050b12;
 
     border: 1px solid #193b59;
-
 }
 
 
@@ -284,7 +270,6 @@ nav a:hover {
     font-size: 10px;
 
     letter-spacing: 3px;
-
 }
 
 
@@ -307,7 +292,6 @@ nav a:hover {
     letter-spacing: 2px;
 
     transition: 0.2s;
-
 }
 
 
@@ -317,7 +301,6 @@ nav a:hover {
 
     box-shadow:
         0 0 20px rgba(22,119,255,0.4);
-
 }
 
 
@@ -333,7 +316,6 @@ nav a:hover {
         repeat(auto-fit, minmax(280px, 1fr));
 
     gap: 20px;
-
 }
 
 
@@ -357,7 +339,6 @@ nav a:hover {
     border: 1px solid #193b59;
 
     transition: 0.2s;
-
 }
 
 
@@ -369,7 +350,6 @@ nav a:hover {
 
     box-shadow:
         0 10px 30px rgba(0,0,0,0.4);
-
 }
 
 
@@ -382,7 +362,6 @@ nav a:hover {
     letter-spacing: 3px;
 
     margin-bottom: 12px;
-
 }
 
 
@@ -393,7 +372,6 @@ nav a:hover {
     font-size: 24px;
 
     letter-spacing: 2px;
-
 }
 
 
@@ -404,7 +382,6 @@ nav a:hover {
     color: #718ba2;
 
     font-size: 11px;
-
 }
 
 
@@ -421,12 +398,83 @@ nav a:hover {
     font-size: 10px;
 
     line-height: 1.7;
+}
 
+
+.relation-type {
+
+    margin-top: 15px;
+
+    color: #6f94b5;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
 }
 
 
 /* =====================================================
-   MODAL
+   STATUS COLORS
+===================================================== */
+
+.status-active {
+
+    color: #4cff91;
+
+    font-weight: bold;
+}
+
+
+.status-nonactive {
+
+    color: #9bbbd6;
+
+    font-weight: bold;
+}
+
+
+.status-unknown {
+
+    color: #888888;
+
+    font-weight: bold;
+}
+
+
+.status-deceased {
+
+    color: #ff4d4d;
+
+    font-weight: bold;
+}
+
+
+.status-missing {
+
+    color: #ff9d4d;
+
+    font-weight: bold;
+}
+
+
+.status-retired {
+
+    color: #c59cff;
+
+    font-weight: bold;
+}
+
+
+.status-suspended {
+
+    color: #ffcc4d;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   MODALS
 ===================================================== */
 
 .modal {
@@ -447,14 +495,12 @@ nav a:hover {
 
     background:
         rgba(0,0,0,0.82);
-
 }
 
 
 .modal.show {
 
     display: flex;
-
 }
 
 
@@ -463,6 +509,10 @@ nav a:hover {
     width: 100%;
 
     max-width: 500px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
 
     padding: 35px;
 
@@ -477,7 +527,6 @@ nav a:hover {
 
     box-shadow:
         0 0 40px rgba(22,119,255,0.2);
-
 }
 
 
@@ -488,7 +537,6 @@ nav a:hover {
     font-size: 9px;
 
     letter-spacing: 3px;
-
 }
 
 
@@ -497,12 +545,16 @@ nav a:hover {
     margin: 10px 0 25px;
 
     letter-spacing: 3px;
-
 }
 
 
+/* =====================================================
+   INPUTS
+===================================================== */
+
 input,
-textarea {
+textarea,
+select {
 
     width: 100%;
 
@@ -520,25 +572,66 @@ textarea {
 
     font-family: "Courier New", monospace;
 
+    font-size: 12px;
 }
 
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
 
     border-color: #1677ff;
 
+    box-shadow:
+        0 0 10px rgba(22,119,255,0.15);
+}
+
+
+select {
+
+    color: #9bbbd6;
+
+    cursor: pointer;
+}
+
+
+select option {
+
+    background: #05090f;
+
+    color: white;
 }
 
 
 textarea {
 
-    min-height: 100px;
+    min-height: 110px;
 
     resize: vertical;
-
 }
 
+
+/* =====================================================
+   FIELD LABELS
+===================================================== */
+
+.field-label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #6f94b5;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .modal-buttons {
 
@@ -547,7 +640,6 @@ textarea {
     gap: 10px;
 
     margin-top: 10px;
-
 }
 
 
@@ -562,7 +654,6 @@ textarea {
     font-family: "Courier New", monospace;
 
     letter-spacing: 2px;
-
 }
 
 
@@ -573,7 +664,12 @@ textarea {
     color: white;
 
     border: 1px solid #1677ff;
+}
 
+
+.confirm:hover {
+
+    background: #0d64d8;
 }
 
 
@@ -584,12 +680,19 @@ textarea {
     color: #9bbbd6;
 
     border: 1px solid #193b59;
+}
 
+
+.cancel:hover {
+
+    border-color: #1677ff;
+
+    color: white;
 }
 
 
 /* =====================================================
-   MESSAGE
+   MESSAGES
 ===================================================== */
 
 .message {
@@ -599,21 +702,18 @@ textarea {
     font-size: 10px;
 
     letter-spacing: 1px;
-
 }
 
 
 .error {
 
     color: #ff4d4d;
-
 }
 
 
 .success {
 
     color: #4cff91;
-
 }
 
 
@@ -633,6 +733,7 @@ textarea {
 
     font-size: 11px;
 
+    grid-column: 1 / -1;
 }
 
 
@@ -653,7 +754,6 @@ footer {
     font-size: 9px;
 
     letter-spacing: 2px;
-
 }
 
 
@@ -668,21 +768,26 @@ footer {
         flex-direction: column;
 
         align-items: flex-start;
-
     }
+
 
     .control-bar {
 
         flex-direction: column;
 
         align-items: flex-start;
-
     }
+
 
     .add-button {
 
         width: 100%;
+    }
 
+
+    .modal-box {
+
+        padding: 25px;
     }
 
 }
@@ -695,8 +800,16 @@ footer {
 <body>
 
 
+<!-- =================================================
+     TOP LINE
+================================================= -->
+
 <div class="top-line"></div>
 
+
+<!-- =================================================
+     HEADER
+================================================= -->
 
 <header>
 
@@ -711,22 +824,38 @@ footer {
 
     <nav>
 
-        <a href="home.html">HOME</a>
+        <a href="home.html">
+            HOME
+        </a>
 
-        <a href="personnel.html">PERSONNEL</a>
+        <a href="personnel.html">
+            PERSONNEL
+        </a>
 
-        <a href="records.html">RECORDS</a>
+        <a href="records.html">
+            RECORDS
+        </a>
 
-        <a href="archives.html">ARCHIVES</a>
+        <a href="archives.html">
+            ARCHIVES
+        </a>
 
-        <a href="journal.html">JOURNAL</a>
+        <a href="journal.html">
+            JOURNAL
+        </a>
 
-        <a href="playlist.html">PLAYLIST</a>
+        <a href="playlist.html">
+            PLAYLIST
+        </a>
 
     </nav>
 
 </header>
 
+
+<!-- =================================================
+     PAGE HEADER
+================================================= -->
 
 <section class="page-header">
 
@@ -761,8 +890,16 @@ footer {
 </section>
 
 
+<!-- =================================================
+     MAIN
+================================================= -->
+
 <main class="container">
 
+
+    <!-- =================================================
+         CONTROL BAR
+    ================================================= -->
 
     <div class="control-bar">
 
@@ -774,7 +911,14 @@ footer {
 
             </div>
 
-            <div style="margin-top:8px;color:#526a7c;font-size:10px;">
+
+            <div
+                style="
+                    margin-top:8px;
+                    color:#526a7c;
+                    font-size:10px;
+                "
+            >
 
                 Authorized personnel may add entries.
 
@@ -795,6 +939,10 @@ footer {
     </div>
 
 
+    <!-- =================================================
+         RELATION CARDS
+    ================================================= -->
+
     <div
         id="relations"
         class="relations-grid"
@@ -811,6 +959,10 @@ footer {
 
 </main>
 
+
+<!-- =================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -830,7 +982,7 @@ footer {
 
 <!-- =================================================
      PASSWORD MODAL
-================================================= -->
+===================================================== -->
 
 <div
     id="passwordModal"
@@ -896,7 +1048,7 @@ footer {
 
 <!-- =================================================
      ADD RELATION MODAL
-================================================= -->
+===================================================== -->
 
 <div
     id="addModal"
@@ -920,37 +1072,292 @@ footer {
         </h2>
 
 
+        <!-- NAME -->
+
+        <label class="field-label">
+
+            PERSON / ORGANIZATION
+
+        </label>
+
+
         <input
             id="name"
             type="text"
-            placeholder="PERSON / ORGANIZATION"
+            placeholder="ENTER NAME"
         >
 
 
-        <input
-            id="branch"
-            type="text"
-            placeholder="BRANCH"
-        >
+        <!-- BRANCH -->
+
+        <label class="field-label">
+
+            BRANCH
+
+        </label>
+
+
+        <select id="branch">
+
+            <option value="">
+
+                SELECT BRANCH
+
+            </option>
+
+
+            <option value="GENSEC">
+
+                GENSEC
+
+            </option>
+
+
+            <option value="Internal Affairs">
+
+                INTERNAL AFFAIRS
+
+            </option>
+
+
+            <option value="XI-8">
+
+                XI-8
+
+            </option>
+
+
+            <option value="Nu-7">
+
+                NU-7
+
+            </option>
+
+
+            <option value="Medical">
+
+                MEDICAL
+
+            </option>
+
+
+            <option value="Research">
+
+                RESEARCH
+
+            </option>
+
+
+            <option value="Site Staff">
+
+                SITE STAFF
+
+            </option>
+
+
+            <option value="Site Command">
+
+                SITE COMMAND
+
+            </option>
+
+
+            <option value="NTF">
+
+                NTF
+
+            </option>
+
+
+            <option value="Other">
+
+                OTHER
+
+            </option>
+
+        </select>
+
+
+        <!-- RANK -->
+
+        <label class="field-label">
+
+            RANK / POSITION
+
+        </label>
 
 
         <input
             id="rank"
             type="text"
-            placeholder="RANK / POSITION"
+            placeholder="ENTER RANK OR POSITION"
         >
 
 
-        <input
-            id="status"
-            type="text"
-            placeholder="RELATIONSHIP"
-        >
+        <!-- RELATION TYPE -->
+
+        <label class="field-label">
+
+            RELATION TO MERCER
+
+        </label>
+
+
+        <select id="relationType">
+
+            <option value="">
+
+                SELECT RELATION
+
+            </option>
+
+
+            <option value="Friend">
+
+                FRIEND
+
+            </option>
+
+
+            <option value="Coworker">
+
+                COWORKER
+
+            </option>
+
+
+            <option value="Superior">
+
+                SUPERIOR
+
+            </option>
+
+
+            <option value="Subordinate">
+
+                SUBORDINATE
+
+            </option>
+
+
+            <option value="Family">
+
+                FAMILY
+
+            </option>
+
+
+            <option value="Acquaintance">
+
+                ACQUAINTANCE
+
+            </option>
+
+
+            <option value="Rival">
+
+                RIVAL
+
+            </option>
+
+
+            <option value="Unknown">
+
+                UNKNOWN
+
+            </option>
+
+
+            <option value="Other">
+
+                OTHER
+
+            </option>
+
+        </select>
+
+
+        <!-- STATUS -->
+
+        <label class="field-label">
+
+            PERSONNEL STATUS
+
+        </label>
+
+
+        <select id="status">
+
+            <option value="">
+
+                SELECT STATUS
+
+            </option>
+
+
+            <option value="ACTIVE">
+
+                ACTIVE
+
+            </option>
+
+
+            <option value="NON-ACTIVE">
+
+                NON-ACTIVE
+
+            </option>
+
+
+            <option value="UNKNOWN">
+
+                UNKNOWN
+
+            </option>
+
+
+            <option value="DECEASED">
+
+                DECEASED
+
+            </option>
+
+
+            <option value="MISSING">
+
+                MISSING
+
+            </option>
+
+
+            <option value="RETIRED">
+
+                RETIRED
+
+            </option>
+
+
+            <option value="SUSPENDED">
+
+                SUSPENDED
+
+            </option>
+
+        </select>
+
+
+        <!-- NOTES -->
+
+        <label class="field-label">
+
+            NOTES
+
+        </label>
 
 
         <textarea
             id="notes"
-            placeholder="NOTES"
+            placeholder="ENTER ADDITIONAL INFORMATION"
         ></textarea>
 
 
@@ -990,13 +1397,14 @@ footer {
 
 <!-- =================================================
      FIREBASE
-================================================= -->
+===================================================== -->
 
 <script type="module">
 
 import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 
 import {
     getFirestore,
@@ -1008,7 +1416,7 @@ import {
 
 
 /* =================================================
-   FIREBASE CONFIG
+   FIREBASE CONFIGURATION
 ================================================= */
 
 const firebaseConfig = {
@@ -1039,19 +1447,19 @@ const firebaseConfig = {
 
 /* =================================================
    INITIALIZE FIREBASE
-================================================= */
+===================================================== */
 
 const app =
-    initializeApp(firebaseConfig);
+    initializeApp(
+        firebaseConfig
+    );
 
 
 const db =
-    getFirestore(app);
+    getFirestore(
+        app
+    );
 
-
-/* =================================================
-   RELATIONS COLLECTION
-================================================= */
 
 const relationsCollection =
     collection(
@@ -1061,10 +1469,82 @@ const relationsCollection =
 
 
 /* =================================================
+   STATUS CLASS
+===================================================== */
+
+function getStatusClass(status) {
+
+    switch (
+        String(status)
+            .toUpperCase()
+            .replace(" ", "")
+    ) {
+
+        case "ACTIVE":
+
+            return "status-active";
+
+
+        case "NON-ACTIVE":
+        case "NONACTIVE":
+
+            return "status-nonactive";
+
+
+        case "DECEASED":
+
+            return "status-deceased";
+
+
+        case "MISSING":
+
+            return "status-missing";
+
+
+        case "RETIRED":
+
+            return "status-retired";
+
+
+        case "SUSPENDED":
+
+            return "status-suspended";
+
+
+        default:
+
+            return "status-unknown";
+
+    }
+
+}
+
+
+/* =================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+    div.textContent =
+        text || "";
+
+    return div.innerHTML;
+
+}
+
+
+/* =================================================
    DISPLAY RELATIONS
-================================================= */
+===================================================== */
 
 onSnapshot(
+
     relationsCollection,
 
     function(snapshot) {
@@ -1101,6 +1581,17 @@ onSnapshot(
 
                 const data =
                     doc.data();
+
+
+                const status =
+                    data.status ||
+                    "UNKNOWN";
+
+
+                const statusClass =
+                    getStatusClass(
+                        status
+                    );
 
 
                 const card =
@@ -1149,16 +1640,36 @@ onSnapshot(
 
                         <strong>
 
+                            STATUS:
+
+                        </strong>
+
+                        <span class="${statusClass}">
+
+                            ${escapeHTML(
+                                status
+                            )}
+
+                        </span>
+
+
+                        <br><br>
+
+
+                        <strong>
+
                             RELATION:
 
                         </strong>
 
                         ${escapeHTML(
-                            data.status ||
+                            data.relationType ||
                             "UNSPECIFIED"
                         )}
 
+
                         <br><br>
+
 
                         ${escapeHTML(
                             data.notes ||
@@ -1197,8 +1708,7 @@ onSnapshot(
 
                 <br><br>
 
-                Check your Firebase
-                Firestore rules.
+                CHECK FIRESTORE RULES.
 
             </div>
 
@@ -1211,38 +1721,60 @@ onSnapshot(
 
 /* =================================================
    ADD RELATION
-================================================= */
+===================================================== */
 
-window.addRelation = async function() {
+window.addRelation =
+async function() {
 
     const name =
-        document.getElementById(
-            "name"
-        ).value.trim();
+        document
+            .getElementById(
+                "name"
+            )
+            .value
+            .trim();
 
 
     const branch =
-        document.getElementById(
-            "branch"
-        ).value.trim();
+        document
+            .getElementById(
+                "branch"
+            )
+            .value;
 
 
     const rank =
-        document.getElementById(
-            "rank"
-        ).value.trim();
+        document
+            .getElementById(
+                "rank"
+            )
+            .value
+            .trim();
+
+
+    const relationType =
+        document
+            .getElementById(
+                "relationType"
+            )
+            .value;
 
 
     const status =
-        document.getElementById(
-            "status"
-        ).value.trim();
+        document
+            .getElementById(
+                "status"
+            )
+            .value;
 
 
     const notes =
-        document.getElementById(
-            "notes"
-        ).value.trim();
+        document
+            .getElementById(
+                "notes"
+            )
+            .value
+            .trim();
 
 
     const message =
@@ -1264,35 +1796,75 @@ window.addRelation = async function() {
     }
 
 
+    if (!branch) {
+
+        message.className =
+            "message error";
+
+        message.textContent =
+            "PLEASE SELECT A BRANCH.";
+
+        return;
+
+    }
+
+
+    if (!status) {
+
+        message.className =
+            "message error";
+
+        message.textContent =
+            "PLEASE SELECT A STATUS.";
+
+        return;
+
+    }
+
+
     try {
 
         await addDoc(
+
             relationsCollection,
+
             {
 
-                name: name,
+                name:
+                    name,
 
-                branch: branch,
+                branch:
+                    branch,
 
-                rank: rank,
+                rank:
+                    rank,
 
-                status: status,
+                relationType:
+                    relationType,
 
-                notes: notes,
+                status:
+                    status,
+
+                notes:
+                    notes,
 
                 createdAt:
                     serverTimestamp()
 
             }
+
         );
 
 
         message.className =
             "message success";
 
+
         message.textContent =
             "RELATION SAVED.";
 
+
+        /* CLEAR FORM */
 
         document.getElementById(
             "name"
@@ -1310,6 +1882,11 @@ window.addRelation = async function() {
 
 
         document.getElementById(
+            "relationType"
+        ).value = "";
+
+
+        document.getElementById(
             "status"
         ).value = "";
 
@@ -1320,12 +1897,15 @@ window.addRelation = async function() {
 
 
         setTimeout(
+
             function() {
 
                 closeAdd();
 
             },
-            1000
+
+            900
+
         );
 
 
@@ -1339,6 +1919,7 @@ window.addRelation = async function() {
         message.className =
             "message error";
 
+
         message.textContent =
             "DATABASE ERROR. CHECK FIRESTORE RULES.";
 
@@ -1346,54 +1927,28 @@ window.addRelation = async function() {
 
 };
 
-
-/* =================================================
-   ESCAPE HTML
-================================================= */
-
-function escapeHTML(text) {
-
-    const div =
-        document.createElement(
-            "div"
-        );
-
-    div.textContent =
-        text;
-
-    return div.innerHTML;
-
-}
-
 </script>
 
 
 <!-- =================================================
-     PASSWORD / MODAL JAVASCRIPT
-================================================= -->
+     PASSWORD SYSTEM
+===================================================== -->
 
 <script>
 
 /*
 =====================================================
-CHANGE YOUR PASSWORD HERE
-=====================================================
-
-Example:
-
-const ADD_PASSWORD = "Mercer66";
-
-Change it to whatever you want.
-
-REMEMBER:
-This is only a simple website password.
-It is NOT a secure administrator login.
+CHANGE PASSWORD HERE
 =====================================================
 */
 
 const ADD_PASSWORD =
-    "Mercer123";
+    "Mercer66";
 
+
+/* =================================================
+   OPEN PASSWORD
+===================================================== */
 
 function openPassword() {
 
@@ -1414,6 +1969,10 @@ function openPassword() {
 
 }
 
+
+/* =================================================
+   CLOSE PASSWORD
+===================================================== */
 
 function closePassword() {
 
@@ -1441,6 +2000,10 @@ function closePassword() {
 
 }
 
+
+/* =================================================
+   CHECK PASSWORD
+===================================================== */
 
 function checkPassword() {
 
@@ -1482,6 +2045,7 @@ function checkPassword() {
         message.className =
             "message error";
 
+
         message.textContent =
             "ACCESS DENIED.";
 
@@ -1489,6 +2053,10 @@ function checkPassword() {
 
 }
 
+
+/* =================================================
+   CLOSE ADD FORM
+===================================================== */
 
 function closeAdd() {
 
@@ -1510,12 +2078,18 @@ function closeAdd() {
 }
 
 
+/* =================================================
+   ENTER KEY FOR PASSWORD
+===================================================== */
+
 document
     .getElementById(
         "passwordInput"
     )
     .addEventListener(
+
         "keydown",
+
         function(event) {
 
             if (
@@ -1528,17 +2102,22 @@ document
             }
 
         }
+
     );
 
 
-/* Close when clicking outside */
+/* =================================================
+   CLICK OUTSIDE PASSWORD
+===================================================== */
 
 document
     .getElementById(
         "passwordModal"
     )
     .addEventListener(
+
         "click",
+
         function(event) {
 
             if (
@@ -1551,15 +2130,22 @@ document
             }
 
         }
+
     );
 
+
+/* =================================================
+   CLICK OUTSIDE ADD FORM
+===================================================== */
 
 document
     .getElementById(
         "addModal"
     )
     .addEventListener(
+
         "click",
+
         function(event) {
 
             if (
@@ -1572,6 +2158,7 @@ document
             }
 
         }
+
     );
 
 </script>
