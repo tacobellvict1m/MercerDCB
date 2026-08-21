@@ -1491,6 +1491,10 @@ const relationsCollection =
 
 let deleteRelationID = null;
 
+window.setDeleteRelationID = function(id) {
+    deleteRelationID = id;
+};
+
 
 /* =====================================================
    STATUS CLASS
@@ -2337,41 +2341,37 @@ function() {
        DELETE
     ============================= */
 
-    if (
-        passwordAction ===
-        "delete"
-    ) {
+if (
+    passwordAction ===
+    "delete"
+) {
 
-        deleteRelationID =
-            passwordDeleteID;
+    window.setDeleteRelationID(
+        passwordDeleteID
+    );
 
+    document
+        .getElementById(
+            "deleteName"
+        )
+        .textContent =
+        passwordDeleteName;
 
-        document
-            .getElementById(
-                "deleteName"
-            )
-            .textContent =
-            passwordDeleteName;
+    document
+        .getElementById(
+            "deleteMessage"
+        )
+        .textContent = "";
 
+    document
+        .getElementById(
+            "deleteModal"
+        )
+        .classList.add(
+            "show"
+        );
 
-        document
-            .getElementById(
-                "deleteMessage"
-            )
-            .textContent = "";
-
-
-        document
-            .getElementById(
-                "deleteModal"
-            )
-            .classList.add(
-                "show"
-            );
-
-    }
-
-};
+}
 
 
 /* =====================================================
