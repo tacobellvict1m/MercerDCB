@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +7,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SITE-66 | Relations</title>
+<title>SITE-66 | Relations Database</title>
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
     box-sizing: border-box;
@@ -19,7 +24,6 @@ html {
 }
 
 body {
-
     margin: 0;
 
     background:
@@ -33,15 +37,16 @@ body {
     color: white;
 
     font-family: "Courier New", monospace;
+
+    min-height: 100vh;
 }
 
 
 /* =====================================================
-   CRT
+   CRT SCANLINES
 ===================================================== */
 
 body::after {
-
     content: "";
 
     position: fixed;
@@ -70,7 +75,6 @@ body::after {
 ===================================================== */
 
 .top-line {
-
     height: 4px;
 
     background: #1677ff;
@@ -85,8 +89,7 @@ body::after {
 ===================================================== */
 
 header {
-
-    padding: 25px 7%;
+    padding: 22px 7%;
 
     display: flex;
 
@@ -108,7 +111,6 @@ header {
 
 
 .site-name h1 {
-
     margin: 0;
 
     font-size: 22px;
@@ -118,38 +120,33 @@ header {
 
 
 .site-name p {
-
     margin: 7px 0 0;
 
     color: #6f94b5;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 2px;
 }
 
 
 /* =====================================================
-   NAV
+   NAVIGATION
 ===================================================== */
 
 nav {
-
     display: flex;
 
-    align-items: center;
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
 
     gap: 5px;
-
-    flex-wrap: wrap;
 }
 
 
 nav a {
-
-    display: block;
-
-    padding: 10px 14px;
+    padding: 9px 12px;
 
     color: #9bbbd6;
 
@@ -157,7 +154,7 @@ nav a {
 
     border: 1px solid transparent;
 
-    font-size: 11px;
+    font-size: 10px;
 
     letter-spacing: 2px;
 
@@ -166,7 +163,6 @@ nav a {
 
 
 nav a:hover {
-
     color: white;
 
     background:
@@ -181,15 +177,19 @@ nav a:hover {
 ===================================================== */
 
 .page-header {
+    width: 86%;
 
-    padding: 60px 7% 45px;
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 65px 0 40px;
 
     border-bottom: 1px solid #193b59;
 }
 
 
 .page-label {
-
     color: #4c9ddd;
 
     font-size: 10px;
@@ -199,24 +199,22 @@ nav a:hover {
 
 
 .page-header h1 {
-
-    margin: 12px 0;
+    margin: 15px 0;
 
     font-size: clamp(40px, 7vw, 75px);
 
-    letter-spacing: 7px;
+    letter-spacing: 6px;
 }
 
 
 .page-header p {
-
     color: #8199ad;
 
     max-width: 750px;
 
-    line-height: 1.8;
+    font-size: 11px;
 
-    font-size: 12px;
+    line-height: 1.8;
 }
 
 
@@ -225,23 +223,21 @@ nav a:hover {
 ===================================================== */
 
 .container {
-
     width: 86%;
 
-    max-width: 1100px;
+    max-width: 1200px;
 
     margin: auto;
 
-    padding: 60px 0 100px;
+    padding: 45px 0 100px;
 }
 
 
 /* =====================================================
-   CONTROL BAR
+   DATABASE BAR
 ===================================================== */
 
-.control-bar {
-
+.database-bar {
     display: flex;
 
     justify-content: space-between;
@@ -250,9 +246,9 @@ nav a:hover {
 
     gap: 20px;
 
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 
-    padding: 20px;
+    padding: 18px 20px;
 
     background: #050b12;
 
@@ -260,44 +256,50 @@ nav a:hover {
 }
 
 
-.control-title {
+.database-status {
+    color: #71879a;
 
-    color: #6f94b5;
+    font-size: 9px;
 
-    font-size: 10px;
-
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 
+.database-status span {
+    color: #32d46b;
+}
+
+
+/* =====================================================
+   ADD BUTTON
+===================================================== */
+
 .add-button {
-
-    padding: 13px 22px;
-
-    background: #07111d;
-
-    color: white;
+    padding: 12px 18px;
 
     border: 1px solid #1677ff;
 
-    cursor: pointer;
+    background: rgba(22,119,255,0.08);
+
+    color: white;
 
     font-family: "Courier New", monospace;
 
-    font-size: 11px;
+    font-size: 9px;
 
     letter-spacing: 2px;
+
+    cursor: pointer;
 
     transition: 0.2s;
 }
 
 
 .add-button:hover {
-
     background: #1677ff;
 
     box-shadow:
-        0 0 20px rgba(22,119,255,0.4);
+        0 0 20px rgba(22,119,255,0.25);
 }
 
 
@@ -305,14 +307,13 @@ nav a:hover {
    RELATIONS GRID
 ===================================================== */
 
-.relations-grid {
-
+#relations {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(280px, 1fr));
+        repeat(2, 1fr);
 
-    gap: 20px;
+    gap: 15px;
 }
 
 
@@ -321,10 +322,9 @@ nav a:hover {
 ===================================================== */
 
 .relation {
-
     position: relative;
 
-    padding: 28px;
+    padding: 25px;
 
     background:
         linear-gradient(
@@ -340,30 +340,31 @@ nav a:hover {
 
 
 .relation:hover {
-
     border-color: #1677ff;
 
-    transform: translateY(-3px);
-
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.4);
+        0 0 25px rgba(22,119,255,0.06);
 }
 
 
 .relation-branch {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    padding: 6px 9px;
 
     color: #4c9ddd;
 
-    font-size: 9px;
+    border: 1px solid #193b59;
 
-    letter-spacing: 3px;
+    font-size: 8px;
 
-    margin-bottom: 12px;
+    letter-spacing: 2px;
 }
 
 
 .relation-name {
-
     margin: 0;
 
     font-size: 24px;
@@ -373,22 +374,18 @@ nav a:hover {
 
 
 .relation-rank {
-
     margin-top: 8px;
 
-    color: #718ba2;
+    color: #71879a;
 
-    font-size: 11px;
+    font-size: 10px;
+
+    letter-spacing: 1px;
 }
 
 
 .relation-status {
-
     margin-top: 20px;
-
-    padding-top: 15px;
-
-    border-top: 1px solid #193b59;
 
     color: #9bbbd6;
 
@@ -398,75 +395,57 @@ nav a:hover {
 }
 
 
-.relation-type {
+/* =====================================================
+   STATUS COLORS
+===================================================== */
 
-    margin-top: 15px;
+.relation-status span {
+    display: inline-block;
 
-    color: #6f94b5;
+    margin-left: 5px;
 
-    font-size: 10px;
+    padding: 3px 7px;
+
+    border: 1px solid currentColor;
+
+    font-size: 8px;
 
     letter-spacing: 1px;
 }
 
 
-/* =====================================================
-   STATUS COLORS
-===================================================== */
-
 .status-active {
-
-    color: #4cff91;
-
-    font-weight: bold;
+    color: #32d46b;
 }
 
 
 .status-nonactive {
-
-    color: #9bbbd6;
-
-    font-weight: bold;
-}
-
-
-.status-unknown {
-
-    color: #888888;
-
-    font-weight: bold;
+    color: #d6a832;
 }
 
 
 .status-deceased {
-
-    color: #ff4d4d;
-
-    font-weight: bold;
+    color: #d64a4a;
 }
 
 
 .status-missing {
-
-    color: #ff9d4d;
-
-    font-weight: bold;
+    color: #b84aff;
 }
 
 
 .status-retired {
-
-    color: #c59cff;
-
-    font-weight: bold;
+    color: #71879a;
 }
 
 
 .status-suspended {
+    color: #ff7b38;
+}
 
-    color: #ffcc4d;
 
-    font-weight: bold;
+.status-unknown {
+    color: #9bbbd6;
 }
 
 
@@ -475,41 +454,92 @@ nav a:hover {
 ===================================================== */
 
 .delete-button {
-
     width: 100%;
 
-    margin-top: 22px;
+    margin-top: 25px;
 
-    padding: 11px;
+    padding: 10px;
 
     background: transparent;
 
-    color: #ff5555;
+    color: #d64a4a;
 
-    border: 1px solid #552222;
-
-    cursor: pointer;
+    border: 1px solid #542b2b;
 
     font-family: "Courier New", monospace;
 
-    font-size: 10px;
+    font-size: 8px;
 
     letter-spacing: 2px;
+
+    cursor: pointer;
 
     transition: 0.2s;
 }
 
 
 .delete-button:hover {
+    background: rgba(214,74,74,0.1);
 
-    background: #ff3333;
+    border-color: #d64a4a;
+}
 
-    color: white;
 
-    border-color: #ff3333;
+/* =====================================================
+   EMPTY DATABASE
+===================================================== */
 
-    box-shadow:
-        0 0 15px rgba(255,50,50,0.25);
+.empty {
+    grid-column: 1 / -1;
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    color: #526a7c;
+
+    border: 1px solid #193b59;
+
+    background: #050b12;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.message {
+    margin-top: 15px;
+
+    padding: 10px;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+.message.error {
+    color: #ff6464;
+
+    border: 1px solid #542b2b;
+
+    background: rgba(214,74,74,0.08);
+}
+
+
+.message.success {
+    color: #32d46b;
+
+    border: 1px solid #245b38;
+
+    background: rgba(50,212,107,0.08);
 }
 
 
@@ -518,7 +548,6 @@ nav a:hover {
 ===================================================== */
 
 .modal {
-
     position: fixed;
 
     inset: 0;
@@ -539,81 +568,65 @@ nav a:hover {
 
 
 .modal.show {
-
     display: flex;
 }
 
 
 .modal-box {
-
     width: 100%;
 
-    max-width: 500px;
+    max-width: 520px;
 
-    max-height: 90vh;
-
-    overflow-y: auto;
-
-    padding: 35px;
+    padding: 30px;
 
     background:
         linear-gradient(
             145deg,
-            #0b1624,
+            #0a1623,
             #03070c
         );
 
-    border: 1px solid #1677ff;
+    border: 1px solid #193b59;
 
     box-shadow:
-        0 0 40px rgba(22,119,255,0.2);
-}
-
-
-.delete-box {
-
-    border-color: #ff3333;
-
-    box-shadow:
-        0 0 40px rgba(255,50,50,0.15);
-}
-
-
-.modal-label {
-
-    color: #4c9ddd;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-}
-
-
-.delete-box .modal-label {
-
-    color: #ff5555;
+        0 0 50px rgba(0,0,0,0.8);
 }
 
 
 .modal-box h2 {
+    margin: 0 0 20px;
 
-    margin: 10px 0 25px;
+    color: white;
+
+    font-size: 22px;
 
     letter-spacing: 3px;
 }
 
 
-input,
-textarea,
-select {
+.modal-label {
+    display: block;
 
+    margin-bottom: 8px;
+
+    color: #4c9ddd;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+.modal-input,
+.modal-select,
+.modal-textarea {
     width: 100%;
+
+    padding: 12px;
 
     margin-bottom: 15px;
 
-    padding: 13px;
-
-    background: #020509;
+    background: #02060a;
 
     color: white;
 
@@ -623,184 +636,113 @@ select {
 
     font-family: "Courier New", monospace;
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
 
-input:focus,
-textarea:focus,
-select:focus {
-
+.modal-input:focus,
+.modal-select:focus,
+.modal-textarea:focus {
     border-color: #1677ff;
 
     box-shadow:
-        0 0 10px rgba(22,119,255,0.15);
+        0 0 10px rgba(22,119,255,0.12);
 }
 
 
-select {
-
-    color: #9bbbd6;
-
-    cursor: pointer;
-}
-
-
-select option {
-
-    background: #05090f;
-
-    color: white;
-}
-
-
-textarea {
-
-    min-height: 110px;
+.modal-textarea {
+    min-height: 100px;
 
     resize: vertical;
 }
 
 
-/* =====================================================
-   LABELS
-===================================================== */
-
-.field-label {
-
-    display: block;
-
-    margin-bottom: 7px;
-
-    color: #6f94b5;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-}
-
-
-/* =====================================================
-   BUTTONS
-===================================================== */
-
 .modal-buttons {
-
     display: flex;
 
     gap: 10px;
 
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 
 .modal-buttons button {
-
     flex: 1;
 
-    padding: 13px;
-
-    cursor: pointer;
+    padding: 12px;
 
     font-family: "Courier New", monospace;
 
+    font-size: 9px;
+
     letter-spacing: 2px;
+
+    cursor: pointer;
 }
 
 
-.confirm {
+.save {
+    color: white;
 
     background: #1677ff;
-
-    color: white;
 
     border: 1px solid #1677ff;
 }
 
 
-.confirm:hover {
-
-    background: #0d64d8;
-}
-
-
-.delete-confirm {
-
-    background: #d72b2b;
-
-    color: white;
-
-    border: 1px solid #ff3333;
-}
-
-
-.delete-confirm:hover {
-
-    background: #ff3333;
-}
-
-
 .cancel {
+    color: #9bbbd6;
 
     background: transparent;
-
-    color: #9bbbd6;
 
     border: 1px solid #193b59;
 }
 
 
 .cancel:hover {
-
-    border-color: #1677ff;
-
-    color: white;
+    border-color: #71879a;
 }
 
 
 /* =====================================================
-   MESSAGES
+   DELETE CONFIRM BUTTON
 ===================================================== */
 
-.message {
+.delete-confirm {
+    color: white;
 
-    margin-top: 15px;
+    background: #8f2222;
+
+    border: 1px solid #d64a4a;
+}
+
+
+.delete-confirm:hover {
+    background: #b52d2d;
+}
+
+
+/* =====================================================
+   PASSWORD MODAL
+===================================================== */
+
+.password-warning {
+    color: #71879a;
 
     font-size: 10px;
 
-    letter-spacing: 1px;
+    line-height: 1.8;
+
+    margin-bottom: 20px;
 }
 
 
-.error {
+.lock-icon {
+    color: #1677ff;
 
-    color: #ff4d4d;
-}
+    font-size: 30px;
 
-
-.success {
-
-    color: #4cff91;
-}
-
-
-/* =====================================================
-   EMPTY
-===================================================== */
-
-.empty {
-
-    padding: 50px;
-
-    text-align: center;
-
-    border: 1px dashed #193b59;
-
-    color: #526a7c;
-
-    font-size: 11px;
-
-    grid-column: 1 / -1;
+    margin-bottom: 15px;
 }
 
 
@@ -809,7 +751,6 @@ textarea {
 ===================================================== */
 
 footer {
-
     padding: 40px 7%;
 
     background: #020407;
@@ -821,6 +762,8 @@ footer {
     font-size: 9px;
 
     letter-spacing: 2px;
+
+    line-height: 1.7;
 }
 
 
@@ -828,33 +771,45 @@ footer {
    MOBILE
 ===================================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 850px) {
 
     header {
-
         flex-direction: column;
 
         align-items: flex-start;
     }
 
+    nav {
+        justify-content: flex-start;
+    }
 
-    .control-bar {
+    #relations {
+        grid-template-columns: 1fr;
+    }
 
+    .database-bar {
         flex-direction: column;
 
         align-items: flex-start;
     }
 
+}
 
-    .add-button {
 
-        width: 100%;
+@media (max-width: 500px) {
+
+    .page-header h1 {
+        font-size: 38px;
+
+        letter-spacing: 3px;
     }
 
+    .container {
+        width: 92%;
+    }
 
-    .modal-box {
-
-        padding: 25px;
+    .page-header {
+        width: 92%;
     }
 
 }
@@ -899,6 +854,10 @@ footer {
 
         <a href="playlist.html">PLAYLIST</a>
 
+        <a href="relations.html">RELATIONS</a>
+
+        <a href="profile.html">PROFILE</a>
+
     </nav>
 
 </header>
@@ -929,12 +888,15 @@ footer {
     <p>
 
         Personnel and organizational relationships
-        associated with Connor Redmen.
+        associated with Connor Redmen, codename
+        "Mercer."
 
         <br><br>
 
-        Classification:
-        PERSONNEL / RELATIONAL DATABASE
+        DATABASE STATUS:
+        <strong style="color:#32d46b;">
+            ONLINE
+        </strong>
 
     </p>
 
@@ -948,28 +910,17 @@ footer {
 <main class="container">
 
 
-    <div class="control-bar">
+    <div class="database-bar">
 
-        <div>
+        <div class="database-status">
 
-            <div class="control-title">
+            FIRESTORE DATABASE //
 
-                RELATIONAL DATABASE
+            <span>CONNECTED</span>
 
-            </div>
+            //
 
-
-            <div
-                style="
-                    margin-top:8px;
-                    color:#526a7c;
-                    font-size:10px;
-                "
-            >
-
-                Authorized personnel may add or remove entries.
-
-            </div>
+            RELATIONS COLLECTION
 
         </div>
 
@@ -986,14 +937,15 @@ footer {
     </div>
 
 
-    <div
-        id="relations"
-        class="relations-grid"
-    >
+    <!-- =================================================
+         RELATIONS
+    ================================================== -->
+
+    <div id="relations">
 
         <div class="empty">
 
-            LOADING RELATIONS...
+            CONNECTING TO DATABASE...
 
         </div>
 
@@ -1004,39 +956,20 @@ footer {
 
 
 <!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    SITE-66 FOUNDATION DATABASE
-
-    <br><br>
-
-    RELATIONAL DATABASE //
-    MERCER
-
-    <br><br>
-
-    UNAUTHORIZED ACCESS IS PROHIBITED.
-
-</footer>
-
-
-<!-- =====================================================
      PASSWORD MODAL
 ===================================================== -->
 
 <div
-    id="passwordModal"
     class="modal"
+    id="passwordModal"
 >
 
     <div class="modal-box">
 
-        <div class="modal-label">
 
-            FOUNDATION AUTHORIZATION
+        <div class="lock-icon">
+
+            🔒
 
         </div>
 
@@ -1048,10 +981,35 @@ footer {
         </h2>
 
 
+        <p class="password-warning">
+
+            Administrative access is required to
+            modify the Site-66 Relations Database.
+
+            <br><br>
+
+            Enter the authorization password
+            to continue.
+
+        </p>
+
+
+        <label
+            class="modal-label"
+            for="passwordInput"
+        >
+
+            PASSWORD
+
+        </label>
+
+
         <input
             type="password"
             id="passwordInput"
+            class="modal-input"
             placeholder="ENTER PASSWORD"
+            autocomplete="off"
         >
 
 
@@ -1064,11 +1022,11 @@ footer {
         <div class="modal-buttons">
 
             <button
-                class="confirm"
+                class="save"
                 onclick="checkPassword()"
             >
 
-                AUTHENTICATE
+                AUTHORIZE
 
             </button>
 
@@ -1094,18 +1052,11 @@ footer {
 ===================================================== -->
 
 <div
-    id="addModal"
     class="modal"
+    id="addModal"
 >
 
     <div class="modal-box">
-
-        <div class="modal-label">
-
-            SITE-66 //
-            RELATIONAL DATABASE
-
-        </div>
 
 
         <h2>
@@ -1115,7 +1066,10 @@ footer {
         </h2>
 
 
-        <label class="field-label">
+        <label
+            class="modal-label"
+            for="name"
+        >
 
             PERSON / ORGANIZATION
 
@@ -1124,19 +1078,26 @@ footer {
 
         <input
             id="name"
+            class="modal-input"
             type="text"
             placeholder="ENTER NAME"
         >
 
 
-        <label class="field-label">
+        <label
+            class="modal-label"
+            for="branch"
+        >
 
             BRANCH
 
         </label>
 
 
-        <select id="branch">
+        <select
+            id="branch"
+            class="modal-select"
+        >
 
             <option value="">
                 SELECT BRANCH
@@ -1185,7 +1146,10 @@ footer {
         </select>
 
 
-        <label class="field-label">
+        <label
+            class="modal-label"
+            for="rank"
+        >
 
             RANK / POSITION
 
@@ -1194,19 +1158,26 @@ footer {
 
         <input
             id="rank"
+            class="modal-input"
             type="text"
             placeholder="ENTER RANK OR POSITION"
         >
 
 
-        <label class="field-label">
+        <label
+            class="modal-label"
+            for="relationType"
+        >
 
-            RELATION TO MERCER
+            RELATION
 
         </label>
 
 
-        <select id="relationType">
+        <select
+            id="relationType"
+            class="modal-select"
+        >
 
             <option value="">
                 SELECT RELATION
@@ -1216,12 +1187,16 @@ footer {
                 FRIEND
             </option>
 
+            <option value="Close Friend">
+                CLOSE FRIEND
+            </option>
+
             <option value="Coworker">
                 COWORKER
             </option>
 
-            <option value="Superior">
-                SUPERIOR
+            <option value="Supervisor">
+                SUPERVISOR
             </option>
 
             <option value="Subordinate">
@@ -1234,6 +1209,10 @@ footer {
 
             <option value="Acquaintance">
                 ACQUAINTANCE
+            </option>
+
+            <option value="Professional">
+                PROFESSIONAL
             </option>
 
             <option value="Rival">
@@ -1251,51 +1230,60 @@ footer {
         </select>
 
 
-        <label class="field-label">
+        <label
+            class="modal-label"
+            for="status"
+        >
 
-            PERSONNEL STATUS
+            STATUS
 
         </label>
 
 
-        <select id="status">
+        <select
+            id="status"
+            class="modal-select"
+        >
 
             <option value="">
                 SELECT STATUS
             </option>
 
-            <option value="ACTIVE">
+            <option value="Active">
                 ACTIVE
             </option>
 
-            <option value="NON-ACTIVE">
+            <option value="Non-Active">
                 NON-ACTIVE
             </option>
 
-            <option value="UNKNOWN">
+            <option value="Unknown">
                 UNKNOWN
             </option>
 
-            <option value="DECEASED">
+            <option value="Deceased">
                 DECEASED
             </option>
 
-            <option value="MISSING">
+            <option value="Missing">
                 MISSING
             </option>
 
-            <option value="RETIRED">
+            <option value="Retired">
                 RETIRED
             </option>
 
-            <option value="SUSPENDED">
+            <option value="Suspended">
                 SUSPENDED
             </option>
 
         </select>
 
 
-        <label class="field-label">
+        <label
+            class="modal-label"
+            for="notes"
+        >
 
             NOTES
 
@@ -1304,6 +1292,7 @@ footer {
 
         <textarea
             id="notes"
+            class="modal-textarea"
             placeholder="ENTER ADDITIONAL INFORMATION"
         ></textarea>
 
@@ -1317,7 +1306,7 @@ footer {
         <div class="modal-buttons">
 
             <button
-                class="confirm"
+                class="save"
                 onclick="addRelation()"
             >
 
@@ -1347,17 +1336,11 @@ footer {
 ===================================================== -->
 
 <div
-    id="deleteModal"
     class="modal"
+    id="deleteModal"
 >
 
-    <div class="modal-box delete-box">
-
-        <div class="modal-label">
-
-            FOUNDATION DATABASE WARNING
-
-        </div>
+    <div class="modal-box">
 
 
         <h2>
@@ -1379,12 +1362,12 @@ footer {
 
             <br><br>
 
+
             <strong
                 id="deleteName"
                 style="color:white;"
-            >
+            ></strong>
 
-            </strong>
 
             <br><br>
 
@@ -1480,7 +1463,7 @@ const firebaseConfig = {
 
 
 /* =====================================================
-   INITIALIZE
+   INITIALIZE FIREBASE
 ===================================================== */
 
 const app =
@@ -1542,6 +1525,7 @@ function getStatusClass(status) {
 
         default:
             return "status-unknown";
+
     }
 
 }
@@ -1631,98 +1615,220 @@ onSnapshot(
                     "relation";
 
 
-                card.innerHTML = `
+                /*
+                 * Create card elements safely
+                 * so names cannot inject HTML.
+                 */
 
-                    <div class="relation-branch">
+                const branch =
+                    document.createElement(
+                        "div"
+                    );
 
-                        ${escapeHTML(
-                            data.branch ||
-                            "UNSPECIFIED"
-                        )}
+                branch.className =
+                    "relation-branch";
 
-                    </div>
+                branch.textContent =
+                    data.branch ||
+                    "UNSPECIFIED";
 
 
-                    <h2 class="relation-name">
+                const name =
+                    document.createElement(
+                        "h2"
+                    );
 
-                        ${escapeHTML(
+                name.className =
+                    "relation-name";
+
+                name.textContent =
+                    data.name ||
+                    "UNKNOWN";
+
+
+                const rank =
+                    document.createElement(
+                        "div"
+                    );
+
+                rank.className =
+                    "relation-rank";
+
+                rank.textContent =
+                    data.rank ||
+                    "POSITION UNKNOWN";
+
+
+                const information =
+                    document.createElement(
+                        "div"
+                    );
+
+                information.className =
+                    "relation-status";
+
+
+                const statusLabel =
+                    document.createElement(
+                        "strong"
+                    );
+
+                statusLabel.textContent =
+                    "STATUS: ";
+
+
+                const statusSpan =
+                    document.createElement(
+                        "span"
+                    );
+
+                statusSpan.className =
+                    statusClass;
+
+                statusSpan.textContent =
+                    status;
+
+
+                const relationBreak =
+                    document.createElement(
+                        "br"
+                    );
+
+
+                const relationBreak2 =
+                    document.createElement(
+                        "br"
+                    );
+
+
+                const relationLabel =
+                    document.createElement(
+                        "strong"
+                    );
+
+                relationLabel.textContent =
+                    "RELATION: ";
+
+
+                const relationText =
+                    document.createTextNode(
+                        data.relationType ||
+                        "UNSPECIFIED"
+                    );
+
+
+                const notesBreak =
+                    document.createElement(
+                        "br"
+                    );
+
+
+                const notesBreak2 =
+                    document.createElement(
+                        "br"
+                    );
+
+
+                const notes =
+                    document.createTextNode(
+                        data.notes ||
+                        "No additional notes."
+                    );
+
+
+                information.appendChild(
+                    statusLabel
+                );
+
+                information.appendChild(
+                    statusSpan
+                );
+
+                information.appendChild(
+                    relationBreak
+                );
+
+                information.appendChild(
+                    relationBreak2
+                );
+
+                information.appendChild(
+                    relationLabel
+                );
+
+                information.appendChild(
+                    relationText
+                );
+
+                information.appendChild(
+                    notesBreak
+                );
+
+                information.appendChild(
+                    notesBreak2
+                );
+
+                information.appendChild(
+                    notes
+                );
+
+
+                /* =============================
+                   DELETE BUTTON
+                   ============================= */
+
+                const deleteButton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                deleteButton.className =
+                    "delete-button";
+
+
+                deleteButton.textContent =
+                    "DELETE RELATION";
+
+
+                /*
+                 * IMPORTANT:
+                 * Delete now goes through the
+                 * password system first.
+                 */
+
+                deleteButton.onclick =
+                    function() {
+
+                        openPassword(
+                            "delete",
+                            docSnapshot.id,
                             data.name ||
                             "UNKNOWN"
-                        )}
+                        );
 
-                    </h2>
-
-
-                    <div class="relation-rank">
-
-                        ${escapeHTML(
-                            data.rank ||
-                            "POSITION UNKNOWN"
-                        )}
-
-                    </div>
+                    };
 
 
-                    <div class="relation-status">
+                card.appendChild(
+                    branch
+                );
 
-                        <strong>
-                            STATUS:
-                        </strong>
+                card.appendChild(
+                    name
+                );
 
-                        <span
-                            class="${statusClass}"
-                        >
+                card.appendChild(
+                    rank
+                );
 
-                            ${escapeHTML(
-                                status
-                            )}
+                card.appendChild(
+                    information
+                );
 
-                        </span>
-
-
-                        <br><br>
-
-
-                        <strong>
-                            RELATION:
-                        </strong>
-
-                        ${escapeHTML(
-                            data.relationType ||
-                            "UNSPECIFIED"
-                        )}
-
-
-                        <br><br>
-
-
-                        ${escapeHTML(
-                            data.notes ||
-                            "No additional notes."
-                        )}
-
-                    </div>
-
-
-                    <button
-                        class="delete-button"
-                        onclick="openDelete(
-                            '${docSnapshot.id}',
-                            '${escapeHTML(
-                                data.name ||
-                                "UNKNOWN"
-                            ).replace(
-                                /'/g,
-                                "\\'"
-                            )}'
-                        )"
-                    >
-
-                        DELETE RELATION
-
-                    </button>
-
-                `;
+                card.appendChild(
+                    deleteButton
+                );
 
 
                 container.appendChild(
@@ -1956,39 +2062,7 @@ async function() {
 
 
 /* =====================================================
-   OPEN DELETE
-===================================================== */
-
-window.openDelete =
-function(id, name) {
-
-    deleteRelationID =
-        id;
-
-
-    document.getElementById(
-        "deleteName"
-    ).textContent =
-        name;
-
-
-    document.getElementById(
-        "deleteMessage"
-    ).textContent =
-        "";
-
-
-    document.getElementById(
-        "deleteModal"
-    ).classList.add(
-        "show"
-    );
-
-};
-
-
-/* =====================================================
-   CONFIRM DELETE
+   DELETE RELATION
 ===================================================== */
 
 window.confirmDelete =
@@ -2062,36 +2136,21 @@ async function() {
 
 
 /* =====================================================
-   MAKE DELETE FUNCTIONS AVAILABLE
+   PASSWORD SYSTEM
 ===================================================== */
 
-window.closeDelete =
-function() {
-
-    document.getElementById(
-        "deleteModal"
-    ).classList.remove(
-        "show"
-    );
-
-
-    deleteRelationID =
-        null;
-
-};
-
-</script>
-
-
-<!-- =====================================================
-     PASSWORD SYSTEM
-===================================================== -->
-
-<script>
 
 /*
 =====================================================
 CHANGE YOUR PASSWORD HERE
+=====================================================
+
+Current password:
+
+Mercer66
+
+Change the text between the quotes if you want
+a different password.
 =====================================================
 */
 
@@ -2099,22 +2158,39 @@ const ADD_PASSWORD =
     "Mercer66";
 
 
-/* =====================================================
-   PASSWORD ACTION
-===================================================== */
-
 let passwordAction =
     "add";
+
+
+let passwordDeleteID =
+    null;
+
+
+let passwordDeleteName =
+    "";
 
 
 /* =====================================================
    OPEN PASSWORD
 ===================================================== */
 
-function openPassword(action) {
+window.openPassword =
+function(
+    action,
+    deleteID = null,
+    deleteName = ""
+) {
 
     passwordAction =
         action;
+
+
+    passwordDeleteID =
+        deleteID;
+
+
+    passwordDeleteName =
+        deleteName;
 
 
     document
@@ -2146,14 +2222,15 @@ function openPassword(action) {
         )
         .focus();
 
-}
+};
 
 
 /* =====================================================
    CLOSE PASSWORD
 ===================================================== */
 
-function closePassword() {
+window.closePassword =
+function() {
 
     document
         .getElementById(
@@ -2177,14 +2254,23 @@ function closePassword() {
         )
         .textContent = "";
 
-}
+
+    passwordDeleteID =
+        null;
+
+
+    passwordDeleteName =
+        "";
+
+};
 
 
 /* =====================================================
    CHECK PASSWORD
 ===================================================== */
 
-function checkPassword() {
+window.checkPassword =
+function() {
 
     const entered =
         document
@@ -2195,10 +2281,9 @@ function checkPassword() {
 
 
     const message =
-        document
-            .getElementById(
-                "passwordMessage"
-            );
+        document.getElementById(
+            "passwordMessage"
+        );
 
 
     if (
@@ -2219,8 +2304,16 @@ function checkPassword() {
     }
 
 
+    /*
+     * PASSWORD CORRECT
+     */
+
     closePassword();
 
+
+    /* =============================
+       ADD
+    ============================= */
 
     if (
         passwordAction ===
@@ -2235,16 +2328,58 @@ function checkPassword() {
                 "show"
             );
 
+        return;
+
     }
 
-}
+
+    /* =============================
+       DELETE
+    ============================= */
+
+    if (
+        passwordAction ===
+        "delete"
+    ) {
+
+        deleteRelationID =
+            passwordDeleteID;
+
+
+        document
+            .getElementById(
+                "deleteName"
+            )
+            .textContent =
+            passwordDeleteName;
+
+
+        document
+            .getElementById(
+                "deleteMessage"
+            )
+            .textContent = "";
+
+
+        document
+            .getElementById(
+                "deleteModal"
+            )
+            .classList.add(
+                "show"
+            );
+
+    }
+
+};
 
 
 /* =====================================================
    CLOSE ADD
 ===================================================== */
 
-function closeAdd() {
+window.closeAdd =
+function() {
 
     document
         .getElementById(
@@ -2261,7 +2396,29 @@ function closeAdd() {
         )
         .textContent = "";
 
-}
+};
+
+
+/* =====================================================
+   CLOSE DELETE
+===================================================== */
+
+window.closeDelete =
+function() {
+
+    document
+        .getElementById(
+            "deleteModal"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    deleteRelationID =
+        null;
+
+};
 
 
 /* =====================================================
@@ -2273,9 +2430,7 @@ document
         "passwordInput"
     )
     .addEventListener(
-
         "keydown",
-
         function(event) {
 
             if (
@@ -2288,7 +2443,6 @@ document
             }
 
         }
-
     );
 
 
@@ -2301,9 +2455,7 @@ document
         "passwordModal"
     )
     .addEventListener(
-
         "click",
-
         function(event) {
 
             if (
@@ -2316,7 +2468,6 @@ document
             }
 
         }
-
     );
 
 
@@ -2329,9 +2480,7 @@ document
         "addModal"
     )
     .addEventListener(
-
         "click",
-
         function(event) {
 
             if (
@@ -2344,7 +2493,6 @@ document
             }
 
         }
-
     );
 
 
@@ -2357,9 +2505,7 @@ document
         "deleteModal"
     )
     .addEventListener(
-
         "click",
-
         function(event) {
 
             if (
@@ -2372,12 +2518,32 @@ document
             }
 
         }
-
     );
 
 </script>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    SITE-66 FOUNDATION DATABASE
+
+    <br><br>
+
+    RELATIONS DATABASE //
+    MERCER
+
+    <br><br>
+
+    UNAUTHORIZED ACCESS IS PROHIBITED.
+
+</footer>
+
+
 </body>
 
 </html>
+```
