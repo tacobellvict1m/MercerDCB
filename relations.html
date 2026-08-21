@@ -10,10 +10,6 @@
 
 <style>
 
-/* =====================================================
-   RESET
-===================================================== */
-
 * {
     box-sizing: border-box;
 }
@@ -23,6 +19,7 @@ html {
 }
 
 body {
+
     margin: 0;
 
     background:
@@ -40,7 +37,7 @@ body {
 
 
 /* =====================================================
-   CRT SCANLINES
+   CRT
 ===================================================== */
 
 body::after {
@@ -133,7 +130,7 @@ header {
 
 
 /* =====================================================
-   NAVIGATION
+   NAV
 ===================================================== */
 
 nav {
@@ -224,7 +221,7 @@ nav a:hover {
 
 
 /* =====================================================
-   MAIN CONTAINER
+   MAIN
 ===================================================== */
 
 .container {
@@ -474,7 +471,50 @@ nav a:hover {
 
 
 /* =====================================================
-   MODALS
+   DELETE BUTTON
+===================================================== */
+
+.delete-button {
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 11px;
+
+    background: transparent;
+
+    color: #ff5555;
+
+    border: 1px solid #552222;
+
+    cursor: pointer;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.2s;
+}
+
+
+.delete-button:hover {
+
+    background: #ff3333;
+
+    color: white;
+
+    border-color: #ff3333;
+
+    box-shadow:
+        0 0 15px rgba(255,50,50,0.25);
+}
+
+
+/* =====================================================
+   MODAL
 ===================================================== */
 
 .modal {
@@ -530,6 +570,15 @@ nav a:hover {
 }
 
 
+.delete-box {
+
+    border-color: #ff3333;
+
+    box-shadow:
+        0 0 40px rgba(255,50,50,0.15);
+}
+
+
 .modal-label {
 
     color: #4c9ddd;
@@ -540,6 +589,12 @@ nav a:hover {
 }
 
 
+.delete-box .modal-label {
+
+    color: #ff5555;
+}
+
+
 .modal-box h2 {
 
     margin: 10px 0 25px;
@@ -547,10 +602,6 @@ nav a:hover {
     letter-spacing: 3px;
 }
 
-
-/* =====================================================
-   INPUTS
-===================================================== */
 
 input,
 textarea,
@@ -612,7 +663,7 @@ textarea {
 
 
 /* =====================================================
-   FIELD LABELS
+   LABELS
 ===================================================== */
 
 .field-label {
@@ -670,6 +721,22 @@ textarea {
 .confirm:hover {
 
     background: #0d64d8;
+}
+
+
+.delete-confirm {
+
+    background: #d72b2b;
+
+    color: white;
+
+    border: 1px solid #ff3333;
+}
+
+
+.delete-confirm:hover {
+
+    background: #ff3333;
 }
 
 
@@ -800,16 +867,12 @@ footer {
 <body>
 
 
-<!-- =================================================
-     TOP LINE
-================================================= -->
-
 <div class="top-line"></div>
 
 
-<!-- =================================================
+<!-- =====================================================
      HEADER
-================================================= -->
+===================================================== -->
 
 <header>
 
@@ -824,38 +887,26 @@ footer {
 
     <nav>
 
-        <a href="home.html">
-            HOME
-        </a>
+        <a href="home.html">HOME</a>
 
-        <a href="personnel.html">
-            PERSONNEL
-        </a>
+        <a href="personnel.html">PERSONNEL</a>
 
-        <a href="records.html">
-            RECORDS
-        </a>
+        <a href="records.html">RECORDS</a>
 
-        <a href="archives.html">
-            ARCHIVES
-        </a>
+        <a href="archives.html">ARCHIVES</a>
 
-        <a href="journal.html">
-            JOURNAL
-        </a>
+        <a href="journal.html">JOURNAL</a>
 
-        <a href="playlist.html">
-            PLAYLIST
-        </a>
+        <a href="playlist.html">PLAYLIST</a>
 
     </nav>
 
 </header>
 
 
-<!-- =================================================
+<!-- =====================================================
      PAGE HEADER
-================================================= -->
+===================================================== -->
 
 <section class="page-header">
 
@@ -890,16 +941,12 @@ footer {
 </section>
 
 
-<!-- =================================================
+<!-- =====================================================
      MAIN
-================================================= -->
+===================================================== -->
 
 <main class="container">
 
-
-    <!-- =================================================
-         CONTROL BAR
-    ================================================= -->
 
     <div class="control-bar">
 
@@ -920,7 +967,7 @@ footer {
                 "
             >
 
-                Authorized personnel may add entries.
+                Authorized personnel may add or remove entries.
 
             </div>
 
@@ -929,7 +976,7 @@ footer {
 
         <button
             class="add-button"
-            onclick="openPassword()"
+            onclick="openPassword('add')"
         >
 
             + ADD RELATION
@@ -938,10 +985,6 @@ footer {
 
     </div>
 
-
-    <!-- =================================================
-         RELATION CARDS
-    ================================================= -->
 
     <div
         id="relations"
@@ -960,7 +1003,7 @@ footer {
 </main>
 
 
-<!-- =================================================
+<!-- =====================================================
      FOOTER
 ===================================================== -->
 
@@ -980,7 +1023,7 @@ footer {
 </footer>
 
 
-<!-- =================================================
+<!-- =====================================================
      PASSWORD MODAL
 ===================================================== -->
 
@@ -1046,7 +1089,7 @@ footer {
 </div>
 
 
-<!-- =================================================
+<!-- =====================================================
      ADD RELATION MODAL
 ===================================================== -->
 
@@ -1072,8 +1115,6 @@ footer {
         </h2>
 
 
-        <!-- NAME -->
-
         <label class="field-label">
 
             PERSON / ORGANIZATION
@@ -1088,8 +1129,6 @@ footer {
         >
 
 
-        <!-- BRANCH -->
-
         <label class="field-label">
 
             BRANCH
@@ -1100,85 +1139,51 @@ footer {
         <select id="branch">
 
             <option value="">
-
                 SELECT BRANCH
-
             </option>
-
 
             <option value="GENSEC">
-
                 GENSEC
-
             </option>
-
 
             <option value="Internal Affairs">
-
                 INTERNAL AFFAIRS
-
             </option>
-
 
             <option value="XI-8">
-
                 XI-8
-
             </option>
-
 
             <option value="Nu-7">
-
                 NU-7
-
             </option>
-
 
             <option value="Medical">
-
                 MEDICAL
-
             </option>
-
 
             <option value="Research">
-
                 RESEARCH
-
             </option>
-
 
             <option value="Site Staff">
-
                 SITE STAFF
-
             </option>
-
 
             <option value="Site Command">
-
                 SITE COMMAND
-
             </option>
-
 
             <option value="NTF">
-
                 NTF
-
             </option>
 
-
             <option value="Other">
-
                 OTHER
-
             </option>
 
         </select>
 
-
-        <!-- RANK -->
 
         <label class="field-label">
 
@@ -1194,8 +1199,6 @@ footer {
         >
 
 
-        <!-- RELATION TYPE -->
-
         <label class="field-label">
 
             RELATION TO MERCER
@@ -1206,78 +1209,47 @@ footer {
         <select id="relationType">
 
             <option value="">
-
                 SELECT RELATION
-
             </option>
-
 
             <option value="Friend">
-
                 FRIEND
-
             </option>
-
 
             <option value="Coworker">
-
                 COWORKER
-
             </option>
-
 
             <option value="Superior">
-
                 SUPERIOR
-
             </option>
-
 
             <option value="Subordinate">
-
                 SUBORDINATE
-
             </option>
-
 
             <option value="Family">
-
                 FAMILY
-
             </option>
-
 
             <option value="Acquaintance">
-
                 ACQUAINTANCE
-
             </option>
-
 
             <option value="Rival">
-
                 RIVAL
-
             </option>
-
 
             <option value="Unknown">
-
                 UNKNOWN
-
             </option>
 
-
             <option value="Other">
-
                 OTHER
-
             </option>
 
         </select>
 
-
-        <!-- STATUS -->
 
         <label class="field-label">
 
@@ -1289,64 +1261,39 @@ footer {
         <select id="status">
 
             <option value="">
-
                 SELECT STATUS
-
             </option>
-
 
             <option value="ACTIVE">
-
                 ACTIVE
-
             </option>
-
 
             <option value="NON-ACTIVE">
-
                 NON-ACTIVE
-
             </option>
-
 
             <option value="UNKNOWN">
-
                 UNKNOWN
-
             </option>
-
 
             <option value="DECEASED">
-
                 DECEASED
-
             </option>
-
 
             <option value="MISSING">
-
                 MISSING
-
             </option>
-
 
             <option value="RETIRED">
-
                 RETIRED
-
             </option>
 
-
             <option value="SUSPENDED">
-
                 SUSPENDED
-
             </option>
 
         </select>
 
-
-        <!-- NOTES -->
 
         <label class="field-label">
 
@@ -1395,7 +1342,92 @@ footer {
 </div>
 
 
-<!-- =================================================
+<!-- =====================================================
+     DELETE CONFIRMATION MODAL
+===================================================== -->
+
+<div
+    id="deleteModal"
+    class="modal"
+>
+
+    <div class="modal-box delete-box">
+
+        <div class="modal-label">
+
+            FOUNDATION DATABASE WARNING
+
+        </div>
+
+
+        <h2>
+
+            DELETE RELATION
+
+        </h2>
+
+
+        <p
+            style="
+                color:#9bbbd6;
+                font-size:11px;
+                line-height:1.8;
+            "
+        >
+
+            You are about to permanently remove:
+
+            <br><br>
+
+            <strong
+                id="deleteName"
+                style="color:white;"
+            >
+
+            </strong>
+
+            <br><br>
+
+            This action cannot be undone.
+
+        </p>
+
+
+        <div
+            id="deleteMessage"
+            class="message"
+        ></div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="delete-confirm"
+                onclick="confirmDelete()"
+            >
+
+                DELETE
+
+            </button>
+
+
+            <button
+                class="cancel"
+                onclick="closeDelete()"
+            >
+
+                CANCEL
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
      FIREBASE
 ===================================================== -->
 
@@ -1410,14 +1442,16 @@ import {
     getFirestore,
     collection,
     addDoc,
+    deleteDoc,
+    doc,
     onSnapshot,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* =================================================
-   FIREBASE CONFIGURATION
-================================================= */
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
 
 const firebaseConfig = {
 
@@ -1445,8 +1479,8 @@ const firebaseConfig = {
 };
 
 
-/* =================================================
-   INITIALIZE FIREBASE
+/* =====================================================
+   INITIALIZE
 ===================================================== */
 
 const app =
@@ -1468,7 +1502,14 @@ const relationsCollection =
     );
 
 
-/* =================================================
+/* =====================================================
+   CURRENT DELETE ID
+===================================================== */
+
+let deleteRelationID = null;
+
+
+/* =====================================================
    STATUS CLASS
 ===================================================== */
 
@@ -1481,46 +1522,32 @@ function getStatusClass(status) {
     ) {
 
         case "ACTIVE":
-
             return "status-active";
-
 
         case "NON-ACTIVE":
         case "NONACTIVE":
-
             return "status-nonactive";
 
-
         case "DECEASED":
-
             return "status-deceased";
 
-
         case "MISSING":
-
             return "status-missing";
 
-
         case "RETIRED":
-
             return "status-retired";
 
-
         case "SUSPENDED":
-
             return "status-suspended";
 
-
         default:
-
             return "status-unknown";
-
     }
 
 }
 
 
-/* =================================================
+/* =====================================================
    ESCAPE HTML
 ===================================================== */
 
@@ -1539,7 +1566,7 @@ function escapeHTML(text) {
 }
 
 
-/* =================================================
+/* =====================================================
    DISPLAY RELATIONS
 ===================================================== */
 
@@ -1577,10 +1604,10 @@ onSnapshot(
 
 
         snapshot.forEach(
-            function(doc) {
+            function(docSnapshot) {
 
                 const data =
-                    doc.data();
+                    docSnapshot.data();
 
 
                 const status =
@@ -1639,12 +1666,12 @@ onSnapshot(
                     <div class="relation-status">
 
                         <strong>
-
                             STATUS:
-
                         </strong>
 
-                        <span class="${statusClass}">
+                        <span
+                            class="${statusClass}"
+                        >
 
                             ${escapeHTML(
                                 status
@@ -1657,9 +1684,7 @@ onSnapshot(
 
 
                         <strong>
-
                             RELATION:
-
                         </strong>
 
                         ${escapeHTML(
@@ -1677,6 +1702,25 @@ onSnapshot(
                         )}
 
                     </div>
+
+
+                    <button
+                        class="delete-button"
+                        onclick="openDelete(
+                            '${docSnapshot.id}',
+                            '${escapeHTML(
+                                data.name ||
+                                "UNKNOWN"
+                            ).replace(
+                                /'/g,
+                                "\\'"
+                            )}'
+                        )"
+                    >
+
+                        DELETE RELATION
+
+                    </button>
 
                 `;
 
@@ -1719,7 +1763,7 @@ onSnapshot(
 );
 
 
-/* =================================================
+/* =====================================================
    ADD RELATION
 ===================================================== */
 
@@ -1728,51 +1772,39 @@ async function() {
 
     const name =
         document
-            .getElementById(
-                "name"
-            )
+            .getElementById("name")
             .value
             .trim();
 
 
     const branch =
         document
-            .getElementById(
-                "branch"
-            )
+            .getElementById("branch")
             .value;
 
 
     const rank =
         document
-            .getElementById(
-                "rank"
-            )
+            .getElementById("rank")
             .value
             .trim();
 
 
     const relationType =
         document
-            .getElementById(
-                "relationType"
-            )
+            .getElementById("relationType")
             .value;
 
 
     const status =
         document
-            .getElementById(
-                "status"
-            )
+            .getElementById("status")
             .value;
 
 
     const notes =
         document
-            .getElementById(
-                "notes"
-            )
+            .getElementById("notes")
             .value
             .trim();
 
@@ -1864,8 +1896,6 @@ async function() {
             "RELATION SAVED.";
 
 
-        /* CLEAR FORM */
-
         document.getElementById(
             "name"
         ).value = "";
@@ -1897,15 +1927,12 @@ async function() {
 
 
         setTimeout(
-
             function() {
 
                 closeAdd();
 
             },
-
             900
-
         );
 
 
@@ -1927,10 +1954,136 @@ async function() {
 
 };
 
+
+/* =====================================================
+   OPEN DELETE
+===================================================== */
+
+window.openDelete =
+function(id, name) {
+
+    deleteRelationID =
+        id;
+
+
+    document.getElementById(
+        "deleteName"
+    ).textContent =
+        name;
+
+
+    document.getElementById(
+        "deleteMessage"
+    ).textContent =
+        "";
+
+
+    document.getElementById(
+        "deleteModal"
+    ).classList.add(
+        "show"
+    );
+
+};
+
+
+/* =====================================================
+   CONFIRM DELETE
+===================================================== */
+
+window.confirmDelete =
+async function() {
+
+    if (!deleteRelationID) {
+
+        return;
+
+    }
+
+
+    const message =
+        document.getElementById(
+            "deleteMessage"
+        );
+
+
+    try {
+
+        await deleteDoc(
+
+            doc(
+                db,
+                "relations",
+                deleteRelationID
+            )
+
+        );
+
+
+        message.className =
+            "message success";
+
+
+        message.textContent =
+            "RELATION DELETED.";
+
+
+        deleteRelationID =
+            null;
+
+
+        setTimeout(
+            function() {
+
+                closeDelete();
+
+            },
+            800
+        );
+
+
+    } catch(error) {
+
+        console.error(
+            error
+        );
+
+
+        message.className =
+            "message error";
+
+
+        message.textContent =
+            "DELETE FAILED. CHECK FIRESTORE RULES.";
+
+    }
+
+};
+
+
+/* =====================================================
+   MAKE DELETE FUNCTIONS AVAILABLE
+===================================================== */
+
+window.closeDelete =
+function() {
+
+    document.getElementById(
+        "deleteModal"
+    ).classList.remove(
+        "show"
+    );
+
+
+    deleteRelationID =
+        null;
+
+};
+
 </script>
 
 
-<!-- =================================================
+<!-- =====================================================
      PASSWORD SYSTEM
 ===================================================== -->
 
@@ -1938,7 +2091,7 @@ async function() {
 
 /*
 =====================================================
-CHANGE PASSWORD HERE
+CHANGE YOUR PASSWORD HERE
 =====================================================
 */
 
@@ -1946,11 +2099,23 @@ const ADD_PASSWORD =
     "Mercer66";
 
 
-/* =================================================
+/* =====================================================
+   PASSWORD ACTION
+===================================================== */
+
+let passwordAction =
+    "add";
+
+
+/* =====================================================
    OPEN PASSWORD
 ===================================================== */
 
-function openPassword() {
+function openPassword(action) {
+
+    passwordAction =
+        action;
+
 
     document
         .getElementById(
@@ -1965,12 +2130,26 @@ function openPassword() {
         .getElementById(
             "passwordInput"
         )
+        .value = "";
+
+
+    document
+        .getElementById(
+            "passwordMessage"
+        )
+        .textContent = "";
+
+
+    document
+        .getElementById(
+            "passwordInput"
+        )
         .focus();
 
 }
 
 
-/* =================================================
+/* =====================================================
    CLOSE PASSWORD
 ===================================================== */
 
@@ -2001,7 +2180,7 @@ function closePassword() {
 }
 
 
-/* =================================================
+/* =====================================================
    CHECK PASSWORD
 ===================================================== */
 
@@ -2023,12 +2202,30 @@ function checkPassword() {
 
 
     if (
-        entered ===
+        entered !==
         ADD_PASSWORD
     ) {
 
-        closePassword();
+        message.className =
+            "message error";
 
+
+        message.textContent =
+            "ACCESS DENIED.";
+
+
+        return;
+
+    }
+
+
+    closePassword();
+
+
+    if (
+        passwordAction ===
+        "add"
+    ) {
 
         document
             .getElementById(
@@ -2040,22 +2237,11 @@ function checkPassword() {
 
     }
 
-    else {
-
-        message.className =
-            "message error";
-
-
-        message.textContent =
-            "ACCESS DENIED.";
-
-    }
-
 }
 
 
-/* =================================================
-   CLOSE ADD FORM
+/* =====================================================
+   CLOSE ADD
 ===================================================== */
 
 function closeAdd() {
@@ -2078,8 +2264,8 @@ function closeAdd() {
 }
 
 
-/* =================================================
-   ENTER KEY FOR PASSWORD
+/* =====================================================
+   ENTER KEY
 ===================================================== */
 
 document
@@ -2106,7 +2292,7 @@ document
     );
 
 
-/* =================================================
+/* =====================================================
    CLICK OUTSIDE PASSWORD
 ===================================================== */
 
@@ -2134,8 +2320,8 @@ document
     );
 
 
-/* =================================================
-   CLICK OUTSIDE ADD FORM
+/* =====================================================
+   CLICK OUTSIDE ADD
 ===================================================== */
 
 document
@@ -2154,6 +2340,34 @@ document
             ) {
 
                 closeAdd();
+
+            }
+
+        }
+
+    );
+
+
+/* =====================================================
+   CLICK OUTSIDE DELETE
+===================================================== */
+
+document
+    .getElementById(
+        "deleteModal"
+    )
+    .addEventListener(
+
+        "click",
+
+        function(event) {
+
+            if (
+                event.target ===
+                this
+            ) {
+
+                closeDelete();
 
             }
 
