@@ -1,19 +1,19 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SITE-66 | Mercer</title>
 
 <style>
 
-/* =====================================================
+/* =========================================
    RESET
-===================================================== */
+========================================= */
 
 * {
     box-sizing: border-box;
@@ -29,26 +29,24 @@ body {
 
     background:
         radial-gradient(
-            circle at 50% 0%,
-            #102b46 0%,
-            #07111d 35%,
-            #020509 75%
+            circle at top,
+            #0b1b2d 0%,
+            #05090f 45%,
+            #020305 100%
         );
 
-    color: #ffffff;
+    color: white;
 
-    font-family:
-        "Courier New",
-        monospace;
+    font-family: "Courier New", monospace;
 
     min-height: 100vh;
 
 }
 
 
-/* =====================================================
+/* =========================================
    CRT EFFECT
-===================================================== */
+========================================= */
 
 body::after {
 
@@ -76,66 +74,9 @@ body::after {
 }
 
 
-/* =====================================================
-   SCAN GLOW
-===================================================== */
-
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    width: 100%;
-
-    height: 2px;
-
-    top: 0;
-
-    left: 0;
-
-    background: #2b8cff;
-
-    box-shadow:
-        0 0 15px #1677ff,
-        0 0 35px rgba(22,119,255,0.5);
-
-    animation:
-        scan 7s linear infinite;
-
-    pointer-events: none;
-
-    z-index: 10000;
-
-}
-
-
-@keyframes scan {
-
-    0% {
-        top: 0;
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    100% {
-        top: 100%;
-        opacity: 0;
-    }
-
-}
-
-
-/* =====================================================
-   TOP BLUE LINE
-===================================================== */
+/* =========================================
+   TOP LINE
+========================================= */
 
 .top-line {
 
@@ -144,39 +85,35 @@ body::before {
     background: #1677ff;
 
     box-shadow:
-        0 0 20px
-        rgba(22,119,255,0.8);
+        0 0 20px rgba(22,119,255,0.8);
 
 }
 
 
-/* =====================================================
+/* =========================================
    HEADER
-===================================================== */
+========================================= */
 
 header {
 
-    padding:
-        20px 6%;
+    padding: 22px 7%;
 
     display: flex;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    align-items:
-        center;
+    align-items: center;
 
     gap: 30px;
 
     background:
-        rgba(3,8,14,0.95);
+        linear-gradient(
+            180deg,
+            #0b1624,
+            #05090f
+        );
 
-    border-bottom:
-        1px solid #173b5d;
-
-    backdrop-filter:
-        blur(8px);
+    border-bottom: 1px solid #193b59;
 
 }
 
@@ -185,60 +122,58 @@ header {
 
     margin: 0;
 
-    font-size: 23px;
+    font-size: 22px;
 
-    letter-spacing: 5px;
+    letter-spacing: 4px;
 
 }
 
 
 .site-name p {
 
-    margin:
-        6px 0 0;
+    margin: 7px 0 0;
 
-    color: #6284a0;
+    color: #6f94b5;
 
     font-size: 9px;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 
 }
 
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
+/* =========================================
+   NAV
+========================================= */
 
 nav {
 
     display: flex;
 
-    gap: 4px;
-
     flex-wrap: wrap;
+
+    justify-content: flex-end;
+
+    gap: 5px;
 
 }
 
 
 nav a {
 
-    color: #8eabc3;
+    padding: 9px 12px;
+
+    color: #9bbbd6;
 
     text-decoration: none;
 
-    padding:
-        9px 12px;
-
-    border:
-        1px solid transparent;
+    border: 1px solid transparent;
 
     font-size: 10px;
 
     letter-spacing: 2px;
 
-    transition:
-        0.2s ease;
+    transition: 0.2s;
 
 }
 
@@ -247,875 +182,510 @@ nav a:hover {
 
     color: white;
 
-    border-color:
-        #1677ff;
+    background: rgba(22,119,255,0.12);
 
-    background:
-        rgba(22,119,255,0.1);
-
-    box-shadow:
-        0 0 12px
-        rgba(22,119,255,0.15);
+    border-color: #1677ff;
 
 }
 
 
-/* =====================================================
-   MAIN
-===================================================== */
-
-main {
-
-    width: 88%;
-
-    max-width: 1250px;
-
-    margin:
-        auto;
-
-}
-
-
-/* =====================================================
+/* =========================================
    HERO
-===================================================== */
+========================================= */
 
 .hero {
 
-    position: relative;
+    width: 86%;
 
-    padding:
-        80px 0 65px;
+    max-width: 1200px;
 
-    border-bottom:
-        1px solid #173b5d;
+    margin: auto;
+
+    padding: 80px 0 60px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 300px;
+
+    gap: 60px;
+
+    align-items: center;
 
 }
 
 
 .hero-label {
 
-    color: #4d9ce5;
+    color: #4c9ddd;
 
     font-size: 10px;
 
-    letter-spacing: 5px;
+    letter-spacing: 4px;
 
     margin-bottom: 18px;
 
 }
 
 
-/* =====================================================
-   CODENAME — BIGGEST TEXT
-===================================================== */
-
 .codename {
 
     margin: 0;
 
-    font-size:
-        clamp(
-            75px,
-            15vw,
-            175px
-        );
+    font-size: clamp(65px, 11vw, 130px);
 
-    line-height:
-        0.85;
+    line-height: 0.9;
 
-    letter-spacing:
-        12px;
+    letter-spacing: 10px;
 
-    font-weight:
-        900;
-
-    color:
-        #ffffff;
+    color: white;
 
     text-shadow:
 
-        0 0 5px
-        rgba(255,255,255,0.5),
+        0 0 10px rgba(22,119,255,0.4),
 
-        0 0 25px
-        rgba(22,119,255,0.25);
+        0 0 30px rgba(22,119,255,0.15);
 
 }
 
-
-/* =====================================================
-   REAL NAME
-===================================================== */
 
 .real-name {
 
-    margin:
-        25px 0 0;
+    margin-top: 20px;
 
-    color:
-        #6e8da6;
+    color: #6f94b5;
 
-    font-size:
-        clamp(
-            16px,
-            3vw,
-            27px
-        );
+    font-size: 18px;
 
-    letter-spacing:
-        6px;
+    letter-spacing: 5px;
 
 }
 
 
-/* =====================================================
-   ROLE
-===================================================== */
+.hero-description {
 
-.role {
+    max-width: 700px;
 
-    margin:
-        18px 0 0;
+    margin-top: 25px;
 
-    color:
-        #b8c9d8;
+    color: #8199ad;
 
-    font-size:
-        11px;
+    font-size: 12px;
 
-    letter-spacing:
-        3px;
+    line-height: 1.9;
 
 }
 
 
-.role span {
+/* =========================================
+   PROFILE IMAGE
+========================================= */
 
-    color:
-        #398fe5;
+.profile-image {
+
+    width: 280px;
+
+    height: 350px;
+
+    object-fit: cover;
+
+    border: 1px solid #193b59;
+
+    background: #050b12;
+
+    box-shadow:
+
+        0 0 35px rgba(22,119,255,0.08),
+
+        inset 0 0 30px rgba(0,0,0,0.8);
 
 }
 
 
-/* =====================================================
+.image-label {
+
+    margin-top: 10px;
+
+    color: #526a7c;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
    STATUS
-===================================================== */
-
-.status-row {
-
-    display:
-        flex;
-
-    gap:
-        30px;
-
-    flex-wrap:
-        wrap;
-
-    margin-top:
-        35px;
-
-}
-
+========================================= */
 
 .status {
 
-    display:
-        flex;
+    display: inline-flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        9px;
+    gap: 10px;
 
-    color:
-        #6e899e;
+    margin-top: 25px;
 
-    font-size:
-        9px;
+    padding: 10px 15px;
 
-    letter-spacing:
-        2px;
+    border: 1px solid #193b59;
+
+    background: rgba(22,119,255,0.05);
+
+    color: #8fb8d8;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
 
 }
 
 
 .status-dot {
 
-    width:
-        8px;
+    width: 7px;
 
-    height:
-        8px;
+    height: 7px;
 
-    border-radius:
-        50%;
+    background: #32d46b;
 
-    background:
-        #2388ff;
+    border-radius: 50%;
 
-    box-shadow:
-        0 0 12px
-        #2388ff;
-
-    animation:
-        pulse 2s infinite;
+    box-shadow: 0 0 10px #32d46b;
 
 }
 
 
-@keyframes pulse {
+/* =========================================
+   MAIN
+========================================= */
 
-    0% {
-        opacity: 1;
-    }
+.container {
 
-    50% {
-        opacity: 0.35;
-    }
+    width: 86%;
 
-    100% {
-        opacity: 1;
-    }
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding-bottom: 100px;
 
 }
 
 
-/* =====================================================
-   INFORMATION GRID
-===================================================== */
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.section-title {
+
+    margin: 20px 0;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #193b59;
+
+    color: #4c9ddd;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+}
+
+
+/* =========================================
+   BASIC INFO
+========================================= */
 
 .info-grid {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        1fr 1fr;
+        repeat(4, 1fr);
 
-    gap:
-        15px;
-
-    padding:
-        45px 0;
+    gap: 10px;
 
 }
 
 
-.panel {
+.info-card {
+
+    padding: 22px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(10,24,39,0.9),
-            rgba(3,8,14,0.95)
+            #0a1623,
+            #03070c
         );
 
-    border:
-        1px solid #173b5d;
+    border: 1px solid #193b59;
 
-    padding:
-        30px;
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
+    transition: 0.2s;
 
 }
 
 
-.panel::before {
+.info-card:hover {
 
-    content:
-        "";
+    border-color: #1677ff;
 
-    position:
-        absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 3px;
-
-    height: 100%;
-
-    background:
-        #1677ff;
-
-    box-shadow:
-        0 0 15px
-        rgba(22,119,255,0.6);
-
-}
-
-
-.panel-title {
-
-    color:
-        #438ed0;
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        4px;
-
-    margin-bottom:
-        25px;
-
-}
-
-
-.info-row {
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    gap:
-        20px;
-
-    padding:
-        12px 0;
-
-    border-bottom:
-        1px solid
-        rgba(57,101,137,0.18);
-
-}
-
-
-.info-row:last-child {
-
-    border-bottom:
-        none;
+    transform: translateY(-2px);
 
 }
 
 
 .info-label {
 
-    color:
-        #5d788f;
+    color: #4c9ddd;
 
-    font-size:
-        9px;
+    font-size: 8px;
 
-    letter-spacing:
-        2px;
+    letter-spacing: 2px;
 
 }
 
 
 .info-value {
 
-    color:
-        #d4e0e9;
+    margin-top: 10px;
 
-    font-size:
-        10px;
+    font-size: 14px;
 
-    text-align:
-        right;
+    letter-spacing: 1px;
 
 }
 
 
-.info-value.blue {
+/* =========================================
+   BUTTON GRID
+========================================= */
 
-    color:
-        #4297e8;
+.page-grid {
 
-}
-
-
-/* =====================================================
-   IDENTIFICATION PANEL
-===================================================== */
-
-.identification {
-
-    margin-bottom:
-        45px;
-
-}
-
-
-.mark {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        20px;
-
-    padding:
-        20px;
-
-    border:
-        1px solid
-        rgba(57,101,137,0.25);
-
-    background:
-        rgba(22,119,255,0.04);
-
-}
-
-
-.mark-icon {
-
-    width:
-        45px;
-
-    height:
-        45px;
-
-    border:
-        1px solid #1677ff;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    color:
-        #4297e8;
-
-    font-size:
-        18px;
-
-}
-
-
-.mark-text strong {
-
-    display:
-        block;
-
-    font-size:
-        12px;
-
-    letter-spacing:
-        2px;
-
-}
-
-
-.mark-text span {
-
-    display:
-        block;
-
-    margin-top:
-        6px;
-
-    color:
-        #6c879e;
-
-    font-size:
-        9px;
-
-}
-
-
-/* =====================================================
-   DATABASE SECTION
-===================================================== */
-
-.database {
-
-    padding:
-        45px 0;
-
-    border-top:
-        1px solid #173b5d;
-
-}
-
-
-.database-heading {
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
-
-    margin-bottom:
-        25px;
-
-}
-
-
-.database-heading h2 {
-
-    margin:
-        0;
-
-    font-size:
-        22px;
-
-    letter-spacing:
-        4px;
-
-}
-
-
-.database-heading span {
-
-    color:
-        #52718a;
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        2px;
-
-}
-
-
-/* =====================================================
-   DATABASE CARDS
-===================================================== */
-
-.database-grid {
-
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(
-            3,
-            1fr
-        );
+        repeat(3, 1fr);
 
-    gap:
-        12px;
+    gap: 12px;
+
+    margin-top: 25px;
 
 }
 
 
-.database-card {
+.page-button {
 
-    position:
-        relative;
+    display: block;
 
-    padding:
-        28px;
+    padding: 25px;
 
-    min-height:
-        150px;
+    color: white;
 
-    text-decoration:
-        none;
+    text-decoration: none;
 
-    color:
-        white;
+    background: #050b12;
+
+    border: 1px solid #193b59;
+
+    transition: 0.2s;
+
+}
+
+
+.page-button:hover {
+
+    background: #07111d;
+
+    border-color: #1677ff;
+
+    transform: translateX(4px);
+
+}
+
+
+.page-number {
+
+    color: #4c9ddd;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.page-button h3 {
+
+    margin: 12px 0 8px;
+
+    font-size: 17px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.page-button p {
+
+    margin: 0;
+
+    color: #71879a;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   RELATIONS FEATURE
+========================================= */
+
+.relations-box {
+
+    margin-top: 40px;
+
+    padding: 30px;
+
+    border-left: 3px solid #1677ff;
 
     background:
+
         linear-gradient(
-            145deg,
-            #081522,
-            #03070c
+            90deg,
+            rgba(22,119,255,0.08),
+            rgba(22,119,255,0.01)
         );
 
-    border:
-        1px solid #173b5d;
+}
 
-    transition:
-        0.25s ease;
 
-    overflow:
-        hidden;
+.relations-box h2 {
+
+    margin: 0 0 10px;
+
+    font-size: 22px;
+
+    letter-spacing: 3px;
 
 }
 
 
-.database-card:hover {
+.relations-box p {
 
-    border-color:
-        #1677ff;
+    color: #71879a;
 
-    transform:
-        translateY(-4px);
+    font-size: 10px;
 
-    box-shadow:
-        0 10px 35px
-        rgba(0,0,0,0.4),
+    line-height: 1.8;
 
-        0 0 20px
-        rgba(22,119,255,0.08);
+    max-width: 750px;
 
 }
 
 
-.database-card::after {
+.relations-button {
 
-    content:
-        "ACCESS";
+    display: inline-block;
 
-    position:
-        absolute;
+    margin-top: 10px;
 
-    bottom:
-        15px;
+    padding: 12px 18px;
 
-    right:
-        18px;
+    color: white;
 
-    color:
-        #284964;
+    text-decoration: none;
 
-    font-size:
-        8px;
+    border: 1px solid #1677ff;
 
-    letter-spacing:
-        2px;
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    transition: 0.2s;
 
 }
 
 
-.file-number {
+.relations-button:hover {
 
-    color:
-        #398fe5;
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        3px;
+    background: #1677ff;
 
 }
 
 
-.database-card h3 {
-
-    margin:
-        15px 0 8px;
-
-    font-size:
-        17px;
-
-    letter-spacing:
-        2px;
-
-}
-
-
-.database-card p {
-
-    margin:
-        0;
-
-    max-width:
-        260px;
-
-    color:
-        #657e93;
-
-    font-size:
-        9px;
-
-    line-height:
-        1.7;
-
-}
-
-
-/* =====================================================
-   ACTIVITY
-===================================================== */
-
-.activity {
-
-    margin:
-        50px 0;
-
-    border:
-        1px solid #173b5d;
-
-    background:
-        #03080e;
-
-}
-
-
-.activity-header {
-
-    padding:
-        20px 25px;
-
-    border-bottom:
-        1px solid #173b5d;
-
-    color:
-        #438ed0;
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        4px;
-
-}
-
-
-.activity-row {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        120px 120px 1fr;
-
-    gap:
-        20px;
-
-    padding:
-        16px 25px;
-
-    border-bottom:
-        1px solid
-        rgba(57,101,137,0.15);
-
-    font-size:
-        9px;
-
-}
-
-
-.activity-row:last-child {
-
-    border-bottom:
-        none;
-
-}
-
-
-.activity-date {
-
-    color:
-        #4f6d83;
-
-}
-
-
-.activity-type {
-
-    color:
-        #398fe5;
-
-}
-
-
-.activity-text {
-
-    color:
-        #899dad;
-
-}
-
-
-/* =====================================================
+/* =========================================
    FOOTER
-===================================================== */
+========================================= */
 
 footer {
 
-    margin-top:
-        40px;
+    padding: 40px 7%;
 
-    padding:
-        40px 6%;
+    background: #020407;
 
-    background:
-        #020407;
+    border-top: 1px solid #193b59;
 
-    border-top:
-        1px solid #173b5d;
+    color: #526a7c;
 
-    color:
-        #526b7e;
+    font-size: 9px;
 
-    font-size:
-        8px;
-
-    letter-spacing:
-        3px;
-
-    line-height:
-        2;
+    letter-spacing: 2px;
 
 }
 
 
-/* =====================================================
+/* =========================================
    MOBILE
-===================================================== */
+========================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 
     header {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        align-items:
-            flex-start;
+        align-items: flex-start;
 
     }
 
+    nav {
+
+        justify-content: flex-start;
+
+    }
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .profile-image {
+
+        width: 230px;
+
+        height: 290px;
+
+    }
 
     .info-grid {
 
         grid-template-columns:
-            1fr;
+            repeat(2, 1fr);
 
     }
 
+    .page-grid {
 
-    .database-grid {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .codename {
-
-        letter-spacing:
-            5px;
-
-    }
-
-
-    .activity-row {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            5px;
+        grid-template-columns: 1fr;
 
     }
 
@@ -1124,56 +694,23 @@ footer {
 
 @media (max-width: 500px) {
 
-    main {
-
-        width:
-            90%;
-
-    }
-
-
     .hero {
 
-        padding-top:
-            50px;
+        padding-top: 50px;
 
     }
-
 
     .codename {
 
-        font-size:
-            58px;
+        font-size: 60px;
+
+        letter-spacing: 5px;
 
     }
 
+    .info-grid {
 
-    .real-name {
-
-        font-size:
-            13px;
-
-        letter-spacing:
-            3px;
-
-    }
-
-
-    .info-row {
-
-        flex-direction:
-            column;
-
-        gap:
-            5px;
-
-    }
-
-
-    .info-value {
-
-        text-align:
-            left;
+        grid-template-columns: 1fr;
 
     }
 
@@ -1187,148 +724,125 @@ footer {
 <body>
 
 
-<!-- =================================================
+<!-- =========================================
      TOP LINE
-================================================= -->
+========================================= -->
 
 <div class="top-line"></div>
 
 
-<!-- =================================================
+<!-- =========================================
      HEADER
-================================================= -->
+========================================= -->
 
 <header>
 
-
     <div class="site-name">
 
-        <h1>
-            SITE-66
-        </h1>
+        <h1>SITE-66</h1>
 
-        <p>
-            FOUNDATION SECURE NETWORK
-        </p>
+        <p>FOUNDATION SECURE NETWORK</p>
 
     </div>
 
 
     <nav>
 
-        <a href="home.html">
-            HOME
-        </a>
+        <a href="home.html">HOME</a>
 
-        <a href="personnel.html">
-            PERSONNEL
-        </a>
+        <a href="personnel.html">PERSONNEL</a>
 
-        <a href="records.html">
-            RECORDS
-        </a>
+        <a href="records.html">RECORDS</a>
 
-        <a href="archives.html">
-            ARCHIVES
-        </a>
+        <a href="archives.html">ARCHIVES</a>
 
-        <a href="journal.html">
-            JOURNAL
-        </a>
+        <a href="journal.html">JOURNAL</a>
 
-        <a href="playlist.html">
-            PLAYLIST
-        </a>
+        <a href="playlist.html">PLAYLIST</a>
+
+        <a href="relations.html">RELATIONS</a>
+
+        <a href="profile.html">PROFILE</a>
 
     </nav>
-
 
 </header>
 
 
-<!-- =================================================
-     MAIN
-================================================= -->
-
-<main>
-
-
-<!-- =================================================
+<!-- =========================================
      HERO
-================================================= -->
+========================================= -->
 
 <section class="hero">
 
 
-    <div class="hero-label">
+    <div>
 
-        SITE-66 //
-        PERSONNEL DATABASE //
-        ACTIVE RECORD
+        <div class="hero-label">
 
-    </div>
-
-
-    <!-- CODENAME IS INTENTIONALLY HUGE -->
-
-    <h1 class="codename">
-
-        MERCER
-
-    </h1>
-
-
-    <div class="real-name">
-
-        CONNOR REDMEN
-
-    </div>
-
-
-    <div class="role">
-
-        MASTER SERGEANT
-
-        <span>//</span>
-
-        GENERAL SECURITY
-
-        <span>//</span>
-
-        SITE-66
-
-    </div>
-
-
-    <div class="status-row">
-
-
-        <div class="status">
-
-            <div class="status-dot"></div>
-
-            STATUS: ACTIVE
+            SITE-66 //
+            PERSONNEL DATABASE //
+            IDENTIFICATION
 
         </div>
 
 
-        <div class="status">
+        <!-- CODENAME IS INTENTIONALLY BIGGER -->
 
-            <div class="status-dot"></div>
+        <h1 class="codename">
 
-            SECURE CONNECTION
+            MERCER
 
-        </div>
+        </h1>
 
 
-        <div class="status">
+        <div class="real-name">
 
-            <div class="status-dot"></div>
-
-            CLEARANCE LEVEL 2
+            CONNOR REDMEN
 
         </div>
 
+
+        <p class="hero-description">
+
+            Foundation Security personnel assigned to
+            Site-66. Former United States Marine with
+            specialized combat experience and documented
+            exposure to anomalous activity.
+
+            <br><br>
+
+            Current assignment:
+            General Security Department.
+
+        </p>
+
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            ACTIVE // SITE-66
+
+        </div>
+
+    </div>
+
+
+    <div>
+
+        <img
+            src="assets/mercer.jpg"
+            alt="Connor Redmen"
+            class="profile-image"
+        >
+
+        <div class="image-label">
+
+            PERSONNEL IMAGE //
+            MERCER
+
+        </div>
 
     </div>
 
@@ -1336,29 +850,31 @@ footer {
 </section>
 
 
-<!-- =================================================
-     INFORMATION
-================================================= -->
+<!-- =========================================
+     MAIN
+========================================= -->
 
-<section class="info-grid">
-
-
-    <!-- BASIC INFORMATION -->
-
-    <div class="panel">
+<main class="container">
 
 
-        <div class="panel-title">
+    <!-- =====================================
+         BASIC INFORMATION
+    ====================================== -->
 
-            BASIC INFORMATION
+    <div class="section-title">
 
-        </div>
+        BASIC INFORMATION
+
+    </div>
 
 
-        <div class="info-row">
+    <section class="info-grid">
+
+
+        <div class="info-card">
 
             <div class="info-label">
-                FULL NAME
+                NAME
             </div>
 
             <div class="info-value">
@@ -1368,7 +884,20 @@ footer {
         </div>
 
 
-        <div class="info-row">
+        <div class="info-card">
+
+            <div class="info-label">
+                CODENAME
+            </div>
+
+            <div class="info-value">
+                Mercer
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
 
             <div class="info-label">
                 DATE OF BIRTH
@@ -1381,33 +910,20 @@ footer {
         </div>
 
 
-        <div class="info-row">
+        <div class="info-card">
 
             <div class="info-label">
                 BLOOD TYPE
             </div>
 
-            <div class="info-value blue">
+            <div class="info-value">
                 B-
             </div>
 
         </div>
 
 
-        <div class="info-row">
-
-            <div class="info-label">
-                CODENAME
-            </div>
-
-            <div class="info-value blue">
-                MERCER
-            </div>
-
-        </div>
-
-
-        <div class="info-row">
+        <div class="info-card">
 
             <div class="info-label">
                 RANK
@@ -1420,236 +936,113 @@ footer {
         </div>
 
 
-    </div>
-
-
-    <!-- ASSIGNMENT -->
-
-    <div class="panel">
-
-
-        <div class="panel-title">
-
-            FOUNDATION ASSIGNMENT
-
-        </div>
-
-
-        <div class="info-row">
+        <div class="info-card">
 
             <div class="info-label">
                 DEPARTMENT
             </div>
 
             <div class="info-value">
-                GENERAL SECURITY
+                GENSEC
             </div>
 
         </div>
 
 
-        <div class="info-row">
+        <div class="info-card">
 
             <div class="info-label">
-                SPECIALIZATION
+                STATUS
             </div>
 
             <div class="info-value">
-                GENSEC HEAVY
+                ACTIVE
             </div>
 
         </div>
 
 
-        <div class="info-row">
+        <div class="info-card">
 
             <div class="info-label">
-                SECONDARY
+                IDENTIFYING MARK
             </div>
 
             <div class="info-value">
-                GENSEC VANGUARD
+                RIGHT ARM BURN MARK
             </div>
 
         </div>
 
 
-        <div class="info-row">
-
-            <div class="info-label">
-                SITE
-            </div>
-
-            <div class="info-value">
-                SITE-66
-            </div>
-
-        </div>
+    </section>
 
 
-        <div class="info-row">
+    <!-- =====================================
+         PERSONNEL PAGES
+    ====================================== -->
 
-            <div class="info-label">
-                CLEARANCE
-            </div>
+    <div class="section-title">
 
-            <div class="info-value blue">
-                LEVEL 2
-            </div>
-
-        </div>
-
+        PERSONNEL DATABASE
 
     </div>
 
 
-</section>
+    <section class="page-grid">
 
-
-<!-- =================================================
-     IDENTIFYING MARK
-================================================= -->
-
-<section class="identification">
-
-
-    <div class="panel-title">
-
-        PHYSICAL IDENTIFICATION
-
-    </div>
-
-
-    <div class="mark">
-
-
-        <div class="mark-icon">
-
-            !
-
-        </div>
-
-
-        <div class="mark-text">
-
-            <strong>
-                BURN MARK
-            </strong>
-
-            <span>
-                IDENTIFYING MARK // RIGHT ARM
-            </span>
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =================================================
-     DATABASE ACCESS
-================================================= -->
-
-<section class="database">
-
-
-    <div class="database-heading">
-
-        <h2>
-            DATABASE ACCESS
-        </h2>
-
-        <span>
-            AUTHORIZED PERSONNEL
-        </span>
-
-    </div>
-
-
-    <div class="database-grid">
-
-
-        <!-- RELATIONS -->
-
-       <a href="relations.html" class="database-card">
-
-    <div class="file-number">
-        FILE 01
-    </div>
-
-    <h3>
-        RELATIONS
-    </h3>
-
-    <p>
-        Family, friends, colleagues,
-        and individuals connected
-        to Connor Redmen.
-    </p>
-
-</a>
-
-
-        <!-- INCIDENT RECORDS -->
 
         <a
-            href="records.html"
-            class="database-card"
+            href="profile.html"
+            class="page-button"
         >
 
-            <div class="file-number">
-                FILE 02
+            <div class="page-number">
+                01 //
             </div>
 
             <h3>
-                INCIDENT RECORDS
+                PERSONNEL PROFILE
             </h3>
 
             <p>
-                Official records of incidents
-                involving Mercer and
-                Foundation operations.
+                View Mercer's complete personnel
+                profile, identification information,
+                and biography.
             </p>
 
         </a>
 
 
-        <!-- ARCHIVES -->
-
         <a
-            href="archives.html"
-            class="database-card"
+            href="relations.html"
+            class="page-button"
         >
 
-            <div class="file-number">
-                FILE 03
+            <div class="page-number">
+                02 //
             </div>
 
             <h3>
-                ARCHIVES
+                RELATIONS
             </h3>
 
             <p>
-                Archived Foundation records,
-                assignments, and historical
-                documentation.
+                View personnel relationships,
+                departments, branches, and
+                associated individuals.
             </p>
 
         </a>
 
-
-        <!-- JOURNAL -->
 
         <a
             href="journal.html"
-            class="database-card"
+            class="page-button"
         >
 
-            <div class="file-number">
-                FILE 04
+            <div class="page-number">
+                03 //
             </div>
 
             <h3>
@@ -1657,22 +1050,21 @@ footer {
             </h3>
 
             <p>
-                Personal writings and private
-                thoughts belonging to Mercer.
+                Personal journal entries and
+                archived thoughts recorded by
+                Mercer.
             </p>
 
         </a>
 
 
-        <!-- PLAYLIST -->
-
         <a
             href="playlist.html"
-            class="database-card"
+            class="page-button"
         >
 
-            <div class="file-number">
-                FILE 05
+            <div class="page-number">
+                04 //
             </div>
 
             <h3>
@@ -1680,140 +1072,112 @@ footer {
             </h3>
 
             <p>
-                Personal audio records
-                associated with Connor Redmen.
+                Personal audio archive associated
+                with Connor Redmen.
             </p>
 
         </a>
 
 
-        <!-- CLASSIFIED -->
-
         <a
-            href="#"
-            class="database-card"
-            onclick="
-                alert(
-                    'ACCESS DENIED — CLEARANCE LEVEL INSUFFICIENT'
-                );
-                return false;
-            "
+            href="records.html"
+            class="page-button"
         >
 
-            <div class="file-number">
-                FILE 06
+            <div class="page-number">
+                05 //
             </div>
 
             <h3>
-                CLASSIFIED
+                RECORDS
             </h3>
 
             <p>
-                Restricted information.
-                Clearance Level 3 or higher
-                required.
+                Personnel records and documented
+                Foundation information.
             </p>
 
         </a>
 
 
-    </div>
+        <a
+            href="archives.html"
+            class="page-button"
+        >
+
+            <div class="page-number">
+                06 //
+            </div>
+
+            <h3>
+                ARCHIVES
+            </h3>
+
+            <p>
+                Archived reports, historical records,
+                and classified material.
+            </p>
+
+        </a>
 
 
-</section>
+    </section>
 
 
-<!-- =================================================
-     RECENT ACTIVITY
-================================================= -->
+    <!-- =====================================
+         RELATIONS FEATURE
+    ====================================== -->
 
-<section class="activity">
-
-
-    <div class="activity-header">
-
-        RECENT DATABASE ACTIVITY
-
-    </div>
+    <section class="relations-box">
 
 
-    <div class="activity-row">
-
-        <div class="activity-date">
-            08/19/2026
-        </div>
-
-        <div class="activity-type">
-            PERSONNEL
-        </div>
-
-        <div class="activity-text">
-            Rank designation updated to
-            MASTER SERGEANT.
-        </div>
-
-    </div>
+        <h2>
+            RELATIONS DATABASE
+        </h2>
 
 
-    <div class="activity-row">
+        <p>
 
-        <div class="activity-date">
-            08/18/2026
-        </div>
+            Personnel relationships associated with
+            Mercer are maintained separately from his
+            personal profile. Access the Relations
+            Database to view connections between
+            Connor Redmen and Foundation personnel,
+            departments, and other branches.
 
-        <div class="activity-type">
-            JOURNAL
-        </div>
-
-        <div class="activity-text">
-            New personal journal entry
-            added to Mercer archive.
-        </div>
-
-    </div>
+        </p>
 
 
-    <div class="activity-row">
+        <a
+            href="relations.html"
+            class="relations-button"
+        >
 
-        <div class="activity-date">
-            08/10/2026
-        </div>
+            OPEN RELATIONS DATABASE →
 
-        <div class="activity-type">
-            SECURITY
-        </div>
-
-        <div class="activity-text">
-            Personnel record accessed.
-        </div>
-
-    </div>
+        </a>
 
 
-</section>
+    </section>
 
 
 </main>
 
 
-<!-- =================================================
+<!-- =========================================
      FOOTER
-================================================= -->
+========================================= -->
 
 <footer>
 
     SITE-66 FOUNDATION DATABASE
 
-    <br>
+    <br><br>
 
-    GENERAL SECURITY DEPARTMENT
+    PERSONNEL RECORD //
+    MERCER
 
-    <br>
-
-    PERSONNEL RECORD:
-    MERCER // CONNOR REDMEN
-
-    <br>
+    <br><br>
 
     UNAUTHORIZED ACCESS IS PROHIBITED.
 
@@ -1823,3 +1187,4 @@ footer {
 </body>
 
 </html>
+```
