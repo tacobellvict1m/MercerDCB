@@ -1,10 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SITE-66 | Relations Database</title>
@@ -47,6 +47,7 @@ body {
 ===================================================== */
 
 body::after {
+
     content: "";
 
     position: fixed;
@@ -67,6 +68,7 @@ body::after {
         );
 
     opacity: 0.35;
+
 }
 
 
@@ -75,12 +77,14 @@ body::after {
 ===================================================== */
 
 .top-line {
+
     height: 4px;
 
     background: #1677ff;
 
     box-shadow:
         0 0 20px rgba(22,119,255,0.8);
+
 }
 
 
@@ -89,6 +93,7 @@ body::after {
 ===================================================== */
 
 header {
+
     padding: 22px 7%;
 
     display: flex;
@@ -107,19 +112,23 @@ header {
         );
 
     border-bottom: 1px solid #193b59;
+
 }
 
 
 .site-name h1 {
+
     margin: 0;
 
     font-size: 22px;
 
     letter-spacing: 4px;
+
 }
 
 
 .site-name p {
+
     margin: 7px 0 0;
 
     color: #6f94b5;
@@ -127,6 +136,7 @@ header {
     font-size: 9px;
 
     letter-spacing: 2px;
+
 }
 
 
@@ -135,6 +145,7 @@ header {
 ===================================================== */
 
 nav {
+
     display: flex;
 
     flex-wrap: wrap;
@@ -142,10 +153,12 @@ nav {
     justify-content: flex-end;
 
     gap: 5px;
+
 }
 
 
 nav a {
+
     padding: 9px 12px;
 
     color: #9bbbd6;
@@ -159,16 +172,19 @@ nav a {
     letter-spacing: 2px;
 
     transition: 0.2s;
+
 }
 
 
 nav a:hover {
+
     color: white;
 
     background:
         rgba(22,119,255,0.12);
 
     border-color: #1677ff;
+
 }
 
 
@@ -177,6 +193,7 @@ nav a:hover {
 ===================================================== */
 
 .page-header {
+
     width: 86%;
 
     max-width: 1200px;
@@ -186,28 +203,34 @@ nav a:hover {
     padding: 65px 0 40px;
 
     border-bottom: 1px solid #193b59;
+
 }
 
 
 .page-label {
+
     color: #4c9ddd;
 
     font-size: 10px;
 
     letter-spacing: 4px;
+
 }
 
 
 .page-header h1 {
+
     margin: 15px 0;
 
     font-size: clamp(40px, 7vw, 75px);
 
     letter-spacing: 6px;
+
 }
 
 
 .page-header p {
+
     color: #8199ad;
 
     max-width: 750px;
@@ -215,6 +238,7 @@ nav a:hover {
     font-size: 11px;
 
     line-height: 1.8;
+
 }
 
 
@@ -223,6 +247,7 @@ nav a:hover {
 ===================================================== */
 
 .container {
+
     width: 86%;
 
     max-width: 1200px;
@@ -230,6 +255,7 @@ nav a:hover {
     margin: auto;
 
     padding: 45px 0 100px;
+
 }
 
 
@@ -238,6 +264,7 @@ nav a:hover {
 ===================================================== */
 
 .database-bar {
+
     display: flex;
 
     justify-content: space-between;
@@ -253,20 +280,25 @@ nav a:hover {
     background: #050b12;
 
     border: 1px solid #193b59;
+
 }
 
 
 .database-status {
+
     color: #71879a;
 
     font-size: 9px;
 
     letter-spacing: 2px;
+
 }
 
 
 .database-status span {
+
     color: #32d46b;
+
 }
 
 
@@ -275,6 +307,7 @@ nav a:hover {
 ===================================================== */
 
 .add-button {
+
     padding: 12px 18px;
 
     border: 1px solid #1677ff;
@@ -292,14 +325,17 @@ nav a:hover {
     cursor: pointer;
 
     transition: 0.2s;
+
 }
 
 
 .add-button:hover {
+
     background: #1677ff;
 
     box-shadow:
         0 0 20px rgba(22,119,255,0.25);
+
 }
 
 
@@ -308,12 +344,14 @@ nav a:hover {
 ===================================================== */
 
 #relations {
+
     display: grid;
 
     grid-template-columns:
         repeat(2, 1fr);
 
     gap: 15px;
+
 }
 
 
@@ -322,6 +360,7 @@ nav a:hover {
 ===================================================== */
 
 .relation {
+
     position: relative;
 
     padding: 25px;
@@ -336,18 +375,22 @@ nav a:hover {
     border: 1px solid #193b59;
 
     transition: 0.2s;
+
 }
 
 
 .relation:hover {
+
     border-color: #1677ff;
 
     box-shadow:
         0 0 25px rgba(22,119,255,0.06);
+
 }
 
 
 .relation-branch {
+
     display: inline-block;
 
     margin-bottom: 12px;
@@ -361,19 +404,23 @@ nav a:hover {
     font-size: 8px;
 
     letter-spacing: 2px;
+
 }
 
 
 .relation-name {
+
     margin: 0;
 
     font-size: 24px;
 
     letter-spacing: 2px;
+
 }
 
 
 .relation-rank {
+
     margin-top: 8px;
 
     color: #71879a;
@@ -381,10 +428,12 @@ nav a:hover {
     font-size: 10px;
 
     letter-spacing: 1px;
+
 }
 
 
 .relation-status {
+
     margin-top: 20px;
 
     color: #9bbbd6;
@@ -392,14 +441,12 @@ nav a:hover {
     font-size: 10px;
 
     line-height: 1.7;
+
 }
 
 
-/* =====================================================
-   STATUS COLORS
-===================================================== */
-
 .relation-status span {
+
     display: inline-block;
 
     margin-left: 5px;
@@ -411,38 +458,37 @@ nav a:hover {
     font-size: 8px;
 
     letter-spacing: 1px;
+
 }
 
+
+/* =====================================================
+   STATUS COLORS
+===================================================== */
 
 .status-active {
     color: #32d46b;
 }
 
-
 .status-nonactive {
     color: #d6a832;
 }
-
 
 .status-deceased {
     color: #d64a4a;
 }
 
-
 .status-missing {
     color: #b84aff;
 }
-
 
 .status-retired {
     color: #71879a;
 }
 
-
 .status-suspended {
     color: #ff7b38;
 }
-
 
 .status-unknown {
     color: #9bbbd6;
@@ -454,6 +500,7 @@ nav a:hover {
 ===================================================== */
 
 .delete-button {
+
     width: 100%;
 
     margin-top: 25px;
@@ -475,13 +522,17 @@ nav a:hover {
     cursor: pointer;
 
     transition: 0.2s;
+
 }
 
 
 .delete-button:hover {
-    background: rgba(214,74,74,0.1);
+
+    background:
+        rgba(214,74,74,0.1);
 
     border-color: #d64a4a;
+
 }
 
 
@@ -490,6 +541,7 @@ nav a:hover {
 ===================================================== */
 
 .empty {
+
     grid-column: 1 / -1;
 
     padding: 60px 20px;
@@ -507,6 +559,7 @@ nav a:hover {
     letter-spacing: 2px;
 
     line-height: 1.8;
+
 }
 
 
@@ -515,6 +568,7 @@ nav a:hover {
 ===================================================== */
 
 .message {
+
     margin-top: 15px;
 
     padding: 10px;
@@ -522,24 +576,31 @@ nav a:hover {
     font-size: 9px;
 
     line-height: 1.5;
+
 }
 
 
 .message.error {
+
     color: #ff6464;
 
     border: 1px solid #542b2b;
 
-    background: rgba(214,74,74,0.08);
+    background:
+        rgba(214,74,74,0.08);
+
 }
 
 
 .message.success {
+
     color: #32d46b;
 
     border: 1px solid #245b38;
 
-    background: rgba(50,212,107,0.08);
+    background:
+        rgba(50,212,107,0.08);
+
 }
 
 
@@ -548,6 +609,7 @@ nav a:hover {
 ===================================================== */
 
 .modal {
+
     position: fixed;
 
     inset: 0;
@@ -564,15 +626,19 @@ nav a:hover {
 
     background:
         rgba(0,0,0,0.82);
+
 }
 
 
 .modal.show {
+
     display: flex;
+
 }
 
 
 .modal-box {
+
     width: 100%;
 
     max-width: 520px;
@@ -590,10 +656,12 @@ nav a:hover {
 
     box-shadow:
         0 0 50px rgba(0,0,0,0.8);
+
 }
 
 
 .modal-box h2 {
+
     margin: 0 0 20px;
 
     color: white;
@@ -601,10 +669,12 @@ nav a:hover {
     font-size: 22px;
 
     letter-spacing: 3px;
+
 }
 
 
 .modal-label {
+
     display: block;
 
     margin-bottom: 8px;
@@ -614,12 +684,14 @@ nav a:hover {
     font-size: 8px;
 
     letter-spacing: 2px;
+
 }
 
 
 .modal-input,
 .modal-select,
 .modal-textarea {
+
     width: 100%;
 
     padding: 12px;
@@ -637,36 +709,44 @@ nav a:hover {
     font-family: "Courier New", monospace;
 
     font-size: 11px;
+
 }
 
 
 .modal-input:focus,
 .modal-select:focus,
 .modal-textarea:focus {
+
     border-color: #1677ff;
 
     box-shadow:
         0 0 10px rgba(22,119,255,0.12);
+
 }
 
 
 .modal-textarea {
+
     min-height: 100px;
 
     resize: vertical;
+
 }
 
 
 .modal-buttons {
+
     display: flex;
 
     gap: 10px;
 
     margin-top: 20px;
+
 }
 
 
 .modal-buttons button {
+
     flex: 1;
 
     padding: 12px;
@@ -678,47 +758,58 @@ nav a:hover {
     letter-spacing: 2px;
 
     cursor: pointer;
+
 }
 
 
 .save {
+
     color: white;
 
     background: #1677ff;
 
     border: 1px solid #1677ff;
+
 }
 
 
 .cancel {
+
     color: #9bbbd6;
 
     background: transparent;
 
     border: 1px solid #193b59;
+
 }
 
 
 .cancel:hover {
+
     border-color: #71879a;
+
 }
 
 
 /* =====================================================
-   DELETE CONFIRM BUTTON
+   DELETE CONFIRM
 ===================================================== */
 
 .delete-confirm {
+
     color: white;
 
     background: #8f2222;
 
     border: 1px solid #d64a4a;
+
 }
 
 
 .delete-confirm:hover {
+
     background: #b52d2d;
+
 }
 
 
@@ -727,6 +818,7 @@ nav a:hover {
 ===================================================== */
 
 .password-warning {
+
     color: #71879a;
 
     font-size: 10px;
@@ -734,15 +826,18 @@ nav a:hover {
     line-height: 1.8;
 
     margin-bottom: 20px;
+
 }
 
 
 .lock-icon {
+
     color: #1677ff;
 
     font-size: 30px;
 
     margin-bottom: 15px;
+
 }
 
 
@@ -751,6 +846,7 @@ nav a:hover {
 ===================================================== */
 
 footer {
+
     padding: 40px 7%;
 
     background: #020407;
@@ -764,6 +860,7 @@ footer {
     letter-spacing: 2px;
 
     line-height: 1.7;
+
 }
 
 
@@ -774,23 +871,31 @@ footer {
 @media (max-width: 850px) {
 
     header {
+
         flex-direction: column;
 
         align-items: flex-start;
+
     }
 
     nav {
+
         justify-content: flex-start;
+
     }
 
     #relations {
+
         grid-template-columns: 1fr;
+
     }
 
     .database-bar {
+
         flex-direction: column;
 
         align-items: flex-start;
+
     }
 
 }
@@ -799,17 +904,23 @@ footer {
 @media (max-width: 500px) {
 
     .page-header h1 {
+
         font-size: 38px;
 
         letter-spacing: 3px;
+
     }
 
     .container {
+
         width: 92%;
+
     }
 
     .page-header {
+
         width: 92%;
+
     }
 
 }
@@ -894,8 +1005,11 @@ footer {
         <br><br>
 
         DATABASE STATUS:
+
         <strong style="color:#32d46b;">
+
             ONLINE
+
         </strong>
 
     </p>
@@ -936,10 +1050,6 @@ footer {
 
     </div>
 
-
-    <!-- =================================================
-         RELATIONS
-    ================================================== -->
 
     <div id="relations">
 
@@ -1418,7 +1528,8 @@ footer {
 
 import {
     initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 import {
@@ -1429,7 +1540,8 @@ import {
     doc,
     onSnapshot,
     serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 /* =====================================================
@@ -1486,8 +1598,13 @@ const relationsCollection =
 
 
 /* =====================================================
-   CURRENT DELETE ID
+   DELETE STATE
 ===================================================== */
+
+/*
+   This variable stores the Firebase document ID
+   of the EXACT relation the user selected.
+*/
 
 let deleteRelationID = null;
 
@@ -1501,51 +1618,44 @@ function getStatusClass(status) {
     switch (
         String(status)
             .toUpperCase()
-            .replace(" ", "")
+            .replace(/[\s-]/g, "")
     ) {
 
         case "ACTIVE":
+
             return "status-active";
 
-        case "NON-ACTIVE":
+
         case "NONACTIVE":
+
             return "status-nonactive";
 
+
         case "DECEASED":
+
             return "status-deceased";
 
+
         case "MISSING":
+
             return "status-missing";
 
+
         case "RETIRED":
+
             return "status-retired";
 
+
         case "SUSPENDED":
+
             return "status-suspended";
 
+
         default:
+
             return "status-unknown";
 
     }
-
-}
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(text) {
-
-    const div =
-        document.createElement(
-            "div"
-        );
-
-    div.textContent =
-        text || "";
-
-    return div.innerHTML;
 
 }
 
@@ -1588,6 +1698,7 @@ onSnapshot(
 
 
         snapshot.forEach(
+
             function(docSnapshot) {
 
                 const data =
@@ -1597,12 +1708,6 @@ onSnapshot(
                 const status =
                     data.status ||
                     "UNKNOWN";
-
-
-                const statusClass =
-                    getStatusClass(
-                        status
-                    );
 
 
                 const card =
@@ -1615,54 +1720,72 @@ onSnapshot(
                     "relation";
 
 
-                /*
-                 * Create card elements safely
-                 * so names cannot inject HTML.
-                 */
+                /* =====================================
+                   BRANCH
+                ===================================== */
 
                 const branch =
                     document.createElement(
                         "div"
                     );
 
+
                 branch.className =
                     "relation-branch";
+
 
                 branch.textContent =
                     data.branch ||
                     "UNSPECIFIED";
 
 
+                /* =====================================
+                   NAME
+                ===================================== */
+
                 const name =
                     document.createElement(
                         "h2"
                     );
 
+
                 name.className =
                     "relation-name";
+
 
                 name.textContent =
                     data.name ||
                     "UNKNOWN";
 
 
+                /* =====================================
+                   RANK
+                ===================================== */
+
                 const rank =
                     document.createElement(
                         "div"
                     );
 
+
                 rank.className =
                     "relation-rank";
+
 
                 rank.textContent =
                     data.rank ||
                     "POSITION UNKNOWN";
 
 
+                /* =====================================
+                   INFORMATION
+                ===================================== */
+
                 const information =
                     document.createElement(
                         "div"
                     );
+
 
                 information.className =
                     "relation-status";
@@ -1673,6 +1796,7 @@ onSnapshot(
                         "strong"
                     );
 
+
                 statusLabel.textContent =
                     "STATUS: ";
 
@@ -1682,23 +1806,15 @@ onSnapshot(
                         "span"
                     );
 
+
                 statusSpan.className =
-                    statusClass;
+                    getStatusClass(
+                        status
+                    );
+
 
                 statusSpan.textContent =
                     status;
-
-
-                const relationBreak =
-                    document.createElement(
-                        "br"
-                    );
-
-
-                const relationBreak2 =
-                    document.createElement(
-                        "br"
-                    );
 
 
                 const relationLabel =
@@ -1706,76 +1822,81 @@ onSnapshot(
                         "strong"
                     );
 
+
                 relationLabel.textContent =
                     "RELATION: ";
-
-
-                const relationText =
-                    document.createTextNode(
-                        data.relationType ||
-                        "UNSPECIFIED"
-                    );
-
-
-                const notesBreak =
-                    document.createElement(
-                        "br"
-                    );
-
-
-                const notesBreak2 =
-                    document.createElement(
-                        "br"
-                    );
-
-
-                const notes =
-                    document.createTextNode(
-                        data.notes ||
-                        "No additional notes."
-                    );
 
 
                 information.appendChild(
                     statusLabel
                 );
 
+
                 information.appendChild(
                     statusSpan
                 );
 
-                information.appendChild(
-                    relationBreak
-                );
 
                 information.appendChild(
-                    relationBreak2
+                    document.createElement(
+                        "br"
+                    )
                 );
+
+
+                information.appendChild(
+                    document.createElement(
+                        "br"
+                    )
+                );
+
 
                 information.appendChild(
                     relationLabel
                 );
 
-                information.appendChild(
-                    relationText
-                );
 
                 information.appendChild(
-                    notesBreak
-                );
 
-                information.appendChild(
-                    notesBreak2
-                );
+                    document.createTextNode(
 
-                information.appendChild(
-                    notes
+                        data.relationType ||
+                        "UNSPECIFIED"
+
+                    )
+
                 );
 
 
-                /* =============================
+                information.appendChild(
+                    document.createElement(
+                        "br"
+                    )
+                );
+
+
+                information.appendChild(
+                    document.createElement(
+                        "br"
+                    )
+                );
+
+
+                information.appendChild(
+
+                    document.createTextNode(
+
+                        data.notes ||
+                        "No additional notes."
+
+                    )
+
+                );
+
+
+                /* =====================================
                    DELETE BUTTON
-                   ============================= */
+                ===================================== */
 
                 const deleteButton =
                     document.createElement(
@@ -1792,39 +1913,54 @@ onSnapshot(
 
 
                 /*
-                 * IMPORTANT:
-                 * Delete now goes through the
-                 * password system first.
-                 */
+                   THIS IS IMPORTANT.
+
+                   docSnapshot.id is the actual Firebase
+                   document ID for THIS person's relation.
+
+                   We send that ID into the password system.
+                */
 
                 deleteButton.onclick =
                     function() {
 
                         openPassword(
+
                             "delete",
+
                             docSnapshot.id,
+
                             data.name ||
                             "UNKNOWN"
+
                         );
 
                     };
 
 
+                /* =====================================
+                   ADD EVERYTHING TO CARD
+                ===================================== */
+
                 card.appendChild(
                     branch
                 );
+
 
                 card.appendChild(
                     name
                 );
 
+
                 card.appendChild(
                     rank
                 );
 
+
                 card.appendChild(
                     information
                 );
+
 
                 card.appendChild(
                     deleteButton
@@ -1836,6 +1972,7 @@ onSnapshot(
                 );
 
             }
+
         );
 
     },
@@ -1878,39 +2015,51 @@ async function() {
 
     const name =
         document
-            .getElementById("name")
+            .getElementById(
+                "name"
+            )
             .value
             .trim();
 
 
     const branch =
         document
-            .getElementById("branch")
+            .getElementById(
+                "branch"
+            )
             .value;
 
 
     const rank =
         document
-            .getElementById("rank")
+            .getElementById(
+                "rank"
+            )
             .value
             .trim();
 
 
     const relationType =
         document
-            .getElementById("relationType")
+            .getElementById(
+                "relationType"
+            )
             .value;
 
 
     const status =
         document
-            .getElementById("status")
+            .getElementById(
+                "status"
+            )
             .value;
 
 
     const notes =
         document
-            .getElementById("notes")
+            .getElementById(
+                "notes"
+            )
             .value
             .trim();
 
@@ -1926,8 +2075,10 @@ async function() {
         message.className =
             "message error";
 
+
         message.textContent =
             "PERSON / ORGANIZATION IS REQUIRED.";
+
 
         return;
 
@@ -1939,8 +2090,10 @@ async function() {
         message.className =
             "message error";
 
+
         message.textContent =
             "PLEASE SELECT A BRANCH.";
+
 
         return;
 
@@ -1952,8 +2105,10 @@ async function() {
         message.className =
             "message error";
 
+
         message.textContent =
             "PLEASE SELECT A STATUS.";
+
 
         return;
 
@@ -2033,16 +2188,21 @@ async function() {
 
 
         setTimeout(
+
             function() {
 
                 closeAdd();
 
             },
+
             900
+
         );
 
 
-    } catch(error) {
+    }
+
+    catch(error) {
 
         console.error(
             error
@@ -2068,7 +2228,32 @@ async function() {
 window.confirmDelete =
 async function() {
 
-    if (!deleteRelationID) {
+    /*
+       Make a copy of the ID.
+
+       This prevents the ID from being accidentally
+       cleared while the Firebase operation is running.
+    */
+
+    const idToDelete =
+        deleteRelationID;
+
+
+    if (!idToDelete) {
+
+        const message =
+            document.getElementById(
+                "deleteMessage"
+            );
+
+
+        message.className =
+            "message error";
+
+
+        message.textContent =
+            "NO RELATION WAS SELECTED.";
+
 
         return;
 
@@ -2086,9 +2271,13 @@ async function() {
         await deleteDoc(
 
             doc(
+
                 db,
+
                 "relations",
-                deleteRelationID
+
+                idToDelete
+
             )
 
         );
@@ -2102,23 +2291,34 @@ async function() {
             "RELATION DELETED.";
 
 
+        /*
+           Clear the ID only AFTER Firebase
+           successfully deletes the document.
+        */
+
         deleteRelationID =
             null;
 
 
         setTimeout(
+
             function() {
 
                 closeDelete();
 
             },
+
             800
+
         );
 
 
-    } catch(error) {
+    }
+
+    catch(error) {
 
         console.error(
+            "DELETE ERROR:",
             error
         );
 
@@ -2128,7 +2328,8 @@ async function() {
 
 
         message.textContent =
-            "DELETE FAILED. CHECK FIRESTORE RULES.";
+            "DELETE FAILED: " +
+            error.message;
 
     }
 
@@ -2136,27 +2337,21 @@ async function() {
 
 
 /* =====================================================
-   PASSWORD SYSTEM
+   PASSWORD
 ===================================================== */
 
-
 /*
-=====================================================
-CHANGE YOUR PASSWORD HERE
-=====================================================
-
-Current password:
-
-Mercer66
-
-Change the text between the quotes if you want
-a different password.
-=====================================================
+   YOUR PASSWORD
 */
 
 const ADD_PASSWORD =
     "Mercer66";
 
+
+/*
+   These variables remember what the password
+   was being used for.
+*/
 
 let passwordAction =
     "add";
@@ -2176,22 +2371,42 @@ let passwordDeleteName =
 
 window.openPassword =
 function(
+
     action,
+
     deleteID = null,
+
     deleteName = ""
+
 ) {
+
+    /*
+       Remember the action.
+    */
 
     passwordAction =
         action;
 
 
+    /*
+       Remember the exact Firebase document ID.
+    */
+
     passwordDeleteID =
         deleteID;
 
 
+    /*
+       Remember the person's name.
+    */
+
     passwordDeleteName =
         deleteName;
 
+
+    /*
+       Open password window.
+    */
 
     document
         .getElementById(
@@ -2254,14 +2469,6 @@ function() {
         )
         .textContent = "";
 
-
-    passwordDeleteID =
-        null;
-
-
-    passwordDeleteName =
-        "";
-
 };
 
 
@@ -2286,6 +2493,10 @@ function() {
         );
 
 
+    /* ================================================
+       WRONG PASSWORD
+    ================================================ */
+
     if (
         entered !==
         ADD_PASSWORD
@@ -2305,18 +2516,38 @@ function() {
 
 
     /*
-     * PASSWORD CORRECT
-     */
+       PASSWORD IS CORRECT.
+
+       IMPORTANT:
+       Make copies of the delete information BEFORE
+       closing/resetting the password modal.
+    */
+
+    const authorizedAction =
+        passwordAction;
+
+
+    const authorizedDeleteID =
+        passwordDeleteID;
+
+
+    const authorizedDeleteName =
+        passwordDeleteName;
+
+
+    /*
+       Close password modal.
+    */
 
     closePassword();
 
 
-    /* =============================
-       ADD
-    ============================= */
+    /* ================================================
+       ADD RELATION
+    ================================================ */
 
     if (
-        passwordAction ===
+        authorizedAction ===
         "add"
     ) {
 
@@ -2328,31 +2559,47 @@ function() {
                 "show"
             );
 
+
         return;
 
     }
 
 
-    /* =============================
-       DELETE
-    ============================= */
+    /* ================================================
+       DELETE RELATION
+    ================================================ */
 
     if (
-        passwordAction ===
+        authorizedAction ===
         "delete"
     ) {
 
-        deleteRelationID =
-            passwordDeleteID;
+        /*
+           THIS IS THE FIX.
 
+           Restore the exact Firebase document ID
+           belonging to the relation that was clicked.
+        */
+
+        deleteRelationID =
+            authorizedDeleteID;
+
+
+        /*
+           Show the person's name.
+        */
 
         document
             .getElementById(
                 "deleteName"
             )
             .textContent =
-            passwordDeleteName;
+            authorizedDeleteName;
 
+
+        /*
+           Clear old messages.
+        */
 
         document
             .getElementById(
@@ -2360,6 +2607,10 @@ function() {
             )
             .textContent = "";
 
+
+        /*
+           Open delete confirmation.
+        */
 
         document
             .getElementById(
@@ -2415,6 +2666,11 @@ function() {
         );
 
 
+    /*
+       Clear the selected relation when the
+       confirmation window is closed.
+    */
+
     deleteRelationID =
         null;
 
@@ -2422,7 +2678,7 @@ function() {
 
 
 /* =====================================================
-   ENTER KEY
+   ENTER KEY FOR PASSWORD
 ===================================================== */
 
 document
@@ -2430,7 +2686,9 @@ document
         "passwordInput"
     )
     .addEventListener(
+
         "keydown",
+
         function(event) {
 
             if (
@@ -2443,6 +2701,7 @@ document
             }
 
         }
+
     );
 
 
@@ -2455,7 +2714,9 @@ document
         "passwordModal"
     )
     .addEventListener(
+
         "click",
+
         function(event) {
 
             if (
@@ -2468,6 +2729,7 @@ document
             }
 
         }
+
     );
 
 
@@ -2480,7 +2742,9 @@ document
         "addModal"
     )
     .addEventListener(
+
         "click",
+
         function(event) {
 
             if (
@@ -2493,6 +2757,7 @@ document
             }
 
         }
+
     );
 
 
@@ -2505,7 +2770,9 @@ document
         "deleteModal"
     )
     .addEventListener(
+
         "click",
+
         function(event) {
 
             if (
@@ -2518,6 +2785,7 @@ document
             }
 
         }
+
     );
 
 </script>
@@ -2546,4 +2814,3 @@ document
 </body>
 
 </html>
-```
