@@ -1,1 +1,2264 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SITE-66 | Incident Reports</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #0b1b2d 0%,
+            #05090f 45%,
+            #020305 100%
+        );
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   CRT SCANLINES
+===================================================== */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.025) 0px,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    opacity: 0.35;
+}
+
+
+/* =====================================================
+   TOP LINE
+===================================================== */
+
+.top-line {
+
+    height: 4px;
+
+    background: #1677ff;
+
+    box-shadow:
+        0 0 20px rgba(22,119,255,0.8);
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    padding: 22px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0b1624,
+            #05090f
+        );
+
+    border-bottom: 1px solid #193b59;
+}
+
+
+.site-name h1 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    letter-spacing: 4px;
+}
+
+
+.site-name p {
+
+    margin: 7px 0 0;
+
+    color: #6f94b5;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+
+    gap: 5px;
+}
+
+
+nav a {
+
+    padding: 9px 12px;
+
+    color: #9bbbd6;
+
+    text-decoration: none;
+
+    border: 1px solid transparent;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.2s;
+}
+
+
+nav a:hover {
+
+    color: white;
+
+    background:
+        rgba(22,119,255,0.12);
+
+    border-color: #1677ff;
+}
+
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header {
+
+    width: 86%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 65px 0 40px;
+
+    border-bottom: 1px solid #193b59;
+}
+
+
+.page-label {
+
+    color: #4c9ddd;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+.page-header h1 {
+
+    margin: 15px 0;
+
+    font-size: clamp(40px, 7vw, 75px);
+
+    letter-spacing: 6px;
+}
+
+
+.page-header p {
+
+    color: #8199ad;
+
+    max-width: 750px;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container {
+
+    width: 86%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 45px 0 100px;
+}
+
+
+/* =====================================================
+   DATABASE BAR
+===================================================== */
+
+.database-bar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+    padding: 18px 20px;
+
+    background: #050b12;
+
+    border: 1px solid #193b59;
+}
+
+
+.database-status {
+
+    color: #71879a;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+.database-status span {
+
+    color: #32d46b;
+}
+
+
+/* =====================================================
+   ADD BUTTON
+===================================================== */
+
+.add-button {
+
+    padding: 12px 18px;
+
+    border: 1px solid #1677ff;
+
+    background: rgba(22,119,255,0.08);
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.add-button:hover {
+
+    background: #1677ff;
+
+    box-shadow:
+        0 0 20px rgba(22,119,255,0.25);
+}
+
+
+/* =====================================================
+   INCIDENT GRID
+===================================================== */
+
+#incidents {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+/* =====================================================
+   INCIDENT CARD
+===================================================== */
+
+.incident {
+
+    position: relative;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0a1623,
+            #03070c
+        );
+
+    border: 1px solid #193b59;
+
+    transition: 0.2s;
+}
+
+
+.incident:hover {
+
+    border-color: #1677ff;
+
+    box-shadow:
+        0 0 25px rgba(22,119,255,0.06);
+}
+
+
+.incident-number {
+
+    color: #4c9ddd;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+
+.incident-title {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.4;
+}
+
+
+.incident-date {
+
+    margin-top: 10px;
+
+    color: #71879a;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+
+.incident-type {
+
+    display: inline-block;
+
+    margin-top: 18px;
+
+    padding: 6px 9px;
+
+    color: #4c9ddd;
+
+    border: 1px solid #193b59;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+.incident-note {
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #193b59;
+
+    color: #9bbbd6;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+    white-space: pre-wrap;
+}
+
+
+/* =====================================================
+   DELETE BUTTON
+===================================================== */
+
+.delete-button {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 10px;
+
+    background: transparent;
+
+    color: #d64a4a;
+
+    border: 1px solid #542b2b;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.delete-button:hover {
+
+    background: rgba(214,74,74,0.1);
+
+    border-color: #d64a4a;
+}
+
+
+/* =====================================================
+   EMPTY DATABASE
+===================================================== */
+
+.empty {
+
+    grid-column: 1 / -1;
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    color: #526a7c;
+
+    border: 1px solid #193b59;
+
+    background: #050b12;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.message {
+
+    margin-top: 15px;
+
+    padding: 10px;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+.message.error {
+
+    color: #ff6464;
+
+    border: 1px solid #542b2b;
+
+    background: rgba(214,74,74,0.08);
+}
+
+
+.message.success {
+
+    color: #32d46b;
+
+    border: 1px solid #245b38;
+
+    background: rgba(50,212,107,0.08);
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,0.82);
+}
+
+
+.modal.show {
+
+    display: flex;
+}
+
+
+.modal-box {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0a1623,
+            #03070c
+        );
+
+    border: 1px solid #193b59;
+
+    box-shadow:
+        0 0 50px rgba(0,0,0,0.8);
+}
+
+
+.modal-box h2 {
+
+    margin: 0 0 20px;
+
+    color: white;
+
+    font-size: 22px;
+
+    letter-spacing: 3px;
+}
+
+
+.modal-label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #4c9ddd;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+.modal-input,
+.modal-select,
+.modal-textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 15px;
+
+    background: #02060a;
+
+    color: white;
+
+    border: 1px solid #193b59;
+
+    outline: none;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 11px;
+}
+
+
+.modal-input:focus,
+.modal-select:focus,
+.modal-textarea:focus {
+
+    border-color: #1677ff;
+
+    box-shadow:
+        0 0 10px rgba(22,119,255,0.12);
+}
+
+
+.modal-textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+.modal-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.modal-buttons button {
+
+    flex: 1;
+
+    padding: 12px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+
+.save {
+
+    color: white;
+
+    background: #1677ff;
+
+    border: 1px solid #1677ff;
+}
+
+
+.cancel {
+
+    color: #9bbbd6;
+
+    background: transparent;
+
+    border: 1px solid #193b59;
+}
+
+
+.cancel:hover {
+
+    border-color: #71879a;
+}
+
+
+/* =====================================================
+   DELETE CONFIRM BUTTON
+===================================================== */
+
+.delete-confirm {
+
+    color: white;
+
+    background: #8f2222;
+
+    border: 1px solid #d64a4a;
+}
+
+
+.delete-confirm:hover {
+
+    background: #b52d2d;
+}
+
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+.password-warning {
+
+    color: #71879a;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+}
+
+
+.lock-icon {
+
+    color: #1677ff;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    padding: 40px 7%;
+
+    background: #020407;
+
+    border-top: 1px solid #193b59;
+
+    color: #526a7c;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 850px) {
+
+    header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    nav {
+
+        justify-content: flex-start;
+    }
+
+    #incidents {
+
+        grid-template-columns: 1fr;
+    }
+
+    .database-bar {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .page-header h1 {
+
+        font-size: 38px;
+
+        letter-spacing: 3px;
+    }
+
+    .container {
+
+        width: 92%;
+    }
+
+    .page-header {
+
+        width: 92%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="top-line"></div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="site-name">
+
+        <h1>SITE-66</h1>
+
+        <p>FOUNDATION SECURE NETWORK</p>
+
+    </div>
+
+
+    <nav>
+
+        <a href="home.html">HOME</a>
+
+        <a href="personnel.html">PERSONNEL</a>
+
+        <a href="incidents.html">INCIDENT REPORTS</a>
+
+        <a href="archives.html">ARCHIVES</a>
+
+        <a href="journal.html">JOURNAL</a>
+
+        <a href="playlist.html">PLAYLIST</a>
+
+        <a href="relations.html">RELATIONS</a>
+
+        <a href="profile.html">PROFILE</a>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<section class="page-header">
+
+    <div class="page-label">
+
+        SITE-66 //
+        PERSONNEL DATABASE //
+        INCIDENT REPORTS
+
+    </div>
+
+
+    <h1>
+
+        INCIDENT REPORTS
+
+    </h1>
+
+
+    <p>
+
+        Recorded incidents and disciplinary events
+        associated with Connor Redmen, codename
+        "Mercer."
+
+        <br><br>
+
+        DATABASE STATUS:
+        <strong style="color:#32d46b;">
+            ONLINE
+        </strong>
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+    <div class="database-bar">
+
+        <div class="database-status">
+
+            FIRESTORE DATABASE //
+
+            <span>CONNECTED</span>
+
+            //
+
+            INCIDENTS COLLECTION
+
+        </div>
+
+
+        <button
+            class="add-button"
+            onclick="openPassword('add')"
+        >
+
+            + ADD INCIDENT
+
+        </button>
+
+    </div>
+
+
+    <div id="incidents">
+
+        <div class="empty">
+
+            CONNECTING TO DATABASE...
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     PASSWORD MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="passwordModal"
+>
+
+    <div class="modal-box">
+
+
+        <div class="lock-icon">
+
+            🔒
+
+        </div>
+
+
+        <h2>
+
+            ACCESS REQUIRED
+
+        </h2>
+
+
+        <p class="password-warning">
+
+            Administrative access is required to
+            modify the Site-66 Incident Database.
+
+            <br><br>
+
+            Enter the authorization password
+            to continue.
+
+        </p>
+
+
+        <label
+            class="modal-label"
+            for="passwordInput"
+        >
+
+            PASSWORD
+
+        </label>
+
+
+        <input
+            type="password"
+            id="passwordInput"
+            class="modal-input"
+            placeholder="ENTER PASSWORD"
+            autocomplete="off"
+        >
+
+
+        <div
+            id="passwordMessage"
+            class="message"
+        ></div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="save"
+                onclick="checkPassword()"
+            >
+
+                AUTHORIZE
+
+            </button>
+
+
+            <button
+                class="cancel"
+                onclick="closePassword()"
+            >
+
+                CANCEL
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ADD INCIDENT MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="addModal"
+>
+
+    <div class="modal-box">
+
+
+        <h2>
+
+            ADD INCIDENT
+
+        </h2>
+
+
+        <!-- INCIDENT TITLE -->
+
+        <label
+            class="modal-label"
+            for="incidentTitle"
+        >
+
+            INCIDENT TITLE
+
+        </label>
+
+
+        <input
+            id="incidentTitle"
+            class="modal-input"
+            type="text"
+            placeholder="ENTER INCIDENT TITLE"
+        >
+
+
+        <!-- DATE -->
+
+        <label
+            class="modal-label"
+            for="incidentDate"
+        >
+
+            DATE
+
+        </label>
+
+
+        <input
+            id="incidentDate"
+            class="modal-input"
+            type="date"
+        >
+
+
+        <!-- TYPE -->
+
+        <label
+            class="modal-label"
+            for="incidentType"
+        >
+
+            TYPE OF INCIDENT
+
+        </label>
+
+
+        <select
+            id="incidentType"
+            class="modal-select"
+        >
+
+            <option value="">
+
+                SELECT TYPE
+
+            </option>
+
+            <option value="Reprimand">
+
+                REPRIMAND
+
+            </option>
+
+            <option value="Verbal Warning">
+
+                VERBAL WARNING
+
+            </option>
+
+        </select>
+
+
+        <!-- NOTE -->
+
+        <label
+            class="modal-label"
+            for="incidentNote"
+        >
+
+            NOTE
+
+        </label>
+
+
+        <textarea
+            id="incidentNote"
+            class="modal-textarea"
+            placeholder="ENTER INCIDENT NOTE"
+        ></textarea>
+
+
+        <div
+            id="addMessage"
+            class="message"
+        ></div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="save"
+                onclick="addIncident()"
+            >
+
+                SAVE INCIDENT
+
+            </button>
+
+
+            <button
+                class="cancel"
+                onclick="closeAdd()"
+            >
+
+                CANCEL
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DELETE CONFIRMATION MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="deleteModal"
+>
+
+    <div class="modal-box">
+
+
+        <h2>
+
+            DELETE INCIDENT
+
+        </h2>
+
+
+        <p
+            style="
+                color:#9bbbd6;
+                font-size:11px;
+                line-height:1.8;
+            "
+        >
+
+            You are about to permanently remove:
+
+            <br><br>
+
+            <strong
+                id="deleteName"
+                style="color:white;"
+            ></strong>
+
+            <br><br>
+
+            This action cannot be undone.
+
+        </p>
+
+
+        <div
+            id="deleteMessage"
+            class="message"
+        ></div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="delete-confirm"
+                onclick="confirmDelete()"
+            >
+
+                DELETE
+
+            </button>
+
+
+            <button
+                class="cancel"
+                onclick="closeDelete()"
+            >
+
+                CANCEL
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    deleteDoc,
+    doc,
+    onSnapshot,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyDWdYkDjqDIWWWlxxxRHRPZpTn4eKSYBpQ",
+
+    authDomain:
+        "site-66-database.firebaseapp.com",
+
+    projectId:
+        "site-66-database",
+
+    storageBucket:
+        "site-66-database.firebasestorage.app",
+
+    messagingSenderId:
+        "447627858856",
+
+    appId:
+        "1:447627858856:web:5c0054d7ebca897939039d",
+
+    measurementId:
+        "G-ZNKTWYZXY8"
+
+};
+
+
+/* =====================================================
+   INITIALIZE FIREBASE
+===================================================== */
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const db =
+    getFirestore(
+        app
+    );
+
+
+const incidentsCollection =
+    collection(
+        db,
+        "incidents"
+    );
+
+
+/* =====================================================
+   DELETE ID
+===================================================== */
+
+let deleteIncidentID = null;
+
+
+/* =====================================================
+   DISPLAY INCIDENTS
+===================================================== */
+
+onSnapshot(
+
+    incidentsCollection,
+
+    function(snapshot) {
+
+        const container =
+            document.getElementById(
+                "incidents"
+            );
+
+
+        container.innerHTML = "";
+
+
+        if (snapshot.empty) {
+
+            container.innerHTML = `
+
+                <div class="empty">
+
+                    NO INCIDENT REPORTS HAVE BEEN
+                    ENTERED INTO THE DATABASE.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        snapshot.forEach(
+            function(docSnapshot) {
+
+                const data =
+                    docSnapshot.data();
+
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "incident";
+
+
+                /* INCIDENT NUMBER */
+
+                const number =
+                    document.createElement(
+                        "div"
+                    );
+
+                number.className =
+                    "incident-number";
+
+                number.textContent =
+                    "SITE-66 // INCIDENT REPORT";
+
+
+                /* TITLE */
+
+                const title =
+                    document.createElement(
+                        "h2"
+                    );
+
+                title.className =
+                    "incident-title";
+
+                title.textContent =
+                    data.title ||
+                    "UNTITLED INCIDENT";
+
+
+                /* DATE */
+
+                const date =
+                    document.createElement(
+                        "div"
+                    );
+
+                date.className =
+                    "incident-date";
+
+                date.textContent =
+                    "DATE: " +
+                    (
+                        data.date ||
+                        "UNKNOWN"
+                    );
+
+
+                /* TYPE */
+
+                const type =
+                    document.createElement(
+                        "div"
+                    );
+
+                type.className =
+                    "incident-type";
+
+                type.textContent =
+                    (
+                        data.type ||
+                        "UNKNOWN"
+                    ).toUpperCase();
+
+
+                /* NOTE */
+
+                const note =
+                    document.createElement(
+                        "div"
+                    );
+
+                note.className =
+                    "incident-note";
+
+                note.textContent =
+                    data.note ||
+                    "NO INCIDENT NOTE PROVIDED.";
+
+
+                /* DELETE BUTTON */
+
+                const deleteButton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                deleteButton.className =
+                    "delete-button";
+
+
+                deleteButton.textContent =
+                    "DELETE INCIDENT";
+
+
+                deleteButton.onclick =
+                    function() {
+
+                        openPassword(
+                            "delete",
+                            docSnapshot.id,
+                            data.title ||
+                            "UNTITLED INCIDENT"
+                        );
+
+                    };
+
+
+                card.appendChild(
+                    number
+                );
+
+                card.appendChild(
+                    title
+                );
+
+                card.appendChild(
+                    date
+                );
+
+                card.appendChild(
+                    type
+                );
+
+                card.appendChild(
+                    note
+                );
+
+                card.appendChild(
+                    deleteButton
+                );
+
+
+                container.appendChild(
+                    card
+                );
+
+            }
+        );
+
+    },
+
+    function(error) {
+
+        console.error(
+            "Firebase error:",
+            error
+        );
+
+
+        document.getElementById(
+            "incidents"
+        ).innerHTML = `
+
+            <div class="empty">
+
+                DATABASE CONNECTION ERROR.
+
+                <br><br>
+
+                CHECK FIRESTORE RULES.
+
+            </div>
+
+        `;
+
+    }
+
+);
+
+
+/* =====================================================
+   ADD INCIDENT
+===================================================== */
+
+window.addIncident =
+async function() {
+
+    const title =
+        document
+            .getElementById(
+                "incidentTitle"
+            )
+            .value
+            .trim();
+
+
+    const date =
+        document
+            .getElementById(
+                "incidentDate"
+            )
+            .value;
+
+
+    const type =
+        document
+            .getElementById(
+                "incidentType"
+            )
+            .value;
+
+
+    const note =
+        document
+            .getElementById(
+                "incidentNote"
+            )
+            .value
+            .trim();
+
+
+    const message =
+        document.getElementById(
+            "addMessage"
+        );
+
+
+    if (!title) {
+
+        message.className =
+            "message error";
+
+        message.textContent =
+            "INCIDENT TITLE IS REQUIRED.";
+
+        return;
+
+    }
+
+
+    if (!date) {
+
+        message.className =
+            "message error";
+
+        message.textContent =
+            "DATE IS REQUIRED.";
+
+        return;
+
+    }
+
+
+    if (!type) {
+
+        message.className =
+            "message error";
+
+        message.textContent =
+            "PLEASE SELECT AN INCIDENT TYPE.";
+
+        return;
+
+    }
+
+
+    if (!note) {
+
+        message.className =
+            "message error";
+
+        message.textContent =
+            "INCIDENT NOTE IS REQUIRED.";
+
+        return;
+
+    }
+
+
+    try {
+
+        await addDoc(
+
+            incidentsCollection,
+
+            {
+
+                title:
+                    title,
+
+                date:
+                    date,
+
+                type:
+                    type,
+
+                note:
+                    note,
+
+                createdAt:
+                    serverTimestamp()
+
+            }
+
+        );
+
+
+        message.className =
+            "message success";
+
+
+        message.textContent =
+            "INCIDENT SAVED.";
+
+
+        document.getElementById(
+            "incidentTitle"
+        ).value = "";
+
+
+        document.getElementById(
+            "incidentDate"
+        ).value = "";
+
+
+        document.getElementById(
+            "incidentType"
+        ).value = "";
+
+
+        document.getElementById(
+            "incidentNote"
+        ).value = "";
+
+
+        setTimeout(
+            function() {
+
+                closeAdd();
+
+            },
+            900
+        );
+
+
+    } catch(error) {
+
+        console.error(
+            error
+        );
+
+
+        message.className =
+            "message error";
+
+
+        message.textContent =
+            "DATABASE ERROR. CHECK FIRESTORE RULES.";
+
+    }
+
+};
+
+
+/* =====================================================
+   CONFIRM DELETE
+===================================================== */
+
+window.confirmDelete =
+async function() {
+
+    if (!deleteIncidentID) {
+
+        return;
+
+    }
+
+
+    const message =
+        document.getElementById(
+            "deleteMessage"
+        );
+
+
+    try {
+
+        await deleteDoc(
+
+            doc(
+                db,
+                "incidents",
+                deleteIncidentID
+            )
+
+        );
+
+
+        message.className =
+            "message success";
+
+
+        message.textContent =
+            "INCIDENT DELETED.";
+
+
+        deleteIncidentID =
+            null;
+
+
+        setTimeout(
+            function() {
+
+                closeDelete();
+
+            },
+            800
+        );
+
+
+    } catch(error) {
+
+        console.error(
+            error
+        );
+
+
+        message.className =
+            "message error";
+
+
+        message.textContent =
+            "DELETE FAILED. CHECK FIRESTORE RULES.";
+
+    }
+
+};
+
+
+/* =====================================================
+   PASSWORD SYSTEM
+===================================================== */
+
+
+/*
+=====================================================
+CHANGE YOUR PASSWORD HERE
+=====================================================
+
+Current password:
+
+Mercer66
+
+Change the text between the quotes if you want
+a different password.
+=====================================================
+*/
+
+const INCIDENT_PASSWORD =
+    "Mercer66";
+
+
+let passwordAction =
+    "add";
+
+
+let passwordDeleteID =
+    null;
+
+
+let passwordDeleteName =
+    "";
+
+
+/* =====================================================
+   OPEN PASSWORD
+===================================================== */
+
+window.openPassword =
+function(
+    action,
+    deleteID = null,
+    deleteName = ""
+) {
+
+    passwordAction =
+        action;
+
+
+    passwordDeleteID =
+        deleteID;
+
+
+    passwordDeleteName =
+        deleteName;
+
+
+    document
+        .getElementById(
+            "passwordModal"
+        )
+        .classList.add(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "passwordInput"
+        )
+        .value = "";
+
+
+    document
+        .getElementById(
+            "passwordMessage"
+        )
+        .textContent = "";
+
+
+    document
+        .getElementById(
+            "passwordInput"
+        )
+        .focus();
+
+};
+
+
+/* =====================================================
+   CLOSE PASSWORD
+===================================================== */
+
+window.closePassword =
+function() {
+
+    document
+        .getElementById(
+            "passwordModal"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "passwordInput"
+        )
+        .value = "";
+
+
+    document
+        .getElementById(
+            "passwordMessage"
+        )
+        .textContent = "";
+
+
+    passwordDeleteID =
+        null;
+
+
+    passwordDeleteName =
+        "";
+
+};
+
+
+/* =====================================================
+   CHECK PASSWORD
+===================================================== */
+
+window.checkPassword =
+function() {
+
+    const entered =
+        document
+            .getElementById(
+                "passwordInput"
+            )
+            .value;
+
+
+    const message =
+        document.getElementById(
+            "passwordMessage"
+        );
+
+
+    if (
+        entered !==
+        INCIDENT_PASSWORD
+    ) {
+
+        message.className =
+            "message error";
+
+
+        message.textContent =
+            "ACCESS DENIED.";
+
+
+        return;
+
+    }
+
+
+    /* PASSWORD CORRECT */
+
+    closePassword();
+
+
+    /* ADD INCIDENT */
+
+    if (
+        passwordAction ===
+        "add"
+    ) {
+
+        document
+            .getElementById(
+                "addModal"
+            )
+            .classList.add(
+                "show"
+            );
+
+        return;
+
+    }
+
+
+    /* DELETE INCIDENT */
+
+    if (
+        passwordAction ===
+        "delete"
+    ) {
+
+        deleteIncidentID =
+            passwordDeleteID;
+
+
+        document
+            .getElementById(
+                "deleteName"
+            )
+            .textContent =
+            passwordDeleteName;
+
+
+        document
+            .getElementById(
+                "deleteMessage"
+            )
+            .textContent = "";
+
+
+        document
+            .getElementById(
+                "deleteModal"
+            )
+            .classList.add(
+                "show"
+            );
+
+    }
+
+};
+
+
+/* =====================================================
+   CLOSE ADD
+===================================================== */
+
+window.closeAdd =
+function() {
+
+    document
+        .getElementById(
+            "addModal"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "addMessage"
+        )
+        .textContent = "";
+
+};
+
+
+/* =====================================================
+   CLOSE DELETE
+===================================================== */
+
+window.closeDelete =
+function() {
+
+    document
+        .getElementById(
+            "deleteModal"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    deleteIncidentID =
+        null;
+
+};
+
+
+/* =====================================================
+   ENTER KEY FOR PASSWORD
+===================================================== */
+
+document
+    .getElementById(
+        "passwordInput"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key ===
+                "Enter"
+            ) {
+
+                checkPassword();
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   CLICK OUTSIDE PASSWORD
+===================================================== */
+
+document
+    .getElementById(
+        "passwordModal"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target ===
+                this
+            ) {
+
+                closePassword();
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   CLICK OUTSIDE ADD
+===================================================== */
+
+document
+    .getElementById(
+        "addModal"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target ===
+                this
+            ) {
+
+                closeAdd();
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   CLICK OUTSIDE DELETE
+===================================================== */
+
+document
+    .getElementById(
+        "deleteModal"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target ===
+                this
+            ) {
+
+                closeDelete();
+
+            }
+
+        }
+    );
+
+</script>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    SITE-66 FOUNDATION DATABASE
+
+    <br><br>
+
+    INCIDENT REPORTS //
+    MERCER
+
+    <br><br>
+
+    UNAUTHORIZED ACCESS IS PROHIBITED.
+
+</footer>
+
+
+</body>
+
+</html>
+```
