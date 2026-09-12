@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -352,6 +351,10 @@ nav a:hover {
 }
 
 
+/* =========================================
+   PAGE TITLE
+========================================= */
+
 .page-title {
 
     padding: 70px 7% 35px;
@@ -390,6 +393,102 @@ nav a:hover {
     line-height: 1.7;
 
     font-size: 13px;
+
+}
+
+
+/* =========================================
+   DATABASE BAR
+========================================= */
+
+.database-bar {
+
+    width: 86%;
+
+    max-width: 1100px;
+
+    margin: 0 auto 25px;
+
+    padding: 16px 20px;
+
+    border: 1px solid #193b59;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,24,39,0.95),
+            rgba(3,7,12,0.95)
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+.database-status {
+
+    color: #526f88;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.database-status span {
+
+    color: #32d46b;
+
+}
+
+
+.database-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.add-button {
+
+    padding: 12px 18px;
+
+    background: #07111d;
+
+    border: 1px solid #1677ff;
+
+    color: #b9dcff;
+
+    cursor: pointer;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.add-button:hover {
+
+    background: #1677ff;
+
+    color: white;
+
+    box-shadow:
+        0 0 20px rgba(22,119,255,0.4);
 
 }
 
@@ -495,6 +594,58 @@ nav a:hover {
 }
 
 
+.entry-actions {
+
+    display: flex;
+
+    gap: 7px;
+
+    margin-top: 12px;
+
+}
+
+
+.entry-action {
+
+    padding: 7px 10px;
+
+    background: #050b12;
+
+    border: 1px solid #23435d;
+
+    color: #7195b2;
+
+    cursor: pointer;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.entry-action:hover {
+
+    border-color: #1677ff;
+
+    color: white;
+
+    background: #0c2942;
+
+}
+
+
+.entry-delete:hover {
+
+    border-color: #b63232;
+
+    background: #451515;
+
+}
+
+
 /* =========================================
    ENTRY CONTENT
 ========================================= */
@@ -554,6 +705,315 @@ nav a:hover {
 
 
 /* =========================================
+   EMPTY
+========================================= */
+
+.empty-message {
+
+    padding: 50px;
+
+    border: 1px solid #193b59;
+
+    text-align: center;
+
+    color: #536f84;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    background: rgba(0,0,0,0.82);
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+}
+
+
+.modal.active {
+
+    display: flex;
+
+}
+
+
+.modal-box {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b1624,
+            #03070c
+        );
+
+    border: 1px solid #24527a;
+
+    box-shadow:
+        0 0 50px rgba(0,0,0,0.8);
+
+}
+
+
+.modal-box.small {
+
+    max-width: 450px;
+
+}
+
+
+.modal-title {
+
+    color: white;
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.modal-description {
+
+    color: #607b91;
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+
+    margin-bottom: 18px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    color: #60819c;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    background: #020509;
+
+    border: 1px solid #24527a;
+
+    color: white;
+
+    outline: none;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 12px;
+
+}
+
+
+.form-group textarea {
+
+    min-height: 220px;
+
+    resize: vertical;
+
+    font-family: Georgia, serif;
+
+    line-height: 1.7;
+
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color: #1677ff;
+
+    box-shadow:
+        0 0 12px rgba(22,119,255,0.15);
+
+}
+
+
+/* =========================================
+   MODAL BUTTONS
+========================================= */
+
+.modal-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+}
+
+
+.modal-buttons button {
+
+    flex: 1;
+
+    padding: 13px;
+
+    cursor: pointer;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.save-button {
+
+    background: #1677ff;
+
+    color: white;
+
+    border: 1px solid #1677ff;
+
+}
+
+
+.save-button:hover {
+
+    background: #0d64d8;
+
+}
+
+
+.cancel-button {
+
+    background: transparent;
+
+    color: #9bbbd6;
+
+    border: 1px solid #193b59;
+
+}
+
+
+.cancel-button:hover {
+
+    border-color: #1677ff;
+
+    color: white;
+
+}
+
+
+.delete-confirm {
+
+    background: #651d1d;
+
+    color: white;
+
+    border: 1px solid #b63232;
+
+}
+
+
+.delete-confirm:hover {
+
+    background: #8e2626;
+
+}
+
+
+/* =========================================
+   PASSWORD
+========================================= */
+
+.password-input {
+
+    margin-top: 10px;
+
+}
+
+
+.message {
+
+    margin-top: 12px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.error {
+
+    color: #ff4d4d;
+
+}
+
+
+.success {
+
+    color: #4cff91;
+
+}
+
+
+/* =========================================
    FOOTER
 ========================================= */
 
@@ -588,17 +1048,35 @@ footer {
 
     }
 
+
     .security-box {
 
         padding: 30px 20px;
 
     }
 
+
     .entry-header {
 
         flex-direction: column;
 
         align-items: flex-start;
+
+    }
+
+
+    .database-bar {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .entry-actions {
+
+        flex-wrap: wrap;
 
     }
 
@@ -648,6 +1126,22 @@ footer {
             ARCHIVES
         </a>
 
+        <a href="journal.html">
+            JOURNAL
+        </a>
+
+        <a href="playlist.html">
+            PLAYLIST
+        </a>
+
+        <a href="relations.html">
+            RELATIONS
+        </a>
+
+        <a href="profile.html">
+            PROFILE
+        </a>
+
     </nav>
 
 </header>
@@ -659,9 +1153,7 @@ footer {
 
 <section id="password-screen">
 
-
     <div class="security-box">
-
 
         <div class="security-symbol">
             🔒
@@ -696,6 +1188,7 @@ footer {
             id="password-input"
             type="password"
             placeholder="ENTER PASSWORD"
+            autocomplete="off"
         >
 
 
@@ -708,9 +1201,7 @@ footer {
 
         </button>
 
-
     </div>
-
 
 </section>
 
@@ -739,6 +1230,8 @@ footer {
             Personal writings belonging to
             Connor Redmen.
 
+            <br><br>
+
             These records are not official
             Foundation reports and may contain
             subjective observations.
@@ -748,10 +1241,58 @@ footer {
     </div>
 
 
+    <!-- =====================================
+         DATABASE BAR
+    ====================================== -->
+
+    <div class="database-bar">
+
+        <div class="database-status">
+
+            FIRESTORE DATABASE //
+
+            <span>
+                CONNECTED
+            </span>
+
+            //
+
+            JOURNAL COLLECTION
+
+        </div>
+
+
+        <div class="database-buttons">
+
+            <button
+                class="add-button"
+                onclick="openJournalPassword('add')"
+            >
+
+                + ADD JOURNAL ENTRY
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         ENTRIES
+    ====================================== -->
+
     <div
         class="entries"
         id="entries-container"
     >
+
+        <div class="empty-message">
+
+            CONNECTING TO JOURNAL DATABASE...
+
+        </div>
+
     </div>
 
 
@@ -774,75 +1315,567 @@ footer {
 
 
 <!-- =========================================
-     JOURNAL DATA
+     PASSWORD MODAL
+========================================= -->
+
+<div
+    class="modal"
+    id="passwordModal"
+>
+
+    <div class="modal-box small">
+
+        <div class="modal-title">
+            SECURITY VERIFICATION
+        </div>
+
+
+        <div class="modal-description">
+
+            ADMINISTRATIVE AUTHORIZATION IS REQUIRED
+            TO MODIFY THE MERCER PERSONAL JOURNAL.
+
+            <br><br>
+
+            ENTER AUTHORIZATION PASSWORD.
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                PASSWORD
+            </label>
+
+            <input
+                type="password"
+                id="journalPasswordInput"
+                class="password-input"
+                placeholder="ENTER PASSWORD"
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <div
+            class="message error"
+            id="journalPasswordError"
+        ></div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="save-button"
+                onclick="checkJournalPassword()"
+            >
+                VERIFY
+            </button>
+
+
+            <button
+                class="cancel-button"
+                onclick="closeJournalPassword()"
+            >
+                CANCEL
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     ADD / EDIT MODAL
+========================================= -->
+
+<div
+    class="modal"
+    id="journalEditorModal"
+>
+
+    <div class="modal-box">
+
+        <div
+            class="modal-title"
+            id="editorTitle"
+        >
+            ADD JOURNAL ENTRY
+        </div>
+
+
+        <div class="modal-description">
+
+            CREATE OR MODIFY A PERSONAL RECORD
+            FOR CONNOR REDMEN // MERCER.
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                DATE
+            </label>
+
+            <input
+                type="text"
+                id="journalDate"
+                placeholder="2026-08-19"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                TITLE
+            </label>
+
+            <input
+                type="text"
+                id="journalTitle"
+                placeholder="ENTER JOURNAL TITLE"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                MOOD
+            </label>
+
+            <input
+                type="text"
+                id="journalMood"
+                placeholder="EXAMPLE: FRUSTRATED / CALM / ANGRY"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                JOURNAL ENTRY
+            </label>
+
+            <textarea
+                id="journalText"
+                placeholder="WRITE JOURNAL ENTRY..."
+            ></textarea>
+
+        </div>
+
+
+        <div
+            class="message"
+            id="editorMessage"
+        ></div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="save-button"
+                onclick="saveJournalEntry()"
+            >
+                SAVE ENTRY
+            </button>
+
+
+            <button
+                class="cancel-button"
+                onclick="closeJournalEditor()"
+            >
+                CANCEL
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     DELETE MODAL
+========================================= -->
+
+<div
+    class="modal"
+    id="deleteModal"
+>
+
+    <div class="modal-box small">
+
+        <div class="modal-title">
+            DELETE JOURNAL ENTRY
+        </div>
+
+
+        <div class="modal-description">
+
+            THIS ACTION WILL PERMANENTLY REMOVE
+            THIS PERSONAL RECORD FROM THE DATABASE.
+
+            <br><br>
+
+            ARE YOU SURE?
+
+        </div>
+
+
+        <div
+            class="message"
+            id="deleteMessage"
+        ></div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="delete-confirm"
+                onclick="confirmDelete()"
+            >
+                DELETE ENTRY
+            </button>
+
+
+            <button
+                class="cancel-button"
+                onclick="closeDeleteModal()"
+            >
+                CANCEL
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     ORIGINAL JOURNAL DATA
 ========================================= -->
 
 <script src="journal-data.js"></script>
 
 
 <!-- =========================================
-     JAVASCRIPT
+     FIREBASE + JAVASCRIPT
 ========================================= -->
 
-<script>
+<script type="module">
+
+import {
+
+    initializeApp
+
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+
+import {
+
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    doc,
+    setDoc,
+    deleteDoc,
+    query,
+    orderBy,
+    serverTimestamp
+
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+/* =========================================
+   FIREBASE CONFIG
+========================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "YOUR_FIREBASE_API_KEY",
+
+    authDomain:
+        "site-66-database.firebaseapp.com",
+
+    projectId:
+        "site-66-database",
+
+    storageBucket:
+        "site-66-database.firebasestorage.app",
+
+    messagingSenderId:
+        "447627858856",
+
+    appId:
+        "1:447627858856:web:5c0054d7ebca897939039d",
+
+    measurementId:
+        "G-ZNKTWYZXY8"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const db =
+    getFirestore(app);
+
+
+const journalCollection =
+    collection(
+        db,
+        "journal"
+    );
 
 
 /* =========================================
    PASSWORD
 ========================================= */
 
-function accessJournal() {
-
-    const password =
-        document.getElementById(
-            "password-input"
-        ).value;
-
-
-    /*
-       ANY PASSWORD WORKS.
-       We only require something to be typed.
-    */
-
-    if (password.trim() === "") {
-
-        alert(
-            "PASSWORD REQUIRED"
-        );
-
-        return;
-
-    }
-
-
-    document.getElementById(
-        "password-screen"
-    ).style.display = "none";
-
-
-    document.getElementById(
-        "journal-page"
-    ).style.display = "block";
-
-
-    loadJournal();
-
-}
+const JOURNAL_PASSWORD =
+    "Mercer66";
 
 
 /* =========================================
-   ENTER KEY
+   VARIABLES
+========================================= */
+
+let currentEditID = null;
+
+let currentDeleteID = null;
+
+let passwordAction = null;
+
+
+/* =========================================
+   ACCESS JOURNAL
+========================================= */
+
+window.accessJournal =
+    function() {
+
+        const password =
+            document.getElementById(
+                "password-input"
+            ).value;
+
+
+        if (
+            password.trim() === ""
+        ) {
+
+            alert(
+                "PASSWORD REQUIRED"
+            );
+
+            return;
+
+        }
+
+
+        document.getElementById(
+            "password-screen"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "journal-page"
+        ).style.display =
+            "block";
+
+
+        loadJournal();
+
+    };
+
+
+/* =========================================
+   PASSWORD ENTER KEY
 ========================================= */
 
 document
-    .getElementById("password-input")
+    .getElementById(
+        "password-input"
+    )
     .addEventListener(
         "keydown",
         function(event) {
 
-            if (event.key === "Enter") {
+            if (
+                event.key === "Enter"
+            ) {
 
                 accessJournal();
+
+            }
+
+        }
+    );
+
+
+/* =========================================
+   OPEN PASSWORD
+========================================= */
+
+window.openJournalPassword =
+    function(action, id = null) {
+
+        passwordAction =
+            action;
+
+        currentEditID =
+            id;
+
+
+        document.getElementById(
+            "journalPasswordInput"
+        ).value = "";
+
+
+        document.getElementById(
+            "journalPasswordError"
+        ).textContent = "";
+
+
+        document.getElementById(
+            "passwordModal"
+        ).classList.add(
+            "active"
+        );
+
+
+        setTimeout(
+            function() {
+
+                document.getElementById(
+                    "journalPasswordInput"
+                ).focus();
+
+            },
+            100
+        );
+
+    };
+
+
+/* =========================================
+   CLOSE PASSWORD
+========================================= */
+
+window.closeJournalPassword =
+    function() {
+
+        document.getElementById(
+            "passwordModal"
+        ).classList.remove(
+            "active"
+        );
+
+    };
+
+
+/* =========================================
+   CHECK PASSWORD
+========================================= */
+
+window.checkJournalPassword =
+    function() {
+
+        const password =
+            document.getElementById(
+                "journalPasswordInput"
+            ).value;
+
+
+        if (
+            password ===
+            JOURNAL_PASSWORD
+        ) {
+
+            closeJournalPassword();
+
+
+            if (
+                passwordAction ===
+                "add"
+            ) {
+
+                openAddJournal();
+
+            }
+
+
+            else if (
+                passwordAction ===
+                "edit"
+            ) {
+
+                openEditJournal(
+                    currentEditID
+                );
+
+            }
+
+
+            else if (
+                passwordAction ===
+                "delete"
+            ) {
+
+                openDeleteModal(
+                    currentEditID
+                );
+
+            }
+
+        }
+
+        else {
+
+            document.getElementById(
+                "journalPasswordError"
+            ).textContent =
+                "INVALID AUTHORIZATION PASSWORD.";
+
+        }
+
+    };
+
+
+/* =========================================
+   PASSWORD ENTER KEY
+========================================= */
+
+document
+    .getElementById(
+        "journalPasswordInput"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                checkJournalPassword();
 
             }
 
@@ -854,7 +1887,175 @@ document
    LOAD JOURNAL
 ========================================= */
 
-function loadJournal() {
+async function loadJournal() {
+
+    const container =
+        document.getElementById(
+            "entries-container"
+        );
+
+
+    container.innerHTML = `
+
+        <div class="empty-message">
+
+            CONNECTING TO DATABASE...
+
+        </div>
+
+    `;
+
+
+    try {
+
+        const snapshot =
+            await getDocs(
+                journalCollection
+            );
+
+
+        /*
+           If Firebase is empty, move the
+           existing journal-data.js entries
+           into Firestore.
+        */
+
+        if (
+            snapshot.empty &&
+            typeof journalEntries !==
+            "undefined" &&
+            Array.isArray(journalEntries) &&
+            journalEntries.length > 0
+        ) {
+
+            for (
+                const entry
+                of journalEntries
+            ) {
+
+                await addDoc(
+                    journalCollection,
+                    {
+
+                        date:
+                            entry.date || "",
+
+                        title:
+                            entry.title || "",
+
+                        mood:
+                            entry.mood || "",
+
+                        text:
+                            entry.text || "",
+
+                        createdAt:
+                            serverTimestamp()
+
+                    }
+                );
+
+            }
+
+
+            return loadJournal();
+
+        }
+
+
+        const entries = [];
+
+
+        snapshot.forEach(
+            function(docSnapshot) {
+
+                const data =
+                    docSnapshot.data();
+
+
+                entries.push({
+
+                    id:
+                        docSnapshot.id,
+
+                    date:
+                        data.date || "",
+
+                    title:
+                        data.title || "",
+
+                    mood:
+                        data.mood || "",
+
+                    text:
+                        data.text || "",
+
+                    createdAt:
+                        data.createdAt || null
+
+                });
+
+            }
+        );
+
+
+        /*
+           Sort by date, newest first.
+        */
+
+        entries.sort(
+            function(a, b) {
+
+                return String(b.date)
+                    .localeCompare(
+                        String(a.date)
+                    );
+
+            }
+        );
+
+
+        renderJournal(
+            entries
+        );
+
+    }
+
+
+    catch(error) {
+
+        console.error(
+            "Journal database error:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="empty-message">
+
+                DATABASE ERROR //
+
+                <br><br>
+
+                ${escapeHTML(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================
+   RENDER JOURNAL
+========================================= */
+
+function renderJournal(entries) {
 
     const container =
         document.getElementById(
@@ -865,9 +2066,32 @@ function loadJournal() {
     container.innerHTML = "";
 
 
-    journalEntries.forEach(
-        function(entry, index) {
+    if (
+        entries.length === 0
+    ) {
 
+        container.innerHTML = `
+
+            <div class="empty-message">
+
+                NO JOURNAL ENTRIES FOUND.
+
+                <br><br>
+
+                SELECT + ADD JOURNAL ENTRY
+                TO CREATE THE FIRST RECORD.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    entries.forEach(
+        function(entry, index) {
 
             const article =
                 document.createElement(
@@ -875,27 +2099,77 @@ function loadJournal() {
                 );
 
 
-            article.className = "entry";
+            article.className =
+                "entry";
+
+
+            const safeDate =
+                escapeHTML(
+                    entry.date
+                );
+
+
+            const safeTitle =
+                escapeHTML(
+                    entry.title
+                );
+
+
+            const safeMood =
+                escapeHTML(
+                    entry.mood
+                );
+
+
+            const safeText =
+                escapeHTML(
+                    entry.text
+                );
 
 
             article.innerHTML = `
 
                 <div
                     class="entry-header"
-                    onclick="toggleEntry(${index})"
+                    onclick="toggleEntry('${entry.id}')"
                 >
 
                     <div>
 
                         <div class="entry-date">
 
-                            ${entry.date}
+                            ${safeDate}
 
                         </div>
 
+
                         <div class="entry-title">
 
-                            ${entry.title}
+                            ${safeTitle}
+
+                        </div>
+
+
+                        <div class="entry-actions">
+
+                            <button
+                                class="entry-action"
+                                onclick="event.stopPropagation(); openJournalPassword('edit', '${entry.id}')"
+                            >
+
+                                EDIT
+
+                            </button>
+
+
+                            <button
+                                class="entry-action entry-delete"
+                                onclick="event.stopPropagation(); openJournalPassword('delete', '${entry.id}')"
+                            >
+
+                                DELETE
+
+                            </button>
 
                         </div>
 
@@ -905,7 +2179,8 @@ function loadJournal() {
                     <div class="entry-mood">
 
                         MOOD:
-                        ${entry.mood}
+
+                        ${safeMood}
 
                     </div>
 
@@ -914,12 +2189,12 @@ function loadJournal() {
 
                 <div
                     class="entry-content"
-                    id="entry-${index}"
+                    id="entry-${entry.id}"
                 >
 
                     <div class="entry-text">
 
-                        ${entry.text}
+                        ${safeText}
 
                     </div>
 
@@ -927,7 +2202,9 @@ function loadJournal() {
                     <div class="entry-classification">
 
                         PERSONAL RECORD //
+
                         CONNOR REDMEN //
+
                         MERCER
 
                     </div>
@@ -937,7 +2214,9 @@ function loadJournal() {
             `;
 
 
-            container.appendChild(article);
+            container.appendChild(
+                article
+            );
 
         }
     );
@@ -946,93 +2225,627 @@ function loadJournal() {
 
 
 /* =========================================
-   OPEN / CLOSE ENTRY
+   TOGGLE ENTRY
 ========================================= */
 
-function toggleEntry(index) {
+window.toggleEntry =
+    function(id) {
 
-    const entry =
-        document.getElementById(
-            "entry-" + index
+        const entry =
+            document.getElementById(
+                "entry-" + id
+            );
+
+
+        if (entry) {
+
+            entry.classList.toggle(
+                "open"
+            );
+
+        }
+
+    };
+
+
+/* =========================================
+   ADD JOURNAL
+========================================= */
+
+function openAddJournal() {
+
+    currentEditID = null;
+
+
+    document.getElementById(
+        "editorTitle"
+    ).textContent =
+        "ADD JOURNAL ENTRY";
+
+
+    document.getElementById(
+        "journalDate"
+    ).value = "";
+
+
+    document.getElementById(
+        "journalTitle"
+    ).value = "";
+
+
+    document.getElementById(
+        "journalMood"
+    ).value = "";
+
+
+    document.getElementById(
+        "journalText"
+    ).value = "";
+
+
+    document.getElementById(
+        "editorMessage"
+    ).textContent = "";
+
+
+    document.getElementById(
+        "journalEditorModal"
+    ).classList.add(
+        "active"
+    );
+
+}
+
+
+/* =========================================
+   EDIT JOURNAL
+========================================= */
+
+async function openEditJournal(id) {
+
+    try {
+
+        const snapshot =
+            await getDocs(
+                journalCollection
+            );
+
+
+        let foundEntry = null;
+
+
+        snapshot.forEach(
+            function(docSnapshot) {
+
+                if (
+                    docSnapshot.id === id
+                ) {
+
+                    foundEntry = {
+
+                        id:
+                            docSnapshot.id,
+
+                        ...docSnapshot.data()
+
+                    };
+
+                }
+
+            }
         );
 
 
-    entry.classList.toggle("open");
+        if (!foundEntry) {
+
+            alert(
+                "JOURNAL ENTRY NOT FOUND."
+            );
+
+            return;
+
+        }
+
+
+        currentEditID =
+            id;
+
+
+        document.getElementById(
+            "editorTitle"
+        ).textContent =
+            "EDIT JOURNAL ENTRY";
+
+
+        document.getElementById(
+            "journalDate"
+        ).value =
+            foundEntry.date || "";
+
+
+        document.getElementById(
+            "journalTitle"
+        ).value =
+            foundEntry.title || "";
+
+
+        document.getElementById(
+            "journalMood"
+        ).value =
+            foundEntry.mood || "";
+
+
+        document.getElementById(
+            "journalText"
+        ).value =
+            foundEntry.text || "";
+
+
+        document.getElementById(
+            "editorMessage"
+        ).textContent = "";
+
+
+        document.getElementById(
+            "journalEditorModal"
+        ).classList.add(
+            "active"
+        );
+
+    }
+
+
+    catch(error) {
+
+        console.error(
+            "Edit error:",
+            error
+        );
+
+
+        alert(
+            "DATABASE ERROR."
+        );
+
+    }
 
 }
 
-</script>
-   <script src="journal-data.js"></script>
 
-<script>
+/* =========================================
+   SAVE JOURNAL ENTRY
+========================================= */
 
-function loadJournal() {
+window.saveJournalEntry =
+    async function() {
 
-    const container =
-        document.getElementById("entries-container");
+        const date =
+            document.getElementById(
+                "journalDate"
+            ).value.trim();
 
-    container.innerHTML = "";
 
-    journalEntries.forEach(function(entry, index) {
+        const title =
+            document.getElementById(
+                "journalTitle"
+            ).value.trim();
 
-        const article =
-            document.createElement("article");
 
-        article.className = "entry";
+        const mood =
+            document.getElementById(
+                "journalMood"
+            ).value.trim();
 
-        article.innerHTML = `
 
-            <div
-                class="entry-header"
-                onclick="toggleEntry(${index})"
-            >
+        const text =
+            document.getElementById(
+                "journalText"
+            ).value.trim();
 
-                <div>
 
-                    <div class="entry-date">
-                        ${entry.date}
-                    </div>
+        const message =
+            document.getElementById(
+                "editorMessage"
+            );
 
-                    <div class="entry-title">
-                        ${entry.title}
-                    </div>
 
-                </div>
+        if (
+            !date ||
+            !title ||
+            !text
+        ) {
 
-                <div class="entry-mood">
-                    MOOD: ${entry.mood}
-                </div>
+            message.className =
+                "message error";
 
-            </div>
 
-            <div
-                class="entry-content"
-                id="entry-${index}"
-            >
+            message.textContent =
+                "DATE, TITLE, AND JOURNAL ENTRY ARE REQUIRED.";
 
-                <div class="entry-text">
-                    ${entry.text}
-                </div>
 
-            </div>
+            return;
 
-        `;
+        }
 
-        container.appendChild(article);
 
-    });
+        message.className =
+            "message";
+
+
+        message.textContent =
+            "SAVING DATABASE RECORD...";
+
+
+        try {
+
+            if (
+                currentEditID
+            ) {
+
+                await setDoc(
+
+                    doc(
+                        db,
+                        "journal",
+                        currentEditID
+                    ),
+
+                    {
+
+                        date:
+                            date,
+
+                        title:
+                            title,
+
+                        mood:
+                            mood,
+
+                        text:
+                            text,
+
+                        updatedAt:
+                            serverTimestamp()
+
+                    },
+
+                    {
+                        merge: true
+                    }
+
+                );
+
+
+                message.className =
+                    "message success";
+
+
+                message.textContent =
+                    "JOURNAL ENTRY UPDATED.";
+
+            }
+
+
+            else {
+
+                await addDoc(
+
+                    journalCollection,
+
+                    {
+
+                        date:
+                            date,
+
+                        title:
+                            title,
+
+                        mood:
+                            mood,
+
+                        text:
+                            text,
+
+                        createdAt:
+                            serverTimestamp()
+
+                    }
+
+                );
+
+
+                message.className =
+                    "message success";
+
+
+                message.textContent =
+                    "JOURNAL ENTRY ADDED.";
+
+            }
+
+
+            setTimeout(
+                function() {
+
+                    closeJournalEditor();
+
+                    loadJournal();
+
+                },
+                700
+            );
+
+        }
+
+
+        catch(error) {
+
+            console.error(
+                "Save error:",
+                error
+            );
+
+
+            message.className =
+                "message error";
+
+
+            message.textContent =
+                "DATABASE ERROR. ENTRY WAS NOT SAVED.";
+
+        }
+
+    };
+
+
+/* =========================================
+   CLOSE EDITOR
+========================================= */
+
+window.closeJournalEditor =
+    function() {
+
+        document.getElementById(
+            "journalEditorModal"
+        ).classList.remove(
+            "active"
+        );
+
+
+        currentEditID = null;
+
+    };
+
+
+/* =========================================
+   OPEN DELETE MODAL
+========================================= */
+
+function openDeleteModal(id) {
+
+    currentDeleteID =
+        id;
+
+
+    document.getElementById(
+        "deleteMessage"
+    ).textContent = "";
+
+
+    document.getElementById(
+        "deleteModal"
+    ).classList.add(
+        "active"
+    );
 
 }
 
 
-function toggleEntry(index) {
+/* =========================================
+   CLOSE DELETE
+========================================= */
 
-    const entry =
-        document.getElementById("entry-" + index);
+window.closeDeleteModal =
+    function() {
 
-    entry.classList.toggle("open");
+        document.getElementById(
+            "deleteModal"
+        ).classList.remove(
+            "active"
+        );
+
+
+        currentDeleteID = null;
+
+    };
+
+
+/* =========================================
+   CONFIRM DELETE
+========================================= */
+
+window.confirmDelete =
+    async function() {
+
+        if (
+            !currentDeleteID
+        ) {
+
+            return;
+
+        }
+
+
+        const message =
+            document.getElementById(
+                "deleteMessage"
+            );
+
+
+        message.className =
+            "message";
+
+
+        message.textContent =
+            "DELETING RECORD...";
+
+
+        try {
+
+            await deleteDoc(
+
+                doc(
+                    db,
+                    "journal",
+                    currentDeleteID
+                )
+
+            );
+
+
+            message.className =
+                "message success";
+
+
+            message.textContent =
+                "JOURNAL ENTRY DELETED.";
+
+
+            setTimeout(
+                function() {
+
+                    closeDeleteModal();
+
+                    loadJournal();
+
+                },
+                700
+            );
+
+        }
+
+
+        catch(error) {
+
+            console.error(
+                "Delete error:",
+                error
+            );
+
+
+            message.className =
+                "message error";
+
+
+            message.textContent =
+                "DATABASE ERROR. ENTRY WAS NOT DELETED.";
+
+        }
+
+    };
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
+
+
+/* =========================================
+   CLOSE MODALS WHEN CLICKING OUTSIDE
+========================================= */
+
+document
+    .getElementById(
+        "passwordModal"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target.id ===
+                "passwordModal"
+            ) {
+
+                closeJournalPassword();
+
+            }
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "journalEditorModal"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target.id ===
+                "journalEditorModal"
+            ) {
+
+                closeJournalEditor();
+
+            }
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "deleteModal"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target.id ===
+                "deleteModal"
+            ) {
+
+                closeDeleteModal();
+
+            }
+
+        }
+    );
 
 </script>
 
