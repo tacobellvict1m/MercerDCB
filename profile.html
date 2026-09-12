@@ -4,47 +4,41 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SITE-66 | MERCER Personnel Profile</title>
+<title>SITE-66 | Mercer</title>
 
 <style>
 
-/* =====================================================
+/* =========================================================
    RESET
-===================================================== */
+========================================================= */
 
 * {
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+html,
 body {
-
     margin: 0;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #0b1b2d 0%,
-            #05090f 45%,
-            #020305 100%
-        );
-
-    color: white;
-
+    padding: 0;
+    min-height: 100%;
+    background: #05070a;
+    color: #dce7f2;
     font-family: "Courier New", monospace;
 }
 
+body {
+    overflow-x: hidden;
+}
 
-/* =====================================================
-   CRT SCANLINES
-===================================================== */
 
-body::after {
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before {
 
     content: "";
 
@@ -54,9 +48,11 @@ body::after {
 
     pointer-events: none;
 
-    z-index: 9999;
-
     background:
+        linear-gradient(
+            rgba(0,0,0,0.15),
+            rgba(0,0,0,0.15)
+        ),
         repeating-linear-gradient(
             0deg,
             rgba(255,255,255,0.025) 0px,
@@ -65,219 +61,224 @@ body::after {
             transparent 4px
         );
 
-    opacity: 0.35;
+    z-index: 999;
+
+    opacity: 0.5;
+
 }
 
 
-/* =====================================================
-   TOP LINE
-===================================================== */
-
-.top-line {
-
-    height: 4px;
-
-    background: #1677ff;
-
-    box-shadow:
-        0 0 20px rgba(22,119,255,0.8);
-}
-
-
-/* =====================================================
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
 header {
 
-    padding: 25px 7%;
+    width: 100%;
+
+    background: #080b0f;
+
+    border-bottom: 1px solid #1e3c59;
+
+    padding: 18px 30px;
 
     display: flex;
 
-    justify-content: space-between;
-
     align-items: center;
 
-    gap: 30px;
+    justify-content: space-between;
 
-    background:
-        linear-gradient(
-            180deg,
-            #0b1624,
-            #05090f
-        );
+    position: sticky;
 
-    border-bottom: 1px solid #193b59;
+    top: 0;
+
+    z-index: 100;
+
 }
 
 
-.site-name h1 {
+.logo {
 
-    margin: 0;
+    color: #8ecbff;
 
-    font-size: 22px;
+    font-size: 20px;
 
-    letter-spacing: 4px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
 }
 
 
-.site-name p {
+.logo span {
 
-    margin: 7px 0 0;
+    color: #50677c;
 
-    color: #6f94b5;
+    font-size: 11px;
 
-    font-size: 10px;
+    display: block;
+
+    margin-top: 4px;
 
     letter-spacing: 2px;
+
 }
 
 
-/* =====================================================
+/* =========================================================
    NAVIGATION
-===================================================== */
+========================================================= */
 
 nav {
 
     display: flex;
 
-    align-items: center;
-
-    gap: 5px;
+    gap: 22px;
 
     flex-wrap: wrap;
+
+    justify-content: flex-end;
+
 }
 
 
 nav a {
 
-    display: block;
-
-    padding: 10px 14px;
-
-    color: #9bbbd6;
+    color: #72889c;
 
     text-decoration: none;
 
-    border: 1px solid transparent;
-
     font-size: 11px;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
     transition: 0.2s;
+
 }
 
 
 nav a:hover {
 
-    color: white;
+    color: #71baff;
 
-    background:
-        rgba(22,119,255,0.12);
-
-    border-color: #1677ff;
 }
 
 
-/* =====================================================
-   PROFILE HERO
-===================================================== */
+nav a.active {
 
-.profile-hero {
+    color: #b9dcff;
 
-    position: relative;
+}
 
-    padding: 65px 7%;
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 40px 25px 80px;
+
+}
+
+
+/* =========================================================
+   TOP TITLE
+========================================================= */
+
+.page-title {
+
+    margin-bottom: 30px;
+
+}
+
+
+.page-title .small {
+
+    color: #4d6377;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.page-title h1 {
+
+    margin: 0;
+
+    font-size: 42px;
+
+    letter-spacing: 7px;
+
+    color: #e7f3ff;
+
+}
+
+
+.page-title .line {
+
+    height: 1px;
+
+    background: #1c3b58;
+
+    margin-top: 18px;
+
+}
+
+
+/* =========================================================
+   PROFILE HEADER
+========================================================= */
+
+.profile-header {
 
     display: grid;
 
-    grid-template-columns:
-        230px
-        1fr;
+    grid-template-columns: 190px 1fr;
 
-    gap: 45px;
+    gap: 30px;
 
-    align-items: center;
+    padding: 25px;
 
-    border-bottom: 1px solid #193b59;
+    background: #090d12;
+
+    border: 1px solid #1b344b;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.profile-image {
+
+    width: 190px;
+
+    height: 230px;
+
+    border: 1px solid #315777;
+
+    background: #05070a;
 
     overflow: hidden;
+
 }
 
 
-.profile-hero::before {
-
-    content: "GENSEC";
-
-    position: absolute;
-
-    right: 3%;
-
-    bottom: -35px;
-
-    font-size: 150px;
-
-    font-weight: bold;
-
-    letter-spacing: 10px;
-
-    color: rgba(22,119,255,0.025);
-
-    pointer-events: none;
-}
-
-
-/* =====================================================
-   PROFILE IMAGE
-===================================================== */
-
-.profile-picture {
-
-    position: relative;
-
-    width: 230px;
-
-    height: 285px;
-
-    border: 1px solid #193b59;
-
-    background: #03070c;
-
-    padding: 6px;
-
-    box-shadow:
-        0 0 30px rgba(22,119,255,0.12);
-}
-
-
-.profile-picture::before {
-
-    content: "PERSONNEL";
-
-    position: absolute;
-
-    top: 12px;
-
-    left: 12px;
-
-    z-index: 2;
-
-    padding: 5px 8px;
-
-    background: rgba(2,5,8,0.85);
-
-    color: #4c9ddd;
-
-    border: 1px solid #193b59;
-
-    font-size: 7px;
-
-    letter-spacing: 2px;
-}
-
-
-.profile-picture img {
+.profile-image img {
 
     width: 100%;
 
@@ -285,593 +286,320 @@ nav a:hover {
 
     object-fit: cover;
 
-    display: block;
 }
 
 
-/* =====================================================
-   HERO TEXT
-===================================================== */
+/* =========================================================
+   PROFILE MAIN INFO
+========================================================= */
 
-.classification {
+.profile-main {
 
-    color: #4c9ddd;
+    display: flex;
 
-    font-size: 10px;
+    flex-direction: column;
 
-    letter-spacing: 4px;
+    justify-content: center;
 
-    margin-bottom: 15px;
 }
 
 
 .codename {
 
-    margin: 0;
+    color: #619ed1;
 
-    font-size: clamp(65px, 10vw, 125px);
+    font-size: 12px;
 
-    line-height: 0.85;
+    letter-spacing: 4px;
 
-    letter-spacing: 9px;
+    margin-bottom: 8px;
 
-    font-weight: bold;
-
-    color: white;
-
-    text-shadow:
-        0 0 25px rgba(22,119,255,0.25);
 }
 
 
-.real-name {
+.profile-main h2 {
 
-    margin-top: 20px;
+    margin: 0;
 
-    font-size: clamp(20px, 3vw, 32px);
+    color: white;
 
-    letter-spacing: 5px;
+    font-size: 40px;
 
-    color: #718ba2;
+    letter-spacing: 4px;
+
 }
 
 
 .position {
 
-    margin-top: 25px;
+    color: #7f94a8;
 
-    color: #4c9ddd;
+    margin-top: 10px;
 
-    font-size: 12px;
+    font-size: 13px;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+
 }
 
 
 .status {
 
-    display: inline-block;
+    margin-top: 20px;
 
-    margin-top: 25px;
+    color: #6daee4;
 
-    padding: 9px 15px;
-
-    border: 1px solid #287d50;
-
-    color: #4cff91;
-
-    background:
-        rgba(76,255,145,0.05);
-
-    font-size: 9px;
+    font-size: 12px;
 
     letter-spacing: 2px;
+
 }
 
 
-/* =====================================================
-   MAIN
-===================================================== */
-
-.container {
-
-    width: 86%;
-
-    max-width: 1150px;
-
-    margin: auto;
-
-    padding: 55px 0 100px;
-}
-
-
-/* =====================================================
+/* =========================================================
    CONTROL BAR
-===================================================== */
+========================================================= */
 
 .control-bar {
 
     display: flex;
 
-    justify-content: space-between;
+    gap: 10px;
 
-    align-items: center;
+    flex-wrap: wrap;
 
-    gap: 20px;
+    margin-top: 25px;
 
-    padding: 18px 20px;
-
-    margin-bottom: 25px;
-
-    background: #050b12;
-
-    border: 1px solid #193b59;
 }
 
 
-.control-label {
-
-    color: #6f94b5;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-}
-
-
-.edit-button {
+.control-bar button {
 
     padding: 12px 20px;
 
-    background: #07111d;
+    background: #080d13;
 
-    color: white;
+    color: #a9d6f8;
 
-    border: 1px solid #1677ff;
-
-    cursor: pointer;
+    border: 1px solid #315777;
 
     font-family: "Courier New", monospace;
 
-    font-size: 10px;
+    font-size: 11px;
 
     letter-spacing: 2px;
 
+    cursor: pointer;
+
     transition: 0.2s;
+
 }
 
 
-.edit-button:hover {
+.control-bar button:hover {
 
-    background: #1677ff;
+    background: #12558d;
+
+    color: white;
 
     box-shadow:
-        0 0 20px rgba(22,119,255,0.35);
+        0 0 15px rgba(35,130,210,0.3);
+
 }
 
 
-/* =====================================================
-   GRID
-===================================================== */
+/* =========================================================
+   INFO GRID
+========================================================= */
 
-.profile-grid {
+.info-grid {
 
     display: grid;
 
-    grid-template-columns:
-        1fr 1.5fr;
+    grid-template-columns: repeat(2, 1fr);
 
-    gap: 25px;
+    gap: 15px;
+
+    margin-bottom: 25px;
+
 }
 
 
-/* =====================================================
-   PANEL
-===================================================== */
+.info-box {
 
-.panel {
+    background: #090d12;
 
-    padding: 30px;
+    border: 1px solid #182e42;
 
-    background:
-        linear-gradient(
-            145deg,
-            #0a1623,
-            #03070c
-        );
+    padding: 18px;
 
-    border: 1px solid #193b59;
-
-    box-shadow:
-        0 0 30px rgba(0,0,0,0.2);
-}
-
-
-.panel-label {
-
-    color: #4c9ddd;
-
-    font-size: 9px;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 12px;
-}
-
-
-.panel h2 {
-
-    margin: 0 0 25px;
-
-    font-size: 23px;
-
-    letter-spacing: 3px;
-}
-
-
-/* =====================================================
-   INFORMATION
-===================================================== */
-
-.info-list {
-
-    display: flex;
-
-    flex-direction: column;
-}
-
-
-.info-row {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    padding: 14px 0;
-
-    border-bottom: 1px solid #12283b;
-
-    font-size: 11px;
-}
-
-
-.info-row:last-child {
-
-    border-bottom: none;
 }
 
 
 .info-label {
 
-    color: #607b91;
+    color: #4f687d;
 
-    letter-spacing: 1px;
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
+
 }
 
 
 .info-value {
 
-    color: #d7e5f0;
+    color: #d4e5f2;
 
-    text-align: right;
+    font-size: 13px;
+
 }
 
 
-/* =====================================================
-   SUMMARY
-===================================================== */
+/* =========================================================
+   SECTION
+========================================================= */
 
-.summary {
+.section {
 
-    color: #8ba2b5;
+    background: #090d12;
 
-    font-size: 12px;
-
-    line-height: 2;
-}
-
-
-/* =====================================================
-   IDENTIFICATION
-===================================================== */
-
-.identification-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 15px;
-}
-
-
-.id-box {
-
-    padding: 20px;
-
-    background: #050b12;
-
-    border: 1px solid #193b59;
-}
-
-
-.id-label {
-
-    color: #526a7c;
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 8px;
-}
-
-
-.id-value {
-
-    font-size: 18px;
-
-    letter-spacing: 2px;
-}
-
-
-/* =====================================================
-   WARNING BOX
-===================================================== */
-
-.warning-box {
-
-    margin-top: 20px;
-
-    padding: 20px;
-
-    border-left: 3px solid #1677ff;
-
-    background:
-        rgba(22,119,255,0.04);
-
-    color: #8199ad;
-
-    font-size: 11px;
-
-    line-height: 1.8;
-}
-
-
-/* =====================================================
-   FULL WIDTH SECTIONS
-===================================================== */
-
-.full-panel {
-
-    margin-top: 25px;
-}
-
-
-/* =====================================================
-   TIMELINE
-===================================================== */
-
-.timeline {
-
-    position: relative;
-
-    padding-left: 25px;
-}
-
-
-.timeline::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 4px;
-
-    top: 5px;
-
-    bottom: 5px;
-
-    width: 1px;
-
-    background: #193b59;
-}
-
-
-.timeline-item {
-
-    position: relative;
-
-    padding:
-        0 0 30px 25px;
-}
-
-
-.timeline-item:last-child {
-
-    padding-bottom: 5px;
-}
-
-
-.timeline-item::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: -25px;
-
-    top: 5px;
-
-    width: 8px;
-
-    height: 8px;
-
-    border: 2px solid #1677ff;
-
-    background: #05090f;
-
-    box-shadow:
-        0 0 10px rgba(22,119,255,0.5);
-}
-
-
-.timeline-date {
-
-    color: #4c9ddd;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 7px;
-}
-
-
-.timeline-title {
-
-    font-size: 15px;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 8px;
-}
-
-
-.timeline-text {
-
-    color: #71879a;
-
-    font-size: 11px;
-
-    line-height: 1.8;
-}
-
-
-/* =====================================================
-   LIFE STORY
-===================================================== */
-
-.story {
-
-    color: #8ba2b5;
-
-    font-size: 12px;
-
-    line-height: 2;
-
-    white-space: pre-line;
-}
-
-
-/* =====================================================
-   BUTTONS
-===================================================== */
-
-.button-row {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-    margin-top: 30px;
-}
-
-
-.profile-button {
-
-    display: inline-block;
-
-    padding: 13px 20px;
-
-    color: #9bbbd6;
-
-    text-decoration: none;
-
-    border: 1px solid #193b59;
-
-    background: #050b12;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-
-    transition: 0.2s;
-}
-
-
-.profile-button:hover {
-
-    color: white;
-
-    border-color: #1677ff;
-
-    background:
-        rgba(22,119,255,0.1);
-}
-
-
-/* =====================================================
-   NOTE
-===================================================== */
-
-.note {
-
-    margin-top: 25px;
+    border: 1px solid #182e42;
 
     padding: 25px;
 
-    border-left: 3px solid #1677ff;
+    margin-bottom: 25px;
 
-    background:
-        rgba(22,119,255,0.04);
+}
 
-    color: #6f879b;
+
+.section-title {
+
+    color: #7bb9e8;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    padding-bottom: 12px;
+
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid #18334b;
+
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.summary {
+
+    color: #9eafbd;
+
+    line-height: 1.8;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   SERVICE HISTORY
+========================================================= */
+
+.service-item {
+
+    border-left: 2px solid #28577e;
+
+    padding: 10px 15px;
+
+    margin-bottom: 15px;
+
+    background: rgba(20,40,60,0.15);
+
+}
+
+
+.service-rank {
+
+    color: #b5dcfa;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+.service-date {
+
+    color: #50687c;
 
     font-size: 10px;
 
+    margin-top: 4px;
+
+}
+
+
+.service-description {
+
+    color: #8799a8;
+
+    font-size: 11px;
+
+    margin-top: 7px;
+
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story {
+
+    white-space: pre-line;
+
+    color: #aab8c4;
+
     line-height: 1.8;
+
+    font-size: 13px;
+
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* =========================================================
+   BLOOD / DOB DISPLAY
+========================================================= */
 
-footer {
+.highlight {
 
-    padding: 40px 7%;
+    color: #8fcaff;
 
-    background: #020407;
-
-    border-top: 1px solid #193b59;
-
-    color: #526a7c;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
 }
 
 
-/* =====================================================
-   MODAL
-===================================================== */
+/* =========================================================
+   MODAL BACKGROUND
+========================================================= */
 
 .modal {
+
+    display: none;
 
     position: fixed;
 
     inset: 0;
 
-    z-index: 10000;
+    background: rgba(0,0,0,0.82);
 
-    display: none;
+    z-index: 500;
 
     align-items: center;
 
@@ -879,139 +607,136 @@ footer {
 
     padding: 20px;
 
-    background:
-        rgba(0,0,0,0.85);
 }
 
 
-.modal.show {
+.modal.active {
 
     display: flex;
+
 }
 
+
+/* =========================================================
+   MODAL BOX
+========================================================= */
 
 .modal-box {
 
     width: 100%;
 
-    max-width: 700px;
+    max-width: 650px;
 
     max-height: 90vh;
 
     overflow-y: auto;
 
-    padding: 35px;
+    background: #080c11;
 
-    background:
-        linear-gradient(
-            145deg,
-            #0b1624,
-            #03070c
-        );
-
-    border: 1px solid #1677ff;
+    border: 1px solid #315777;
 
     box-shadow:
-        0 0 45px rgba(22,119,255,0.2);
+        0 0 40px rgba(0,0,0,0.8);
+
+    padding: 25px;
+
 }
 
 
-.modal-label {
+.modal-title {
 
-    color: #4c9ddd;
+    color: #a9d8fa;
 
-    font-size: 9px;
+    font-size: 16px;
 
     letter-spacing: 3px;
+
+    margin-bottom: 20px;
+
 }
 
 
-.modal-box h2 {
+.modal-subtitle {
 
-    margin: 10px 0 25px;
+    color: #60798d;
 
-    letter-spacing: 3px;
+    font-size: 11px;
+
+    margin-bottom: 20px;
+
 }
 
 
-/* =====================================================
+/* =========================================================
    FORM
-===================================================== */
+========================================================= */
 
-.field {
+.form-group {
 
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+
 }
 
 
-.field label {
+.form-group label {
 
     display: block;
 
-    margin-bottom: 7px;
+    color: #60798d;
 
-    color: #6f94b5;
-
-    font-size: 9px;
+    font-size: 10px;
 
     letter-spacing: 2px;
+
+    margin-bottom: 7px;
+
 }
 
 
-input,
-textarea,
-select {
+.form-group input,
+.form-group textarea,
+.form-group select {
 
     width: 100%;
 
-    padding: 13px;
+    background: #05080c;
 
-    background: #020509;
+    border: 1px solid #233f57;
 
-    color: white;
+    color: #dceaf5;
 
-    border: 1px solid #193b59;
-
-    outline: none;
+    padding: 11px;
 
     font-family: "Courier New", monospace;
 
     font-size: 12px;
+
+    outline: none;
+
 }
 
 
-input:focus,
-textarea:focus,
-select:focus {
+.form-group textarea {
 
-    border-color: #1677ff;
-
-    box-shadow:
-        0 0 10px rgba(22,119,255,0.15);
-}
-
-
-textarea {
-
-    min-height: 120px;
+    min-height: 110px;
 
     resize: vertical;
 
-    line-height: 1.7;
 }
 
 
-select option {
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
 
-    background: #05090f;
+    border-color: #4388bb;
 
-    color: white;
 }
 
 
-/* =====================================================
+/* =========================================================
    MODAL BUTTONS
-===================================================== */
+========================================================= */
 
 .modal-buttons {
 
@@ -1019,159 +744,228 @@ select option {
 
     gap: 10px;
 
-    margin-top: 25px;
+    margin-top: 20px;
+
 }
 
 
 .modal-buttons button {
 
-    flex: 1;
+    padding: 11px 18px;
 
-    padding: 13px;
+    background: #0a1118;
+
+    color: #9fd1f4;
+
+    border: 1px solid #315777;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
 
     cursor: pointer;
 
+}
+
+
+.modal-buttons button:hover {
+
+    background: #155984;
+
+    color: white;
+
+}
+
+
+.modal-buttons .cancel {
+
+    color: #718293;
+
+    border-color: #273746;
+
+}
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.password-error {
+
+    color: #5ba8e8;
+
+    font-size: 11px;
+
+    margin-top: 10px;
+
+    display: none;
+
+}
+
+
+/* =========================================================
+   RANK MENU
+========================================================= */
+
+.rank-current {
+
+    padding: 12px;
+
+    margin-bottom: 18px;
+
+    background: #05080c;
+
+    border: 1px solid #203b52;
+
+    color: #7ea8c7;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.rank-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 10px;
+
+}
+
+
+.rank-option {
+
+    padding: 14px 8px;
+
+    background: #080d13;
+
+    color: #9bc9e9;
+
+    border: 1px solid #26455e;
+
     font-family: "Courier New", monospace;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.15s;
+
+}
+
+
+.rank-option:hover {
+
+    background: #12537f;
+
+    border-color: #5ca9dd;
+
+    color: white;
+
+}
+
+
+.rank-option.current {
+
+    border-color: #69b9ee;
+
+    background: #102c40;
+
+    color: #d9f1ff;
+
+}
+
+
+.rank-message {
+
+    margin-top: 15px;
+
+    color: #72b9e9;
+
+    font-size: 11px;
+
+    min-height: 16px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    text-align: center;
+
+    color: #344a5c;
 
     font-size: 10px;
 
     letter-spacing: 2px;
+
+    padding: 30px;
+
 }
 
 
-.save-button {
-
-    background: #1677ff;
-
-    color: white;
-
-    border: 1px solid #1677ff;
-}
-
-
-.save-button:hover {
-
-    background: #0d64d8;
-}
-
-
-.cancel-button {
-
-    background: transparent;
-
-    color: #9bbbd6;
-
-    border: 1px solid #193b59;
-}
-
-
-.cancel-button:hover {
-
-    border-color: #1677ff;
-
-    color: white;
-}
-
-
-/* =====================================================
-   PASSWORD
-===================================================== */
-
-.password-box {
-
-    max-width: 450px;
-}
-
-
-.password-input {
-
-    margin-top: 10px;
-}
-
-
-.message {
-
-    margin-top: 12px;
-
-    font-size: 10px;
-
-    letter-spacing: 1px;
-}
-
-
-.error {
-
-    color: #ff4d4d;
-}
-
-
-.success {
-
-    color: #4cff91;
-}
-
-
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 800px) {
 
     header {
 
         flex-direction: column;
 
         align-items: flex-start;
+
+        gap: 15px;
+
     }
 
+    nav {
 
-    .profile-hero {
+        justify-content: flex-start;
+
+        gap: 14px;
+
+    }
+
+    .profile-header {
 
         grid-template-columns: 1fr;
 
-        text-align: left;
     }
 
+    .profile-image {
 
-    .profile-picture {
+        width: 160px;
 
-        width: 190px;
+        height: 200px;
 
-        height: 235px;
     }
 
-
-    .profile-grid {
+    .info-grid {
 
         grid-template-columns: 1fr;
+
     }
 
+    .rank-grid {
 
-    .identification-grid {
+        grid-template-columns: repeat(2, 1fr);
 
-        grid-template-columns: 1fr;
-    }
-
-
-    .codename {
-
-        font-size: 65px;
-
-        letter-spacing: 5px;
-    }
-
-
-    .control-bar {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-
-    .edit-button {
-
-        width: 100%;
     }
 
 }
@@ -1184,664 +978,413 @@ select option {
 <body>
 
 
-<!-- =====================================================
-     TOP LINE
-===================================================== -->
-
-<div class="top-line"></div>
-
-
-<!-- =====================================================
+<!-- =========================================================
      HEADER
-===================================================== -->
+========================================================= -->
 
 <header>
 
-    <div class="site-name">
+    <div class="logo">
 
-        <h1>
-            SITE-66
-        </h1>
+        SITE-66
 
-        <p>
-            FOUNDATION SECURE NETWORK
-        </p>
+        <span>FOUNDATION DATABASE</span>
 
     </div>
 
 
     <nav>
 
-        <a href="home.html">
-            HOME
-        </a>
+        <a href="home.html">HOME</a>
 
-        <a href="personnel.html">
-            PERSONNEL
-        </a>
+        <a href="personnel.html">PERSONNEL</a>
 
-        <a href="records.html">
-            RECORDS
-        </a>
+        <a href="records.html">RECORDS</a>
 
-        <a href="archives.html">
-            ARCHIVES
-        </a>
+        <a href="archives.html">ARCHIVES</a>
 
-        <a href="journal.html">
-            JOURNAL
-        </a>
+        <a href="journal.html">JOURNAL</a>
 
-        <a href="playlist.html">
-            PLAYLIST
-        </a>
+        <a href="playlist.html">PLAYLIST</a>
+
+        <a href="relations.html">RELATIONS</a>
+
+        <a href="profile.html" class="active">PROFILE</a>
 
     </nav>
 
 </header>
 
 
-<!-- =====================================================
-     PROFILE HERO
-===================================================== -->
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
-<section class="profile-hero">
-
-
-    <div class="profile-picture">
-
-        <img
-            src="mercer.jpg"
-            alt="Connor Redmen - Mercer"
-        >
-
-    </div>
+<main>
 
 
-    <div>
+    <div class="page-title">
 
-        <div class="classification">
-
-            SITE-66 //
-            PERSONNEL DATABASE //
-            CLASSIFIED PROFILE
-
+        <div class="small">
+            FOUNDATION // PERSONNEL FILE
         </div>
 
-
-        <h1
-            class="codename"
-            id="displayCodename"
-        >
-
-            MERCER
-
+        <h1>
+            PERSONNEL PROFILE
         </h1>
 
-
-        <div
-            class="real-name"
-            id="displayName"
-        >
-
-            CONNOR REDMEN
-
-        </div>
-
-
-        <div
-            class="position"
-            id="displayPosition"
-        >
-
-            MASTER SERGEANT //
-            GENERAL SECURITY
-
-        </div>
-
-
-        <div
-            class="status"
-            id="displayStatus"
-        >
-
-            ● ACTIVE PERSONNEL
-
-        </div>
+        <div class="line"></div>
 
     </div>
 
 
-</section>
+    <!-- =====================================================
+         PROFILE HEADER
+    ====================================================== -->
+
+    <section class="profile-header">
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
+        <div class="profile-image">
 
-<main class="container">
-
-
-    <!-- =================================================
-         EDIT CONTROL
-    ================================================== -->
-
-    <div class="control-bar">
-
-        <div>
-
-            <div class="control-label">
-
-                PERSONNEL PROFILE
-
-            </div>
-
-            <div
-                style="
-                    margin-top:7px;
-                    color:#526a7c;
-                    font-size:9px;
-                "
+            <img
+                src="mercer.jpg"
+                alt="Mercer"
+                onerror="this.style.display='none';"
             >
 
-                PROFILE DATABASE //
+        </div>
+
+
+        <div class="profile-main">
+
+            <div
+                class="codename"
+                id="displayCodename"
+            >
                 MERCER
-
-            </div>
-
-        </div>
-
-
-        <button
-            class="edit-button"
-            onclick="openPassword()"
-        >
-
-            EDIT PROFILE
-
-        </button>
-
-    </div>
-
-
-    <!-- =================================================
-         BASIC INFORMATION
-    ================================================== -->
-
-    <div class="profile-grid">
-
-
-        <section class="panel">
-
-            <div class="panel-label">
-
-                PERSONNEL //
-                IDENTIFICATION
-
             </div>
 
 
-            <h2>
-
-                BASIC INFORMATION
-
-            </h2>
-
-
-            <div class="info-list">
-
-
-                <div class="info-row">
-
-                    <span class="info-label">
-                        FULL NAME
-                    </span>
-
-                    <span
-                        class="info-value"
-                        id="infoName"
-                    >
-                        Connor Redmen
-                    </span>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <span class="info-label">
-                        CODENAME
-                    </span>
-
-                    <span
-                        class="info-value"
-                        id="infoCodename"
-                    >
-                        Mercer
-                    </span>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <span class="info-label">
-                        DATE OF BIRTH
-                    </span>
-
-                    <span
-                        class="info-value"
-                        id="infoDOB"
-                    >
-                        03/09/1999
-                    </span>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <span class="info-label">
-                        BLOOD TYPE
-                    </span>
-
-                    <span
-                        class="info-value"
-                        id="infoBlood"
-                    >
-                        B-
-                    </span>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <span class="info-label">
-                        OCCUPATION
-                    </span>
-
-                    <span
-                        class="info-value"
-                        id="infoOccupation"
-                    >
-                        Master Sergeant
-                    </span>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <span class="info-label">
-                        BRANCH
-                    </span>
-
-                    <span
-                        class="info-value"
-                        id="infoBranch"
-                    >
-                        General Security
-                    </span>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <span class="info-label">
-                        ORIGIN
-                    </span>
-
-                    <span
-                        class="info-value"
-                        id="infoOrigin"
-                    >
-                        Fond du Lac, Wisconsin
-                    </span>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <span class="info-label">
-                        STATUS
-                    </span>
-
-                    <span
-                        class="info-value"
-                        id="infoStatus"
-                    >
-                        Active
-                    </span>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             SUMMARY
-        ================================================== -->
-
-        <section class="panel">
-
-            <div class="panel-label">
-
-                PERSONNEL //
-                OVERVIEW
-
-            </div>
-
-
-            <h2>
-
-                PROFILE SUMMARY
-
+            <h2 id="displayName">
+                CONNOR REDMEN
             </h2>
 
 
             <div
-                class="summary"
-                id="displaySummary"
+                class="position"
+                id="displayPosition"
             >
-
-                Connor Redmen is a former United States Marine
-                who eventually became a member of the SCP
-                Foundation's General Security division at
-                Site-66.
-
-                <br><br>
-
-                Connor is known for remaining relatively calm
-                under pressure and for relying heavily on the
-                discipline he developed during his military
-                service.
-
-                <br><br>
-
-                Despite his experience, Connor continues to
-                carry the memories of the events that led him
-                to the Foundation.
-
+                GENERAL SECURITY // GENSEC
             </div>
 
 
-            <div class="warning-box">
-
-                <strong>
-                    IDENTIFICATION NOTE:
-                </strong>
-
-                <br><br>
-
-                Subject possesses a visible burn mark on the
-                right arm. Further details regarding the
-                incident responsible for the injury are
-                classified.
-
+            <div
+                class="status"
+                id="displayStatus"
+            >
+                ● ACTIVE PERSONNEL
             </div>
 
-        </section>
 
-    </div>
+            <div class="control-bar">
+
+                <button
+                    onclick="openRankPassword()"
+                >
+                    CHANGE RANK
+                </button>
 
 
-    <!-- =================================================
-         IDENTIFICATION RECORD
-    ================================================== -->
+                <button
+                    onclick="openPassword()"
+                >
+                    EDIT PROFILE
+                </button>
 
-    <section class="panel full-panel">
-
-        <div class="panel-label">
-
-            MEDICAL //
-            IDENTIFICATION
+            </div>
 
         </div>
 
-
-        <h2>
-
-            IDENTIFICATION RECORD
-
-        </h2>
+    </section>
 
 
-        <div class="identification-grid">
+    <!-- =====================================================
+         BASIC INFORMATION
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-title">
+            BASIC INFORMATION
+        </div>
 
 
-            <div class="id-box">
+        <div class="info-grid">
 
-                <div class="id-label">
 
-                    BLOOD TYPE
+            <div class="info-box">
 
+                <div class="info-label">
+                    FULL NAME
                 </div>
 
                 <div
-                    class="id-value"
+                    class="info-value"
+                    id="infoName"
+                >
+                    CONNOR REDMEN
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    CODENAME
+                </div>
+
+                <div
+                    class="info-value"
+                    id="infoCodename"
+                >
+                    MERCER
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    RANK
+                </div>
+
+                <div
+                    class="info-value highlight"
+                    id="infoRank"
+                >
+                    MSGT
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    DATE OF BIRTH
+                </div>
+
+                <div
+                    class="info-value"
+                    id="infoDOB"
+                >
+                    UNKNOWN
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    BLOOD TYPE
+                </div>
+
+                <div
+                    class="info-value"
+                    id="infoBlood"
+                >
+                    UNKNOWN
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    OCCUPATION
+                </div>
+
+                <div
+                    class="info-value"
+                    id="infoOccupation"
+                >
+                    GENERAL SECURITY
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    BRANCH
+                </div>
+
+                <div
+                    class="info-value"
+                    id="infoBranch"
+                >
+                    GENSEC
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    ORIGIN
+                </div>
+
+                <div
+                    class="info-value"
+                    id="infoOrigin"
+                >
+                    FOND DU LAC, WISCONSIN
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    STATUS
+                </div>
+
+                <div
+                    class="info-value"
+                    id="infoStatus"
+                >
+                    ACTIVE
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SUMMARY
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-title">
+            PERSONNEL SUMMARY
+        </div>
+
+
+        <div
+            class="summary"
+            id="displaySummary"
+        >
+
+            Personnel summary unavailable.
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SERVICE HISTORY
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-title">
+            SERVICE HISTORY
+        </div>
+
+
+        <div id="displayServiceHistory">
+
+            <div class="service-item">
+
+                <div class="service-rank">
+                    CURRENT ASSIGNMENT
+                </div>
+
+                <div class="service-date">
+                    SITE-66
+                </div>
+
+                <div class="service-description">
+                    General Security personnel.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ADDITIONAL INFORMATION
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-title">
+            PERSONNEL RECORD
+        </div>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    BLOOD TYPE
+                </div>
+
+                <div
+                    class="info-value highlight"
                     id="displayBlood"
                 >
-
-                    B-
-
+                    UNKNOWN
                 </div>
 
             </div>
 
 
-            <div class="id-box">
+            <div class="info-box">
 
-                <div class="id-label">
-
-                    DOB
-
+                <div class="info-label">
+                    DATE OF BIRTH
                 </div>
 
                 <div
-                    class="id-value"
+                    class="info-value"
                     id="displayDOB"
                 >
-
-                    03/09/1999
-
+                    UNKNOWN
                 </div>
 
             </div>
 
 
-            <div class="id-box">
+            <div class="info-box">
 
-                <div class="id-label">
-
+                <div class="info-label">
                     SERVICE
-
                 </div>
 
                 <div
-                    class="id-value"
+                    class="info-value"
                     id="displayService"
                 >
-
-                    USMC
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="warning-box">
-
-            <strong>
-                PHYSICAL IDENTIFIER:
-            </strong>
-
-            Right arm contains a documented burn mark.
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         SERVICE HISTORY
-    ================================================== -->
-
-    <section class="panel full-panel">
-
-        <div class="panel-label">
-
-            PERSONNEL //
-            SERVICE HISTORY
-
-        </div>
-
-
-        <h2>
-
-            SERVICE HISTORY
-
-        </h2>
-
-
-        <div
-            class="timeline"
-            id="serviceHistory"
-        >
-
-            <div class="timeline-item">
-
-                <div class="timeline-date">
-
-                    EARLY LIFE
-
-                </div>
-
-                <div class="timeline-title">
-
-                    FOND DU LAC, WISCONSIN
-
-                </div>
-
-                <div class="timeline-text">
-
-                    Connor Redmen was born and raised in
-                    Fond du Lac, Wisconsin alongside his
-                    family. He experienced a relatively
-                    normal childhood before later events
-                    dramatically changed his life.
-
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-date">
-
-                    2019
-
-                </div>
-
-                <div class="timeline-title">
-
-                    UNITED STATES MARINE CORPS
-
-                </div>
-
-                <div class="timeline-text">
-
-                    Following a traumatic incident involving
-                    Ryan McGrie, Connor enlisted in the
-                    United States Marine Corps in search of
-                    structure, purpose, and a new beginning.
-
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-date">
-
-                    CLASSIFIED
-
-                </div>
-
-                <div class="timeline-title">
-
-                    ANOMALOUS INCIDENT
-
-                </div>
-
-                <div class="timeline-text">
-
-                    During an overseas deployment, Connor's
-                    unit encountered an unidentified anomalous
-                    entity inside an abandoned research
-                    facility. The incident resulted in
-                    Foundation involvement.
-
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-date">
-
-                    12/12/2019
-
-                </div>
-
-                <div class="timeline-title">
-
-                    FOUNDATION RECRUITMENT
-
-                </div>
-
-                <div class="timeline-text">
-
-                    Connor was approached by Foundation
-                    recruiters who revealed the truth about
-                    the facility and offered him a position
-                    within Foundation Security.
-
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-date">
-
-                    CURRENT
-
-                </div>
-
-                <div class="timeline-title">
-
-                    SCP SITE-66 // GENSEC
-
-                </div>
-
-                <div class="timeline-text">
-
-                    Connor currently serves as a Master Sergeant
-                    within General Security at SCP Site-66.
-
+                    UNKNOWN
                 </div>
 
             </div>
@@ -1851,25 +1394,15 @@ select option {
     </section>
 
 
-    <!-- =================================================
-         LIFE STORY
-    ================================================== -->
+    <!-- =====================================================
+         BACKGROUND
+    ====================================================== -->
 
-    <section class="panel full-panel">
+    <section class="section">
 
-        <div class="panel-label">
-
-            PERSONNEL //
-            BIOGRAPHICAL RECORD
-
+        <div class="section-title">
+            PERSONNEL HISTORY
         </div>
-
-
-        <h2>
-
-            ENTIRE LIFE STORY
-
-        </h2>
 
 
         <div
@@ -1877,390 +1410,84 @@ select option {
             id="displayStory"
         >
 
-Connor Redmen was born and raised in Fond du Lac, Wisconsin,
-alongside his mother, Carol Redmen, his father, Daren Redmen,
-his older brother, Carter Redmen, and his older sister,
-Amelia Redmen.
-
-Connor had a relatively normal and happy childhood. He was
-never bullied and generally got along with the people around
-him. In school, his grades usually ranged from a C- to a B+.
-Although he wasn't the smartest student in his class, he was
-respectful and easygoing.
-
-Connor spent most of his free time outside with friends and
-family. For most of his childhood, he had little reason to
-believe his life would ever become more complicated than that.
-
-As Connor grew older, he became more independent and started
-spending more time around town with his friends. He became
-known as someone who could stay calm when situations became
-heated and was usually the person trying to keep his friends
-from making stupid decisions.
-
-Everything changed during the summer of 2019.
-
-After a bar fight, one of Connor's closest friends, Ryan
-McGrie, attempted to kill him over money. What started as an
-argument quickly became a fight for Connor's life.
-
-Connor fought back in self-defense, but the confrontation
-ended with Ryan being beaten to death.
-
-Although Connor avoided serious legal consequences due to the
-circumstances surrounding the incident, the emotional
-consequences never went away.
-
-Connor couldn't stop thinking about what happened.
-
-The cheerful and trusting person he had been began
-disappearing, replaced by someone quieter, more cautious, and
-afraid to let people get close.
-
-Not long after the incident, Connor decided that he needed to
-get away from everything he had known.
-
-Looking for structure, purpose, and a way to rebuild himself,
-he enlisted in the United States Marine Corps.
-
-Marine life was difficult, but Connor adapted quickly.
-
-The discipline, physical training, and responsibility gave
-him something to focus on. Over time, he became a dependable
-and capable Marine.
-
-During one deployment, Connor's unit was ordered to
-investigate an abandoned research facility after reports of
-missing civilians in the surrounding area.
-
-They expected criminals, insurgents, or smugglers.
-
-Instead, they encountered something none of them could
-explain.
-
-Deep inside the abandoned structure, they encountered an
-unknown entity that moved almost completely silently and
-seemed capable of disappearing from sight.
-
-Several Marines were injured before an unidentified tactical
-team arrived and eliminated the threat.
-
-The operators were unlike anyone Connor had ever encountered.
-
-They wore equipment Connor couldn't identify, carried
-themselves with military precision, and seemed to know
-exactly what they were dealing with.
-
-Connor's unit was ordered to remain silent about everything
-they had witnessed.
-
-Connor and the surviving Marines were detained afterward and
-questioned for several days by people claiming to represent
-a government organization.
-
-Eventually, Connor was subjected to a memory-altering
-procedure.
-
-Most of the Marines forgot the incident entirely.
-
-Connor did not.
-
-He retained fragments of what happened — flashes of the
-creature, strange symbols, unidentified operators, and the
-feeling that something about the entire incident had been
-deliberately hidden from him.
-
-Unknown to Connor, the organization responsible was the SCP
-Foundation.
-
-Foundation personnel noticed Connor's unusual resistance to
-the memory treatment and quietly began monitoring him.
-
-His military record, ability to remain calm under pressure,
-and resistance to amnestic treatment made him someone the
-Foundation considered worth watching.
-
-After completing his service in the Marines, Connor returned
-to civilian life.
-
-He had accomplished what he had set out to do, but found
-himself struggling without the structure and purpose the
-military had provided.
-
-He still thought about the abandoned facility and the thing
-he had seen inside it.
-
-Sometimes he wondered if the entire experience had actually
-happened or if the memories he retained were simply fragments
-of something his mind couldn't properly understand.
-
-Then, on December 12th, 2019, Connor walked into a small local
-bar wearing his usual cowboy hat.
-
-He ordered a shot of whiskey and sat by himself for a while,
-trying to clear his head.
-
-Eventually, he stepped outside for a cigarette.
-
-As snow fell around him and Christmas lights blinked across
-the nearby buildings, two strangers approached him.
-
-They were Foundation recruiters.
-
-They told Connor the truth.
-
-The facility from his deployment had been real.
-
-The creature had been real.
-
-The people who arrived afterward had been Foundation
-personnel.
-
-They explained that the world contained things far beyond
-what ordinary governments and militaries knew about.
-
-They offered Connor a position within Foundation Security.
-
-Connor listened without saying much.
-
-After everything he had experienced, the revelation was
-almost strangely comforting.
-
-For the first time, the memories that had haunted him had an
-explanation.
-
-Connor threw his cigarette onto the snow and spat on it before
-accepting their offer.
-
-He exchanged the necessary information with the recruiters,
-watching as they disappeared down the snowy street beneath
-the Christmas lights.
-
-Connor stood there for a moment, thinking about everything
-that had happened since Ryan McGrie's death.
-
-He had joined the Marines looking for purpose, encountered
-something impossible, and now the organization responsible for
-that impossible world was offering him a place inside it.
-
-Before leaving for the Foundation, Connor received a letter
-that he kept with him.
-
-He didn't talk about the letter often, but he carried it
-wherever he went, keeping it close as a reminder of the life
-he had left behind.
-
-After completing specialized Foundation training and
-receiving the necessary security clearance, Connor was
-assigned to SCP Site-66 as a member of GENSEC.
-
-The Marines had taught him how to survive combat, follow
-orders, and protect the people beside him.
-
-The Foundation would teach him something entirely different.
-
-Not every enemy could be understood.
-
-Not every threat followed the laws of nature.
-
-And sometimes the things hiding in the darkness were far worse
-than anything Connor had already survived.
-
-Connor Redmen had spent his entire life trying to find
-somewhere he belonged.
-
-Eventually, he found Site-66.
+            Personnel history unavailable.
 
         </div>
 
     </section>
-
-
-    <!-- =================================================
-         NAVIGATION
-    ================================================== -->
-
-    <section class="panel full-panel">
-
-        <div class="panel-label">
-
-            PERSONNEL //
-            RELATED RECORDS
-
-        </div>
-
-
-        <h2>
-
-            RELATED RECORDS
-
-        </h2>
-
-
-        <div class="button-row">
-
-            <a
-                href="relations.html"
-                class="profile-button"
-            >
-
-                VIEW RELATIONS
-
-            </a>
-
-
-            <a
-                href="journal.html"
-                class="profile-button"
-            >
-
-                VIEW JOURNAL
-
-            </a>
-
-
-            <a
-                href="playlist.html"
-                class="profile-button"
-            >
-
-                MERCER PLAYLIST
-
-            </a>
-
-
-            <a
-                href="home.html"
-                class="profile-button"
-            >
-
-                RETURN HOME
-
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================================
-         NOTE
-    ================================================== -->
-
-    <div class="note">
-
-        <strong>
-            FOUNDATION RECORD NOTICE:
-        </strong>
-
-        <br><br>
-
-        This profile contains personnel information associated
-        with Master Sergeant Connor Redmen, codename "Mercer."
-
-        <br><br>
-
-        Unauthorized alteration of Foundation personnel
-        records is prohibited.
-
-    </div>
 
 
 </main>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
 
-    SITE-66 FOUNDATION DATABASE
-
-    <br><br>
-
-    PERSONNEL PROFILE //
-    MERCER
-
-    <br><br>
-
-    UNAUTHORIZED ACCESS IS PROHIBITED.
+    SITE-66 FOUNDATION DATABASE //
+    AUTHORIZED PERSONNEL ONLY
 
 </footer>
 
 
-<!-- =====================================================
-     PASSWORD MODAL
-===================================================== -->
+<!-- =========================================================
+     PASSWORD MODAL - EDIT PROFILE
+========================================================= -->
 
 <div
     class="modal"
     id="passwordModal"
 >
 
-    <div class="modal-box password-box">
+    <div class="modal-box">
 
-        <div class="modal-label">
+        <div class="modal-title">
+            SECURITY VERIFICATION
+        </div>
 
-            FOUNDATION AUTHORIZATION
+
+        <div class="modal-subtitle">
+
+            ENTER PERSONNEL AUTHORIZATION CODE
+            TO EDIT THIS FILE.
 
         </div>
 
 
-        <h2>
+        <div class="form-group">
 
-            EDIT PROFILE
+            <label>
+                AUTHORIZATION CODE
+            </label>
 
-        </h2>
+            <input
+                type="password"
+                id="passwordInput"
+                autocomplete="off"
+            >
 
-
-        <p
-            style="
-                color:#71879a;
-                font-size:11px;
-                line-height:1.7;
-            "
-        >
-
-            Authorization is required to modify
-            this personnel record.
-
-        </p>
-
-
-        <input
-            class="password-input"
-            id="passwordInput"
-            type="password"
-            placeholder="ENTER PASSWORD"
-        >
+        </div>
 
 
         <div
-            id="passwordMessage"
-            class="message"
-        ></div>
+            class="password-error"
+            id="passwordError"
+        >
+            INVALID AUTHORIZATION CODE.
+        </div>
 
 
         <div class="modal-buttons">
 
             <button
-                class="save-button"
                 onclick="checkPassword()"
             >
-
-                AUTHENTICATE
-
+                VERIFY
             </button>
 
-
             <button
-                class="cancel-button"
+                class="cancel"
                 onclick="closePassword()"
             >
-
                 CANCEL
-
             </button>
 
         </div>
@@ -2270,9 +1497,9 @@ Eventually, he found Site-66.
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      EDIT PROFILE MODAL
-===================================================== -->
+========================================================= -->
 
 <div
     class="modal"
@@ -2281,24 +1508,17 @@ Eventually, he found Site-66.
 
     <div class="modal-box">
 
-        <div class="modal-label">
-
-            SITE-66 //
-            PERSONNEL DATABASE
-
+        <div class="modal-title">
+            EDIT PERSONNEL FILE
         </div>
 
 
-        <h2>
-
-            EDIT MERCER PROFILE
-
-        </h2>
+        <div class="modal-subtitle">
+            MODIFY INFORMATION STORED IN THE SITE-66 DATABASE.
+        </div>
 
 
-        <!-- NAME -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
                 FULL NAME
@@ -2312,9 +1532,7 @@ Eventually, he found Site-66.
         </div>
 
 
-        <!-- CODENAME -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
                 CODENAME
@@ -2328,9 +1546,7 @@ Eventually, he found Site-66.
         </div>
 
 
-        <!-- DOB -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
                 DATE OF BIRTH
@@ -2344,9 +1560,7 @@ Eventually, he found Site-66.
         </div>
 
 
-        <!-- BLOOD -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
                 BLOOD TYPE
@@ -2360,9 +1574,7 @@ Eventually, he found Site-66.
         </div>
 
 
-        <!-- OCCUPATION -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
                 OCCUPATION
@@ -2376,9 +1588,7 @@ Eventually, he found Site-66.
         </div>
 
 
-        <!-- BRANCH -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
                 BRANCH
@@ -2392,52 +1602,21 @@ Eventually, he found Site-66.
         </div>
 
 
-        <!-- STATUS -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
                 STATUS
             </label>
 
-            <select id="editStatus">
-
-                <option value="Active">
-                    ACTIVE
-                </option>
-
-                <option value="Non-Active">
-                    NON-ACTIVE
-                </option>
-
-                <option value="Unknown">
-                    UNKNOWN
-                </option>
-
-                <option value="Deceased">
-                    DECEASED
-                </option>
-
-                <option value="Missing">
-                    MISSING
-                </option>
-
-                <option value="Retired">
-                    RETIRED
-                </option>
-
-                <option value="Suspended">
-                    SUSPENDED
-                </option>
-
-            </select>
+            <input
+                id="editStatus"
+                type="text"
+            >
 
         </div>
 
 
-        <!-- ORIGIN -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
                 ORIGIN
@@ -2451,9 +1630,7 @@ Eventually, he found Site-66.
         </div>
 
 
-        <!-- SERVICE -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
                 SERVICE
@@ -2467,12 +1644,10 @@ Eventually, he found Site-66.
         </div>
 
 
-        <!-- SUMMARY -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
-                PROFILE SUMMARY
+                SUMMARY
             </label>
 
             <textarea
@@ -2482,9 +1657,7 @@ Eventually, he found Site-66.
         </div>
 
 
-        <!-- SERVICE HISTORY -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
                 SERVICE HISTORY
@@ -2492,53 +1665,52 @@ Eventually, he found Site-66.
 
             <textarea
                 id="editServiceHistory"
-                style="min-height:200px;"
+                placeholder="Example:
+
+MSGT // SITE-66
+2026
+Promoted to Master Sergeant.
+
+SGT // SITE-66
+2026
+Assigned to General Security."
             ></textarea>
 
         </div>
 
 
-        <!-- LIFE STORY -->
-
-        <div class="field">
+        <div class="form-group">
 
             <label>
-                ENTIRE LIFE STORY
+                PERSONNEL HISTORY
             </label>
 
             <textarea
                 id="editStory"
-                style="min-height:350px;"
             ></textarea>
 
         </div>
 
 
         <div
-            id="saveMessage"
-            class="message"
+            class="rank-message"
+            id="editMessage"
         ></div>
 
 
         <div class="modal-buttons">
 
             <button
-                class="save-button"
                 onclick="saveProfile()"
             >
-
-                SAVE PROFILE
-
+                SAVE CHANGES
             </button>
 
-
             <button
-                class="cancel-button"
+                class="cancel"
                 onclick="closeEdit()"
             >
-
                 CANCEL
-
             </button>
 
         </div>
@@ -2548,9 +1720,138 @@ Eventually, he found Site-66.
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
+     PASSWORD MODAL - CHANGE RANK
+========================================================= -->
+
+<div
+    class="modal"
+    id="rankPasswordModal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-title">
+            RANK AUTHORIZATION
+        </div>
+
+
+        <div class="modal-subtitle">
+
+            ENTER PERSONNEL AUTHORIZATION CODE
+            TO MODIFY CURRENT RANK.
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                AUTHORIZATION CODE
+            </label>
+
+            <input
+                type="password"
+                id="rankPasswordInput"
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <div
+            class="password-error"
+            id="rankPasswordError"
+        >
+            INVALID AUTHORIZATION CODE.
+        </div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                onclick="checkRankPassword()"
+            >
+                VERIFY
+            </button>
+
+            <button
+                class="cancel"
+                onclick="closeRankPassword()"
+            >
+                CANCEL
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     RANK SELECTION MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="rankModal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-title">
+            CHANGE PERSONNEL RANK
+        </div>
+
+
+        <div class="modal-subtitle">
+
+            SELECT THE NEW RANK FOR
+            CONNOR REDMEN // MERCER.
+
+        </div>
+
+
+        <div
+            class="rank-current"
+            id="currentRank"
+        >
+            CURRENT RANK: MSGT
+        </div>
+
+
+        <div
+            class="rank-grid"
+            id="rankGrid"
+        ></div>
+
+
+        <div
+            class="rank-message"
+            id="rankMessage"
+        ></div>
+
+
+        <div class="modal-buttons">
+
+            <button
+                class="cancel"
+                onclick="closeRankModal()"
+            >
+                CLOSE
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
      FIREBASE
-===================================================== -->
+========================================================= -->
 
 <script type="module">
 
@@ -2567,14 +1868,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
-/* =====================================================
+/* =========================================================
    FIREBASE CONFIG
-===================================================== */
+========================================================= */
 
 const firebaseConfig = {
 
-    apiKey:
-        "AIzaSyDWdYkDjqDIWWWlxxxRHRPZpTn4eKSYBpQ",
+    apiKey: "YOUR_FIREBASE_API_KEY",
 
     authDomain:
         "site-66-database.firebaseapp.com",
@@ -2597,37 +1897,58 @@ const firebaseConfig = {
 };
 
 
-/* =====================================================
-   INITIALIZE FIREBASE
-===================================================== */
-
 const app =
-    initializeApp(
-        firebaseConfig
-    );
+    initializeApp(firebaseConfig);
 
 
 const db =
-    getFirestore(
-        app
-    );
+    getFirestore(app);
 
-
-/* =====================================================
-   MERCER DOCUMENT
-===================================================== */
 
 const profileRef =
-    doc(
-        db,
-        "profiles",
-        "mercer"
-    );
+    doc(db, "profiles", "mercer");
 
 
-/* =====================================================
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+const EDIT_PASSWORD =
+    "Mercer66";
+
+
+const RANK_PASSWORD =
+    "Mercer66";
+
+
+/* =========================================================
+   RANK LIST
+========================================================= */
+
+const RANKS = [
+
+    "PVT",
+    "PV2",
+    "PFC",
+    "LCPL",
+    "CPL",
+    "SGT",
+    "SSGT",
+    "SFC",
+    "MSGT",
+    "SGM",
+    "WO",
+    "2LT",
+    "1LT",
+    "XO",
+    "CPT"
+
+];
+
+
+/* =========================================================
    DEFAULT PROFILE
-===================================================== */
+========================================================= */
 
 const defaultProfile = {
 
@@ -2637,213 +1958,60 @@ const defaultProfile = {
     codename:
         "Mercer",
 
+    rank:
+        "MSGT",
+
     dob:
-        "03/09/1999",
+        "UNKNOWN",
 
     blood:
-        "B-",
+        "UNKNOWN",
 
     occupation:
-        "Master Sergeant",
-
-    branch:
         "General Security",
 
+    branch:
+        "GENSEC",
+
     status:
-        "Active",
+        "ACTIVE",
 
     origin:
         "Fond du Lac, Wisconsin",
 
     service:
-        "USMC",
+        "SITE-66 // GENERAL SECURITY",
 
     summary:
-        `Connor Redmen is a former United States Marine who eventually became a member of the SCP Foundation's General Security division at Site-66.
-
-Connor is known for remaining relatively calm under pressure and for relying heavily on the discipline he developed during his military service.
-
-Despite his experience, Connor continues to carry the memories of the events that led him to the Foundation.`,
+        "Personnel summary unavailable.",
 
     serviceHistory:
-        `EARLY LIFE
-Fond du Lac, Wisconsin
-Connor Redmen was born and raised in Fond du Lac, Wisconsin alongside his family. He experienced a relatively normal childhood before later events dramatically changed his life.
-
-2019
-United States Marine Corps
-Following a traumatic incident involving Ryan McGrie, Connor enlisted in the United States Marine Corps in search of structure, purpose, and a new beginning.
-
-CLASSIFIED
-Anomalous Incident
-During an overseas deployment, Connor's unit encountered an unidentified anomalous entity inside an abandoned research facility. The incident resulted in Foundation involvement.
-
-12/12/2019
-Foundation Recruitment
-Connor was approached by Foundation recruiters who revealed the truth about the facility and offered him a position within Foundation Security.
-
-CURRENT
-SCP Site-66 // GENSEC
-Connor currently serves as a Master Sergeant within General Security at SCP Site-66.`,
+        "",
 
     story:
-        `Connor Redmen was born and raised in Fond du Lac, Wisconsin, alongside his mother, Carol Redmen, his father, Daren Redmen, his older brother, Carter Redmen, and his older sister, Amelia Redmen.
-
-Connor had a relatively normal and happy childhood. He was never bullied and generally got along with the people around him. In school, his grades usually ranged from a C- to a B+. Although he wasn't the smartest student in his class, he was respectful and easygoing.
-
-Connor spent most of his free time outside with friends and family. For most of his childhood, he had little reason to believe his life would ever become more complicated than that.
-
-As Connor grew older, he became more independent and started spending more time around town with his friends. He became known as someone who could stay calm when situations became heated and was usually the person trying to keep his friends from making stupid decisions.
-
-Everything changed during the summer of 2019.
-
-After a bar fight, one of Connor's closest friends, Ryan McGrie, attempted to kill him over money. What started as an argument quickly became a fight for Connor's life.
-
-Connor fought back in self-defense, but the confrontation ended with Ryan being beaten to death.
-
-Although Connor avoided serious legal consequences due to the circumstances surrounding the incident, the emotional consequences never went away.
-
-Connor couldn't stop thinking about what happened.
-
-The cheerful and trusting person he had been began disappearing, replaced by someone quieter, more cautious, and afraid to let people get close.
-
-Not long after the incident, Connor decided that he needed to get away from everything he had known.
-
-Looking for structure, purpose, and a way to rebuild himself, he enlisted in the United States Marine Corps.
-
-Marine life was difficult, but Connor adapted quickly.
-
-The discipline, physical training, and responsibility gave him something to focus on. Over time, he became a dependable and capable Marine.
-
-During one deployment, Connor's unit was ordered to investigate an abandoned research facility after reports of missing civilians in the surrounding area.
-
-They expected criminals, insurgents, or smugglers.
-
-Instead, they encountered something none of them could explain.
-
-Deep inside the abandoned structure, they encountered an unknown entity that moved almost completely silently and seemed capable of disappearing from sight.
-
-Several Marines were injured before an unidentified tactical team arrived and eliminated the threat.
-
-The operators were unlike anyone Connor had ever encountered.
-
-They wore equipment Connor couldn't identify, carried themselves with military precision, and seemed to know exactly what they were dealing with.
-
-Connor's unit was ordered to remain silent about everything they had witnessed.
-
-Connor and the surviving Marines were detained afterward and questioned for several days by people claiming to represent a government organization.
-
-Eventually, Connor was subjected to a memory-altering procedure.
-
-Most of the Marines forgot the incident entirely.
-
-Connor did not.
-
-He retained fragments of what happened — flashes of the creature, strange symbols, unidentified operators, and the feeling that something about the entire incident had been deliberately hidden from him.
-
-Unknown to Connor, the organization responsible was the SCP Foundation.
-
-Foundation personnel noticed Connor's unusual resistance to the memory treatment and quietly began monitoring him.
-
-His military record, ability to remain calm under pressure, and resistance to amnestic treatment made him someone the Foundation considered worth watching.
-
-After completing his service in the Marines, Connor returned to civilian life.
-
-He had accomplished what he had set out to do, but found himself struggling without the structure and purpose the military had provided.
-
-He still thought about the abandoned facility and the thing he had seen inside it.
-
-Sometimes he wondered if the entire experience had actually happened or if the memories he retained were simply fragments of something his mind couldn't properly understand.
-
-Then, on December 12th, 2019, Connor walked into a small local bar wearing his usual cowboy hat.
-
-He ordered a shot of whiskey and sat by himself for a while, trying to clear his head.
-
-Eventually, he stepped outside for a cigarette.
-
-As snow fell around him and Christmas lights blinked across the nearby buildings, two strangers approached him.
-
-They were Foundation recruiters.
-
-They told Connor the truth.
-
-The facility from his deployment had been real.
-
-The creature had been real.
-
-The people who arrived afterward had been Foundation personnel.
-
-They explained that the world contained things far beyond what ordinary governments and militaries knew about.
-
-They offered Connor a position within Foundation Security.
-
-Connor listened without saying much.
-
-After everything he had experienced, the revelation was almost strangely comforting.
-
-For the first time, the memories that had haunted him had an explanation.
-
-Connor threw his cigarette onto the snow and spat on it before accepting their offer.
-
-He exchanged the necessary information with the recruiters, watching as they disappeared down the snowy street beneath the Christmas lights.
-
-Connor stood there for a moment, thinking about everything that had happened since Ryan McGrie's death.
-
-He had joined the Marines looking for purpose, encountered something impossible, and now the organization responsible for that impossible world was offering him a place inside it.
-
-Before leaving for the Foundation, Connor received a letter that he kept with him.
-
-He didn't talk about the letter often, but he carried it wherever he went, keeping it close as a reminder of the life he had left behind.
-
-After completing specialized Foundation training and receiving the necessary security clearance, Connor was assigned to SCP Site-66 as a member of GENSEC.
-
-The Marines had taught him how to survive combat, follow orders, and protect the people beside him.
-
-The Foundation would teach him something entirely different.
-
-Not every enemy could be understood.
-
-Not every threat followed the laws of nature.
-
-And sometimes the things hiding in the darkness were far worse than anything Connor had already survived.
-
-Connor Redmen had spent his entire life trying to find somewhere he belonged.
-
-Eventually, he found Site-66.`
+        "Personnel history unavailable."
 
 };
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value) {
-
-    const div =
-        document.createElement(
-            "div"
-        );
-
-    div.textContent =
-        value || "";
-
-    return div.innerHTML;
-
-}
-
-
-/* =====================================================
+/* =========================================================
    DISPLAY PROFILE
-===================================================== */
+========================================================= */
 
 function displayProfile(data) {
 
     const p = {
+
         ...defaultProfile,
+
         ...data
+
     };
 
+
+    /* -----------------------------------------------------
+       HEADER
+    ----------------------------------------------------- */
 
     document.getElementById(
         "displayCodename"
@@ -2869,81 +2037,90 @@ function displayProfile(data) {
         `● ${p.status.toUpperCase()} PERSONNEL`;
 
 
+    /* -----------------------------------------------------
+       BASIC INFO
+    ----------------------------------------------------- */
+
     document.getElementById(
         "infoName"
     ).textContent =
-        p.name;
+        p.name.toUpperCase();
 
 
     document.getElementById(
         "infoCodename"
     ).textContent =
-        p.codename;
+        p.codename.toUpperCase();
+
+
+    document.getElementById(
+        "infoRank"
+    ).textContent =
+        (p.rank || "MSGT").toUpperCase();
 
 
     document.getElementById(
         "infoDOB"
     ).textContent =
-        p.dob;
+        p.dob.toUpperCase();
 
 
     document.getElementById(
         "infoBlood"
     ).textContent =
-        p.blood;
+        p.blood.toUpperCase();
 
 
     document.getElementById(
         "infoOccupation"
     ).textContent =
-        p.occupation;
+        p.occupation.toUpperCase();
 
 
     document.getElementById(
         "infoBranch"
     ).textContent =
-        p.branch;
+        p.branch.toUpperCase();
 
 
     document.getElementById(
         "infoOrigin"
     ).textContent =
-        p.origin;
+        p.origin.toUpperCase();
 
 
     document.getElementById(
         "infoStatus"
     ).textContent =
-        p.status;
+        p.status.toUpperCase();
 
+
+    /* -----------------------------------------------------
+       OTHER DISPLAY FIELDS
+    ----------------------------------------------------- */
 
     document.getElementById(
         "displaySummary"
-    ).innerHTML =
-        escapeHTML(
-            p.summary
-        ).replace(
-            /\n\n/g,
-            "<br><br>"
-        );
+    ).textContent =
+        p.summary;
 
 
     document.getElementById(
         "displayBlood"
     ).textContent =
-        p.blood;
+        p.blood.toUpperCase();
 
 
     document.getElementById(
         "displayDOB"
     ).textContent =
-        p.dob;
+        p.dob.toUpperCase();
 
 
     document.getElementById(
         "displayService"
     ).textContent =
-        p.service;
+        p.service.toUpperCase();
 
 
     document.getElementById(
@@ -2952,6 +2129,25 @@ function displayProfile(data) {
         p.story;
 
 
+    /* -----------------------------------------------------
+       RANK MODAL
+    ----------------------------------------------------- */
+
+    document.getElementById(
+        "currentRank"
+    ).textContent =
+        `CURRENT RANK: ${(p.rank || "MSGT").toUpperCase()}`;
+
+
+    buildRankMenu(
+        p.rank || "MSGT"
+    );
+
+
+    /* -----------------------------------------------------
+       SERVICE HISTORY
+    ----------------------------------------------------- */
+
     buildServiceHistory(
         p.serviceHistory
     );
@@ -2959,36 +2155,38 @@ function displayProfile(data) {
 }
 
 
-/* =====================================================
-   BUILD SERVICE HISTORY
-===================================================== */
+/* =========================================================
+   SERVICE HISTORY BUILDER
+========================================================= */
 
-function buildServiceHistory(text) {
+function buildServiceHistory(history) {
 
     const container =
         document.getElementById(
-            "serviceHistory"
+            "displayServiceHistory"
         );
-
-
-    const sections =
-        text
-            .split(/\n(?=[A-Z0-9][A-Z0-9 /.-]*\n)/g);
 
 
     container.innerHTML = "";
 
 
-    if (
-        !sections.length ||
-        !text.trim()
-    ) {
+    if (!history || !history.trim()) {
 
         container.innerHTML = `
 
-            <div class="timeline-text">
+            <div class="service-item">
 
-                NO SERVICE HISTORY AVAILABLE.
+                <div class="service-rank">
+                    CURRENT ASSIGNMENT
+                </div>
+
+                <div class="service-date">
+                    SITE-66
+                </div>
+
+                <div class="service-description">
+                    General Security personnel.
+                </div>
 
             </div>
 
@@ -2999,101 +2197,336 @@ function buildServiceHistory(text) {
     }
 
 
-    sections.forEach(
-        function(section) {
-
-            const lines =
-                section
-                    .trim()
-                    .split("\n");
+    const entries =
+        history
+            .split("\n\n")
+            .map(x => x.trim())
+            .filter(Boolean);
 
 
-            const date =
-                lines[0] ||
-                "CLASSIFIED";
+    entries.forEach(entry => {
+
+        const lines =
+            entry
+                .split("\n")
+                .map(x => x.trim())
+                .filter(Boolean);
 
 
-            const title =
-                lines[1] ||
-                "";
+        const rank =
+            lines[0] || "UNKNOWN";
 
 
-            const description =
-                lines
-                    .slice(2)
-                    .join(" ");
+        const date =
+            lines[1] || "";
 
 
-            const item =
-                document.createElement(
-                    "div"
-                );
+        const description =
+            lines.slice(2).join(" ") ||
+            "";
 
 
-            item.className =
-                "timeline-item";
+        const div =
+            document.createElement("div");
 
 
-            item.innerHTML = `
-
-                <div class="timeline-date">
-
-                    ${escapeHTML(
-                        date
-                    )}
-
-                </div>
+        div.className =
+            "service-item";
 
 
-                <div class="timeline-title">
+        div.innerHTML = `
 
-                    ${escapeHTML(
-                        title
-                    )}
+            <div class="service-rank">
+                ${escapeHTML(rank)}
+            </div>
 
-                </div>
+            <div class="service-date">
+                ${escapeHTML(date)}
+            </div>
 
+            <div class="service-description">
+                ${escapeHTML(description)}
+            </div>
 
-                <div class="timeline-text">
-
-                    ${escapeHTML(
-                        description
-                    )}
-
-                </div>
-
-            `;
+        `;
 
 
-            container.appendChild(
-                item
-            );
+        container.appendChild(div);
 
-        }
-    );
+    });
 
 }
 
 
-/* =====================================================
-   REALTIME PROFILE LISTENER
-===================================================== */
+/* =========================================================
+   RANK MENU
+========================================================= */
+
+function buildRankMenu(currentRank) {
+
+    const grid =
+        document.getElementById(
+            "rankGrid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    RANKS.forEach(rank => {
+
+        const button =
+            document.createElement("button");
+
+
+        button.className =
+            "rank-option";
+
+
+        if (
+            rank.toUpperCase() ===
+            currentRank.toUpperCase()
+        ) {
+
+            button.classList.add(
+                "current"
+            );
+
+        }
+
+
+        button.textContent =
+            rank;
+
+
+        button.onclick =
+            () => changeRank(rank);
+
+
+        grid.appendChild(button);
+
+    });
+
+}
+
+
+/* =========================================================
+   CHANGE RANK
+========================================================= */
+
+window.changeRank =
+    async function(newRank) {
+
+        const message =
+            document.getElementById(
+                "rankMessage"
+            );
+
+
+        message.textContent =
+            "UPDATING DATABASE...";
+
+
+        try {
+
+            await setDoc(
+
+                profileRef,
+
+                {
+                    rank: newRank
+                },
+
+                {
+                    merge: true
+                }
+
+            );
+
+
+            message.textContent =
+                `RANK UPDATED TO ${newRank}.`;
+
+
+            setTimeout(() => {
+
+                closeRankModal();
+
+            }, 700);
+
+
+        }
+
+        catch(error) {
+
+            console.error(
+                "Rank update error:",
+                error
+            );
+
+
+            message.textContent =
+                "DATABASE ERROR. RANK WAS NOT UPDATED.";
+
+        }
+
+    };
+
+
+/* =========================================================
+   SAVE PROFILE
+========================================================= */
+
+window.saveProfile =
+    async function() {
+
+        const message =
+            document.getElementById(
+                "editMessage"
+            );
+
+
+        message.textContent =
+            "SAVING DATABASE RECORD...";
+
+
+        const currentRank =
+            document.getElementById(
+                "infoRank"
+            ).textContent.trim();
+
+
+        const data = {
+
+            name:
+                document.getElementById(
+                    "editName"
+                ).value.trim(),
+
+            codename:
+                document.getElementById(
+                    "editCodename"
+                ).value.trim(),
+
+            dob:
+                document.getElementById(
+                    "editDOB"
+                ).value.trim(),
+
+            blood:
+                document.getElementById(
+                    "editBlood"
+                ).value.trim(),
+
+            occupation:
+                document.getElementById(
+                    "editOccupation"
+                ).value.trim(),
+
+            branch:
+                document.getElementById(
+                    "editBranch"
+                ).value.trim(),
+
+            status:
+                document.getElementById(
+                    "editStatus"
+                ).value.trim(),
+
+            origin:
+                document.getElementById(
+                    "editOrigin"
+                ).value.trim(),
+
+            service:
+                document.getElementById(
+                    "editService"
+                ).value.trim(),
+
+            summary:
+                document.getElementById(
+                    "editSummary"
+                ).value.trim(),
+
+            serviceHistory:
+                document.getElementById(
+                    "editServiceHistory"
+                ).value,
+
+            story:
+                document.getElementById(
+                    "editStory"
+                ).value,
+
+            rank:
+                currentRank || "MSGT"
+
+        };
+
+
+        try {
+
+            await setDoc(
+
+                profileRef,
+
+                data,
+
+                {
+                    merge: true
+                }
+
+            );
+
+
+            message.textContent =
+                "DATABASE RECORD UPDATED.";
+
+
+            setTimeout(() => {
+
+                closeEdit();
+
+            }, 700);
+
+        }
+
+
+        catch(error) {
+
+            console.error(
+                "Profile save error:",
+                error
+            );
+
+
+            message.textContent =
+                "DATABASE ERROR. CHANGES NOT SAVED.";
+
+        }
+
+    };
+
+
+/* =========================================================
+   FIRESTORE REALTIME LISTENER
+========================================================= */
 
 onSnapshot(
 
     profileRef,
 
-    function(snapshot) {
+    snapshot => {
 
-        if (
-            snapshot.exists()
-        ) {
+        if (snapshot.exists()) {
 
             displayProfile(
                 snapshot.data()
             );
 
-        } else {
+        }
+
+        else {
 
             displayProfile(
                 defaultProfile
@@ -3103,12 +2536,13 @@ onSnapshot(
 
     },
 
-    function(error) {
+    error => {
 
         console.error(
-            "Firebase profile error:",
+            "Profile listener error:",
             error
         );
+
 
         displayProfile(
             defaultProfile
@@ -3119,262 +2553,84 @@ onSnapshot(
 );
 
 
-/* =====================================================
-   SAVE PROFILE
-===================================================== */
+/* =========================================================
+   EDIT PROFILE PASSWORD
+========================================================= */
 
-window.saveProfile =
-async function() {
+window.openPassword =
+    function() {
 
-    const message =
         document.getElementById(
-            "saveMessage"
-        );
+            "passwordModal"
+        ).classList.add("active");
 
 
-    const data = {
+        document.getElementById(
+            "passwordInput"
+        ).value = "";
 
-        name:
+
+        document.getElementById(
+            "passwordError"
+        ).style.display =
+            "none";
+
+
+        setTimeout(() => {
+
             document.getElementById(
-                "editName"
-            ).value.trim(),
+                "passwordInput"
+            ).focus();
 
-        codename:
-            document.getElementById(
-                "editCodename"
-            ).value.trim(),
-
-        dob:
-            document.getElementById(
-                "editDOB"
-            ).value.trim(),
-
-        blood:
-            document.getElementById(
-                "editBlood"
-            ).value.trim(),
-
-        occupation:
-            document.getElementById(
-                "editOccupation"
-            ).value.trim(),
-
-        branch:
-            document.getElementById(
-                "editBranch"
-            ).value.trim(),
-
-        status:
-            document.getElementById(
-                "editStatus"
-            ).value,
-
-        origin:
-            document.getElementById(
-                "editOrigin"
-            ).value.trim(),
-
-        service:
-            document.getElementById(
-                "editService"
-            ).value.trim(),
-
-        summary:
-            document.getElementById(
-                "editSummary"
-            ).value.trim(),
-
-        serviceHistory:
-            document.getElementById(
-                "editServiceHistory"
-            ).value.trim(),
-
-        story:
-            document.getElementById(
-                "editStory"
-            ).value.trim()
+        }, 100);
 
     };
 
 
-    if (!data.name) {
+window.closePassword =
+    function() {
 
-        message.className =
-            "message error";
-
-        message.textContent =
-            "FULL NAME IS REQUIRED.";
-
-        return;
-
-    }
-
-
-    if (!data.codename) {
-
-        message.className =
-            "message error";
-
-        message.textContent =
-            "CODENAME IS REQUIRED.";
-
-        return;
-
-    }
-
-
-    try {
-
-        await setDoc(
-
-            profileRef,
-
-            data
-
-        );
-
-
-        message.className =
-            "message success";
-
-
-        message.textContent =
-            "PROFILE SAVED SUCCESSFULLY.";
-
-
-        setTimeout(
-            function() {
-
-                closeEdit();
-
-            },
-            900
-        );
-
-
-    } catch(error) {
-
-        console.error(
-            "Save error:",
-            error
-        );
-
-
-        message.className =
-            "message error";
-
-
-        message.textContent =
-            "SAVE FAILED. CHECK FIRESTORE RULES.";
-
-    }
-
-};
-
-
-/* =====================================================
-   OPEN EDIT
-===================================================== */
-
-window.openEdit =
-function() {
-
-    const passwordModal =
         document.getElementById(
             "passwordModal"
-        );
+        ).classList.remove("active");
 
-
-    passwordModal.classList.add(
-        "show"
-    );
-
-
-    document.getElementById(
-        "passwordInput"
-    ).value = "";
-
-
-    document.getElementById(
-        "passwordMessage"
-    ).textContent = "";
-
-
-    document.getElementById(
-        "passwordInput"
-    ).focus();
-
-};
-
-
-/* =====================================================
-   CLOSE PASSWORD
-===================================================== */
-
-window.closePassword =
-function() {
-
-    document.getElementById(
-        "passwordModal"
-    ).classList.remove(
-        "show"
-    );
-
-};
-
-
-/* =====================================================
-   PASSWORD
-===================================================== */
-
-const EDIT_PASSWORD =
-    "Mercer66";
+    };
 
 
 window.checkPassword =
-function() {
+    function() {
 
-    const entered =
-        document.getElementById(
-            "passwordInput"
-        ).value;
-
-
-    const message =
-        document.getElementById(
-            "passwordMessage"
-        );
+        const input =
+            document.getElementById(
+                "passwordInput"
+            ).value;
 
 
-    if (
-        entered !==
-        EDIT_PASSWORD
-    ) {
+        if (
+            input === EDIT_PASSWORD
+        ) {
 
-        message.className =
-            "message error";
+            closePassword();
 
+            openEditModal();
 
-        message.textContent =
-            "ACCESS DENIED.";
+        }
 
+        else {
 
-        return;
+            document.getElementById(
+                "passwordError"
+            ).style.display =
+                "block";
 
-    }
+        }
 
-
-    closePassword();
-
-
-    openEditModal();
-
-};
+    };
 
 
-/* =====================================================
+/* =========================================================
    OPEN EDIT MODAL
-===================================================== */
+========================================================= */
 
 function openEditModal() {
 
@@ -3455,7 +2711,7 @@ function openEditModal() {
     ).value =
         document.getElementById(
             "displaySummary"
-        ).innerText;
+        ).textContent;
 
 
     document.getElementById(
@@ -3466,93 +2722,228 @@ function openEditModal() {
         ).textContent;
 
 
-    const serviceItems =
-        document.querySelectorAll(
-            ".timeline-item"
-        );
-
-
-    let serviceText = "";
-
-
-    serviceItems.forEach(
-        function(item) {
-
-            const date =
-                item.querySelector(
-                    ".timeline-date"
-                )?.textContent.trim() ||
-                "";
-
-
-            const title =
-                item.querySelector(
-                    ".timeline-title"
-                )?.textContent.trim() ||
-                "";
-
-
-            const description =
-                item.querySelector(
-                    ".timeline-text"
-                )?.textContent.trim() ||
-                "";
-
-
-            if (
-                date ||
-                title ||
-                description
-            ) {
-
-                serviceText +=
-                    `${date}\n${title}\n${description}\n\n`;
-
-            }
-
-        }
-    );
-
-
     document.getElementById(
         "editServiceHistory"
     ).value =
-        serviceText.trim();
+        getServiceHistoryText();
 
 
     document.getElementById(
-        "saveMessage"
+        "editMessage"
     ).textContent = "";
 
 
     document.getElementById(
         "editModal"
-    ).classList.add(
-        "show"
-    );
+    ).classList.add("active");
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   SERVICE HISTORY TEXT
+========================================================= */
+
+function getServiceHistoryText() {
+
+    const items =
+        document.querySelectorAll(
+            "#displayServiceHistory .service-item"
+        );
+
+
+    const result = [];
+
+
+    items.forEach(item => {
+
+        const rank =
+            item.querySelector(
+                ".service-rank"
+            )?.textContent.trim() || "";
+
+
+        const date =
+            item.querySelector(
+                ".service-date"
+            )?.textContent.trim() || "";
+
+
+        const description =
+            item.querySelector(
+                ".service-description"
+            )?.textContent.trim() || "";
+
+
+        result.push(
+
+            [
+                rank,
+                date,
+                description
+            ]
+            .filter(Boolean)
+            .join("\n")
+
+        );
+
+    });
+
+
+    return result.join("\n\n");
+
+}
+
+
+/* =========================================================
    CLOSE EDIT
-===================================================== */
+========================================================= */
 
 window.closeEdit =
-function() {
+    function() {
 
-    document.getElementById(
-        "editModal"
-    ).classList.remove(
-        "show"
-    );
+        document.getElementById(
+            "editModal"
+        ).classList.remove("active");
 
-};
+    };
 
 
-/* =====================================================
-   ENTER KEY FOR PASSWORD
-===================================================== */
+/* =========================================================
+   RANK PASSWORD
+========================================================= */
+
+window.openRankPassword =
+    function() {
+
+        document.getElementById(
+            "rankPasswordModal"
+        ).classList.add("active");
+
+
+        document.getElementById(
+            "rankPasswordInput"
+        ).value = "";
+
+
+        document.getElementById(
+            "rankPasswordError"
+        ).style.display =
+            "none";
+
+
+        setTimeout(() => {
+
+            document.getElementById(
+                "rankPasswordInput"
+            ).focus();
+
+        }, 100);
+
+    };
+
+
+window.closeRankPassword =
+    function() {
+
+        document.getElementById(
+            "rankPasswordModal"
+        ).classList.remove("active");
+
+    };
+
+
+window.checkRankPassword =
+    function() {
+
+        const input =
+            document.getElementById(
+                "rankPasswordInput"
+            ).value;
+
+
+        if (
+            input === RANK_PASSWORD
+        ) {
+
+            closeRankPassword();
+
+            document.getElementById(
+                "rankMessage"
+            ).textContent = "";
+
+
+            document.getElementById(
+                "rankModal"
+            ).classList.add("active");
+
+        }
+
+        else {
+
+            document.getElementById(
+                "rankPasswordError"
+            ).style.display =
+                "block";
+
+        }
+
+    };
+
+
+/* =========================================================
+   CLOSE RANK MODAL
+========================================================= */
+
+window.closeRankModal =
+    function() {
+
+        document.getElementById(
+            "rankModal"
+        ).classList.remove("active");
+
+    };
+
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   ENTER KEY - EDIT PASSWORD
+========================================================= */
 
 document.getElementById(
     "passwordInput"
@@ -3560,11 +2951,10 @@ document.getElementById(
 
     "keydown",
 
-    function(event) {
+    event => {
 
         if (
-            event.key ===
-            "Enter"
+            event.key === "Enter"
         ) {
 
             checkPassword();
@@ -3576,9 +2966,34 @@ document.getElementById(
 );
 
 
-/* =====================================================
-   CLICK OUTSIDE PASSWORD
-===================================================== */
+/* =========================================================
+   ENTER KEY - RANK PASSWORD
+========================================================= */
+
+document.getElementById(
+    "rankPasswordInput"
+).addEventListener(
+
+    "keydown",
+
+    event => {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            checkRankPassword();
+
+        }
+
+    }
+
+);
+
+
+/* =========================================================
+   CLICK OUTSIDE MODALS
+========================================================= */
 
 document.getElementById(
     "passwordModal"
@@ -3586,11 +3001,11 @@ document.getElementById(
 
     "click",
 
-    function(event) {
+    event => {
 
         if (
-            event.target ===
-            this
+            event.target.id ===
+            "passwordModal"
         ) {
 
             closePassword();
@@ -3602,21 +3017,17 @@ document.getElementById(
 );
 
 
-/* =====================================================
-   CLICK OUTSIDE EDIT
-===================================================== */
-
 document.getElementById(
     "editModal"
 ).addEventListener(
 
     "click",
 
-    function(event) {
+    event => {
 
         if (
-            event.target ===
-            this
+            event.target.id ===
+            "editModal"
         ) {
 
             closeEdit();
@@ -3627,8 +3038,51 @@ document.getElementById(
 
 );
 
-</script>
 
+document.getElementById(
+    "rankPasswordModal"
+).addEventListener(
+
+    "click",
+
+    event => {
+
+        if (
+            event.target.id ===
+            "rankPasswordModal"
+        ) {
+
+            closeRankPassword();
+
+        }
+
+    }
+
+);
+
+
+document.getElementById(
+    "rankModal"
+).addEventListener(
+
+    "click",
+
+    event => {
+
+        if (
+            event.target.id ===
+            "rankModal"
+        ) {
+
+            closeRankModal();
+
+        }
+
+    }
+
+);
+
+</script>
 
 </body>
 
