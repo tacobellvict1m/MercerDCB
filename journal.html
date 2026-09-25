@@ -9,7 +9,6 @@
 
 <title>SITE-66 | Journal</title>
 
-
 <style>
 
 /* =========================================
@@ -20,33 +19,37 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: #05080c;
+    color: #dce8f2;
+    font-family: "Courier New", monospace;
 }
+
+
+/* =========================================
+   BODY
+========================================= */
 
 body {
 
-    margin: 0;
-
-    min-height: 100vh;
-
     background:
         radial-gradient(
-            circle at top,
-            #0b1b2d,
-            #05080d 50%,
-            #020304
+            circle at center,
+            rgba(20, 35, 50, 0.45),
+            #030507 80%
         );
 
-    color: white;
-
-    font-family: "Courier New", monospace;
+    min-height: 100vh;
 
 }
 
 
 /* =========================================
-   CRT EFFECT
+   SCANLINES
 ========================================= */
 
 body::before {
@@ -70,23 +73,165 @@ body::before {
             transparent 4px
         );
 
-    opacity: 0.35;
+}
+
+
+/* =========================================
+   ACCESS SCREEN
+========================================= */
+
+#access-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: #020406;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 5000;
+
+}
+
+
+.access-box {
+
+    width: min(500px, 90%);
+
+    padding: 45px;
+
+    border: 1px solid #28577d;
+
+    background:
+        rgba(5, 10, 15, 0.96);
+
+    box-shadow:
+        0 0 30px rgba(0, 100, 180, 0.15);
+
+    text-align: center;
+
+}
+
+
+.access-logo {
+
+    color: #4ca6ff;
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.access-box h1 {
+
+    margin: 0;
+
+    color: white;
+
+    font-size: 32px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.access-box p {
+
+    color: #718293;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    margin-top: 20px;
+
+}
+
+
+.access-box input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 20px;
+
+    background: #020507;
+
+    border: 1px solid #315b80;
+
+    color: white;
+
+    outline: none;
+
+    font-family: "Courier New", monospace;
+
+    text-align: center;
+
+}
+
+
+.access-box input:focus {
+
+    border-color: #4ca6ff;
+
+    box-shadow:
+        0 0 12px rgba(76,166,255,0.2);
+
+}
+
+
+.access-box button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 15px;
+
+    background: #0b1620;
+
+    border: 1px solid #1677ff;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-family: "Courier New", monospace;
+
+    letter-spacing: 3px;
+
+}
+
+
+.access-box button:hover {
+
+    background: #1677ff;
+
+    box-shadow:
+        0 0 20px rgba(22,119,255,0.35);
 
 }
 
 
 /* =========================================
-   TOP BAR
+   MAIN PAGE
 ========================================= */
 
-.top-bar {
+#journal-page {
 
-    height: 5px;
+    display: none;
 
-    background: #1677ff;
-
-    box-shadow:
-        0 0 20px rgba(22,119,255,0.7);
+    min-height: 100vh;
 
 }
 
@@ -97,16 +242,17 @@ body::before {
 
 header {
 
-    padding: 25px 7%;
+    padding: 25px 40px;
+
+    border-bottom: 1px solid #1b354b;
 
     background:
-        linear-gradient(
-            180deg,
-            #0b1624,
-            #05090f
-        );
+        rgba(3, 8, 13, 0.95);
 
-    border-bottom: 1px solid #193b59;
+}
+
+
+.header-top {
 
     display: flex;
 
@@ -114,29 +260,40 @@ header {
 
     align-items: center;
 
-    gap: 25px;
+    gap: 20px;
 
 }
 
 
-.logo h1 {
+.site-title {
 
-    margin: 0;
+    color: white;
 
-    font-size: 21px;
+    font-size: 25px;
 
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 
 }
 
 
-.logo p {
+.site-subtitle {
 
-    margin: 6px 0 0;
+    color: #52738f;
 
-    color: #6596bd;
+    font-size: 11px;
 
-    font-size: 10px;
+    letter-spacing: 3px;
+
+    margin-top: 6px;
+
+}
+
+
+.status {
+
+    color: #62b5ff;
+
+    font-size: 11px;
 
     letter-spacing: 2px;
 
@@ -144,33 +301,37 @@ header {
 
 
 /* =========================================
-   NAV
+   NAVIGATION
 ========================================= */
 
 nav {
 
     display: flex;
 
-    gap: 5px;
-
     flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 25px;
 
 }
 
 
 nav a {
 
-    color: #a9c8e6;
+    color: #7e9bb2;
 
     text-decoration: none;
 
-    padding: 10px 14px;
+    border: 1px solid #1d3b54;
 
-    border: 1px solid transparent;
+    padding: 9px 13px;
 
     font-size: 11px;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+
+    transition: 0.2s;
 
 }
 
@@ -181,253 +342,34 @@ nav a:hover {
 
     border-color: #1677ff;
 
-    background: rgba(22,119,255,0.1);
+    background: rgba(22,119,255,0.12);
 
 }
 
 
-/* =========================================
-   PASSWORD SCREEN
-========================================= */
-
-#password-screen {
-
-    min-height: calc(100vh - 100px);
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 40px;
-
-}
-
-
-.security-box {
-
-    width: 100%;
-
-    max-width: 600px;
-
-    padding: 45px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #0b1624,
-            #03070c
-        );
-
-    border: 1px solid #24527a;
-
-    box-shadow:
-        0 0 40px rgba(22,119,255,0.1);
-
-    text-align: center;
-
-}
-
-
-.security-symbol {
-
-    font-size: 40px;
-
-    color: #1677ff;
-
-    margin-bottom: 20px;
-
-}
-
-
-.security-box h1 {
-
-    margin: 0;
-
-    font-size: 28px;
-
-    letter-spacing: 4px;
-
-}
-
-
-.security-box p {
-
-    color: #718ba1;
-
-    font-size: 12px;
-
-    line-height: 1.7;
-
-}
-
-
-.security-warning {
-
-    color: #4c9ddd;
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
-    margin: 25px 0;
-
-}
-
-
-#password-input {
-
-    width: 100%;
-
-    padding: 15px;
-
-    background: #020509;
-
-    border: 1px solid #24527a;
+nav a.active {
 
     color: white;
-
-    outline: none;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 14px;
-
-    text-align: center;
-
-}
-
-
-#password-input:focus {
 
     border-color: #1677ff;
 
-    box-shadow:
-        0 0 15px rgba(22,119,255,0.2);
-
-}
-
-
-#access-button {
-
-    margin-top: 15px;
-
-    padding: 14px 30px;
-
-    background: #07111d;
-
-    border: 1px solid #1677ff;
-
-    color: white;
-
-    cursor: pointer;
-
-    font-family: "Courier New", monospace;
-
-    letter-spacing: 2px;
-
-}
-
-
-#access-button:hover {
-
-    background: #1677ff;
-
-    box-shadow:
-        0 0 20px rgba(22,119,255,0.5);
-
-}
-
-
-#password-error {
-
-    margin-top: 15px;
-
-    color: #ff4d4d;
-
-    font-size: 11px;
-
-    letter-spacing: 1px;
-
 }
 
 
 /* =========================================
-   JOURNAL PAGE
+   CONTENT
 ========================================= */
 
-#journal-page {
+.container {
 
-    display: none;
+    width: min(1100px, 92%);
 
-}
-
-
-.page-title {
-
-    padding: 70px 7% 35px;
+    margin: 45px auto;
 
 }
 
 
-.page-title small {
-
-    color: #4c9ddd;
-
-    letter-spacing: 3px;
-
-    font-size: 11px;
-
-}
-
-
-.page-title h1 {
-
-    font-size: clamp(40px, 7vw, 75px);
-
-    letter-spacing: 7px;
-
-    margin: 15px 0;
-
-}
-
-
-.page-title p {
-
-    color: #7f9bb3;
-
-    max-width: 700px;
-
-    line-height: 1.7;
-
-    font-size: 13px;
-
-}
-
-
-/* =========================================
-   CONTROL BAR
-========================================= */
-
-.control-bar {
-
-    width: 86%;
-
-    max-width: 1100px;
-
-    margin: 0 auto 30px;
-
-    padding: 18px 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #0a1828,
-            #03070c
-        );
-
-    border: 1px solid #193b59;
+.page-heading {
 
     display: flex;
 
@@ -437,29 +379,31 @@ nav a:hover {
 
     gap: 20px;
 
-}
-
-
-.control-title {
-
-    color: #4c9ddd;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
+    margin-bottom: 30px;
 
 }
 
 
-.control-subtitle {
+.page-heading h1 {
 
-    margin-top: 7px;
+    margin: 0;
 
-    color: #526a7c;
+    color: white;
 
-    font-size: 9px;
+    font-size: 28px;
 
-    letter-spacing: 1px;
+    letter-spacing: 5px;
+
+}
+
+
+.page-heading p {
+
+    color: #627b91;
+
+    font-size: 11px;
+
+    margin-top: 8px;
 
 }
 
@@ -470,21 +414,23 @@ nav a:hover {
 
 .add-button {
 
-    padding: 13px 20px;
-
-    background: #07111d;
+    background: rgba(0,0,0,0.8);
 
     border: 1px solid #1677ff;
 
-    color: white;
+    color: #bcdfff;
 
-    cursor: pointer;
+    padding: 13px 20px;
 
     font-family: "Courier New", monospace;
 
-    font-size: 10px;
+    font-size: 11px;
 
     letter-spacing: 2px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
 
 }
 
@@ -493,66 +439,47 @@ nav a:hover {
 
     background: #1677ff;
 
+    color: white;
+
     box-shadow:
-        0 0 20px rgba(22,119,255,0.5);
+        0 0 20px rgba(22,119,255,0.35);
 
 }
 
 
 /* =========================================
-   ENTRIES
+   JOURNAL ENTRIES
 ========================================= */
 
-.entries {
+#entries-container {
 
-    width: 86%;
+    display: flex;
 
-    max-width: 1100px;
+    flex-direction: column;
 
-    margin: auto;
-
-    padding-bottom: 80px;
+    gap: 20px;
 
 }
 
 
-.entry {
+.journal-entry {
+
+    border: 1px solid #20394d;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(10,24,39,0.95),
-            rgba(3,7,12,0.95)
-        );
-
-    border: 1px solid #193b59;
-
-    margin-bottom: 20px;
-
-    overflow: hidden;
-
-    transition: 0.2s;
-
-}
-
-
-.entry:hover {
-
-    border-color: #1677ff;
+        rgba(5, 11, 17, 0.94);
 
     box-shadow:
-        0 0 25px rgba(22,119,255,0.1);
+        0 0 20px rgba(0,0,0,0.25);
 
 }
 
-
-/* =========================================
-   ENTRY HEADER
-========================================= */
 
 .entry-header {
 
-    padding: 22px 25px;
+    padding: 18px 20px;
+
+    border-bottom: 1px solid #1c3345;
 
     display: flex;
 
@@ -560,141 +487,119 @@ nav a:hover {
 
     align-items: center;
 
-    cursor: pointer;
-
     gap: 20px;
-
-}
-
-
-.entry-date {
-
-    color: #4c9ddd;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
 
 }
 
 
 .entry-title {
 
-    margin: 8px 0 0;
+    color: white;
 
-    font-size: 20px;
-
-    letter-spacing: 2px;
-
-}
-
-
-.entry-mood {
-
-    color: #809bb2;
-
-    font-size: 10px;
+    font-size: 17px;
 
     letter-spacing: 2px;
 
 }
 
 
-/* =========================================
-   ENTRY CONTENT
-========================================= */
+.entry-date {
 
-.entry-content {
+    color: #52738f;
 
-    display: none;
+    font-size: 11px;
 
-    padding: 0 25px 30px;
-
-    border-top: 1px solid #142d43;
+    white-space: nowrap;
 
 }
 
 
-.entry-content.open {
+.entry-body {
 
-    display: block;
-
-}
-
-
-.entry-text {
-
-    padding-top: 25px;
-
-    color: #b4c6d6;
-
-    font-family: Georgia, serif;
-
-    font-size: 16px;
-
-    line-height: 1.9;
-
-    white-space: pre-line;
+    padding: 20px;
 
 }
 
 
-.entry-classification {
-
-    margin-top: 30px;
-
-    padding: 10px;
-
-    border: 1px solid #193b59;
-
-    color: #4c9ddd;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-}
-
-
-/* =========================================
-   ENTRY ACTIONS
-========================================= */
-
-.entry-actions {
+.entry-meta {
 
     display: flex;
 
-    gap: 8px;
+    flex-wrap: wrap;
 
-    padding: 0 25px 20px;
+    gap: 20px;
+
+    margin-bottom: 18px;
 
 }
 
 
-.entry-action {
+.meta-item {
 
-    padding: 8px 12px;
+    color: #617e96;
 
-    background: transparent;
-
-    border: 1px solid #193b59;
-
-    color: #7f9bb3;
-
-    cursor: pointer;
-
-    font-family: "Courier New", monospace;
-
-    font-size: 9px;
+    font-size: 10px;
 
     letter-spacing: 1px;
 
 }
 
 
-.entry-action:hover {
+.meta-item span {
+
+    color: #a8c9e3;
+
+}
+
+
+.entry-text {
+
+    color: #b7c7d4;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    white-space: pre-wrap;
+
+}
+
+
+.entry-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    padding: 15px 20px;
+
+    border-top: 1px solid #162b3b;
+
+}
+
+
+.action-button {
+
+    padding: 8px 14px;
+
+    background: #071018;
+
+    border: 1px solid #29465d;
+
+    color: #8ca8bd;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+}
+
+
+.action-button:hover {
 
     border-color: #1677ff;
 
@@ -703,30 +608,30 @@ nav a:hover {
 }
 
 
-.delete-action:hover {
+.delete-button:hover {
 
-    border-color: #ff3333;
+    border-color: #a33b3b;
 
-    color: #ff5555;
+    color: #ff8c8c;
 
 }
 
 
 /* =========================================
-   EMPTY / LOADING
+   EMPTY STATE
 ========================================= */
 
-.empty {
+.empty-state {
+
+    border: 1px dashed #27445b;
 
     padding: 50px;
 
     text-align: center;
 
-    border: 1px dashed #193b59;
+    color: #50687b;
 
-    color: #526a7c;
-
-    font-size: 11px;
+    font-size: 12px;
 
     letter-spacing: 2px;
 
@@ -739,138 +644,104 @@ nav a:hover {
 
 .modal {
 
+    display: none;
+
     position: fixed;
 
     inset: 0;
 
     background: rgba(0,0,0,0.82);
 
-    display: none;
-
-    align-items: center;
+    z-index: 8000;
 
     justify-content: center;
 
+    align-items: center;
+
     padding: 20px;
-
-    z-index: 10000;
-
-}
-
-
-.modal.show {
-
-    display: flex;
 
 }
 
 
 .modal-box {
 
-    width: 100%;
-
-    max-width: 550px;
+    width: min(650px, 100%);
 
     max-height: 90vh;
 
     overflow-y: auto;
 
-    padding: 35px;
+    background: #050a0f;
 
-    background:
-        linear-gradient(
-            145deg,
-            #0b1624,
-            #03070c
-        );
-
-    border: 1px solid #24527a;
+    border: 1px solid #315b80;
 
     box-shadow:
-        0 0 50px rgba(22,119,255,0.15);
+        0 0 40px rgba(0,0,0,0.8);
 
-}
-
-
-.modal-label {
-
-    color: #4c9ddd;
-
-    font-size: 10px;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 10px;
+    padding: 30px;
 
 }
 
 
 .modal-box h2 {
 
-    margin: 0 0 25px;
+    margin: 0 0 25px 0;
 
-    font-size: 25px;
+    color: white;
+
+    font-size: 20px;
 
     letter-spacing: 3px;
 
 }
 
 
-.form-label {
+.form-group {
+
+    margin-bottom: 18px;
+
+}
+
+
+.form-group label {
 
     display: block;
 
-    margin-top: 18px;
+    color: #7190a7;
 
-    margin-bottom: 7px;
-
-    color: #6f94b5;
-
-    font-size: 9px;
+    font-size: 10px;
 
     letter-spacing: 2px;
 
+    margin-bottom: 7px;
+
 }
 
 
-.form-input,
-.form-textarea,
-.form-select {
+.form-group input,
+.form-group textarea,
+.form-group select {
 
     width: 100%;
 
-    padding: 13px;
+    background: #020507;
 
-    background: #020509;
-
-    border: 1px solid #193b59;
+    border: 1px solid #28445b;
 
     color: white;
 
-    outline: none;
+    padding: 12px;
 
     font-family: "Courier New", monospace;
 
-    font-size: 12px;
+    outline: none;
 
 }
 
 
-.form-input:focus,
-.form-textarea:focus,
-.form-select:focus {
+.form-group textarea {
 
-    border-color: #1677ff;
-
-    box-shadow:
-        0 0 12px rgba(22,119,255,0.15);
-
-}
-
-
-.form-textarea {
-
-    min-height: 220px;
+    min-height: 180px;
 
     resize: vertical;
 
@@ -879,22 +750,20 @@ nav a:hover {
 }
 
 
-.form-select option {
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
 
-    background: #05080d;
-
-    color: white;
+    border-color: #1677ff;
 
 }
 
 
-/* =========================================
-   MODAL BUTTONS
-========================================= */
-
 .modal-buttons {
 
     display: flex;
+
+    justify-content: flex-end;
 
     gap: 10px;
 
@@ -903,69 +772,26 @@ nav a:hover {
 }
 
 
-.modal-buttons button {
+.modal-button {
 
-    flex: 1;
+    padding: 11px 18px;
 
-    padding: 13px;
+    border: 1px solid #315b80;
+
+    background: #071018;
+
+    color: #a9c5d9;
 
     cursor: pointer;
 
     font-family: "Courier New", monospace;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 
 }
 
 
-.confirm {
-
-    background: #1677ff;
-
-    color: white;
-
-    border: 1px solid #1677ff;
-
-}
-
-
-.confirm:hover {
-
-    background: #0d64d8;
-
-}
-
-
-.delete-confirm {
-
-    background: #d72b2b;
-
-    color: white;
-
-    border: 1px solid #ff3333;
-
-}
-
-
-.delete-confirm:hover {
-
-    background: #ff3333;
-
-}
-
-
-.cancel {
-
-    background: transparent;
-
-    color: #9bbbd6;
-
-    border: 1px solid #193b59;
-
-}
-
-
-.cancel:hover {
+.modal-button:hover {
 
     border-color: #1677ff;
 
@@ -974,50 +800,65 @@ nav a:hover {
 }
 
 
-/* =========================================
-   MESSAGES
-========================================= */
+.primary-button {
 
-.message {
+    border-color: #1677ff;
 
-    margin-top: 15px;
-
-    font-size: 10px;
-
-    letter-spacing: 1px;
+    color: white;
 
 }
 
 
-.error {
+.primary-button:hover {
 
-    color: #ff4d4d;
-
-}
-
-
-.success {
-
-    color: #4cff91;
+    background: #1677ff;
 
 }
 
 
 /* =========================================
-   FOOTER
+   PASSWORD MODAL
 ========================================= */
 
-footer {
+.password-warning {
 
-    border-top: 1px solid #193b59;
+    color: #5f9dcc;
 
-    background: #020407;
+    font-size: 11px;
 
-    padding: 35px 7%;
+    line-height: 1.6;
 
-    color: #536b7e;
+    margin-bottom: 20px;
 
-    font-size: 10px;
+}
+
+
+.password-error {
+
+    display: none;
+
+    color: #ff6868;
+
+    font-size: 11px;
+
+    margin-top: 12px;
+
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading-state {
+
+    padding: 50px;
+
+    text-align: center;
+
+    color: #54738b;
+
+    font-size: 11px;
 
     letter-spacing: 2px;
 
@@ -1025,12 +866,18 @@ footer {
 
 
 /* =========================================
-   MOBILE
+   RESPONSIVE
 ========================================= */
 
 @media (max-width: 700px) {
 
     header {
+
+        padding: 20px;
+
+    }
+
+    .header-top {
 
         flex-direction: column;
 
@@ -1038,13 +885,13 @@ footer {
 
     }
 
+    .page-heading {
 
-    .security-box {
+        flex-direction: column;
 
-        padding: 30px 20px;
+        align-items: flex-start;
 
     }
-
 
     .entry-header {
 
@@ -1054,33 +901,9 @@ footer {
 
     }
 
+    .container {
 
-    .control-bar {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-    }
-
-
-    .add-button {
-
-        width: 100%;
-
-    }
-
-
-    .modal-box {
-
-        padding: 25px;
-
-    }
-
-
-    .modal-buttons {
-
-        flex-direction: column;
+        width: 94%;
 
     }
 
@@ -1094,20 +917,71 @@ footer {
 <body>
 
 
-<div class="top-bar"></div>
+<!-- =========================================
+     FAKE ACCESS SCREEN
+     ANYTHING WORKS
+========================================= -->
+
+<div id="access-screen">
+
+    <div class="access-box">
+
+        <div class="access-logo">
+            SCP FOUNDATION // SITE-66
+        </div>
+
+        <h1>
+            JOURNAL DATABASE
+        </h1>
+
+        <p>
+            THIS TERMINAL IS RESTRICTED TO FOUNDATION
+            PERSONNEL. ENTER YOUR ACCESS CREDENTIALS
+            TO CONTINUE.
+        </p>
+
+        <input
+            type="text"
+            id="access-input"
+            placeholder="ENTER ACCESS CODE"
+            autocomplete="off"
+        >
+
+        <button onclick="enterJournal()">
+            ACCESS JOURNAL
+        </button>
+
+    </div>
+
+</div>
 
 
 <!-- =========================================
-     HEADER
+     MAIN JOURNAL PAGE
 ========================================= -->
+
+<div id="journal-page">
+
 
 <header>
 
-    <div class="logo">
+    <div class="header-top">
 
-        <h1>SITE-66</h1>
+        <div>
 
-        <p>FOUNDATION SECURE NETWORK</p>
+            <div class="site-title">
+                SITE-66 FOUNDATION DATABASE
+            </div>
+
+            <div class="site-subtitle">
+                PERSONNEL JOURNAL ARCHIVE
+            </div>
+
+        </div>
+
+        <div class="status">
+            ● DATABASE ONLINE
+        </div>
 
     </div>
 
@@ -1130,7 +1004,7 @@ footer {
             ARCHIVES
         </a>
 
-        <a href="journal.html">
+        <a href="journal.html" class="active">
             JOURNAL
         </a>
 
@@ -1151,125 +1025,27 @@ footer {
 </header>
 
 
-<!-- =========================================
-     PASSWORD SCREEN
-========================================= -->
-
-<section id="password-screen">
-
-    <div class="security-box">
-
-        <div class="security-symbol">
-            🔒
-        </div>
+<main class="container">
 
 
-        <h1>
-            JOURNAL ACCESS
-        </h1>
-
-
-        <p>
-
-            PERSONAL RECORDS OF
-            CONNOR REDMEN
-
-            <br><br>
-
-            CODENAME: MERCER
-
-        </p>
-
-
-        <div class="security-warning">
-
-            ⚠ CLEARANCE VERIFICATION REQUIRED ⚠
-
-        </div>
-
-
-        <input
-            id="password-input"
-            type="password"
-            placeholder="ENTER PASSWORD"
-        >
-
-
-        <button
-            id="access-button"
-            onclick="accessJournal()"
-        >
-
-            ACCESS JOURNAL
-
-        </button>
-
-
-        <div
-            id="password-error"
-            style="display:none;"
-        ></div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================
-     JOURNAL PAGE
-========================================= -->
-
-<section id="journal-page">
-
-
-    <div class="page-title">
-
-        <small>
-            SITE-66 // PERSONAL ARCHIVE
-        </small>
-
-
-        <h1>
-            JOURNAL
-        </h1>
-
-
-        <p>
-
-            Personal writings belonging to
-            Connor Redmen.
-
-            These records are not official
-            Foundation reports and may contain
-            subjective observations.
-
-        </p>
-
-    </div>
-
-
-    <!-- =====================================
-         CONTROL BAR
-    ====================================== -->
-
-    <div class="control-bar">
+    <div class="page-heading">
 
         <div>
 
-            <div class="control-title">
-                PERSONNEL JOURNAL DATABASE
-            </div>
+            <h1>
+                JOURNAL
+            </h1>
 
-            <div class="control-subtitle">
-                AUTHORIZED PERSONNEL MAY ADD, EDIT, OR REMOVE RECORDS.
-            </div>
+            <p>
+                PERSONNEL JOURNAL // SITE-66
+            </p>
 
         </div>
 
 
         <button
             class="add-button"
-            onclick="openPassword('add')"
+            onclick="requestPassword('add')"
         >
 
             + ADD JOURNAL ENTRY
@@ -1279,113 +1055,83 @@ footer {
     </div>
 
 
-    <!-- =====================================
-         ENTRIES
-    ====================================== -->
+    <div id="entries-container">
 
-    <div
-        class="entries"
-        id="entries-container"
-    >
-
-        <div class="empty">
-            LOADING JOURNAL RECORDS...
+        <div class="loading-state">
+            CONNECTING TO JOURNAL DATABASE...
         </div>
 
     </div>
 
 
-</section>
+</main>
 
-
-<!-- =========================================
-     FOOTER
-========================================= -->
-
-<footer>
-
-    SITE-66 FOUNDATION DATABASE
-
-    <br><br>
-
-    PERSONAL RECORD // MERCER
-
-</footer>
+</div>
 
 
 <!-- =========================================
      PASSWORD MODAL
+     REAL PASSWORD ONLY
 ========================================= -->
 
 <div
-    id="passwordModal"
     class="modal"
+    id="password-modal"
 >
 
     <div class="modal-box">
 
-        <div class="modal-label">
-            SITE-66 // SECURITY
+        <h2>
+            SECURITY VERIFICATION
+        </h2>
+
+        <div class="password-warning">
+
+            AUTHORIZED PERSONNEL ONLY.<br>
+            ENTER THE REQUIRED SECURITY CODE
+            TO MODIFY THIS DATABASE.
+
         </div>
 
 
-        <h2>
-            AUTHORIZATION REQUIRED
-        </h2>
+        <div class="form-group">
 
+            <label>
+                SECURITY CODE
+            </label>
 
-        <p
-            style="
-                color:#718ba1;
-                font-size:11px;
-                line-height:1.7;
-            "
-        >
+            <input
+                type="password"
+                id="security-password"
+                placeholder="ENTER SECURITY CODE"
+                autocomplete="off"
+                onkeydown="if(event.key === 'Enter') checkSecurityPassword()"
+            >
 
-            Enter the authorized personnel password
-            to modify the journal database.
+            <div
+                class="password-error"
+                id="password-error"
+            >
+                ACCESS DENIED — INVALID SECURITY CODE.
+            </div>
 
-        </p>
-
-
-        <label class="form-label">
-            PASSWORD
-        </label>
-
-
-        <input
-            id="modalPassword"
-            class="form-input"
-            type="password"
-            placeholder="ENTER PASSWORD"
-        >
-
-
-        <div
-            id="passwordMessage"
-            class="message"
-        ></div>
+        </div>
 
 
         <div class="modal-buttons">
 
             <button
-                class="confirm"
-                onclick="checkPassword()"
+                class="modal-button"
+                onclick="closePasswordModal()"
             >
-
-                CONTINUE
-
+                CANCEL
             </button>
 
-
             <button
-                class="cancel"
-                onclick="closePassword()"
+                class="modal-button primary-button"
+                onclick="checkSecurityPassword()"
             >
-
-                CANCEL
-
+                VERIFY
             </button>
 
         </div>
@@ -1400,106 +1146,90 @@ footer {
 ========================================= -->
 
 <div
-    id="entryModal"
     class="modal"
+    id="entry-modal"
 >
 
     <div class="modal-box">
 
-        <div class="modal-label">
-            SITE-66 // PERSONNEL RECORD
-        </div>
-
-
-        <h2 id="entryModalTitle">
-            NEW JOURNAL ENTRY
+        <h2 id="entry-modal-title">
+            ADD JOURNAL ENTRY
         </h2>
 
 
-        <!-- DATE -->
+        <div class="form-group">
 
-        <label class="form-label">
-            DATE
-        </label>
+            <label>
+                DATE
+            </label>
 
+            <input
+                type="text"
+                id="entry-date"
+                placeholder="YYYY-MM-DD"
+            >
 
-        <input
-            id="entryDate"
-            class="form-input"
-            type="text"
-            placeholder="EX: 09/24/2026"
-        >
-
-
-        <!-- TITLE -->
-
-        <label class="form-label">
-            ENTRY TITLE
-        </label>
+        </div>
 
 
-        <input
-            id="entryTitle"
-            class="form-input"
-            type="text"
-            placeholder="ENTRY TITLE"
-        >
+        <div class="form-group">
+
+            <label>
+                ENTRY TITLE
+            </label>
+
+            <input
+                type="text"
+                id="entry-title"
+                placeholder="ENTER ENTRY TITLE"
+            >
+
+        </div>
 
 
-        <!-- MOOD -->
+        <div class="form-group">
 
-        <label class="form-label">
-            MOOD
-        </label>
+            <label>
+                MOOD / STATUS
+            </label>
 
+            <input
+                type="text"
+                id="entry-mood"
+                placeholder="EX: CALM / ANGRY / TIRED / CONFUSED"
+            >
 
-        <input
-            id="entryMood"
-            class="form-input"
-            type="text"
-            placeholder="EX: TIRED / FRUSTRATED / CALM"
-        >
-
-
-        <!-- TEXT -->
-
-        <label class="form-label">
-            JOURNAL ENTRY
-        </label>
+        </div>
 
 
-        <textarea
-            id="entryText"
-            class="form-textarea"
-            placeholder="Write the journal entry here..."
-        ></textarea>
+        <div class="form-group">
 
+            <label>
+                JOURNAL ENTRY
+            </label>
 
-        <div
-            id="entryMessage"
-            class="message"
-        ></div>
+            <textarea
+                id="entry-text"
+                placeholder="ENTER JOURNAL ENTRY..."
+            ></textarea>
+
+        </div>
 
 
         <div class="modal-buttons">
 
             <button
-                class="confirm"
-                onclick="saveEntry()"
-            >
-
-                SAVE ENTRY
-
-            </button>
-
-
-            <button
-                class="cancel"
+                class="modal-button"
                 onclick="closeEntryModal()"
             >
-
                 CANCEL
+            </button>
 
+            <button
+                class="modal-button primary-button"
+                onclick="saveEntry()"
+            >
+                SAVE ENTRY
             </button>
 
         </div>
@@ -1514,57 +1244,44 @@ footer {
 ========================================= -->
 
 <div
-    id="deleteModal"
     class="modal"
+    id="delete-modal"
 >
 
     <div class="modal-box">
 
-        <div class="modal-label">
-            SITE-66 // DATABASE
-        </div>
-
-
         <h2>
-            DELETE RECORD?
+            DELETE JOURNAL ENTRY
         </h2>
 
+        <p style="color:#8aa1b3;font-size:12px;line-height:1.7;">
+
+            Are you sure you want to permanently
+            delete this journal entry?
+
+        </p>
 
         <p
-            id="deleteText"
-            style="
-                color:#9bbbd6;
-                font-size:12px;
-                line-height:1.7;
-            "
+            id="delete-entry-name"
+            style="color:white;font-size:13px;margin-top:20px;"
         ></p>
-
-
-        <div
-            id="deleteMessage"
-            class="message"
-        ></div>
 
 
         <div class="modal-buttons">
 
             <button
-                class="delete-confirm"
-                onclick="deleteEntry()"
-            >
-
-                DELETE
-
-            </button>
-
-
-            <button
-                class="cancel"
+                class="modal-button"
                 onclick="closeDeleteModal()"
             >
-
                 CANCEL
+            </button>
 
+            <button
+                class="modal-button"
+                onclick="deleteEntry()"
+                style="border-color:#8c3b3b;color:#ff9999;"
+            >
+                DELETE ENTRY
             </button>
 
         </div>
@@ -1582,7 +1299,8 @@ footer {
 
 import {
     initializeApp
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+}
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 
 
 import {
@@ -1594,7 +1312,8 @@ import {
     doc,
     onSnapshot,
     serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+}
+from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
 /* =========================================
@@ -1627,10 +1346,6 @@ const firebaseConfig = {
 };
 
 
-/* =========================================
-   INITIALIZE FIREBASE
-========================================= */
-
 const app =
     initializeApp(firebaseConfig);
 
@@ -1644,10 +1359,10 @@ const journalCollection =
 
 
 /* =========================================
-   PASSWORD
+   REAL EDIT PASSWORD
 ========================================= */
 
-const JOURNAL_PASSWORD =
+const EDIT_PASSWORD =
     "Mercer66";
 
 
@@ -1655,88 +1370,55 @@ const JOURNAL_PASSWORD =
    VARIABLES
 ========================================= */
 
-let passwordAction =
-    "add";
-
-
-let editingEntryID =
-    null;
-
-
-let deletingEntryID =
-    null;
-
-
-/* =========================================
-   JOURNAL DATA
-========================================= */
-
 let journalEntries = [];
 
+let currentAction = null;
 
-/* =========================================
-   ESCAPE HTML
-========================================= */
+let editingEntryID = null;
 
-function escapeHTML(value) {
-
-    const div =
-        document.createElement("div");
-
-    div.textContent =
-        value || "";
-
-    return div.innerHTML;
-
-}
+let deletingEntryID = null;
 
 
 /* =========================================
-   PASSWORD SCREEN
+   FAKE ACCESS SCREEN
+   ANYTHING WORKS
 ========================================= */
 
-window.accessJournal =
-function() {
+window.enterJournal = function() {
 
-    const password =
-        document.getElementById(
-            "password-input"
-        ).value.trim();
+    const input =
+        document.getElementById("access-input");
 
+    /*
+       The access screen is ONLY for appearance.
+       Any text works.
+    */
 
-    const error =
-        document.getElementById(
-            "password-error"
-        );
+    if (
+        input.value.trim() === ""
+    ) {
 
+        /*
+           If they leave it completely empty,
+           just let them know they need to type
+           something.
+        */
 
-    if (password !== JOURNAL_PASSWORD) {
-
-        error.style.display =
-            "block";
-
-        error.textContent =
-            "ACCESS DENIED.";
+        input.focus();
 
         return;
 
     }
 
 
-    error.style.display =
-        "none";
-
-
     document.getElementById(
-        "password-screen"
-    ).style.display =
-        "none";
+        "access-screen"
+    ).style.display = "none";
 
 
     document.getElementById(
         "journal-page"
-    ).style.display =
-        "block";
+    ).style.display = "block";
 
 
     loadJournal();
@@ -1745,102 +1427,85 @@ function() {
 
 
 /* =========================================
-   PASSWORD ENTER KEY
+   ENTER KEY FOR FAKE ACCESS SCREEN
 ========================================= */
 
 document
-    .getElementById("password-input")
-    .addEventListener(
-        "keydown",
-        function(event) {
+    .getElementById("access-input")
+    .addEventListener("keydown", function(event) {
 
-            if (event.key === "Enter") {
+        if (event.key === "Enter") {
 
-                accessJournal();
-
-            }
+            enterJournal();
 
         }
-    );
+
+    });
 
 
 /* =========================================
-   LOAD JOURNAL FROM FIRESTORE
+   LOAD JOURNAL
 ========================================= */
 
 function loadJournal() {
 
-    const container =
-        document.getElementById(
-            "entries-container"
-        );
-
-
     onSnapshot(
-
         journalCollection,
-
         function(snapshot) {
 
             journalEntries = [];
 
+            snapshot.forEach(function(docSnapshot) {
 
-            snapshot.forEach(
-                function(docSnapshot) {
+                journalEntries.push({
 
-                    journalEntries.push({
+                    id: docSnapshot.id,
 
-                        id:
-                            docSnapshot.id,
+                    ...docSnapshot.data()
 
-                        ...docSnapshot.data()
+                });
 
-                    });
-
-                }
-            );
+            });
 
 
             /*
-               Sort newest first.
+               Newest entries first.
             */
 
-            journalEntries.sort(
-                function(a, b) {
+            journalEntries.sort(function(a, b) {
 
-                    const dateA =
-                        a.createdAt?.seconds ||
-                        0;
+                const aTime =
+                    a.createdAt?.seconds || 0;
 
-                    const dateB =
-                        b.createdAt?.seconds ||
-                        0;
+                const bTime =
+                    b.createdAt?.seconds || 0;
 
-                    return dateB - dateA;
+                return bTime - aTime;
 
-                }
-            );
+            });
 
 
-            renderJournal();
+            displayEntries();
 
         },
 
         function(error) {
 
             console.error(
-                "FIRESTORE ERROR:",
+                "Firestore error:",
                 error
             );
 
 
-            container.innerHTML = `
+            document.getElementById(
+                "entries-container"
+            ).innerHTML = `
 
-                <div class="empty">
+                <div class="empty-state">
 
-                    DATABASE ERROR.<br><br>
+                    DATABASE CONNECTION FAILED.<br><br>
 
-                    CHECK YOUR FIRESTORE RULES.
+                    CHECK FIRESTORE RULES.
 
                 </div>
 
@@ -1854,10 +1519,10 @@ function loadJournal() {
 
 
 /* =========================================
-   RENDER JOURNAL
+   DISPLAY ENTRIES
 ========================================= */
 
-function renderJournal() {
+function displayEntries() {
 
     const container =
         document.getElementById(
@@ -1865,21 +1530,13 @@ function renderJournal() {
         );
 
 
-    container.innerHTML = "";
-
-
     if (journalEntries.length === 0) {
 
         container.innerHTML = `
 
-            <div class="empty">
+            <div class="empty-state">
 
-                NO JOURNAL RECORDS FOUND.
-
-                <br><br>
-
-                USE "+ ADD JOURNAL ENTRY"
-                TO CREATE THE FIRST RECORD.
+                NO JOURNAL ENTRIES FOUND.
 
             </div>
 
@@ -1890,270 +1547,252 @@ function renderJournal() {
     }
 
 
-    journalEntries.forEach(
-        function(entry, index) {
-
-            const article =
-                document.createElement(
-                    "article"
-                );
+    container.innerHTML = "";
 
 
-            article.className =
-                "entry";
+    journalEntries.forEach(function(entry) {
+
+        const article =
+            document.createElement("article");
 
 
-            article.innerHTML = `
-
-                <div
-                    class="entry-header"
-                    onclick="toggleEntry(${index})"
-                >
-
-                    <div>
-
-                        <div class="entry-date">
-
-                            ${escapeHTML(
-                                entry.date ||
-                                "CLASSIFIED"
-                            )}
-
-                        </div>
+        article.className =
+            "journal-entry";
 
 
-                        <div class="entry-title">
-
-                            ${escapeHTML(
-                                entry.title ||
-                                "UNTITLED ENTRY"
-                            )}
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="entry-mood">
-
-                        MOOD:
-                        ${escapeHTML(
-                            entry.mood ||
-                            "UNKNOWN"
-                        )}
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="entry-content"
-                    id="entry-${index}"
-                >
-
-                    <div class="entry-text">
-
-                        ${escapeHTML(
-                            entry.text ||
-                            ""
-                        )}
-
-                    </div>
-
-
-                    <div class="entry-classification">
-
-                        PERSONAL RECORD //
-                        CONNOR REDMEN //
-                        MERCER
-
-                    </div>
-
-                </div>
-
-
-                <div class="entry-actions">
-
-                    <button
-                        class="entry-action"
-                        onclick="
-                            event.stopPropagation();
-                            openEditEntry('${entry.id}');
-                        "
-                    >
-
-                        EDIT
-
-                    </button>
-
-
-                    <button
-                        class="
-                            entry-action
-                            delete-action
-                        "
-                        onclick="
-                            event.stopPropagation();
-                            openDeleteModal(
-                                '${entry.id}',
-                                '${escapeHTML(
-                                    entry.title ||
-                                    "UNTITLED ENTRY"
-                                ).replace(/'/g, "\\'")}'
-                            );
-                        "
-                    >
-
-                        DELETE
-
-                    </button>
-
-                </div>
-
-            `;
-
-
-            container.appendChild(
-                article
+        const safeTitle =
+            escapeHTML(
+                entry.title || "UNTITLED ENTRY"
             );
 
-        }
-    );
+
+        const safeDate =
+            escapeHTML(
+                entry.date || "UNKNOWN DATE"
+            );
+
+
+        const safeMood =
+            escapeHTML(
+                entry.mood || "UNKNOWN"
+            );
+
+
+        const safeText =
+            escapeHTML(
+                entry.text || ""
+            );
+
+
+        article.innerHTML = `
+
+            <div class="entry-header">
+
+                <div class="entry-title">
+
+                    ${safeTitle}
+
+                </div>
+
+                <div class="entry-date">
+
+                    ${safeDate}
+
+                </div>
+
+            </div>
+
+
+            <div class="entry-body">
+
+                <div class="entry-meta">
+
+                    <div class="meta-item">
+
+                        MOOD:
+                        <span>${safeMood}</span>
+
+                    </div>
+
+                    <div class="meta-item">
+
+                        PERSONNEL:
+                        <span>CONNOR REDMEN</span>
+
+                    </div>
+
+                    <div class="meta-item">
+
+                        CODENAME:
+                        <span>MERCER</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="entry-text">
+
+                    ${safeText}
+
+                </div>
+
+            </div>
+
+
+            <div class="entry-actions">
+
+                <button
+                    class="action-button"
+                    onclick="requestPassword('edit', '${entry.id}')"
+                >
+
+                    EDIT
+
+                </button>
+
+
+                <button
+                    class="action-button delete-button"
+                    onclick="requestPassword('delete', '${entry.id}')"
+                >
+
+                    DELETE
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(article);
+
+    });
 
 }
 
 
 /* =========================================
-   TOGGLE ENTRY
+   PASSWORD REQUEST
 ========================================= */
 
-window.toggleEntry =
-function(index) {
+window.requestPassword = function(
+    action,
+    entryID = null
+) {
 
-    const entry =
-        document.getElementById(
-            "entry-" + index
-        );
+    currentAction = action;
+
+    editingEntryID = null;
+
+    deletingEntryID = null;
 
 
-    if (entry) {
+    if (action === "edit") {
 
-        entry.classList.toggle(
-            "open"
-        );
+        editingEntryID = entryID;
 
     }
 
-};
 
+    if (action === "delete") {
 
-/* =========================================
-   OPEN PASSWORD
-========================================= */
+        deletingEntryID = entryID;
 
-window.openPassword =
-function(action) {
-
-    passwordAction =
-        action;
+    }
 
 
     document.getElementById(
-        "passwordModal"
-    ).classList.add(
-        "show"
-    );
-
-
-    document.getElementById(
-        "modalPassword"
+        "security-password"
     ).value = "";
 
 
     document.getElementById(
-        "passwordMessage"
-    ).textContent = "";
-
-
-    setTimeout(
-        function() {
-
-            document.getElementById(
-                "modalPassword"
-            ).focus();
-
-        },
-        100
-    );
-
-};
-
-
-/* =========================================
-   CLOSE PASSWORD
-========================================= */
-
-window.closePassword =
-function() {
-
-    document.getElementById(
-        "passwordModal"
-    ).classList.remove(
-        "show"
-    );
+        "password-error"
+    ).style.display = "none";
 
 
     document.getElementById(
-        "modalPassword"
-    ).value = "";
+        "password-modal"
+    ).style.display = "flex";
 
 
-    document.getElementById(
-        "passwordMessage"
-    ).textContent = "";
+    setTimeout(function() {
 
-};
-
-
-/* =========================================
-   CHECK PASSWORD
-========================================= */
-
-window.checkPassword =
-function() {
-
-    const entered =
         document.getElementById(
-            "modalPassword"
+            "security-password"
+        ).focus();
+
+    }, 100);
+
+};
+
+
+/* =========================================
+   CHECK REAL PASSWORD
+========================================= */
+
+window.checkSecurityPassword = function() {
+
+    const password =
+        document.getElementById(
+            "security-password"
         ).value;
 
 
-    const message =
+    if (password !== EDIT_PASSWORD) {
+
         document.getElementById(
-            "passwordMessage"
-        );
+            "password-error"
+        ).style.display = "block";
 
 
-    if (entered !== JOURNAL_PASSWORD) {
+        document.getElementById(
+            "security-password"
+        ).select();
 
-        message.className =
-            "message error";
-
-        message.textContent =
-            "ACCESS DENIED.";
 
         return;
 
     }
 
 
-    closePassword();
+    /*
+       Correct password.
+       Close password modal.
+    */
+
+    document.getElementById(
+        "password-modal"
+    ).style.display = "none";
 
 
-    if (passwordAction === "add") {
+    /*
+       Determine what the user wanted.
+    */
+
+    if (currentAction === "add") {
 
         openAddEntry();
+
+    }
+
+
+    else if (currentAction === "edit") {
+
+        openEditEntry(
+            editingEntryID
+        );
+
+    }
+
+
+    else if (currentAction === "delete") {
+
+        openDeleteModal(
+            deletingEntryID
+        );
 
     }
 
@@ -2161,23 +1800,23 @@ function() {
 
 
 /* =========================================
-   PASSWORD ENTER
+   CLOSE PASSWORD MODAL
 ========================================= */
 
-document
-    .getElementById("modalPassword")
-    .addEventListener(
-        "keydown",
-        function(event) {
+window.closePasswordModal = function() {
 
-            if (event.key === "Enter") {
+    document.getElementById(
+        "password-modal"
+    ).style.display = "none";
 
-                checkPassword();
 
-            }
+    currentAction = null;
 
-        }
-    );
+    editingEntryID = null;
+
+    deletingEntryID = null;
+
+};
 
 
 /* =========================================
@@ -2186,46 +1825,38 @@ document
 
 function openAddEntry() {
 
-    editingEntryID =
-        null;
-
-
     document.getElementById(
-        "entryModalTitle"
+        "entry-modal-title"
     ).textContent =
-        "NEW JOURNAL ENTRY";
+        "ADD JOURNAL ENTRY";
 
 
     document.getElementById(
-        "entryDate"
+        "entry-date"
     ).value = "";
 
 
     document.getElementById(
-        "entryTitle"
+        "entry-title"
     ).value = "";
 
 
     document.getElementById(
-        "entryMood"
+        "entry-mood"
     ).value = "";
 
 
     document.getElementById(
-        "entryText"
+        "entry-text"
     ).value = "";
 
 
-    document.getElementById(
-        "entryMessage"
-    ).textContent = "";
+    editingEntryID = null;
 
 
     document.getElementById(
-        "entryModal"
-    ).classList.add(
-        "show"
-    );
+        "entry-modal"
+    ).style.display = "flex";
 
 }
 
@@ -2234,183 +1865,63 @@ function openAddEntry() {
    OPEN EDIT ENTRY
 ========================================= */
 
-window.openEditEntry =
-function(id) {
-
-    /*
-       Require password again
-       before editing.
-    */
-
-    passwordAction =
-        "edit";
-
-
-    editingEntryID =
-        id;
-
-
-    document.getElementById(
-        "modalPassword"
-    ).value = "";
-
-
-    document.getElementById(
-        "passwordMessage"
-    ).textContent = "";
-
-
-    document.getElementById(
-        "passwordModal"
-    ).classList.add(
-        "show"
-    );
-
-
-    setTimeout(
-        function() {
-
-            document.getElementById(
-                "modalPassword"
-            ).focus();
-
-        },
-        100
-    );
-
-};
-
-
-/* =========================================
-   PASSWORD ACTION HANDLER
-========================================= */
-
-const originalCheckPassword =
-    window.checkPassword;
-
-
-window.checkPassword =
-function() {
-
-    const entered =
-        document.getElementById(
-            "modalPassword"
-        ).value;
-
-
-    const message =
-        document.getElementById(
-            "passwordMessage"
-        );
-
-
-    if (entered !== JOURNAL_PASSWORD) {
-
-        message.className =
-            "message error";
-
-        message.textContent =
-            "ACCESS DENIED.";
-
-        return;
-
-    }
-
-
-    closePassword();
-
-
-    if (passwordAction === "add") {
-
-        openAddEntry();
-
-        return;
-
-    }
-
-
-    if (passwordAction === "edit") {
-
-        showEditEntry();
-
-        return;
-
-    }
-
-};
-
-
-/* =========================================
-   SHOW EDIT ENTRY
-========================================= */
-
-function showEditEntry() {
+function openEditEntry(id) {
 
     const entry =
-        journalEntries.find(
-            function(item) {
+        journalEntries.find(function(item) {
 
-                return item.id ===
-                    editingEntryID;
+            return item.id === id;
 
-            }
-        );
+        });
 
 
     if (!entry) {
 
         alert(
-            "JOURNAL ENTRY NOT FOUND."
+            "Journal entry could not be found."
         );
-
-        editingEntryID =
-            null;
 
         return;
 
     }
 
 
+    editingEntryID = id;
+
+
     document.getElementById(
-        "entryModalTitle"
+        "entry-modal-title"
     ).textContent =
         "EDIT JOURNAL ENTRY";
 
 
     document.getElementById(
-        "entryDate"
+        "entry-date"
     ).value =
         entry.date || "";
 
 
     document.getElementById(
-        "entryTitle"
+        "entry-title"
     ).value =
         entry.title || "";
 
 
     document.getElementById(
-        "entryMood"
+        "entry-mood"
     ).value =
         entry.mood || "";
 
 
     document.getElementById(
-        "entryText"
+        "entry-text"
     ).value =
         entry.text || "";
 
 
     document.getElementById(
-        "entryMessage"
-    ).textContent = "";
-
-
-    document.getElementById(
-        "entryModal"
-    ).classList.add(
-        "show"
-    );
+        "entry-modal"
+    ).style.display = "flex";
 
 }
 
@@ -2419,18 +1930,14 @@ function showEditEntry() {
    CLOSE ENTRY MODAL
 ========================================= */
 
-window.closeEntryModal =
-function() {
+window.closeEntryModal = function() {
 
     document.getElementById(
-        "entryModal"
-    ).classList.remove(
-        "show"
-    );
+        "entry-modal"
+    ).style.display = "none";
 
 
-    editingEntryID =
-        null;
+    editingEntryID = null;
 
 };
 
@@ -2439,50 +1946,37 @@ function() {
    SAVE ENTRY
 ========================================= */
 
-window.saveEntry =
-async function() {
+window.saveEntry = async function() {
 
     const date =
         document.getElementById(
-            "entryDate"
+            "entry-date"
         ).value.trim();
 
 
     const title =
         document.getElementById(
-            "entryTitle"
+            "entry-title"
         ).value.trim();
 
 
     const mood =
         document.getElementById(
-            "entryMood"
+            "entry-mood"
         ).value.trim();
 
 
     const text =
         document.getElementById(
-            "entryText"
+            "entry-text"
         ).value.trim();
 
 
-    const message =
-        document.getElementById(
-            "entryMessage"
+    if (!title || !text) {
+
+        alert(
+            "ENTRY TITLE AND JOURNAL ENTRY ARE REQUIRED."
         );
-
-
-    if (
-        !date ||
-        !title ||
-        !text
-    ) {
-
-        message.className =
-            "message error";
-
-        message.textContent =
-            "DATE, TITLE, AND JOURNAL ENTRY ARE REQUIRED.";
 
         return;
 
@@ -2491,12 +1985,6 @@ async function() {
 
     try {
 
-        message.className =
-            "message";
-
-        message.textContent =
-            "SAVING...";
-
 
         if (editingEntryID) {
 
@@ -2504,65 +1992,54 @@ async function() {
                EDIT EXISTING ENTRY
             */
 
-            const entryRef =
+            await updateDoc(
+
                 doc(
                     db,
                     "journal",
                     editingEntryID
-                );
+                ),
 
-
-            await updateDoc(
-                entryRef,
                 {
 
-                    date:
-                        date,
+                    date: date,
 
-                    title:
-                        title,
+                    title: title,
 
-                    mood:
-                        mood,
+                    mood: mood,
 
-                    text:
-                        text,
+                    text: text,
 
                     updatedAt:
                         serverTimestamp()
 
                 }
+
             );
 
 
-            message.className =
-                "message success";
-
-            message.textContent =
-                "JOURNAL ENTRY UPDATED.";
+        }
 
 
-        } else {
+        else {
 
             /*
-               CREATE NEW ENTRY
+               ADD NEW ENTRY
             */
 
             await addDoc(
+
                 journalCollection,
+
                 {
 
-                    date:
-                        date,
+                    date: date,
 
-                    title:
-                        title,
+                    title: title,
 
-                    mood:
-                        mood,
+                    mood: mood,
 
-                    text:
-                        text,
+                    text: text,
 
                     createdAt:
                         serverTimestamp(),
@@ -2571,29 +2048,18 @@ async function() {
                         serverTimestamp()
 
                 }
+
             );
-
-
-            message.className =
-                "message success";
-
-            message.textContent =
-                "JOURNAL ENTRY SAVED.";
 
         }
 
 
-        setTimeout(
-            function() {
-
-                closeEntryModal();
-
-            },
-            700
-        );
+        closeEntryModal();
 
 
-    } catch(error) {
+    }
+
+    catch (error) {
 
         console.error(
             "SAVE ERROR:",
@@ -2601,12 +2067,9 @@ async function() {
         );
 
 
-        message.className =
-            "message error";
-
-
-        message.textContent =
-            "SAVE FAILED. CHECK FIRESTORE RULES.";
+        alert(
+            "SAVE FAILED. CHECK FIRESTORE RULES."
+        );
 
     }
 
@@ -2617,56 +2080,46 @@ async function() {
    OPEN DELETE MODAL
 ========================================= */
 
-window.openDeleteModal =
-function(id, title) {
+function openDeleteModal(id) {
 
-    deletingEntryID =
-        id;
+    deletingEntryID = id;
 
 
-    document.getElementById(
-        "deleteText"
-    ).innerHTML =
+    const entry =
+        journalEntries.find(function(item) {
 
-        "You are about to permanently delete:<br><br>" +
+            return item.id === id;
 
-        "<strong>" +
-        title +
-        "</strong><br><br>" +
-
-        "This action cannot be undone.";
+        });
 
 
     document.getElementById(
-        "deleteMessage"
-    ).textContent = "";
+        "delete-entry-name"
+    ).textContent =
+        entry
+            ? entry.title
+            : "UNKNOWN ENTRY";
 
 
     document.getElementById(
-        "deleteModal"
-    ).classList.add(
-        "show"
-    );
+        "delete-modal"
+    ).style.display = "flex";
 
-};
+}
 
 
 /* =========================================
    CLOSE DELETE MODAL
 ========================================= */
 
-window.closeDeleteModal =
-function() {
+window.closeDeleteModal = function() {
 
     document.getElementById(
-        "deleteModal"
-    ).classList.remove(
-        "show"
-    );
+        "delete-modal"
+    ).style.display = "none";
 
 
-    deletingEntryID =
-        null;
+    deletingEntryID = null;
 
 };
 
@@ -2675,8 +2128,7 @@ function() {
    DELETE ENTRY
 ========================================= */
 
-window.deleteEntry =
-async function() {
+window.deleteEntry = async function() {
 
     if (!deletingEntryID) {
 
@@ -2685,49 +2137,24 @@ async function() {
     }
 
 
-    const message =
-        document.getElementById(
-            "deleteMessage"
-        );
-
-
     try {
 
-        message.className =
-            "message";
-
-        message.textContent =
-            "DELETING...";
-
-
         await deleteDoc(
+
             doc(
                 db,
                 "journal",
                 deletingEntryID
             )
+
         );
 
 
-        message.className =
-            "message success";
+        closeDeleteModal();
 
+    }
 
-        message.textContent =
-            "JOURNAL ENTRY DELETED.";
-
-
-        setTimeout(
-            function() {
-
-                closeDeleteModal();
-
-            },
-            700
-        );
-
-
-    } catch(error) {
+    catch (error) {
 
         console.error(
             "DELETE ERROR:",
@@ -2735,12 +2162,9 @@ async function() {
         );
 
 
-        message.className =
-            "message error";
-
-
-        message.textContent =
-            "DELETE FAILED. CHECK FIRESTORE RULES.";
+        alert(
+            "DELETE FAILED. CHECK FIRESTORE RULES."
+        );
 
     }
 
@@ -2748,65 +2172,74 @@ async function() {
 
 
 /* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================
    CLOSE MODALS WHEN CLICKING OUTSIDE
 ========================================= */
 
-document
-    .getElementById("passwordModal")
-    .addEventListener(
-        "click",
-        function(event) {
+window.addEventListener(
+    "click",
+    function(event) {
 
-            if (
-                event.target ===
-                this
-            ) {
-
-                closePassword();
-
-            }
-
-        }
-    );
+        const passwordModal =
+            document.getElementById(
+                "password-modal"
+            );
 
 
-document
-    .getElementById("entryModal")
-    .addEventListener(
-        "click",
-        function(event) {
+        const entryModal =
+            document.getElementById(
+                "entry-modal"
+            );
 
-            if (
-                event.target ===
-                this
-            ) {
 
-                closeEntryModal();
+        const deleteModal =
+            document.getElementById(
+                "delete-modal"
+            );
 
-            }
+
+        if (event.target === passwordModal) {
+
+            closePasswordModal();
 
         }
-    );
 
 
-document
-    .getElementById("deleteModal")
-    .addEventListener(
-        "click",
-        function(event) {
+        if (event.target === entryModal) {
 
-            if (
-                event.target ===
-                this
-            ) {
-
-                closeDeleteModal();
-
-            }
+            closeEntryModal();
 
         }
-    );
 
+
+        if (event.target === deleteModal) {
+
+            closeDeleteModal();
+
+        }
+
+    }
+);
 
 </script>
 
